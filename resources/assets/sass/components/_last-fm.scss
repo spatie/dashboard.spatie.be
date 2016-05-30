@@ -1,0 +1,96 @@
+
+.last-fm {
+    height: 100%;
+    z-index: 1;
+}
+
+.last-fm__empty {
+    @include background-icon('/svg/music.svg');
+}
+
+.last-fm__background {
+    //animation: ken-burns 30s alternate infinite ease-in-out; // -> use only with a decent graphic card
+    background-position: center;
+    background-size: cover;
+    bottom: -50px;
+    filter: blur(25px);
+    left: -50px;
+    mix-blend-mode: lighten;
+    opacity: .3;
+    position: absolute;
+    right: -50px;
+    top: -50px;
+
+    @at-root {
+        @keyframes ken-burns {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.25);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+.last-fm__content {
+    @include position-center-vertical;
+
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+}
+
+.last-fm__cover {
+    background-position: center;
+    background-size: cover;
+    border-radius: .25vw;
+    box-shadow: 0 1px 10px rgba($black, .25);
+    display: inline-block;
+    height: 0;
+    margin: setting($grid, cell-padding);
+    padding-bottom: 30%;
+    vertical-align: middle;
+    width: 30%;
+}
+
+.last-fm__text {
+    display: inline-block;
+    margin: setting($grid, cell-padding);
+    max-width: 90%;
+    text-align: left;
+    transition: width .5s linear;
+    vertical-align: middle;
+}
+
+.last-fm___artist {
+    @include font-sans-black;
+    @include ellipsis;
+
+    font-size: setting($font-size, m);
+}
+
+.last-fm__track {
+    @include ellipsis;
+
+    font-size: setting($font-size, xs);
+}
+
+.last-fm__user {
+    background: rgba($black, .2);
+    border-radius: .25vw;
+    display: inline-block;
+    font-size: setting($font-size, xs);
+    margin-top: 1em;
+    padding: .25em .5em;
+    z-index: 3;
+
+    &:before {
+        @include icon('/svg/music.svg');
+
+        margin-right: .25em;
+    }
+}

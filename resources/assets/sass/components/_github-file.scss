@@ -1,0 +1,10 @@
+.github-file__title {
+    color: color($blue, light);
+    font-size: setting($font-size, m);
+    opacity: 1;
+    text-transform: uppercase;
+}
+
+.github-file__content {
+    font-size: setting($font-size, s);
+}

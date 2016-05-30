@@ -1,0 +1,20 @@
+.current-time__content {
+    @include position-center;
+
+    text-align: center;
+}
+
+.current-time__time {
+    @include font-sans-light;
+
+    font-size: setting($font-size, l);
+    letter-spacing: .05em;
+    line-height: 1;
+}
+
+.current-time__date {
+    @include font-sans-bold;
+
+    color: color($red);
+    font-size: setting($font-size, m);
+}

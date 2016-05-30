@@ -1,0 +1,28 @@
+{
+    "rules": {
+        "comma-dangle": [2, "always-multiline"],
+        "indent": [2, 4],
+        "linebreak-style": [2, "unix"],
+        "quotes": [2, "single"],
+        "semi": [2, "always"],
+        "sort-imports": ["error", { "ignoreCase": true }],
+        "space-before-function-paren": ["error", { "anonymous": "always", "named": "never" }],
+        "strict": [2, "never"]
+    },
+    "globals": {
+        "$": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "extends": "eslint:recommended"
+}

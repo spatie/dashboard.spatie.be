@@ -1,0 +1,37 @@
+{
+  "exclude": [
+    "node_modules/**",
+    "resources/assets/sass/utility/*",
+    "resources/assets/sass/layout/_grid.scss"
+  ],
+  "always-semicolon": true,
+  "block-indent": "    ",
+  "color-case": "lower",
+  "color-shorthand": true,
+  "element-case": "lower",
+  "eof-newline": true,
+  "leading-zero": false,
+  "quotes": "single",
+  "remove-empty-rulesets": true,
+  "space-after-colon": " ",
+  "space-after-combinator": " ",
+  "space-after-opening-brace": "\n",
+  "space-after-selector-delimiter": "\n",
+  "space-before-closing-brace": "\n",
+  "space-before-colon": "",
+  "space-before-combinator": " ",
+  "space-before-opening-brace": " ",
+  "space-before-selector-delimiter": "",
+  "space-between-declarations": "\n",
+  "strip-spaces": true,
+  "unitless-zero": true,
+  "vendor-prefix-align": true,
+  "sort-order-fallback": "abc",
+  "sort-order": [
+    [ "$variable" ],
+    [ "$extend" ],
+    [ "$include" ],
+    [ "..." ]
+  ],
+  "verbose": true
+}

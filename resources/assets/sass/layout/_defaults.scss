@@ -1,0 +1,48 @@
+html {
+    @include antialiasing(pixel);
+
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    * {
+        box-sizing: border-box;
+        line-height: 1.2;
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        &:after,
+        &:before {
+            box-sizing: border-box;
+        }
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    @include font-sans-light;
+
+    color: $white;
+    font-size: setting($font-size, m);
+    margin-bottom: .5em;
+    opacity: .75;
+    text-transform: uppercase;
+}
+
+h2 {
+    @include font-sans-black;
+
+    color: $white;
+    font-size: setting($font-size, default);
+}
+
+li {
+    border-bottom: solid .1vw color($blue, lightest, .2);
+    padding: .35vh 0;
+}

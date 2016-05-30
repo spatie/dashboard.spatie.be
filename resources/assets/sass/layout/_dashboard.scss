@@ -1,0 +1,13 @@
+.dashboard {
+    @include font-sans;
+
+    background-color: color($gray, darkest);
+    bottom: setting($grid, cell-spacing)/2;
+    color: $white;
+    font-size: setting($font-size, base);
+    left: setting($grid, cell-spacing)/2;
+    overflow: hidden;
+    position: fixed;
+    right: setting($grid, cell-spacing)/2;
+    top: setting($grid, cell-spacing)/2;
+}

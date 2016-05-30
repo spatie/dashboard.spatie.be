@@ -1,0 +1,79 @@
+$grid-cols: setting($grid, cols);
+$grid-rows: setting($grid, rows);
+$grid-width: percentage(1/$grid-cols);
+$grid-height: percentage(1/$grid-rows);
+$grid-col-names: (a, b, c, d, e, f, g, h, i, j, k, l); // 12 cols should be enough
+
+.grid {
+  position: absolute;
+  display: none; // hide by default
+  overflow: hidden;
+
+  @for $row from 1 through $grid-rows {
+    @for $col from 1 through $grid-cols {
+      @include mod(from-#{nth($grid-col-names, $col)}#{$row}) {
+        display: block;
+        left: ($col - 1) * $grid-width;
+        top: ($row - 1) * $grid-height;
+        z-index: 1000 - $row - $col;
+      }
+
+      @include mod(to-#{nth($grid-col-names, $col)}#{$row}) {
+        right: 100% - $col * $grid-width;
+        bottom: 100% - $row * $grid-height;
+      }
+    }
+  }
+}
+
+.grid__tile {
+  @include tile-color(color($gray, darker));
+
+  background-color: color($gray, darker);
+  border-radius: .25vw;
+  bottom: setting($grid, cell-spacing)/2;
+  left: setting($grid, cell-spacing)/2;
+  overflow: hidden;
+  position: absolute;
+  right: setting($grid, cell-spacing)/2;
+  top: setting($grid, cell-spacing)/2;
+
+  & > :first-child {
+    height: 100%;
+  }
+
+  @include mod(overflow) {
+    &:after {
+      bottom: 0;
+      content: '';
+      height: 1em;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 100;
+    }
+  }
+
+  @include mod(padded) {
+    & > :first-child {
+      padding: setting($grid, cell-padding);
+    }
+  }
+
+  @include mod(transparent) {
+    @include tile-color(color($gray, darkest)); // = dashboard background color
+  }
+
+  @include mod(blue) {
+    @include tile-color(color($blue, darker));
+  }
+
+  @include mod(green) {
+    @include tile-color(color($green, darker));
+  }
+
+  @include mod(red) {
+    @include tile-color(color($red));
+  }
+}
+

@@ -1,0 +1,7 @@
+@function color($pallete, $key: default, $opacity: 1) {
+  @return rgba(map_get($pallete, $key), $opacity);
+}
+
+@function setting($map, $key) {
+  @return map-get($map, $key);
+}

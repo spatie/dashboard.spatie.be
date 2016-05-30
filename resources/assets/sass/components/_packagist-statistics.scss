@@ -1,0 +1,30 @@
+.packagist-statistic {
+    @include clearfix;
+    @include mod(total) {
+        font-size: setting($font-size, m);
+    }
+}
+
+.packagist-statistics__period {
+    @include font-sans;
+
+    float: left;
+    font-size: setting($font-size, s);
+    opacity: .5;
+    text-transform: uppercase;
+    top: .1em;
+}
+
+.packagist-statistics__stars {
+    &:before {
+        @include icon('/svg/star.svg');
+    }
+}
+
+.packagist-statistics__count {
+    @include font-sans-black;
+
+    color: color($yellow);
+    float: right;
+    vertical-align: top;
+}

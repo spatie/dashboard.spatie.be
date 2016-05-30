@@ -1,0 +1,12 @@
+.google-calendar__events {
+    color: color($blue, light);
+    font-size: setting($font-size, s);
+}
+
+.google-calendar__event {
+    padding-bottom: 1.5vh;
+}
+
+.google-calendar__event__title {
+    @include font-sans-bold;
+}
