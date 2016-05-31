@@ -90,7 +90,7 @@ export default {
 
         nothingButRainPredicted() {
             let foreCastItemWithNoRain = _.filter(this.forecast, foreCastItem => {
-                return foreCastItem.chanceOfRain < 70;
+                return foreCastItem.chanceOfRain < 40;
             }).length;
 
             return foreCastItemWithNoRain.length == 0;
