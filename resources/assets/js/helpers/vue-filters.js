@@ -24,7 +24,7 @@ Vue.filter('number', (value) => {
 });
 
 Vue.filter('grid-from-to', (value) => {
-    
+
     let cssClasses = value.split(':');
 
     if(cssClasses.length > 0) {
@@ -32,7 +32,7 @@ Vue.filter('grid-from-to', (value) => {
         cssClasses[0] = 'from-' + cssClasses[0].toLowerCase();
         cssClasses[1] = 'to-' + cssClasses[1].toLowerCase();
     }
-    
+
     return cssClasses.slice(0,2).join(' ');
 });
 
