@@ -1,6 +1,6 @@
 # dashboard.spatie.be
 
-This repo contains the sourcecode of dashboard.spatie.be
+This repo contains the sourcecode of https://dashboard.spatie.be
 
 ## Example
 
