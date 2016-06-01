@@ -34,6 +34,7 @@ new Vue({
         InternetConnection,
         LastFm,
         PackagistStatistics,
+        Tweets
     },
 
 });

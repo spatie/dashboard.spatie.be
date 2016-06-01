@@ -1,6 +1,6 @@
 import Pusher from 'pusher-js';
 
-const pusher = new Pusher('09cf1f7e4f142dbbf397', {
+const pusher = new Pusher('a3ac6737590aaf2427db', {
     cluster: 'eu',
     authEndpoint: '/pusher/authenticate',
 });

@@ -16,4 +16,6 @@
 
     <internet-connection grid="d2"></internet-connection>
 
+    <tweets grid="a3:b3"></tweets>
+
 @endsection
