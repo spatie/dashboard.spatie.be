@@ -10,9 +10,9 @@ export default {
     template: `
         <grid :position="grid" modifiers="padded">
             <section :class="status | modify-class 'rain-forecast'">
-                <div class="rain-forecast__icon" v-if="status == 'dry' || status == 'wet' ">
-                </div>
-                <h1 class="rain-forecast__title rain-forecast__title--rainy" v-if="status == 'rainy'">30"</h1>
+                <h1 class="rain-forecast__title rain-forecast__title--rainy" v-if="status == 'rainy'">30' FORECAST</h1>
+                <h1 class="rain-forecast__title rain-forecast__title--rainy" v-if="status == 'wet'">STAY INSIDE</h1>
+                <div class="rain-forecast__background"></div>
                 <div class="rain-forecast__graph" v-if="status == 'rainy'">
                     <graph
                       :labels="graphLabels"
