@@ -14,11 +14,13 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Components\GitHub\FetchGitHubFileContent::class,
+        \App\Components\GitLab\FetchGitLabMergeRequests::class,
         \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class,
         \App\Components\LastFm\FetchCurrentTrack::class,
         \App\Components\Packagist\FetchTotals::class,
         \App\Components\InternetConnectionStatus\SendHeartbeat::class,
         \App\Components\RainForecast\FetchRainForecast::class,
+        \App\Components\Twitter\FetchTwitterMentions::class
     ];
 
     /**
@@ -31,6 +33,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('dashboard:lastfm')->everyMinute();
         $schedule->command('dashboard:calendar')->everyFiveMinutes();
         $schedule->command('dashboard:github')->everyFiveMinutes();
+        $schedule->command('dashboard:gitlab')->everyFiveMinutes();
         $schedule->command('dashboard:heartbeat')->everyMinute();
         $schedule->command('dashboard:packagist')->hourly();
         $schedule->command('dashboard:rain')->everyMinute();

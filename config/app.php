@@ -161,6 +161,9 @@ return [
         GrahamCampbell\GitHub\GitHubServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         \App\Providers\CollectionServiceProvider::class,
+        Vinkla\GitLab\GitLabServiceProvider::class,
+        Nwidart\LaravelForecast\LaravelForecastServiceProvider::class,
+        Thujohn\Twitter\TwitterServiceProvider::class
     ],
 
     /*
@@ -208,6 +211,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'GoogleCalendar' => Spatie\GoogleCalendar\GoogleCalendarFacade::class,
         'GitHub' => GrahamCampbell\GitHub\Facades\GitHub::class,
+        'Forecast' => Nwidart\LaravelForecast\ForecastFacade::class,
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
     ],
 
 ];
