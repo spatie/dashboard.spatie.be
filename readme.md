@@ -16,6 +16,9 @@ Our configured dashboard has following tiles:
 - Rain forecast (for the bikers amongst us) via [buienradar.nl](http://buienradar.nl)
 - Internet up/down via WebSockets
 
+## Support
+This dashboard is tailormade this be display on the wall mounted tv in our office. We do not follow semver for this project and do not provide support whatsoever. However if you're a bit familiar with Laravel and Vue you should easily find your way.
+
 
 ## License
 
