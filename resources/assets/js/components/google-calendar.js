@@ -11,7 +11,7 @@ export default {
                     <ul class="google-calendar__events">
                         <li v-for="event in events"  class="google-calendar__event">
                             <h2 class="google-calendar__event__title">{{ event.name }}</h2>
-                            <div class="google-calendar__event__date">{{ event.date | date }}</div>
+                            <div class="google-calendar__event__date">{{ event.date | relative-date }}</div>
                         </li>
                     </ul>
                 </section>
