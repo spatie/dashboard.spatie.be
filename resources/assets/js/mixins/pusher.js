@@ -5,8 +5,8 @@ export default {
 
         const eventHandlers = this.getEventHandlers();
 
-        for (let eventName of Object.keys(eventHandlers)) {
+        Object.keys(eventHandlers).forEach(eventName => {
             pusherChannel.bind(eventName, eventHandlers[eventName]);
-        }
+        });
     },
 };
