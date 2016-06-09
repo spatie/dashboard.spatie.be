@@ -161,6 +161,7 @@ return [
         GrahamCampbell\GitHub\GitHubServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         \App\Providers\CollectionServiceProvider::class,
+        \Spatie\BladeJavaScript\BladeJavaScriptServiceProvider::class,
     ],
 
     /*

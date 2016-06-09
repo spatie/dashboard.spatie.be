@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @javascript(compact('pusherKey'))
+
     <google-calendar grid="a1:a2"></google-calendar>
 
     <last-fm grid="b1:c1"></last-fm>
