@@ -19,6 +19,7 @@ Our configured dashboard has following tiles:
 ## Support
 This dashboard is tailormade this be displayed on the wall mounted tv in our office. We do not follow semver for this project and do not provide support whatsoever. However if you're a bit familiar with Laravel and Vue you should easily find your way.
 
+For more details on the project, read our articles about the [setup and components](https://murze.be/2016/06/building-dashboard-using-laravel-vue/) or the [custom grid design](https://murze.be/2016/06/grid-layout-dashboard/).
 
 ## License
 
