@@ -33,18 +33,18 @@ export default {
     },
 
     methods: {
+        determineConnectionStatus() {
+            const lastHeartBeatReceivedSecondsAgo = moment().diff(this.lastHeartBeatReceivedAt, 'seconds');
+
+            this.online = lastHeartBeatReceivedSecondsAgo < 125;
+        },
+
         getEventHandlers() {
             return {
                 'App\\Components\\InternetConnectionStatus\\Events\\Heartbeat': () => {
                     this.lastHeartBeatReceivedAt = moment();
                 },
             };
-        },
-
-        determineConnectionStatus() {
-            const lastHeartBeatReceivedSecondsAgo = moment().diff(this.lastHeartBeatReceivedAt, 'seconds');
-
-            this.online = lastHeartBeatReceivedSecondsAgo < 125 ;
         },
     },
 };

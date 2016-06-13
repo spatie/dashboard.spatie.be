@@ -1,24 +1,24 @@
 .rain-forecast {
     @include mod(dry) {
-        background-color: color($blue, light, .25);
-
-        .rain-forecast__icon {
+        .rain-forecast__background {
             @include background-icon('/svg/forecast--dry.svg');
         }
     }
     @include mod(wet) {
-        background-color: color($blue, light, .25);
-
-        .rain-forecast__icon {
+        .rain-forecast__background {
             @include background-pattern('/svg/forecast--wet.svg');
         }
     }
     @include mod(rainy) {
-        background-color: color($blue, light, .25);
+        .rain-forecast__background {
+            @include background-pattern('/svg/forecast--rainy.svg');
+        }
     }
+
+    background-color: color($blue, light, .25);
 }
 
-.rain-forecast__graph {
+.rain-forecast__background {
     bottom: 0;
     height: 100%;
     left: 0;
@@ -27,12 +27,15 @@
     z-index: 2;
 }
 
-.rain-forecast__title {
-    @include mod(rainy) {
-        &:before {
-            @include icon('/svg/forecast--rainy.svg');
+.rain-forecast__graph {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
 
-            margin-right: .15em;
-        }
-    }
+.rain-forecast__title {
+    z-index: 3;
 }

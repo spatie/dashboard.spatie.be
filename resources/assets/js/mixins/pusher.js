@@ -1,12 +1,10 @@
+import { forIn } from 'lodash';
 import pusherChannel from '../helpers/pusher-channel';
 
 export default {
     created() {
-
-        const eventHandlers = this.getEventHandlers();
-
-        for (let eventName of Object.keys(eventHandlers)) {
-            pusherChannel.bind(eventName, eventHandlers[eventName]);
-        }
+        forIn(this.getEventHandlers(), (handler, event) => {
+            pusherChannel.bind(event, handler.bind(this));
+        });
     },
 };

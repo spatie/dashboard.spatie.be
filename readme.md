@@ -1,6 +1,25 @@
 # dashboard.spatie.be
 
-This repo contains the sourcecode of dashboard.spatie.be
+This repo contains the sourcecode of https://dashboard.spatie.be
+
+## Example
+
+<img style="max-width:100%; height: auto" src="http://spatie.github.io/dashboard.spatie.be/images/screenshot.png">
+
+Our configured dashboard has following tiles:
+
+- Team calendar via [Google Calendar](https://google.com/calendar)
+- Music currently playing via [Last.fm](https://last.fm)
+- Clock/date
+- Team todo's via GitHub files
+- [Packagist](https://packagist.org/) stars and total downloads
+- Rain forecast (for the bikers amongst us) via [buienradar.nl](http://buienradar.nl)
+- Internet up/down via WebSockets
+
+## Support
+This dashboard is tailormade this be displayed on the wall mounted tv in our office. We do not follow semver for this project and do not provide support whatsoever. However if you're a bit familiar with Laravel and Vue you should easily find your way.
+
+For more details on the project, read our articles about the [setup and components](https://murze.be/2016/06/building-dashboard-using-laravel-vue/) or the [custom grid design](https://murze.be/2016/06/grid-layout-dashboard/).
 
 ## License
 

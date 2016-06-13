@@ -1,8 +1,8 @@
 $grid-cols: setting($grid, cols);
 $grid-rows: setting($grid, rows);
-$grid-width: percentage(1/$grid-cols);
-$grid-height: percentage(1/$grid-rows);
-$grid-col-names: (a, b, c, d, e, f, g, h, i, j, k, l); // 12 cols should be enough
+$grid-col-names: (a, b, c, d, e, f, g, h, i, j, k, l); // add more if needed
+$cell-width: percentage(1/$grid-cols);
+$cell-height: percentage(1/$grid-rows);
 
 .grid {
   position: absolute;
@@ -13,14 +13,14 @@ $grid-col-names: (a, b, c, d, e, f, g, h, i, j, k, l); // 12 cols should be enou
     @for $col from 1 through $grid-cols {
       @include mod(from-#{nth($grid-col-names, $col)}#{$row}) {
         display: block;
-        left: ($col - 1) * $grid-width;
-        top: ($row - 1) * $grid-height;
+        left: ($col - 1) * $cell-width;
+        top: ($row - 1) * $cell-height;
         z-index: 1000 - $row - $col;
       }
 
       @include mod(to-#{nth($grid-col-names, $col)}#{$row}) {
-        right: 100% - $col * $grid-width;
-        bottom: 100% - $row * $grid-height;
+        right: 100% - $col * $cell-width;
+        bottom: 100% - $row * $cell-height;
       }
     }
   }
