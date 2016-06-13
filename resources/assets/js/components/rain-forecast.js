@@ -77,7 +77,7 @@ export default {
         },
 
         getSavedStateId() {
-            return 'rain-forecast';
+            return 'rain-forecast-update';
         },
 
         noRainPredicted() {
