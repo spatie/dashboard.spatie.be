@@ -29,7 +29,7 @@ export default {
         Grid, Graph,
     },
 
-    mixins: [Pusher, SaveState],
+    mixins: [Pusher],
 
     props: ['grid'],
 
