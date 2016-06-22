@@ -18,7 +18,8 @@
         "spatie/packagist-api": "^1.0",
         "pda/pheanstalk": "^3.1",
         "guzzlehttp/guzzle": "^6.2",
-        "spatie/laravel-blade-javascript": "^1.0"
+        "spatie/laravel-blade-javascript": "^1.0",
+        "predis/predis": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

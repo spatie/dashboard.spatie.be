@@ -6,9 +6,13 @@
   },
   "dependencies": {
     "chart.js": "^2.1.4",
+    "fast-redis-cluster2": "^2.0.9",
+    "ioredis": "^2.1.0",
     "lodash": "^4.13.1",
     "moment": "^2.13.0",
-    "pusher-js": "^3.1.0"
+    "pusher-js": "^3.1.0",
+    "socket.io": "^1.4.6",
+    "socket.io-client": "^1.4.6"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
