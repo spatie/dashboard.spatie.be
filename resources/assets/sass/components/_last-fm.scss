@@ -9,7 +9,7 @@
 }
 
 .last-fm__background {
-    //animation: ken-burns 30s alternate infinite ease-in-out; // -> use only with a decent graphic card
+    animation: ken-burns 30s alternate infinite ease-in-out; // -> use only with a decent graphic card
     background-position: center;
     background-size: cover;
     bottom: -50px;
@@ -37,9 +37,14 @@
 }
 
 .last-fm__content {
-    @include position-center-vertical;
-
-    text-align: center;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 100%;
     z-index: 2;
 }
@@ -49,33 +54,25 @@
     background-size: cover;
     border-radius: .25vw;
     box-shadow: 0 1px 10px rgba($black, .25);
-    display: inline-block;
-    height: 0;
+    flex-shrink: 0;
     margin: setting($grid, cell-padding);
-    padding-bottom: 30%;
-    vertical-align: middle;
-    width: 30%;
+    padding-bottom: 25%;
+    width: 25%;
 }
 
 .last-fm__text {
-    display: inline-block;
     margin: setting($grid, cell-padding);
     max-width: 90%;
-    text-align: left;
     transition: width .5s linear;
-    vertical-align: middle;
 }
 
 .last-fm___artist {
     @include font-sans-black;
-    @include ellipsis;
 
     font-size: setting($font-size, m);
 }
 
 .last-fm__track {
-    @include ellipsis;
-
     font-size: setting($font-size, xs);
 }
 
@@ -86,6 +83,7 @@
     font-size: setting($font-size, xs);
     margin-top: 1em;
     padding: .25em .5em;
+    white-space: nowrap;
     z-index: 3;
 
     &:before {
