@@ -10,7 +10,7 @@ class PusherController extends Controller
     {
         $config = config('broadcasting.connections.pusher');
 
-        $pusher = new Pusher($config['key'], $config['secret'], $config['app_id'], $config['options']);
+        $pusher = new Pusher($config['key'], $config['secret'], $config['app_id']);
 
         return $pusher->socket_auth(request()->get('channel_name'), request()->get('socket_id'));
     }

@@ -11,12 +11,12 @@ import Vue from 'vue';
 
 moment.locale('en', {
     calendar: {
-        lastDay : '[Yesterday]',
-        sameDay : '[Today]',
-        nextDay : '[Tomorrow]',
-        lastWeek : '[last] dddd',
-        nextWeek : 'dddd',
-        sameElse : 'L',
+        lastDay: '[Yesterday]',
+        sameDay: '[Today]',
+        nextDay: '[Tomorrow]',
+        lastWeek: '[last] dddd',
+        nextWeek: 'dddd',
+        sameElse: 'L',
     },
 });
 
@@ -25,13 +25,13 @@ new Vue({
     el: 'body',
 
     components: {
-        RainForecast,
         CurrentTime,
         GithubFile,
         GoogleCalendar,
         InternetConnection,
         LastFm,
         PackagistStatistics,
+        RainForecast,
     },
 
 });
