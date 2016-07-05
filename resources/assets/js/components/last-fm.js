@@ -7,7 +7,7 @@ export default {
     template: `
         <grid :position="grid" modifiers="transparent">
             <section :class="currentlyPlaying ? 'playing' : 'stopped' | modify-class 'last-fm'">
-                        <div class="last-fm__content" v-if="!currentlyPlaying">
+                        <div class="last-fm__content" v-if="currentlyPlaying">
                             <div class="last-fm__cover" v-if="hasCover" v-bind:style="{ backgroundImage: 'url(' + artwork + ')' }">
                             </div>
                             <div class="last-fm__text">
