@@ -16,6 +16,14 @@ Our configured dashboard has following tiles:
 - Rain forecast (for the bikers amongst us) via [buienradar.nl](http://buienradar.nl)
 - Internet up/down via WebSockets
 
+## Postcardware
+
+If you are using our dashboard, please send us a postcard from your hometown.
+
+Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
+
+The best postcards will get published on the open source page on our website.
+
 ## Support
 This dashboard is tailormade this be displayed on the wall mounted tv in our office. We do not follow semver for this project and do not provide support whatsoever. However if you're a bit familiar with Laravel and Vue you should easily find your way.
 
