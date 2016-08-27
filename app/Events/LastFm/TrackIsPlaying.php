@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Components\LastFm\Events;
+namespace App\Events\LastFm;
 
-use App\Components\DashboardEvent;
+use App\Events\DashboardEvent;
 
 class TrackIsPlaying extends DashboardEvent
 {

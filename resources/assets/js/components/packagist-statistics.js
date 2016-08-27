@@ -50,7 +50,7 @@ export default {
     methods: {
         getEventHandlers() {
             return {
-                'TotalsFetched': response => {
+                'Packagist.TotalsFetched': response => {
                     this.stars = response.stars;
                     this.daily = response.daily;
                     this.monthly = response.monthly;

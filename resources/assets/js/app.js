@@ -13,6 +13,7 @@ import Vue from 'vue';
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: dashboard.pusherKey,
+    namespace: 'App.Other.Namespace',
 });
 
 moment.locale('en', {

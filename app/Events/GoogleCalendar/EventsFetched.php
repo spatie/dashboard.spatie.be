@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Components\GoogleCalendar\Events;
+namespace App\Events\GoogleCalendar;
 
-use App\Components\DashboardEvent;
+use App\Events\DashboardEvent;
 
 class EventsFetched extends DashboardEvent
 {

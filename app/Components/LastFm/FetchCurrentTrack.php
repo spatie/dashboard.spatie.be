@@ -2,8 +2,8 @@
 
 namespace App\Components\LastFm;
 
-use App\Components\LastFm\Events\NothingPlaying;
-use App\Components\LastFm\Events\TrackIsPlaying;
+use App\Events\LastFm\NothingPlaying;
+use App\Events\LastFm\TrackIsPlaying;
 use Illuminate\Console\Command;
 use Spatie\NowPlaying\NowPlaying;
 

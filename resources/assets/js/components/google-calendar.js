@@ -35,7 +35,7 @@ export default {
     methods: {
         getEventHandlers() {
             return {
-                'EventsFetched': response => {
+                'GoogleCalendar.EventsFetched': response => {
                     this.events = response.events;
                 },
             };

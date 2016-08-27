@@ -13,7 +13,6 @@
         "spatie/laravel-tail": "^1.1",
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/laravel-google-calendar": "^1.0",
-        "olssonm/l5-very-basic-auth": "^1.2",
         "graham-campbell/github": "^4.3",
         "barryvdh/laravel-ide-helper": "^2.1",
         "league/commonmark": "^0.13.2",

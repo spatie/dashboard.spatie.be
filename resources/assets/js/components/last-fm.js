@@ -57,10 +57,10 @@ export default {
     methods: {
         getEventHandlers() {
             return {
-                'NothingPlaying': ()  => {
+                'LastFm.NothingPlaying': ()  => {
                     this.artist = '';
                 },
-                'TrackIsPlaying': response => {
+                'LastFm.TrackIsPlaying': response => {
                     this.artist = response.trackInfo.artist;
                     this.trackName = response.trackInfo.trackName;
                     this.artwork = response.trackInfo.artwork;

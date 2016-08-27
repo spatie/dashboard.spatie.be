@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'auth.very_basic'], function () {
+Route::group(['middleware' => 'auth.basic'], function () {
     Route::get('/', 'DashboardController@index');
 });
 

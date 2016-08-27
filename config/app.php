@@ -165,13 +165,11 @@ return [
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Spatie\Tail\TailServiceProvider::class,
-        Olssonm\VeryBasicAuth\VeryBasicAuthServiceProvider::class,
         Spatie\GoogleCalendar\GoogleCalendarServiceProvider::class,
         GrahamCampbell\GitHub\GitHubServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,

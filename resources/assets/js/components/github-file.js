@@ -32,7 +32,8 @@ export default {
     methods: {
         getEventHandlers() {
             return {
-                'FileContentFetched': response => {
+                'GitHub.FileContentFetched': response => {
+                    console.log('response',response);
                     this.contents = response.fileContent[this.fileName];
                 },
             };

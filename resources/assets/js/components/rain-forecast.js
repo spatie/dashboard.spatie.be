@@ -68,7 +68,7 @@ export default {
     methods: {
         getEventHandlers() {
             return {
-                'ForecastFetched': response => {
+                'RainForecast.ForecastFetched': response => {
                     this.forecast = response.forecast;
                 },
             };

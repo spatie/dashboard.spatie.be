@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Components\RainForecast\Events;
+namespace App\Events\RainForecast;
 
-use App\Components\DashboardEvent;
+use App\Events\DashboardEvent;
 
 class ForecastFetched extends DashboardEvent
 {
