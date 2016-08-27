@@ -9,7 +9,6 @@ export default {
 
             Echo.private('dashboard')
                 .listen(fullyQualifiedEventName, (eventName) => {
-                    console.log('received', eventName, handler);
                     handler(eventName);
                 });
         });
