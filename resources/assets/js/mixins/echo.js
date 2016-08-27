@@ -1,4 +1,3 @@
-import Echo from 'laravel-echo';
 import { forIn } from 'lodash';
 
 export default {
