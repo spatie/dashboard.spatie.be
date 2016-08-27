@@ -1,5 +1,5 @@
+import Echo from '../mixins/echo';
 import Grid from './grid';
-import Pusher from '../mixins/pusher';
 import SaveState from '../mixins/save-state';
 
 export default {
@@ -19,7 +19,7 @@ export default {
         Grid,
     },
 
-    mixins: [Pusher, SaveState],
+    mixins: [Echo, SaveState],
 
     props: ['fileName', 'grid'],
 
@@ -32,7 +32,7 @@ export default {
     methods: {
         getEventHandlers() {
             return {
-                'App\\Components\\GitHub\\Events\\FileContentFetched': response => {
+                'FileContentFetched': response => {
                     this.contents = response.fileContent[this.fileName];
                 },
             };
