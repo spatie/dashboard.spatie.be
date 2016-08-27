@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Components\GitHub\Events;
+namespace App\Events\GitHub;
 
-use App\Components\DashboardEvent;
+use App\Events\DashboardEvent;
 
 class FileContentFetched extends DashboardEvent
 {

@@ -2,7 +2,7 @@
 
 namespace App\Components\GitHub;
 
-use App\Components\GitHub\Events\FileContentFetched;
+use App\Events\GitHub\FileContentFetched;
 use GitHub;
 use Illuminate\Console\Command;
 

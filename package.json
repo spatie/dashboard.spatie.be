@@ -6,9 +6,10 @@
   },
   "dependencies": {
     "chart.js": "^2.1.4",
+    "laravel-echo": "^1.0.1",
     "lodash": "^4.13.1",
     "moment": "^2.13.0",
-    "pusher-js": "^3.1.0"
+    "pusher-js": "^3.2.1"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

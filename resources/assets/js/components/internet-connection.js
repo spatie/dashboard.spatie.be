@@ -1,6 +1,6 @@
+import Echo from '../mixins/echo';
 import Grid from './grid';
 import moment from 'moment';
-import Pusher from '../mixins/pusher';
 
 export default {
 
@@ -17,7 +17,7 @@ export default {
         Grid,
     },
 
-    mixins: [Pusher],
+    mixins: [Echo],
 
     props: ['grid'],
 
@@ -41,7 +41,7 @@ export default {
 
         getEventHandlers() {
             return {
-                'App\\Components\\InternetConnectionStatus\\Events\\Heartbeat': () => {
+                'InternetConnectionStatus.Heartbeat': () => {
                     this.lastHeartBeatReceivedAt = moment();
                 },
             };

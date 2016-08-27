@@ -2,7 +2,7 @@
 
 namespace App\Components\Packagist;
 
-use App\Components\Packagist\Events\TotalsFetched;
+use App\Events\Packagist\TotalsFetched;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Spatie\Packagist\Packagist;

@@ -1,9 +1,7 @@
 import _ from 'lodash';
+import Echo from '../mixins/echo';
 import Graph from './graph';
 import Grid from './grid';
-import moment from 'moment';
-import Pusher from '../mixins/pusher';
-import SaveState from '../mixins/save-state';
 
 export default {
 
@@ -29,7 +27,7 @@ export default {
         Grid, Graph,
     },
 
-    mixins: [Pusher],
+    mixins: [Echo],
 
     props: ['grid'],
 
@@ -70,7 +68,7 @@ export default {
     methods: {
         getEventHandlers() {
             return {
-                'App\\Components\\RainForecast\\Events\\ForecastFetched': response => {
+                'RainForecast.ForecastFetched': response => {
                     this.forecast = response.forecast;
                 },
             };

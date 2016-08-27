@@ -2,7 +2,7 @@
 
 namespace App\Components\RainForecast;
 
-use App\Components\RainForecast\Events\ForecastFetched;
+use App\Events\RainForecast\ForecastFetched;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;

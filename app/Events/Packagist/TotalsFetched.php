@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Components\Packagist\Events;
+namespace App\Events\Packagist;
 
-use App\Components\DashboardEvent;
+use App\Events\DashboardEvent;
 
 class TotalsFetched extends DashboardEvent
 {
