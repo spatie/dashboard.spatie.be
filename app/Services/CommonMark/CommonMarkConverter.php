@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services\CommonMark;
+
 use App\Services\CommonMark\Strikethrough\StrikethroughExtension;
 use League\CommonMark\Converter;
 use League\CommonMark\DocParser;

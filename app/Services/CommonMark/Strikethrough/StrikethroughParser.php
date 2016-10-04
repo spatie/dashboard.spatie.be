@@ -83,7 +83,7 @@ class StrikethroughParser extends AbstractInlineParser
         }
 
         $node = new Text($cursor->getPreviousText(), [
-            'delim' => true
+            'delim' => true,
         ]);
         $inlineContext->getContainer()->appendChild($node);
 

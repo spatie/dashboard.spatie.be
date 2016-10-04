@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Artisan;
 
-class GitHubWebhookController extends Controller
+class GithubWebhookController extends Controller
 {
     public function gitRepoReceivedPush()
     {

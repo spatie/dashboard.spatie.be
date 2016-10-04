@@ -14,8 +14,7 @@ use League\CommonMark\Inline\Renderer\InlineRendererInterface;
 
 class StrikethroughRenderer implements InlineRendererInterface
 {
-
-    /** @inheritdoc */
+    /** {@inheritdoc} */
     public function render(AbstractInline $inline, ElementRendererInterface $htmlRenderer)
     {
         if (!($inline instanceof Strikethrough)) {
@@ -29,6 +28,4 @@ class StrikethroughRenderer implements InlineRendererInterface
 
         return new HtmlElement('del', $attrs, $htmlRenderer->renderInlines($inline->children()));
     }
-
 }
-

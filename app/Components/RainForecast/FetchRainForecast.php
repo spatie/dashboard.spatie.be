@@ -79,7 +79,7 @@ class FetchRainForecast extends Command
 
         if (starts_with($time, '00') && Carbon::now()->hour == 23) {
             $dateTime->addDay();
-        };
+        }
 
         return $dateTime;
     }

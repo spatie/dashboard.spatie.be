@@ -14,9 +14,8 @@ use League\CommonMark\Inline\Renderer\InlineRendererInterface;
 
 class StrikethroughExtension extends Extension
 {
-
     /**
-     * Returns the name of the extension
+     * Returns the name of the extension.
      *
      * @return string
      */
@@ -31,7 +30,7 @@ class StrikethroughExtension extends Extension
     public function getInlineParsers()
     {
         return [
-            new StrikethroughParser()
+            new StrikethroughParser(),
         ];
     }
 
@@ -41,10 +40,9 @@ class StrikethroughExtension extends Extension
     public function getInlineProcessors()
     {
         return [
-            new StrikethroughProcessor()
+            new StrikethroughProcessor(),
         ];
     }
-
 
     /**
      * @return InlineRendererInterface[]
@@ -52,10 +50,7 @@ class StrikethroughExtension extends Extension
     public function getInlineRenderers()
     {
         return [
-            Strikethrough::class => new StrikethroughRenderer()
+            Strikethrough::class => new StrikethroughRenderer(),
         ];
     }
-
 }
-
-
