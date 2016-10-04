@@ -17,7 +17,6 @@
         "object-curly-spacing": [2, "always"],
         "padded-blocks": [0],
         "semi": [2, "always"],
-        "sort-imports": ["error", { "ignoreCase": true }],
         "space-before-function-paren": ["error", { "anonymous": "always", "named": "never" }],
         "space-unary-ops": [2, { "words": true, "nonwords": true }]
     }

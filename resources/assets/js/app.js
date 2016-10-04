@@ -1,9 +1,16 @@
 import { formatNumber, relativeDate } from './helpers';
 import Chart from 'chart.js';
-import Dashboard from './dashboard';
 import Echo from 'laravel-echo';
 import moment from 'moment';
 import Vue from 'vue';
+
+import CurrentTime from './components/current-time';
+import GithubFile from './components/github-file';
+import GoogleCalendar from './components/google-calendar';
+import InternetConnection from './components/internet-connection';
+import LastFm from './components/last-fm';
+import PackagistStatistics from './components/packagist-statistics';
+import RainForecast from './components/rain-forecast';
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
@@ -29,7 +36,13 @@ Vue.filter('format-number', formatNumber);
 
 new Vue({
     el: '#dashboard',
-    render(createElement) {
-        return createElement(Dashboard);
+    components: {
+        CurrentTime,
+        GithubFile,
+        GoogleCalendar,
+        InternetConnection,
+        LastFm,
+        PackagistStatistics,
+        RainForecast,
     },
 });
