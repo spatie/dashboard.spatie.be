@@ -1,6 +1,6 @@
 <?php
 
-use League\CommonMark\CommonMarkConverter;
+use App\Services\CommonMark\CommonMarkConverter;
 
 function markdownToHtml(string $markdown)
 {
