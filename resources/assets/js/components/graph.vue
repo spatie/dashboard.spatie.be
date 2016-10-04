@@ -1,8 +1,11 @@
+<template>
+    <canvas class="graph"></canvas>
+</template>
+
+<script>
 import Chart from 'chart.js';
-import '../helpers/global-chart-options';
 
 export default {
-    template: '<canvas class="graph"></canvas>',
 
     props: {
         labels: {},
@@ -16,10 +19,8 @@ export default {
     },
 
     ready() {
-
-        let data = {
+        const data = {
             labels: this.labels,
-
             datasets: [
                 {
                     data: this.values,
@@ -32,7 +33,7 @@ export default {
             ],
         };
 
-        let options = {
+        const options = {
             scales: {
                 xAxes: [{
                     display: false,
@@ -43,7 +44,7 @@ export default {
                 yAxes: [{
                     display: false,
                     ticks: {
-                        beginAtZero:true,
+                        beginAtZero: true,
                         suggestedMax: 100,
                     },
                 }],
@@ -55,10 +56,10 @@ export default {
         new Chart(
             this.$el.getContext('2d'), {
                 type: 'line',
-
                 data,
                 options,
             }
         );
     },
 };
+</script>

@@ -1,28 +1,24 @@
 {
+    "extends": "vue",
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "globals": {
+        "Chart": true,
+        "Echo": true
+    },
     "rules": {
         "comma-dangle": [2, "always-multiline"],
         "indent": [2, 4],
         "linebreak-style": [2, "unix"],
-        "quotes": [2, "single"],
+        "no-return-assign": [0],
+        "object-curly-spacing": [2, "always"],
+        "padded-blocks": [0],
         "semi": [2, "always"],
         "sort-imports": ["error", { "ignoreCase": true }],
         "space-before-function-paren": ["error", { "anonymous": "always", "named": "never" }],
-        "strict": [2, "never"]
-    },
-    "globals": {
-        "$": true
-    },
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "env": {
-        "es6": true,
-        "browser": true,
-        "node": true
-    },
-    "extends": "eslint:recommended"
+        "space-unary-ops": [2, { "words": true, "nonwords": true }]
+    }
 }

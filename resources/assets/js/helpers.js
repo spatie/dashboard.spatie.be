@@ -3,7 +3,7 @@ import moment from 'moment';
 
 const formatNumber = value => {
 
-    if(!value) {
+    if (! value) {
         return 0;
     }
 
@@ -12,7 +12,7 @@ const formatNumber = value => {
 
 const modifyClass = (modifiers, base) => {
 
-    if (!modifiers) {
+    if (! modifiers) {
         return base;
     }
 
@@ -24,15 +24,15 @@ const modifyClass = (modifiers, base) => {
 
 const gridFromTo = value => {
 
-    const [ from, to = from ] = value.toLowerCase().split(':');
+    const [from, to = from] = value.toLowerCase().split(':');
 
     return modifyClass([`from-${from}`, `to-${to}`], 'grid');
 };
 
 const relativeDate = value => {
-    let date = moment(value);
+    const date = moment(value);
 
-    let diffInDays = date.diff(moment(), 'days');
+    const diffInDays = date.diff(moment(), 'days');
 
     if (diffInDays < 7) {
         return date.calendar();

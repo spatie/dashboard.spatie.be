@@ -1,18 +1,13 @@
-import './helpers/vue-filters';
-import CurrentTime from './components/current-time';
+import { formatNumber, relativeDate } from './helpers';
+import Chart from 'chart.js';
+import Dashboard from './dashboard';
 import Echo from 'laravel-echo';
-import GithubFile from './components/github-file';
-import GoogleCalendar from './components/google-calendar';
-import InternetConnection from './components/internet-connection';
-import LastFm from './components/last-fm';
 import moment from 'moment';
-import PackagistStatistics from './components/packagist-statistics';
-import RainForecast from './components/rain-forecast';
 import Vue from 'vue';
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: dashboard.pusherKey,
+    key: window.dashboard.pusherKey,
 });
 
 moment.locale('en', {
@@ -26,20 +21,15 @@ moment.locale('en', {
     },
 });
 
+Chart.defaults.global.legend.display = false;
+Chart.defaults.global.tooltips.enabled = false;
+
+Vue.filter('relative-date', relativeDate);
+Vue.filter('format-number', formatNumber);
+
 new Vue({
-
-    el: 'body',
-
-    components: {
-        CurrentTime,
-        GithubFile,
-        GoogleCalendar,
-        InternetConnection,
-        LastFm,
-        PackagistStatistics,
-        RainForecast,
+    el: '#dashboard',
+    render(createElement) {
+        return createElement(Dashboard);
     },
-
 });
-
-

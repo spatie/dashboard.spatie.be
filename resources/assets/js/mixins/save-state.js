@@ -1,3 +1,5 @@
+import { forEach } from 'lodash';
+
 export default {
     watch: {
         '$data': {
@@ -14,18 +16,17 @@ export default {
 
     methods: {
         loadState() {
-            let savedState = this.getSavedState();
+            const savedState = this.getSavedState();
 
-            if (!savedState) {
+            if (! savedState) {
                 return;
             }
 
-            this.$data = savedState;
+            forEach(savedState, (value, key) => this.$data[key] = value);
         },
         saveState() {
             localStorage.setItem(this.getSavedStateId(), JSON.stringify(this.$data));
         },
-
         getSavedState() {
             let savedState = localStorage.getItem(this.getSavedStateId());
 
@@ -37,5 +38,3 @@ export default {
         },
     },
 };
-
-
