@@ -11,11 +11,6 @@ import LastFm from './components/last-fm';
 import PackagistStatistics from './components/packagist-statistics';
 import RainForecast from './components/rain-forecast';
 
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: window.dashboard.pusherKey,
-});
-
 moment.locale('en', {
     calendar: {
         lastDay: '[Yesterday]',
@@ -42,5 +37,12 @@ new Vue({
         LastFm,
         PackagistStatistics,
         RainForecast,
+    },
+
+    created() {
+        this.echo = new Echo({
+            broadcaster: 'pusher',
+            key: window.dashboard.pusherKey,
+        });
     },
 });
