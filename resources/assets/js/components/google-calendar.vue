@@ -5,7 +5,7 @@
            <ul class="google-calendar__events">
                <li v-for="event in events"  class="google-calendar__event">
                    <h2 class="google-calendar__event__title">{{ event.name }}</h2>
-                   <div class="google-calendar__event__date">{{ event.date | relative-date }}</div>
+                   <div class="google-calendar__event__date">{{ relativeDate(event.date) }}</div>
                </li>
            </ul>
        </section>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { relativeDate } from '../helpers';
 import Echo from '../mixins/echo';
 import Grid from './grid';
 import SaveState from '../mixins/save-state';
@@ -37,6 +38,7 @@ export default {
     },
 
     methods: {
+        relativeDate,
         getEventHandlers() {
             return {
                 'GoogleCalendar.EventsFetched': response => {

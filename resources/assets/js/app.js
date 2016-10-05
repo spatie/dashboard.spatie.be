@@ -1,4 +1,3 @@
-import { formatNumber, relativeDate } from './helpers';
 import Chart from 'chart.js';
 import Echo from 'laravel-echo';
 import moment from 'moment';
@@ -31,11 +30,10 @@ moment.locale('en', {
 Chart.defaults.global.legend.display = false;
 Chart.defaults.global.tooltips.enabled = false;
 
-Vue.filter('relative-date', relativeDate);
-Vue.filter('format-number', formatNumber);
-
 new Vue({
+
     el: '#dashboard',
+
     components: {
         CurrentTime,
         GithubFile,

@@ -1,7 +1,7 @@
-import _ from 'lodash';
+import { upperFirst } from 'lodash';
 import moment from 'moment';
 
-const formatNumber = value => {
+export const formatNumber = value => {
 
     if (! value) {
         return 0;
@@ -10,7 +10,7 @@ const formatNumber = value => {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 };
 
-const modifyClass = (modifiers, base) => {
+export const modifyClass = (modifiers, base) => {
 
     if (! modifiers) {
         return base;
@@ -22,14 +22,14 @@ const modifyClass = (modifiers, base) => {
     return [base, ...modifiers];
 };
 
-const gridFromTo = value => {
+export const gridFromTo = value => {
 
     const [from, to = from] = value.toLowerCase().split(':');
 
     return modifyClass([`from-${from}`, `to-${to}`], 'grid');
 };
 
-const relativeDate = value => {
+export const relativeDate = value => {
     const date = moment(value);
 
     const diffInDays = date.diff(moment(), 'days');
@@ -38,7 +38,5 @@ const relativeDate = value => {
         return date.calendar();
     }
 
-    return _.upperFirst(date.fromNow());
+    return upperFirst(date.fromNow());
 };
-
-export { formatNumber, gridFromTo, modifyClass, relativeDate };

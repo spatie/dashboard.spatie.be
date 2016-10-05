@@ -35,7 +35,6 @@ export default {
         getEventHandlers() {
             return {
                 'GitHub.FileContentFetched': response => {
-                    console.log('response', response);
                     this.contents = response.fileContent[this.fileName];
                 },
             };
