@@ -3,39 +3,43 @@
         -webkit-font-smoothing: subpixel-antialiased;
     }
     @if $value == pixel {
-        -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 }
 
-@mixin background-icon($url){
+@mixin background-icon($url) {
     height: 100%;
+
+    background-image: url($url);
     background-position: center;
-    background-size: #{(100/setting($grid, cols) - 15)}vw;
     background-repeat: no-repeat;
-    opacity: .2;
-    background-image: url($url);
-}
-
-@mixin background-pattern($url){
-    height: 100%;
-    background-position: center;
     background-size: #{(100/setting($grid, cols) - 15)}vw;
-    background-repeat: repeat;
     opacity: .2;
-    background-image: url($url);
 }
 
-@mixin icon($url){
+@mixin background-pattern($url) {
+    height: 100%;
+
+    background-image: url($url);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: #{(100/setting($grid, cols) - 15)}vw;
+    opacity: .2;
+}
+
+@mixin icon($url) {
+    content: '';
+
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+
     background-image: url($url);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1em;
-    content: '';
-    display: inline-block;
-    height: 1em;
-    vertical-align: middle;
-    width: 1em;
 }
 
 @mixin clearfix {
@@ -44,6 +48,7 @@
     &:before,
     &:after {
         content: '';
+
         display: table;
     }
 
@@ -52,8 +57,7 @@
     }
 }
 
-@mixin tile-color($color){
-
+@mixin tile-color($color) {
     background-color: $color;
 
     &:after {
@@ -63,18 +67,20 @@
 
 @mixin ellipsis {
     overflow: hidden;
+
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-@mixin gradient-vertical($start, $stop, $from: 0%, $to: 100%) {
+@mixin gradient-vertical($start, $stop, $from: 0, $to: 100%) {
     background: -webkit-linear-gradient(top, $start $from,$stop $to);
-    background: linear-gradient(to bottom, $start $from, $stop $to);
+    background:         linear-gradient(to bottom, $start $from, $stop $to);
 }
 
 @mixin position-center-horizontal($position: absolute) {
-    left: 50%;
     position: $position;
+    left: 50%;
+
     transform: translateX(-50%);
 }
 
@@ -82,18 +88,20 @@
 @mixin position-center-vertical($position: absolute) {
     position: $position;
     top: 50%;
+
     transform: translateY(-50%);
 }
 
 
 @mixin position-center($position: absolute) {
-    left: 50%;
     position: $position;
     top: 50%;
+    left: 50%;
+
     transform: translateX(-50%) translateY(-50%);
 }
 
-@mixin mod($name){
+@mixin mod($name) {
     &--#{$name} {
         @content ;
     }
