@@ -1,23 +1,11 @@
 {
-    "extends": "vue",
+    "extends": "spatie",
     "env": {
         "browser": true,
-        "node": true,
-        "es6": true
+        "node": true
     },
     "globals": {
-        "Chart": true,
-        "Echo": true
-    },
-    "rules": {
-        "comma-dangle": [2, "always-multiline"],
-        "indent": [2, 4],
-        "linebreak-style": [2, "unix"],
-        "no-return-assign": [0],
-        "object-curly-spacing": [2, "always"],
-        "padded-blocks": [0],
-        "semi": [2, "always"],
-        "space-before-function-paren": ["error", { "anonymous": "always", "named": "never" }],
-        "space-unary-ops": [2, { "words": true, "nonwords": true }]
+        "$": true,
+        "jQuery": true
     }
 }
