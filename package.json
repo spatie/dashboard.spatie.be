@@ -3,8 +3,8 @@
   "scripts": {
     "prod": "gulp --production",
     "dev": "gulp watch",
-    "lint": "eslint resources/assets/js",
-    "lint:fix": "eslint resources/assets/js --fix"
+    "lint": "eslint resources/assets/js --ext .js --ext .vue",
+    "lint:fix": "eslint resources/assets/js --ext .js --ext .vue --fix"
   },
   "dependencies": {
     "chart.js": "^2.1.4",
