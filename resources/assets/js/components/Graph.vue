@@ -8,17 +8,25 @@ import Chart from 'chart.js';
 export default {
 
     props: {
-        labels: {},
-        values: {},
+        labels: {
+            type: Array,
+            required: true,
+        },
+        values: {
+            type: Array,
+            required: true,
+        },
         lineColor: {
             type: String,
+            required: true,
         },
         backgroundColor: {
             type: String,
+            required: true,
         },
     },
 
-    ready() {
+    mounted() {
         const data = {
             labels: this.labels,
             datasets: [

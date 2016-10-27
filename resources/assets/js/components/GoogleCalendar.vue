@@ -36,6 +36,7 @@ export default {
 
     methods: {
         relativeDate,
+
         getEventHandlers() {
             return {
                 'GoogleCalendar.EventsFetched': response => {
@@ -43,6 +44,7 @@ export default {
                 },
             };
         },
+        
         getSavedStateId() {
             return 'google-calendar';
         },

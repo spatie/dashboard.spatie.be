@@ -1,21 +1,28 @@
 <template>
-    <div :class="gridFromTo(position)">
-        <div :class="modifyClass(modifiers, 'grid__tile')">
+    <div :class="gridClass">
+        <div :class="tileClass">
              <slot></slot>
         </div>
     </div>
 </template>
 
 <script>
-import { gridFromTo, modifyClass } from '../helpers';
+import { addClassModifiers } from '../helpers';
 
 export default {
 
     props: ['modifiers', 'position'],
 
-    methods: {
-        gridFromTo,
-        modifyClass,
+    computed: {
+        gridClass() {
+            const [from, to = from] = this.position.toLowerCase().split(':');
+
+            return addClassModifiers('grid', [`from-${from}`, `to-${to}`]);
+        },
+
+        tileClass() {
+            return addClassModifiers('grid__tile', this.modifiers);
+        },
     },
 };
 </script>

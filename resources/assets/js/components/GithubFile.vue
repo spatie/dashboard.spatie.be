@@ -36,6 +36,7 @@ export default {
                 },
             };
         },
+        
         getSavedStateId() {
             return `github-file-${this.fileName}`;
         },

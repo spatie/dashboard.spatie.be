@@ -1,6 +1,6 @@
 <template>
     <grid :position="grid" modifiers="transparent">
-        <section :class="modifyClass(currentlyPlaying ? 'playing' : 'stopped', 'last-fm')">
+        <section :class="addClassModifiers('last-fm', currentlyPlaying ? 'playing' : 'stopped')">
             <div class="last-fm__content" v-if="currentlyPlaying">
                 <div class="last-fm__cover" v-if="hasCover" v-bind:style="{ backgroundImage: 'url(' + artwork + ')' }">
                 </div>
@@ -25,7 +25,7 @@
 <script>
 import Echo from '../mixins/echo';
 import Grid from './grid';
-import { modifyClass } from '../helpers';
+import { addClassModifiers } from '../helpers';
 import SaveState from '../mixins/save-state';
 
 export default {
@@ -57,7 +57,8 @@ export default {
     },
 
     methods: {
-        modifyClass,
+        addClassModifiers,
+
         getEventHandlers() {
             return {
                 'LastFm.NothingPlaying': () => {

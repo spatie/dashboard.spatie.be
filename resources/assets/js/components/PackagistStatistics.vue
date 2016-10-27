@@ -51,6 +51,7 @@ export default {
 
     methods: {
         formatNumber,
+        
         getEventHandlers() {
             return {
                 'Packagist.TotalsFetched': response => {

@@ -1,10 +1,10 @@
 <template>
     <grid :position="grid" modifiers="padded">
-        <section :class="modifyClass(status, 'rain-forecast')">
+        <section :class="addClassModifiers('rain-forecast', status)">
             <h1 class="rain-forecast__title rain-forecast__title--rainy" v-if="status == 'rainy'">30' FORECAST</h1>
             <h1 class="rain-forecast__title rain-forecast__title--rainy" v-if="status == 'wet'">STAY INSIDE</h1>
             <div class="rain-forecast__background"></div>
-            <div class="rain-forecast__graph" v-if="status == 'rainy'">
+            <div class="rain-forecast__graph" >
                 <graph
                   :labels="graphLabels"
                   :values="graphData"
@@ -21,7 +21,7 @@ import { filter, map, sumBy } from 'lodash';
 import Echo from '../mixins/echo';
 import Graph from './graph';
 import Grid from './grid';
-import { modifyClass } from '../helpers';
+import { addClassModifiers } from '../helpers';
 
 export default {
 
@@ -46,6 +46,7 @@ export default {
 
             return 'rainy';
         },
+
         noRainPredicted() {
             const rainScore = sumBy(this.forecast, foreCastItem => {
                 return parseInt(foreCastItem.chanceOfRain);
@@ -53,6 +54,7 @@ export default {
 
             return rainScore === 0;
         },
+
         nothingButRainPredicted() {
             const foreCastItemWithNoRain = filter(this.forecast, foreCastItem => {
                 return foreCastItem.chanceOfRain < 40;
@@ -60,12 +62,15 @@ export default {
 
             return foreCastItemWithNoRain.length === 0;
         },
+
         graphLabels() {
             return map(this.forecast, 'minutes');
         },
+
         graphData() {
             return map(this.forecast, 'chanceOfRain');
         },
+
         graphPeriod() {
             return this.forecast[this.forecast.length - 1].minutes;
         },
@@ -78,7 +83,8 @@ export default {
     },
 
     methods: {
-        modifyClass,
+        addClassModifiers,
+
         getEventHandlers() {
             return {
                 'RainForecast.ForecastFetched': response => {
@@ -86,6 +92,7 @@ export default {
                 },
             };
         },
+
         getSavedStateId() {
             return 'rain-forecast-update';
         },
