@@ -9,7 +9,7 @@
 
 <script>
 import Echo from '../mixins/echo';
-import Grid from './grid';
+import Grid from './Grid';
 import SaveState from '../mixins/save-state';
 
 export default {
@@ -36,7 +36,7 @@ export default {
                 },
             };
         },
-        
+
         getSavedStateId() {
             return `github-file-${this.fileName}`;
         },

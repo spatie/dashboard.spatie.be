@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Grid from './grid';
+import Grid from './Grid';
 import moment from 'moment';
 
 export default {

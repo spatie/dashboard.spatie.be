@@ -9,7 +9,7 @@
 
 <script>
 import Echo from '../mixins/echo';
-import Grid from './grid';
+import Grid from './Grid';
 import { addClassModifiers } from '../helpers';
 import moment from 'moment';
 

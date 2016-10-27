@@ -19,8 +19,8 @@
 <script>
 import { filter, map, sumBy } from 'lodash';
 import Echo from '../mixins/echo';
-import Graph from './graph';
-import Grid from './grid';
+import Graph from './Graph';
+import Grid from './Grid';
 import { addClassModifiers } from '../helpers';
 
 export default {
