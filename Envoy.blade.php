@@ -17,11 +17,6 @@ echo 'checking out the master branch'
 git checkout master
 @endtask
 
-@task('generate assets', ['on' => 'localhost'])
-echo 'generating assets'
-gulp
-@endtask
-
 @task('bring app down', ['on' => 'web'])
 echo 'bringing app down'
 cd '{{ $pathOnServer }}'
@@ -81,7 +76,6 @@ git pull origin master
 @macro('deploy')
 display start message
 checkout master branch
-generate assets
 bring app down
 pull changes on server
 run composer install
