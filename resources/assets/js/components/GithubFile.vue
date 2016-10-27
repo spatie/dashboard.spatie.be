@@ -18,10 +18,7 @@ export default {
         Grid,
     },
 
-    mixins: [
-        Echo,
-        SaveState,
-    ],
+    mixins: [Echo, SaveState],
 
     props: ['fileName', 'grid'],
 

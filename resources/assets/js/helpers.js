@@ -19,14 +19,14 @@ export const modifyClass = (modifiers, base) => {
     modifiers = Array.isArray(modifiers) ? modifiers : modifiers.split(' ');
     modifiers = modifiers.map(modifier => `${base}--${modifier}`);
 
-    return [ base, ...modifiers ];
+    return [base, ...modifiers];
 };
 
 export const gridFromTo = value => {
 
-    const [ from, to = from ] = value.toLowerCase().split(':');
+    const [from, to = from] = value.toLowerCase().split(':');
 
-    return modifyClass([ `from-${from}`, `to-${to}` ], 'grid');
+    return modifyClass([`from-${from}`, `to-${to}`], 'grid');
 };
 
 export const relativeDate = value => {

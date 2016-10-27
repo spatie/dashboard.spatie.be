@@ -19,9 +19,7 @@ export default {
         Grid,
     },
 
-    mixins: [
-        Echo
-    ],
+    mixins: [Echo],
 
     props: ['grid'],
 

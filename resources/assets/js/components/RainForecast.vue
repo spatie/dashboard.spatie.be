@@ -30,9 +30,7 @@ export default {
         Graph,
     },
 
-    mixins: [
-        Echo,
-    ],
+    mixins: [Echo],
 
     props: ['grid'],
 
