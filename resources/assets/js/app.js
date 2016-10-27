@@ -1,29 +1,15 @@
-import Chart from 'chart.js';
+import './bootstrap.js';
+
 import Echo from 'laravel-echo';
-import moment from 'moment';
 import Vue from 'vue';
 
-import CurrentTime from './components/current-time';
-import GithubFile from './components/github-file';
-import GoogleCalendar from './components/google-calendar';
-import InternetConnection from './components/internet-connection';
-import LastFm from './components/last-fm';
-import PackagistStatistics from './components/packagist-statistics';
-import RainForecast from './components/rain-forecast';
-
-moment.locale('en', {
-    calendar: {
-        lastDay: '[Yesterday]',
-        sameDay: '[Today]',
-        nextDay: '[Tomorrow]',
-        lastWeek: '[last] dddd',
-        nextWeek: 'dddd',
-        sameElse: 'L',
-    },
-});
-
-Chart.defaults.global.legend.display = false;
-Chart.defaults.global.tooltips.enabled = false;
+import CurrentTime from './components/CurrentTime';
+import GithubFile from './components/GithubFile';
+import GoogleCalendar from './components/GoogleCalendar';
+import InternetConnection from './components/InternetConnection';
+import LastFm from './components/LastFm';
+import PackagistStatistics from './components/PackagistStatistics';
+import RainForecast from './components/RainForecast';
 
 new Vue({
 
