@@ -40,14 +40,14 @@ composer install
 php artisan cache:clear
 @endtask
 
-@task('run yarn', ['on' => 'remote'])
+@task('run yarn', ['on' => 'web'])
 echo 'running yarn'
 cd '{{ $pathOnServer }}'
 yarn config set ignore-engines true
 yarn
 @endtask
 
-@task('generate assets', ['on' => 'remote'])
+@task('generate assets', ['on' => 'web'])
 echo 'generating assets'
 cd '{{ $pathOnServer }}'
 gulp --production
