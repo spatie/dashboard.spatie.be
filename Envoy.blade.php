@@ -40,14 +40,17 @@ composer install
 php artisan cache:clear
 @endtask
 
-@task('clear assets on server', ['on' => 'web'])
-echo 'clearing assets on server'
-rm -rf '{{ $pathOnServer }}/public/assets'
+@task('run yarn', ['on' => 'remote'])
+echo 'running yarn'
+cd '{{ $pathOnServer }}'
+yarn config set ignore-engines true
+yarn
 @endtask
 
-@task('upload generated assets', ['on' => 'localhost'])
-echo 'uploading generated assets'
-scp -r public/build {{ $server }}:{{$pathOnServer}}/public
+@task('generate assets', ['on' => 'remote'])
+echo 'generating assets'
+cd '{{ $pathOnServer }}'
+gulp --production
 @endtask
 
 @task('bring app up', ['on' => 'web'])
@@ -82,8 +85,8 @@ generate assets
 bring app down
 pull changes on server
 run composer install
-clear assets on server
-upload generated assets
+run yarn
+generate assets
 reload php
 bring app up
 restart pi
