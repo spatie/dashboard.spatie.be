@@ -3,15 +3,16 @@
   "scripts": {
     "prod": "gulp --production",
     "dev": "gulp watch",
-    "lint": "eslint resources/assets/js --ext .js --ext .vue",
-    "lint:fix": "eslint resources/assets/js --ext .js --ext .vue --fix"
+    "lint": "eslint resources/assets/js --ext .js --ext .vue --fix"
   },
   "dependencies": {
     "chart.js": "^2.1.4",
     "laravel-echo": "^1.0.1",
-    "lodash": "^4.13.1",
+    "lodash": "^4.16.2",
     "moment": "^2.13.0",
-    "pusher-js": "^3.2.1"
+    "pusher-js": "^3.2.1",
+    "vue": "^2.0.1",
+    "vue-resource": "^1.0.3"
   },
   "devDependencies": {
     "eslint": "^3.7.1",
@@ -22,8 +23,7 @@
     "laravel-elixir": "^6.0.0-9",
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.2",
-    "lodash": "^4.16.2",
-    "vue": "^2.0.1",
-    "vue-resource": "^1.0.3"
+    "node-sass": "^3.10.1",
+    "webpack": "^2.1.0-beta.25"
   }
 }
