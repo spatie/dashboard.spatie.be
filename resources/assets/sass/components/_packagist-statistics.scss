@@ -8,11 +8,13 @@
 .packagist-statistics__period {
     @include font-sans;
 
-    float: left;
-    font-size: setting($font-size, s);
-    opacity: .5;
-    text-transform: uppercase;
     top: .1em;
+    float: left;
+
+    opacity: .5;
+
+    font-size: setting($font-size, s);
+    text-transform: uppercase;
 }
 
 .packagist-statistics__stars {
@@ -24,7 +26,8 @@
 .packagist-statistics__count {
     @include font-sans-black;
 
-    color: color($yellow);
     float: right;
     vertical-align: top;
+
+    color: color($yellow);
 }

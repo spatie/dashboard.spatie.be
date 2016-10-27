@@ -1,18 +1,21 @@
 html {
     @include antialiasing(pixel);
 
+    position: fixed;
+    top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
+
+    background-color: color($gray, darkest);
 
     * {
         box-sizing: border-box;
-        line-height: 1.2;
+        position: relative;
         margin: 0;
         padding: 0;
-        position: relative;
+
+        line-height: 1.2;
 
         &:after,
         &:before {
@@ -28,10 +31,12 @@ ul {
 h1 {
     @include font-sans-light;
 
-    color: $white;
-    font-size: setting($font-size, m);
     margin-bottom: .5em;
+
+    color: $white;
     opacity: .75;
+
+    font-size: setting($font-size, m);
     text-transform: uppercase;
 }
 
@@ -39,10 +44,12 @@ h2 {
     @include font-sans-black;
 
     color: $white;
+
     font-size: setting($font-size, default);
 }
 
 li {
-    border-bottom: solid .1vw color($blue, lightest, .2);
     padding: .35vh 0;
+
+    border-bottom: solid .1vw color($blue, lightest, .2);
 }

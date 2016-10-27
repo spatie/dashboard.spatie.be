@@ -1,7 +1,8 @@
 .github-file__title {
     color: color($blue, light);
-    font-size: setting($font-size, m);
     opacity: 1;
+
+    font-size: setting($font-size, m);
     text-transform: uppercase;
 }
 

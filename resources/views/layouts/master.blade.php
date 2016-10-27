@@ -8,10 +8,11 @@
     <meta name="google" value="notranslate">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<body class="dashboard">
+<body>
 
     @yield('content')
 
-<script src="{{ elixir("js/app.js") }}"></script>
+    <script src="{{ elixir("js/app.js") }}"></script>
+    
 </body>
 </html>

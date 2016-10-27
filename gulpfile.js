@@ -1,9 +1,9 @@
 var elixir = require('laravel-elixir');
 
-require('laravel-elixir-vueify');
+require('laravel-elixir-vue-2');
 
-elixir(function(mix) {
-    mix.browserify('app.js')
-    mix.sass('app.scss');
-    mix.version(['js/app.js', 'css/app.css']);
+elixir(mix => {
+    mix.sass('app.scss')
+       .webpack('app.js')
+       .version(['js/app.js', 'css/app.css']);
 });

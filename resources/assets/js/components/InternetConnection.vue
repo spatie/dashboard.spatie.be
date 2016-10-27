@@ -1,17 +1,19 @@
+<template>
+    <grid :position="grid">
+        <section :class="addClassModifiers('internet-connection', online ? 'up': 'down')">
+            <div class="internet-connection__icon">
+            </div>
+        </section>
+    </grid>
+</template>
+
+<script>
 import Echo from '../mixins/echo';
 import Grid from './grid';
+import { addClassModifiers } from '../helpers';
 import moment from 'moment';
 
 export default {
-
-    template: `
-        <grid :position="grid">
-            <section :class="online? 'up': 'down' | modify-class 'internet-connection' ">
-                <div class="internet-connection__icon">
-                </div>
-            </section>
-        </grid>
-    `,
 
     components: {
         Grid,
@@ -33,6 +35,8 @@ export default {
     },
 
     methods: {
+        addClassModifiers,
+
         determineConnectionStatus() {
             const lastHeartBeatReceivedSecondsAgo = moment().diff(this.lastHeartBeatReceivedAt, 'seconds');
 
@@ -48,3 +52,4 @@ export default {
         },
     },
 };
+</script>

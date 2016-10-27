@@ -2,19 +2,28 @@
   "private": true,
   "scripts": {
     "prod": "gulp --production",
-    "dev": "gulp watch"
+    "dev": "gulp watch",
+    "lint": "eslint resources/assets/js --ext .js --ext .vue --fix"
   },
   "dependencies": {
     "chart.js": "^2.1.4",
     "laravel-echo": "^1.0.1",
-    "lodash": "^4.13.1",
+    "lodash": "^4.16.2",
     "moment": "^2.13.0",
-    "pusher-js": "^3.2.1"
+    "pusher-js": "^3.2.1",
+    "vue": "^2.0.1",
+    "vue-resource": "^1.0.3"
   },
   "devDependencies": {
+    "eslint": "^3.7.1",
+    "eslint-config-spatie": "^1.2.2",
+    "eslint-plugin-html": "^1.5.3",
+    "eslint-plugin-vue": "^0.1.1",
     "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0",
-    "laravel-elixir-vueify": "^1.0.3",
-    "bootstrap-sass": "^3.3.0"
+    "laravel-elixir": "^6.0.0-9",
+    "laravel-elixir-vue-2": "^0.2.0",
+    "laravel-elixir-webpack-official": "^1.0.2",
+    "node-sass": "^3.10.1",
+    "webpack": "^2.1.0-beta.25"
   }
 }

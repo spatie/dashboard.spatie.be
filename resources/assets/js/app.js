@@ -1,34 +1,19 @@
-import './helpers/vue-filters';
-import CurrentTime from './components/current-time';
+import './bootstrap.js';
+
 import Echo from 'laravel-echo';
-import GithubFile from './components/github-file';
-import GoogleCalendar from './components/google-calendar';
-import InternetConnection from './components/internet-connection';
-import LastFm from './components/last-fm';
-import moment from 'moment';
-import PackagistStatistics from './components/packagist-statistics';
-import RainForecast from './components/rain-forecast';
 import Vue from 'vue';
 
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: dashboard.pusherKey,
-});
-
-moment.locale('en', {
-    calendar: {
-        lastDay: '[Yesterday]',
-        sameDay: '[Today]',
-        nextDay: '[Tomorrow]',
-        lastWeek: '[last] dddd',
-        nextWeek: 'dddd',
-        sameElse: 'L',
-    },
-});
+import CurrentTime from './components/CurrentTime';
+import GithubFile from './components/GithubFile';
+import GoogleCalendar from './components/GoogleCalendar';
+import InternetConnection from './components/InternetConnection';
+import LastFm from './components/LastFm';
+import PackagistStatistics from './components/PackagistStatistics';
+import RainForecast from './components/RainForecast';
 
 new Vue({
 
-    el: 'body',
+    el: '#dashboard',
 
     components: {
         CurrentTime,
@@ -40,6 +25,10 @@ new Vue({
         RainForecast,
     },
 
+    created() {
+        this.echo = new Echo({
+            broadcaster: 'pusher',
+            key: window.dashboard.pusherKey,
+        });
+    },
 });
-
-
