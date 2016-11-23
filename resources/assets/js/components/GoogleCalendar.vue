@@ -14,9 +14,9 @@
 
 <script>
 import { relativeDate } from '../helpers';
-import Echo from '../mixins/echo';
+import echo from '../mixins/echo';
 import Grid from './Grid';
-import SaveState from '../mixins/save-state';
+import saveState from 'vue-save-state';
 
 export default {
 
@@ -24,7 +24,7 @@ export default {
         Grid,
     },
 
-    mixins: [Echo, SaveState],
+    mixins: [echo, saveState],
 
     props: ['grid'],
 
@@ -45,8 +45,10 @@ export default {
             };
         },
 
-        getSavedStateId() {
-            return 'google-calendar';
+        getSaveStateConfig() {
+            return {
+                cacheKey: 'google-calendar',
+            };
         },
     },
 };

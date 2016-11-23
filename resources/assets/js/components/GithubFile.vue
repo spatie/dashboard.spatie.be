@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import Echo from '../mixins/echo';
+import echo from '../mixins/echo';
 import Grid from './Grid';
-import SaveState from '../mixins/save-state';
+import saveState from 'vue-save-state';
 
 export default {
 
@@ -18,7 +18,7 @@ export default {
         Grid,
     },
 
-    mixins: [Echo, SaveState],
+    mixins: [echo, saveState],
 
     props: ['fileName', 'grid'],
 
@@ -37,8 +37,10 @@ export default {
             };
         },
 
-        getSavedStateId() {
-            return `github-file-${this.fileName}`;
+        getSaveStateConfig() {
+            return {
+                cacheKey: `github-file-${this.fileName}`,
+            };
         },
     },
 };

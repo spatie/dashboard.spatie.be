@@ -18,7 +18,7 @@
 
 <script>
 import { filter, map, sumBy } from 'lodash';
-import Echo from '../mixins/echo';
+import echo from '../mixins/echo';
 import Graph from './Graph';
 import Grid from './Grid';
 import { addClassModifiers } from '../helpers';
@@ -30,7 +30,7 @@ export default {
         Graph,
     },
 
-    mixins: [Echo],
+    mixins: [echo],
 
     props: ['grid'],
 
@@ -91,10 +91,6 @@ export default {
                     this.forecast = response.forecast;
                 },
             };
-        },
-
-        getSavedStateId() {
-            return 'rain-forecast-update';
         },
     },
 };
