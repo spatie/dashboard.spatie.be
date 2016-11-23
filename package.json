@@ -12,7 +12,8 @@
     "moment": "^2.13.0",
     "pusher-js": "^3.2.1",
     "vue": "^2.0.1",
-    "vue-resource": "^1.0.3"
+    "vue-resource": "^1.0.3",
+    "vue-save-state": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "^3.7.1",

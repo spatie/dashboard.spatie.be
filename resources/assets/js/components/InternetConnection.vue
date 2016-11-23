@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Echo from '../mixins/echo';
+import echo from '../mixins/echo';
 import Grid from './Grid';
 import { addClassModifiers } from '../helpers';
 import moment from 'moment';
@@ -19,7 +19,7 @@ export default {
         Grid,
     },
 
-    mixins: [Echo],
+    mixins: [echo],
 
     props: ['grid'],
 
