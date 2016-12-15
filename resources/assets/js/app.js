@@ -29,6 +29,8 @@ new Vue({
         this.echo = new Echo({
             broadcaster: 'pusher',
             key: window.dashboard.pusherKey,
+            cluster: window.dashboard.pusherCluster,
+            encrypted: window.dashboard.pusherEncrypted
         });
     },
 });

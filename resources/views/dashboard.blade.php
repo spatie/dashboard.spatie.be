@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @javascript(compact('pusherCluster'))
+    @javascript(compact('pusherEncrypted'))
     @javascript(compact('pusherKey'))
 
     <div class="dashboard" id="dashboard">
