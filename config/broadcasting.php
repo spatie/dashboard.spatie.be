@@ -33,6 +33,10 @@ return [
             'key' => env('PUSHER_KEY'),
             'secret' => env('PUSHER_SECRET'),
             'app_id' => env('PUSHER_APP_ID'),
+            'options' => [
+                'cluster' => env('PUSHER_CLUSTER', 'mt1'),
+                'encrypted' => env('PUSHER_ENCRYPTED', false)
+            ],
         ],
 
         'redis' => [
