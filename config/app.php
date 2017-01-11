@@ -173,8 +173,9 @@ return [
         Spatie\GoogleCalendar\GoogleCalendarServiceProvider::class,
         GrahamCampbell\GitHub\GitHubServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        \App\Providers\CollectionServiceProvider::class,
-        \Spatie\BladeJavaScript\BladeJavaScriptServiceProvider::class,
+        App\Providers\CollectionServiceProvider::class,
+        Spatie\BladeJavaScript\BladeJavaScriptServiceProvider::class,
+        App\Services\Twitter\TwitterStreamServiceProvider::class,
     ],
 
     /*
