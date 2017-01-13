@@ -20,6 +20,7 @@
         "spatie/laravel-blade-javascript": "^1.0",
         "spatie/laravel-google-calendar": "^1.0",
         "spatie/laravel-tail": "^1.1",
+        "spatie/laravel-twitter-streaming-api": "^0.0.2",
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/packagist-api": "^1.0"
     },

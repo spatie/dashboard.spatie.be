@@ -175,7 +175,6 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         App\Providers\CollectionServiceProvider::class,
         Spatie\BladeJavaScript\BladeJavaScriptServiceProvider::class,
-        App\Services\Twitter\TwitterStreamServiceProvider::class,
     ],
 
     /*
