@@ -2,7 +2,7 @@
     <grid :position="grid" modifiers="overflow padded blue">
         <section>
             <h1>Twitter</h1>
-            <div>{{ twitterUsername }} {{ tweetText }}</div>
+            <div>user: {{ twitterUsername }}  tweet: {{ tweetText }}</div>
         </section>
     </grid>
 </template>
@@ -33,7 +33,7 @@ export default {
         getEventHandlers() {
             return {
                 'Twitter.Mentioned': response => {
-                    this.twitterUserName = response.twitterUsername;
+                    this.twitterUsername = response.twitterUsername;
                     this.tweetText = response.tweetText;
                 },
             };
