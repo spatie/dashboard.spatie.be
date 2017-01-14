@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Events\RainForecast;
+namespace App\Events\Twitter;
 
 use App\Events\DashboardEvent;
 
-class MentionedOnTwitter extends DashboardEvent
+class Mentioned extends DashboardEvent
 {
     /** @var string */
     public $twitterUsername;

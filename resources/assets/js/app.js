@@ -10,6 +10,7 @@ import InternetConnection from './components/InternetConnection';
 import LastFm from './components/LastFm';
 import PackagistStatistics from './components/PackagistStatistics';
 import RainForecast from './components/RainForecast';
+import Twitter from './components/Twitter';
 
 new Vue({
 
@@ -23,6 +24,7 @@ new Vue({
         LastFm,
         PackagistStatistics,
         RainForecast,
+        Twitter
     },
 
     created() {

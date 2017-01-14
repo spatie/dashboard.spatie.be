@@ -7,6 +7,8 @@
     <div class="dashboard" id="dashboard">
             <google-calendar grid="a1:a2"></google-calendar>
 
+            <twitter grid="e1:e4"></twitter>
+
             <last-fm grid="b1:c1"></last-fm>
 
             <current-time grid="d1" dateformat="ddd DD/MM"></current-time>

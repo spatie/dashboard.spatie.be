@@ -2,13 +2,9 @@
 
 namespace App\Components\Twitter;
 
-use App\Events\Packagist\TotalsFetched;
-use App\Events\RainForecast\MentionedOnTwitter;
-use App\Services\Twitter\TwitterStream;
-use GuzzleHttp\Client;
+use App\Events\Twitter\Mentioned;
 use Illuminate\Console\Command;
 use Spatie\LaravelTwitterStreamingApi\TwitterStreamingApi;
-use Spatie\Packagist\Packagist;
 
 class ListenForMentions extends Command
 {
@@ -41,7 +37,9 @@ class ListenForMentions extends Command
                 $twitterUsername = $tweet['user']['screen_name'];
                 $tweetText =  $tweet['text'];
 
-                event(new MentionedOnTwitter($twitterUsername, $tweetText));
+                dump("Mentioned by {$twitterUsername}, {$tweetText}");
+
+                event(new Mentioned($twitterUsername, $tweetText));
             })
             ->startListening();
     }
