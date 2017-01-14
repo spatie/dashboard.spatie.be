@@ -7,15 +7,15 @@ use App\Events\DashboardEvent;
 class MentionedOnTwitter extends DashboardEvent
 {
     /** @var string */
-    public $tweet;
+    public $twitterUsername;
 
     /** @var string */
-    public $author;
+    public $tweetText;
 
-    public function __construct(string $tweet, string $author)
+    public function __construct(string $twitterUsername, string $tweetText)
     {
-        $this->tweet = $tweet;
+        $this->twitterUsername = $twitterUsername;
 
-        $this->author = $author;
+        $this->tweetText = $tweetText;
     }
 }

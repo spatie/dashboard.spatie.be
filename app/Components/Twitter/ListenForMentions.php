@@ -7,6 +7,7 @@ use App\Events\RainForecast\MentionedOnTwitter;
 use App\Services\Twitter\TwitterStream;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
+use Spatie\LaravelTwitterStreamingApi\TwitterStreamingApi;
 use Spatie\Packagist\Packagist;
 
 class ListenForMentions extends Command
@@ -34,9 +35,13 @@ class ListenForMentions extends Command
     {
         $this->info('Listening for tweets...');
 
-        app(TwitterStream::class)
+        app(TwitterStreamingApi::class)
+            ->publicStream()
             ->whenHears('@spatie_be', function ($tweet) {
-                event(new MentionedOnTwitter('tweet', 'author'));
+                $twitterUsername = $tweet['user']['screen_name'];
+                $tweetText =  $tweet['text'];
+
+                event(new MentionedOnTwitter($twitterUsername, $tweetText));
             })
             ->startListening();
     }

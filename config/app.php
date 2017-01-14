@@ -175,6 +175,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         App\Providers\CollectionServiceProvider::class,
         Spatie\BladeJavaScript\BladeJavaScriptServiceProvider::class,
+        Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiServiceProvider::class,
     ],
 
     /*
@@ -223,6 +224,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'GoogleCalendar' => Spatie\GoogleCalendar\GoogleCalendarFacade::class,
         'GitHub' => GrahamCampbell\GitHub\Facades\GitHub::class,
+        'TwitterStreamingApi' => Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiFacade::class,
     ],
 
 ];
