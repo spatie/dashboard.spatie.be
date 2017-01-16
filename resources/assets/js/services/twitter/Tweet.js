@@ -1,3 +1,6 @@
+import _ from 'lodash';
+import moment from 'moment';
+
 export default class {
 
     constructor(tweetProperties) {
@@ -5,7 +8,7 @@ export default class {
     }
 
     authorScreenName() {
-        return this.tweetProperties['name'];
+        return this.tweetProperties['user']['screen_name'];
     }
 
     authorName() {
@@ -17,6 +20,10 @@ export default class {
     }
 
     image() {
-        return this.tweetProperties['extended_properties']['media'][0]['media_url_https'];
+        return _.get(this.tweetProperties, 'extended_entities.media[0].media_url_https', '');
+    }
+
+    date() {
+        return moment(this.tweetProperties['created_at'], 'dd MMM DD HH:mm:ss ZZ YYYY');
     }
 }
