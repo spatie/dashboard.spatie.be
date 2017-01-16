@@ -32,5 +32,5 @@ export function relativeDate(value) {
 }
 
 export function diffInSeconds(moment) {
-    return date.diff(moment(), 'seconds')
+    return moment.diff(moment(), 'seconds')
 }
