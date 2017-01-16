@@ -6,16 +6,10 @@ use App\Events\DashboardEvent;
 
 class Mentioned extends DashboardEvent
 {
-    /** @var string */
-    public $twitterUsername;
+    public $tweetProperties;
 
-    /** @var string */
-    public $tweetText;
-
-    public function __construct(string $twitterUsername, string $tweetText)
+    public function __construct(array $tweetProperties)
     {
-        $this->twitterUsername = $twitterUsername;
-
-        $this->tweetText = $tweetText;
+        $this->tweetProperties = $tweetProperties;
     }
 }

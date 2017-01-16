@@ -25,6 +25,9 @@
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.2",
     "node-sass": "^3.10.1",
-    "webpack": "^2.1.0-beta.25"
+    "webpack": "^2.1.0-beta.25",
+    "jest": "^18.1.0",
+    "babel-preset-es2015": "^6.18.0",
+    "chai": "^3.5.0"
   }
 }
