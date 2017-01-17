@@ -1,5 +1,5 @@
 <template>
-    <grid :position="grid" modifiers="padded">
+    <grid :position="grid" modifiers="padded transparent">
         <section :class="addClassModifiers('rain-forecast', status)">
             <h1 class="rain-forecast__title rain-forecast__title--rainy" v-if="status == 'rainy'">30' FORECAST</h1>
             <h1 class="rain-forecast__title rain-forecast__title--rainy" v-if="status == 'wet'">STAY INSIDE</h1>
