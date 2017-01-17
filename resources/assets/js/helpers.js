@@ -30,3 +30,7 @@ export function relativeDate(value) {
 
     return upperFirst(date.fromNow());
 }
+
+export function diffInSeconds(moment) {
+    return moment.diff(moment(), 'seconds')
+}

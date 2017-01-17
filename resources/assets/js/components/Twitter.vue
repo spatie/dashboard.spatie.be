@@ -85,7 +85,9 @@
     import echo from '../mixins/echo';
     import Grid from './Grid';
     import saveState from 'vue-save-state';
-    import {addClassModifiers} from '../helpers';
+    import Tweet from '../services/twitter/Tweet';
+    import moment from 'moment';
+    import {diffInSeconds, addClassModifiers} from '../helpers';
 
     export default {
 
@@ -99,9 +101,14 @@
 
         data() {
             return {
-                twitterUsername: '',
-                tweetText: '',
+                onDisplay: null,
+                displayingSince: new moment(),
+                waitingLine: []
             };
+        },
+
+        created() {
+            setInterval(this.processWaitingLine, 1000);
         },
 
         methods: {
@@ -110,10 +117,30 @@
             getEventHandlers() {
                 return {
                     'Twitter.Mentioned': response => {
-                        this.twitterUsername = response.twitterUsername;
-                        this.tweetText = response.tweetText;
+                        this.addToWaitingLine(new Tweet(response.tweetProperties))
                     },
                 };
+            },
+
+            addToWaitingLine(tweet) {
+                this.waitingLine.push(tweet)
+            },
+
+            processWaitingLine() {
+                if (this.waitingLine.length === 0) {
+                    return;
+                }
+
+                if (diffInSeconds(this.displayingSince) < 30) {
+                    return;
+                }
+
+                this.displayNextInWaitingLine();
+            },
+
+            displayNextInWaitingLine() {
+                this.onDisplay = this.waitingLine.shift();
+                this.displayingSince = new moment();
             },
 
             getSaveStateConfig() {
