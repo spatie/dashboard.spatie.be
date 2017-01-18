@@ -1,0 +1,99 @@
+.tweet {
+    margin-bottom: setting($grid, cell-padding);
+    padding: setting($grid, cell-padding);
+
+    color: $white;
+    background-color: color($blue, light, .35);
+    border-radius: .25vw;
+}
+
+.tweet__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: setting($grid, cell-padding);
+}
+
+.tweet__user {
+    min-width: 0; // needed for ellipsis in flex context
+}
+
+.tweet__user__handle {
+    @include ellipsis;
+
+    color: color($blue, lighter);
+
+    font-size: setting($font-size, xxs);
+}
+
+.tweet__user__name {
+    @include font-sans-bold;
+    @include ellipsis;
+
+    font-size: setting($font-size, xxs);
+}
+
+.tweet__avatar {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 2.5vw;
+    height: 2.5vw;
+    margin-right: .5vw;
+    overflow: hidden;
+
+    background-color: $white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1.25vw;
+    box-shadow: 0 1px 10px rgba($black, .25);
+}
+
+.tweet__body {
+    @include mod(small) {
+        font-size: setting($font-size, xxs);
+    }
+    @include mod(default) {
+        font-size: setting($font-size, s);
+    }
+    @include mod(medium) {
+        font-size: setting($font-size, default);
+    }
+    @include mod(large) {
+        font-size: setting($font-size, m);
+    }
+}
+
+.tweet__body__handle {
+    @include font-sans-black;
+}
+
+.tweet__body__hashtag {
+    color: color($blue, lighter);
+}
+
+.tweet__attachment {
+    margin-top: setting($grid, cell-padding);
+    overflow: hidden;
+
+    opacity: .75;
+
+    text-align: center;
+
+    img {
+        max-width: 100%;
+        max-height: 15vh;
+        vertical-align: middle;
+
+        border-radius: .25vw;
+        box-shadow: 0 1px 10px rgba($black, .25);
+    }
+}
+
+.tweet__meta {
+    margin-top: .5vw;
+
+    color: color($blue, lighter);
+
+    font-size: setting($font-size, xxs);
+}
