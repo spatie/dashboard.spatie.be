@@ -33,7 +33,7 @@ class ListenForMentions extends Command
 
         app(TwitterStreamingApi::class)
             ->publicStream()
-            ->whenHears('@jarenduren', function (array $tweetProperties) {
+            ->whenHears('@spatie_be', function (array $tweetProperties) {
                 echo json_encode($tweetProperties);
                 event(new Mentioned($tweetProperties));
             })
