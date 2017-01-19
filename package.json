@@ -9,6 +9,7 @@
     "chart.js": "^2.1.4",
     "laravel-echo": "^1.0.1",
     "lodash": "^4.17.4",
+    "mockdate": "^2.0.1",
     "moment": "^2.13.0",
     "pusher-js": "^3.2.1",
     "vue": "^2.0.1",

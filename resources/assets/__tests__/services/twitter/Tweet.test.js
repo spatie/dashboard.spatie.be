@@ -40,6 +40,6 @@ describe('Mention', () => {
     });
 
     it('can determine the display class of a tweet', () => {
-        assert.equal(tweet.displayClass, 'default')
+        assert.equal(tweet.displayClass, 'small')
     });
 });
