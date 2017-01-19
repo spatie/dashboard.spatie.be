@@ -32,7 +32,7 @@ class FetchCurrentTrack extends Command
     {
         $lastFm = new NowPlaying(config('services.last-fm.api_key'));
 
-        foreach (config('last-fm.users') as $userName) {
+        foreach (config('services.last-fm.users') as $userName) {
             $currentTrack = $lastFm->getTrackInfo($userName);
 
             if ($currentTrack) {
