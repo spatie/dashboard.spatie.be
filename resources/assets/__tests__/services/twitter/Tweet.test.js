@@ -21,6 +21,10 @@ describe('Mention', () => {
         assert.equal(tweet.authorName(), 'Freek Van der Herten');
     });
 
+    it('can get the text of a tweet', () => {
+        assert.equal(tweet.text(), '@jarenduren testtweet');
+    });
+
     it('can get the avatar of the author', () => {
         assert.equal(tweet.authorAvatar(), 'https://pbs.twimg.com/profile_images/613846262383652864/3UKkvJFq_normal.jpg');
     });
@@ -32,5 +36,9 @@ describe('Mention', () => {
 
     it('can get the date of a tweet', () => {
         assert.equal(tweet.date().format('YYYY-MM-DD'), '2017-01-16')
+    });
+
+    it('can determine the display class of a tweet', () => {
+        assert.equal(tweet.displayClass(), 'default')
     });
 });

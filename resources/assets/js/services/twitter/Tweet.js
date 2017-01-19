@@ -26,4 +26,13 @@ export default class {
     date() {
         return moment(this.tweetProperties['created_at'], 'dd MMM DD HH:mm:ss ZZ YYYY');
     }
+
+    text() {
+        return this.tweetProperties['text'];
+    }
+
+    displayClass() {
+        return 'default'; //medium, small
+
+    }
 }
