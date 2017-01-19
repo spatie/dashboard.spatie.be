@@ -8,15 +8,15 @@
                     <span class="packagist-statistics__count">{{ formatNumber(stars) }}</span>
                 </li>
                 <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">Today</h2>
+                    <h2 class="packagist-statistics__period">24 hours</h2>
                     <span class="packagist-statistics__count">{{ formatNumber(daily) }}</span>
                 </li>
                 <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">This month</h2>
+                    <h2 class="packagist-statistics__period">30 days</h2>
                     <span class="packagist-statistics__count">{{ formatNumber(monthly) }}</span>
                 </li>
                 <li class="packagist-statistic -total">
-                    <h2 class="packagist-statistics__period">Total Downloads</h2>
+                    <h2 class="packagist-statistics__period">Total</h2>
                     <span class="packagist-statistics__count">{{ formatNumber(total) }}</span>
                 </li>
             </ul>

@@ -19,6 +19,8 @@ class Kernel extends ConsoleKernel
         \App\Components\Packagist\FetchTotals::class,
         \App\Components\InternetConnectionStatus\SendHeartbeat::class,
         \App\Components\RainForecast\FetchRainForecast::class,
+        \App\Components\Twitter\ListenForMentions::class,
+        SendFakeTweet::class
     ];
 
     /**

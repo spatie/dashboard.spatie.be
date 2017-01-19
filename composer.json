@@ -9,18 +9,20 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
-        "spatie/laravel-tail": "^1.1",
-        "spatie/last-fm-now-playing": "^1.0",
-        "spatie/laravel-google-calendar": "^1.0",
-        "graham-campbell/github": "^4.3",
         "barryvdh/laravel-ide-helper": "^2.1",
-        "league/commonmark": "^0.13.2",
-        "pusher/pusher-php-server": "^2.3",
-        "spatie/packagist-api": "^1.0",
-        "pda/pheanstalk": "^3.1",
+        "fennb/phirehose": "^1.0",
+        "graham-campbell/github": "^4.3",
         "guzzlehttp/guzzle": "^6.2",
-        "spatie/laravel-blade-javascript": "^1.0"
+        "laravel/framework": "5.3.*",
+        "league/commonmark": "^0.13.2",
+        "pda/pheanstalk": "^3.1",
+        "pusher/pusher-php-server": "^2.3",
+        "spatie/laravel-blade-javascript": "^1.0",
+        "spatie/laravel-google-calendar": "^1.0",
+        "spatie/laravel-tail": "^1.1",
+        "spatie/laravel-twitter-streaming-api": "^0.0.2",
+        "spatie/last-fm-now-playing": "^1.0",
+        "spatie/packagist-api": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -31,7 +33,8 @@
     },
     "autoload": {
         "classmap": [
-            "database"
+            "database",
+            "vendor/fennb/phirehose/lib"
         ],
         "psr-4": {
             "App\\": "app/"
