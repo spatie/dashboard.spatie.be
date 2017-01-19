@@ -47,8 +47,5 @@ export default class {
         }
 
         return 'default'
-
-
-        return 'default'; //medium, small
     }
 }
