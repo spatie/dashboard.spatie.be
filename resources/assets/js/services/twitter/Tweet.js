@@ -39,13 +39,13 @@ export default class {
 
     get displayClass() {
         if (this.text.length < 40) {
-            return 'small'
+            return 'default'
         }
 
         if (this.text.length < 140) {
             return 'medium'
         }
 
-        return 'default'
+        return 'small'
     }
 }
