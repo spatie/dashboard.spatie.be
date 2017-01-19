@@ -64,7 +64,6 @@ export default {
         },
 
         getSaveStateConfig() {
-            console.log('foo');
             return {
                 cacheKey: 'packagist-statistics',
             };
