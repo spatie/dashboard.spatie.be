@@ -2,8 +2,7 @@
     <grid :position="grid" modifiers="overflow transparent">
         <section class="tweets">
 
-            <!-- <div>user: {{ twitterUsername }}  tweet: {{ tweetText }}</div> -->
-            <div class="tweet" v-for="tweet in onDisplay">
+            <div class="tweet" v-for="tweet in onDisplayTweets">
                 <div class="tweet__header">
                     <div class="tweet__avatar"
                          :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
@@ -39,6 +38,7 @@
     import Tweet from '../services/twitter/Tweet';
     import moment from 'moment';
     import {diffInSeconds, addClassModifiers} from '../helpers';
+    import { map } from 'lodash';
 
     export default {
 
@@ -47,7 +47,7 @@
             RelativeDate,
         },
 
-        mixins: [echo],
+        mixins: [echo, saveState],
 
         props: ['grid'],
 
@@ -63,13 +63,19 @@
             setInterval(this.processWaitingLine, 1000);
         },
 
+        computed: {
+            onDisplayTweets() {
+                return this.onDisplay.map(tweetProperties => new Tweet(tweetProperties));
+            }
+        },
+
         methods: {
             addClassModifiers,
 
             getEventHandlers() {
                 return {
                     'Twitter.Mentioned': response => {
-                        this.addToWaitingLine(new Tweet(response.tweetProperties))
+                        this.addToWaitingLine(response.tweetProperties)
                     },
                 };
             },

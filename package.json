@@ -14,7 +14,7 @@
     "pusher-js": "^3.2.1",
     "vue": "^2.0.1",
     "vue-resource": "^1.0.3",
-    "vue-save-state": "^1.0.1"
+    "vue-save-state": "^1.1.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",

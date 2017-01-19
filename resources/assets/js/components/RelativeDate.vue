@@ -19,13 +19,12 @@
         },
 
         created() {
-            this.refreshRelativeDateTime
+            this.refreshRelativeDateTime();
             setInterval(this.refreshRelativeDateTime, 1000);
         },
 
         methods: {
             refreshRelativeDateTime() {
-                console.table([`${moment().diff(this.moment, 'seconds')} seconds ago`,  relativeDateTime(this.moment)]);
                 this.relativeDateTime = relativeDateTime(this.moment)
             },
         },
