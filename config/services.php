@@ -14,6 +14,15 @@ return [
     |
     */
 
+    'last-fm' => [
+        'api_key' => env('LAST_FM_API_KEY'),
+        'users' => explode(',', env('LAST_FM_USERS'))
+    ],
+
+    'packagist' => [
+        'vendor' => env('PACKAGIST_VENDOR'),
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
