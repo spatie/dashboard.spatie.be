@@ -9,7 +9,6 @@ $deploymentId = 'Deployment of ' . $siteName . ':' . $pathOnServer . ' by ' . ge
 
 @task('display start message', ['on' => 'localhost'])
 echo 'start deploying on {{ $server }}. Path: {{ $pathOnServer }}'
-php artisan slack "{{ $deploymentId }} starting"
 @endtask
 
 @task('checkout master branch', ['on' => 'localhost'])
@@ -61,7 +60,6 @@ sudo supervisorctl restart all
 
 @task('display success message', ['on' => 'localhost'])
 echo "application successfully deployed"
-php artisan slack "{{ $deploymentId }} :thumbsup: application successfully deployed"
 @endtask
 
 @task('restart pi', ['on' => 'localhost'])
@@ -92,3 +90,4 @@ deployOnlyCode
 reload php
 restart pi
 @endmacro
+
