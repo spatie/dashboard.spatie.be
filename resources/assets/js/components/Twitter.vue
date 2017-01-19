@@ -17,13 +17,14 @@
                     </div>
                 </div>
                 <div :class="addClassModifiers('tweet__body', tweet.displayClass)">
-                    {{ tweet.text }} <span class="tweet__body__hashtag">#topic</span>
+                    {{ tweet.text }}
                 </div>
                 <div class="tweet__meta">
-                    2 minutes ago
+                    <relative-date :moment="tweet.date"></relative-date>
                 </div>
-                <div class="tweet__attachment">
-                    <img src="http://placehold.it/800x600">
+
+                <div v-if="tweet.image" class="tweet__attachment">
+                    <img :src="tweet.image" />
                 </div>
             </div>
         </section>

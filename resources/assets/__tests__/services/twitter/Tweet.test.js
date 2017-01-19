@@ -23,6 +23,7 @@ describe('Mention', () => {
 
     it('can get the text of a tweet', () => {
         assert.equal(tweet.text, '@jarenduren testtweet');
+        assert.equal(tweetWithImage.text, '@jarenduren tweet with image');
     });
 
     it('can get the avatar of the author', () => {

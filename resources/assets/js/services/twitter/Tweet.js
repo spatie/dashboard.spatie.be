@@ -28,7 +28,13 @@ export default class {
     }
 
     get text() {
-        return this.tweetProperties['text'];
+        let text = this.tweetProperties['text'];
+
+        if (this.tweetProperties.hasOwnProperty('display_text_range')) {
+            text = text.substr(...this.tweetProperties['display_text_range']);
+        }
+
+        return text;
     }
 
     get displayClass() {
