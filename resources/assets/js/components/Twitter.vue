@@ -34,6 +34,7 @@
 <script>
     import echo from '../mixins/echo';
     import Grid from './Grid';
+    import RelativeDate from './RelativeDate';
     import saveState from 'vue-save-state';
     import Tweet from '../services/twitter/Tweet';
     import moment from 'moment';
@@ -43,6 +44,7 @@
 
         components: {
             Grid,
+            RelativeDate,
         },
 
         mixins: [echo],

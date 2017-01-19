@@ -11,7 +11,6 @@ import LastFm from './components/LastFm';
 import PackagistStatistics from './components/PackagistStatistics';
 import RainForecast from './components/RainForecast';
 import Twitter from './components/Twitter';
-import RelativeDate from './components/RelativeDate'
 
 new Vue({
 
@@ -26,7 +25,6 @@ new Vue({
         PackagistStatistics,
         RainForecast,
         Twitter,
-        RelativeDate
     },
 
     created() {
