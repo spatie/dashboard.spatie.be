@@ -15,7 +15,7 @@ describe('relativeDateTime', () => {
         assert.equal('Just now', relativeDateTime(moment().subtract(10, 'seconds')));
 
         assert.equal('11 seconds ago', relativeDateTime(moment().subtract(11, 'seconds')));
-        /*
+
         assert.equal('59 seconds ago', relativeDateTime(moment().subtract(59, 'seconds')));
 
         assert.equal('A minute ago', relativeDateTime(moment().subtract(60, 'seconds')));
@@ -35,8 +35,6 @@ describe('relativeDateTime', () => {
         assert.equal('5 days ago', relativeDateTime(moment().subtract(5, 'day')));
 
         assert.equal('A long long time ago', relativeDateTime(moment().subtract(6, 'day')));
-        */
-
     });
 
 
