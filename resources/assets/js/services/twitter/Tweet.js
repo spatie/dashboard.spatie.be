@@ -34,6 +34,12 @@ export default class {
             text = text.substr(...this.tweetProperties['display_text_range']);
         }
 
+        let mediaUrls = _.get(this.tweetProperties, 'extended_entities.media', []).map(media => media.url)
+
+        for (let i = 0; i < mediaUrls.length; i++) {
+            text = text.replace(mediaUrls[0], '');
+        }
+
         return text;
     }
 
