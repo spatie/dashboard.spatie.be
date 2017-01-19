@@ -7,32 +7,31 @@ export default class {
         this.tweetProperties = tweetProperties;
     }
 
-    authorScreenName() {
+    get authorScreenName() {
         return this.tweetProperties['user']['screen_name'];
     }
 
-    authorName() {
+    get authorName() {
         return this.tweetProperties['user']['name'];
     }
 
-    authorAvatar() {
+    get authorAvatar() {
         return this.tweetProperties['user']['profile_image_url_https'];
     }
 
-    image() {
+    get image() {
         return _.get(this.tweetProperties, 'extended_entities.media[0].media_url_https', '');
     }
 
-    date() {
+    get date() {
         return moment(this.tweetProperties['created_at'], 'dd MMM DD HH:mm:ss ZZ YYYY');
     }
 
-    text() {
+    get text() {
         return this.tweetProperties['text'];
     }
 
-    displayClass() {
+    get displayClass() {
         return 'default'; //medium, small
-
     }
 }

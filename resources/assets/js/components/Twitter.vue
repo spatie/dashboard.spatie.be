@@ -6,19 +6,18 @@
             <div class="tweet" v-for="tweet in onDisplay">
                 <div class="tweet__header">
                     <div class="tweet__avatar"
-                         style="background-image: url(https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=512)"></div>
+                         :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
                     <div class="tweet__user">
                         <div class="tweet__user__name">
-                            {{ tweet.screenName }}
+                            {{ tweet.authorName }}
                         </div>
                         <div class="tweet__user__handle">
-                            @averylongusernamethatneedscutoff
+                            {{ tweet.authorScreenName }}
                         </div>
                     </div>
                 </div>
-                <div :class="addClassModifiers('tweet__body', 'medium')">
-                    <span class="tweet__body__handle">@username</span> Donec mi nibh, consectetur sit amet suscipit
-                    vitae, fringilla quis orci <span class="tweet__body__hashtag">#topic</span>
+                <div :class="addClassModifiers('tweet__body', tweet.displayClass)">
+                    {{ tweet.text }} <span class="tweet__body__hashtag">#topic</span>
                 </div>
                 <div class="tweet__meta">
                     2 minutes ago
@@ -45,15 +44,15 @@
             Grid,
         },
 
-        mixins: [echo, saveState],
+        mixins: [echo],
 
         props: ['grid'],
 
         data() {
             return {
                 displayingTopTweetSince: new moment(),
-                onDisplay: []
-                waitingLine: []
+                onDisplay: [],
+                waitingLine: [],
             };
         },
 
@@ -81,15 +80,15 @@
                     return;
                 }
 
-                if (diffInSeconds(this.displayingSince) < 30) {
+                if (diffInSeconds(this.displayingTopTweetSince) < 5) {
                     return;
                 }
 
                 this.onDisplay.unshift(this.waitingLine.shift());
 
-                this.displayNextInWaitingLine();
-
                 this.onDisplay = this.onDisplay.slice(0,5);
+
+                this.displayingTopTweetSince = new moment();
             },
 
             getSaveStateConfig() {
