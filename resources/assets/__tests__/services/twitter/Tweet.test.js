@@ -14,7 +14,7 @@ describe('Mention', () => {
     });
 
     it('can get the author screen name', () => {
-        assert.equal(tweet.authorScreenName, 'freekmurze');
+        assert.equal(tweet.authorScreenName, '@freekmurze');
     });
 
     it('can get the author name', () => {

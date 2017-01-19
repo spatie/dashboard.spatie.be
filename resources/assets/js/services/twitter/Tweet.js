@@ -8,7 +8,7 @@ export default class {
     }
 
     get authorScreenName() {
-        return this.tweetProperties['user']['screen_name'];
+        return '@'+this.tweetProperties['user']['screen_name'];
     }
 
     get authorName() {
