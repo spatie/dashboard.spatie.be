@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcc062e9459bdd5c927e7827bf104935",
+    "content-hash": "8ce7c1180bc1ae2913f5eb26b45754d7",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1971,16 +1971,16 @@
         },
         {
             "name": "spatie/laravel-tail",
-            "version": "1.1.3",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-tail.git",
-                "reference": "87834f3caf783cd599d3d0792c489c3aa4e7f8d7"
+                "reference": "f4365ed5d0724948cbaf9e740bac0664b45b814b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-tail/zipball/87834f3caf783cd599d3d0792c489c3aa4e7f8d7",
-                "reference": "87834f3caf783cd599d3d0792c489c3aa4e7f8d7",
+                "url": "https://api.github.com/repos/spatie/laravel-tail/zipball/f4365ed5d0724948cbaf9e740bac0664b45b814b",
+                "reference": "f4365ed5d0724948cbaf9e740bac0664b45b814b",
                 "shasum": ""
             },
             "require": {
@@ -2014,7 +2014,7 @@
                 "log",
                 "tail"
             ],
-            "time": "2016-11-26T09:44:08+00:00"
+            "time": "2017-01-20T08:25:12+00:00"
         },
         {
             "name": "spatie/laravel-twitter-streaming-api",
@@ -2215,6 +2215,59 @@
                 "twitter-streaming-api"
             ],
             "time": "2017-01-12T22:30:47+00:00"
+        },
+        {
+            "name": "spatie/valuestore",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/valuestore.git",
+                "reference": "c7ba4dd59456f6264c57ce3c0cf985158b756d43"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/valuestore/zipball/c7ba4dd59456f6264c57ce3c0cf985158b756d43",
+                "reference": "c7ba4dd59456f6264c57ce3c0cf985158b756d43",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Valuestore\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Jolita Grazyte",
+                    "email": "jolita@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easily store some values",
+            "homepage": "https://github.com/spatie/valuestore",
+            "keywords": [
+                "json",
+                "spatie",
+                "valuestore"
+            ],
+            "time": "2017-01-20T10:02:53+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
