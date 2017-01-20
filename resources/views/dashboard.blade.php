@@ -5,26 +5,17 @@
     @javascript(compact('pusherKey'))
 
     <div class="dashboard" id="dashboard">
-
-
-            <google-calendar grid="a1:a2"></google-calendar>
-
-            <last-fm grid="b1:c1"></last-fm>
-
-            <current-time grid="d1" dateformat="ddd DD/MM"></current-time>
-
-            <packagist-statistics grid="d2"></packagist-statistics>
-
-            <rain-forecast grid="b2"></rain-forecast>
-
-            <internet-connection grid="c2"></internet-connection>
-
-            <github-file file-name="freek" grid="d3"></github-file>
-            <github-file file-name="rogier" grid="a3"></github-file>
-            <github-file file-name="seb" grid="b3"></github-file>
-            <github-file file-name="willem" grid="c3"></github-file>
-
-        <twitter grid="e1:e3"></twitter>
+        <twitter grid="a1:a3"></twitter>
+        <google-calendar grid="b1:b2"></google-calendar>
+        <rain-forecast grid="b3"></rain-forecast>
+        <github-file file-name="freek" grid="c1"></github-file>
+        <github-file file-name="seb" grid="d1"></github-file>
+        <github-file file-name="rogier" grid="c2"></github-file>
+        <github-file file-name="willem" grid="d2"></github-file>
+        <internet-connection grid="c3"></internet-connection>
+        <last-fm grid="d3:e3"></last-fm>
+        <current-time grid="e1" dateformat="ddd DD/MM"></current-time>
+        <packagist-statistics grid="e2"></packagist-statistics>
     </div>
 
 @endsection
