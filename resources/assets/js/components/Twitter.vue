@@ -18,9 +18,10 @@
                         </div>
                     </div>
                 </div>
-                <div :class="addClassModifiers('tweet__body', tweet.displayClass)">
-                    {{ tweet.text }}
-                </div>
+                <div
+                    :class="addClassModifiers('tweet__body', tweet.displayClass)"
+                    v-html="tweet.html"
+                ></div>
                 <div class="tweet__meta">
                     <relative-date :moment="tweet.date"></relative-date>
                 </div>
