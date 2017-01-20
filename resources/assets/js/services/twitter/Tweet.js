@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { get } from 'lodash';
 import moment from 'moment';
 
 export default class {
@@ -8,7 +8,7 @@ export default class {
     }
 
     get authorScreenName() {
-        return '@'+this.tweetProperties['user']['screen_name'];
+        return '@' + this.tweetProperties['user']['screen_name'];
     }
 
     get authorName() {
@@ -20,7 +20,7 @@ export default class {
     }
 
     get image() {
-        return _.get(this.tweetProperties, 'extended_entities.media[0].media_url_https', '');
+        return get(this.tweetProperties, 'extended_entities.media[0].media_url_https', '');
     }
 
     get date() {
@@ -34,24 +34,30 @@ export default class {
             text = text.substr(...this.tweetProperties['display_text_range']);
         }
 
-        let mediaUrls = _.get(this.tweetProperties, 'extended_entities.media', []).map(media => media.url)
-
-        for (let i = 0; i < mediaUrls.length; i++) {
-            text = text.replace(mediaUrls[0], '');
-        }
+        text = get(this.tweetProperties, 'extended_entities.media', [])
+            .map(media => media.url)
+            .reduce((text, mediaUrl) => text.replace(mediaUrl, ''), text);
 
         return text;
     }
 
+    get html() {
+        return this.text.replace(
+            // http://stackoverflow.com/a/38383605/999733
+            /(#\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g, 
+            '<span class="tweet__body__hashtag">$1</span>'
+        );
+    }
+
     get displayClass() {
         if (this.text.length < 40) {
-            return 'default'
+            return 'default';
         }
 
         if (this.text.length < 140) {
-            return 'medium'
+            return 'medium';
         }
 
-        return 'small'
+        return 'small';
     }
 }
