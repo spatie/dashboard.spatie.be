@@ -62,10 +62,6 @@ export function relativeDateTime(value) {
         return 'A minute ago';
     }
 
-    if (moment().diff(date, 'seconds') > 10) {
-        return `${moment().diff(date, 'seconds')} seconds ago`;
-    }
-
     return 'Just now';
 }
 
