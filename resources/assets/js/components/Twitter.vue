@@ -2,7 +2,7 @@
     <grid :position="grid" modifiers="overflow transparent">
         <section class="tweets">
 
-            <div class="tweets__icon" v-if="!onDisplayTweets.length">
+            <div class="tweets__icon" v-if="!onDisplay.length">
             </div>
 
             <div class="tweet" v-for="tweet in onDisplay">
