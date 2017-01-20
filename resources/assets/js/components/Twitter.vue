@@ -5,7 +5,7 @@
             <div class="tweets__icon" v-if="!onDisplayTweets.length">
             </div>
 
-            <div class="tweet" v-for="tweet in onDisplayTweets">
+            <div class="tweet" v-for="tweet in onDisplay">
                 <div class="tweet__header">
                     <div class="tweet__avatar"
                          :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
@@ -38,7 +38,6 @@
     import echo from '../mixins/echo';
     import Grid from './Grid';
     import RelativeDate from './RelativeDate';
-    import saveState from 'vue-save-state';
     import Tweet from '../services/twitter/Tweet';
     import moment from 'moment';
     import {diffInSeconds, addClassModifiers} from '../helpers';
@@ -51,9 +50,9 @@
             RelativeDate,
         },
 
-        mixins: [echo, saveState],
+        mixins: [echo],
 
-        props: ['grid'],
+        props: ['grid', 'initialTweets'],
 
         data() {
             return {
@@ -64,13 +63,9 @@
         },
 
         created() {
-            setInterval(this.processWaitingLine, 1000);
-        },
+            this.onDisplay = JSON.parse(this.initialTweets).map(tweetProperties => new Tweet(tweetProperties));
 
-        computed: {
-            onDisplayTweets() {
-                return this.onDisplay.map(tweetProperties => new Tweet(tweetProperties));
-            }
+            setInterval(this.processWaitingLine, 1000);
         },
 
         methods: {
@@ -79,7 +74,7 @@
             getEventHandlers() {
                 return {
                     'Twitter.Mentioned': response => {
-                        this.addToWaitingLine(response.tweetProperties)
+                        this.addToWaitingLine(new Tweet(response.tweetProperties))
                     },
                 };
             },
@@ -99,7 +94,7 @@
 
                 this.onDisplay.unshift(this.waitingLine.shift());
 
-                this.onDisplay = this.onDisplay.slice(0,5);
+                this.onDisplay = this.onDisplay.slice(0,10);
 
                 this.displayingTopTweetSince = new moment();
             },
