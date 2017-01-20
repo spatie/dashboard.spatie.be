@@ -1,3 +1,7 @@
+.tweets__icon {
+    @include background-icon('/svg/twitter.svg');
+}
+
 .tweet {
     margin-bottom: setting($grid, cell-padding);
     padding: setting($grid, cell-padding);
