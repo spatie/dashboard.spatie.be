@@ -50,12 +50,16 @@ export default class {
     }
 
     get displayClass() {
-        if (this.text.length < 40) {
-            return 'default';
+        if (this.text.length < 30) {
+            return 'large';
         }
 
-        if (this.text.length < 140) {
+        if (this.text.length < 60) {
             return 'medium';
+        }
+
+        if (this.text.length < 100) {
+            return 'default';
         }
 
         return 'small';
