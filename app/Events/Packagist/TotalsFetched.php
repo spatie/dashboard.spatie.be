@@ -14,7 +14,7 @@ class TotalsFetched extends DashboardEvent
 
     public $stars;
 
-    public function __construct($totals)
+    public function __construct(array $totals)
     {
         foreach ($totals as $sumName => $total) {
             $this->$sumName = $total;
