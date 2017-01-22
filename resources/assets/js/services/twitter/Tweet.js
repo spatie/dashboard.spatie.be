@@ -42,10 +42,13 @@ export default class {
     }
 
     get html() {
+        // http://stackoverflow.com/a/38383605/999733
         return this.text.replace(
-            // http://stackoverflow.com/a/38383605/999733
-            /(#\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g, 
+            /(#\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g,
             '<span class="tweet__body__hashtag">$1</span>'
+        ).replace(
+            /(@\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g,
+            '<span class="tweet__body__handle">$1</span>'
         );
     }
 
