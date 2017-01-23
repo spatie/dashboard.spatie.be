@@ -43,10 +43,8 @@ export default class {
     }
 
     get html() {
-        let text = twemoji.parse(this.text);
-
         // http://stackoverflow.com/a/38383605/999733
-        return text.replace(
+        return twemoji.parse(this.text).replace(
             /(#\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g,
             '<span class="tweet__body__hashtag">$1</span>'
         ).replace(
