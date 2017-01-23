@@ -12,6 +12,7 @@
     "mockdate": "^2.0.1",
     "moment": "^2.13.0",
     "pusher-js": "^3.2.1",
+    "twemoji": "^2.2.0",
     "vue": "^2.0.1",
     "vue-resource": "^1.0.3",
     "vue-save-state": "^1.1.0"
