@@ -13,7 +13,7 @@
         "fennb/phirehose": "^1.0",
         "graham-campbell/github": "^4.3",
         "guzzlehttp/guzzle": "^6.2",
-        "laravel/framework": "5.3.*",
+        "laravel/framework": "5.4.*",
         "league/commonmark": "^0.13.2",
         "pda/pheanstalk": "^3.1",
         "pusher/pusher-php-server": "^2.3",
