@@ -23,14 +23,13 @@
         "spatie/laravel-twitter-streaming-api": "^0.0.2",
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/packagist-api": "^1.0",
-        "spatie/valuestore": "^1.1"
+        "spatie/valuestore": "^1.1",
+        "laravel/tinker": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
-        "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
+        "phpunit/phpunit": "~5.0"
     },
     "autoload": {
         "classmap": [
@@ -38,7 +37,8 @@
             "vendor/fennb/phirehose/lib"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Tests\\": "tests/"
         },
         "files": [
             "app/helpers.php"
