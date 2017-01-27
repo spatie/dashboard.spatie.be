@@ -8,6 +8,7 @@ This repo contains the source code of https://dashboard.spatie.be
 
 Our configured dashboard has following tiles:
 
+- Twitter stream with all tweets mentioning [@spatie_be](https://twitter.com/spatie_be)
 - Team calendar via [Google Calendar](https://google.com/calendar)
 - Music currently playing via [Last.fm](https://last.fm)
 - Clock/date
