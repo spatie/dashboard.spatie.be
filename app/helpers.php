@@ -11,5 +11,5 @@ function markdownToHtml(string $markdown)
 
 function usingNodeServer(): bool
 {
-    return config('broadcasting.connections.pusher.options.host') !== null;
+    return config('broadcasting.default') === 'laravel-echo-server';
 }
