@@ -22,13 +22,19 @@ export function addClassModifiers(base, modifiers = []) {
 export function relativeDate(value) {
     const date = moment(value);
 
-    const diffInDays = moment().diff(date, 'days');
-
-    if (diffInDays < 7) {
-        return date.calendar();
+    if (moment().isSame(date, 'd')) {
+        return "Today";
     }
 
-    return upperFirst(date.fromNow());
+    if (moment().add(1, 'day').isSame(date, 'd')) {
+        return "Tomorrow";
+    }
+
+    return 'In ' + date.toNow(true);
+}
+
+function isToday(date) {
+    return moment().isSame(date, 'd');
 }
 
 export function relativeDateTime(value) {
