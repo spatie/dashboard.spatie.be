@@ -28,9 +28,19 @@ new Vue({
     },
 
     created() {
-        this.echo = new Echo({
+
+        let options = {
             broadcaster: 'pusher',
             key: window.dashboard.pusherKey,
-        });
+        };
+
+        if (window.dashboard.usingNodeServer) {
+            options = {
+                broadcaster: 'socket.io',
+                host: 'http://dashboard.spatie.be:6001',
+            };
+        }
+
+        this.echo = new Echo(options);
     },
 });

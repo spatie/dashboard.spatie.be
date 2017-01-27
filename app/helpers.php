@@ -8,3 +8,8 @@ function markdownToHtml(string $markdown)
 
     return $converter->convertToHtml($markdown);
 }
+
+function usingNodeServer(): bool
+{
+    return config('broadcasting.connections.pusher.options.host') !== null;
+}

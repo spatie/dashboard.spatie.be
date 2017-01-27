@@ -1,0 +1,24 @@
+{
+	"authHost": "https://dashboard.spatie.be",
+	"authEndpoint": "/broadcasting/auth",
+	"clients": [
+		{
+			"appId": "",
+			"key": ""
+		}
+	],
+	"database": "sqlite",
+	"databaseConfig": {
+		"redis": {},
+		"sqlite": {
+			"databasePath": "/database/laravel-echo-server.sqlite"
+		}
+	},
+	"devMode": false,
+	"host": "dashboard.spatie.be",
+	"port": "6001",
+	"protocol": "https",
+	"socketio": {},
+	"sslCertPath": "",
+	"sslKeyPath": ""
+}

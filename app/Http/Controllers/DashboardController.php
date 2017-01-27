@@ -12,6 +12,8 @@ class DashboardController extends Controller
 
         $initialTweets = (new TweetHistory())->getTweets();
 
-        return view('dashboard')->with(compact('pusherKey', 'initialTweets'));
+        $usingNodeServer = usingNodeServer();
+
+        return view('dashboard')->with(compact('pusherKey', 'initialTweets', 'usingNodeServer'));
     }
 }
