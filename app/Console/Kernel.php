@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
         \App\Components\InternetConnectionStatus\SendHeartbeat::class,
         \App\Components\RainForecast\FetchRainForecast::class,
         \App\Components\Twitter\ListenForMentions::class,
+        \App\Components\Relic\FetchNewRelicServerList::class,
         SendFakeTweet::class
     ];
 
