@@ -37,5 +37,6 @@ class Kernel extends ConsoleKernel
         $schedule->command(\App\Components\InternetConnectionStatus\SendHeartbeat::class)->everyMinute();
         $schedule->command(\App\Components\Packagist\FetchTotals::class)->hourly();
         $schedule->command(\App\Components\RainForecast\FetchRainForecast::class)->everyMinute();
+        $schedule->command(\App\Components\Relic\FetchNewRelicServerList::class)->everyMinute();
     }
 }
