@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @javascript(compact('pusherKey', 'usingNodeServer'))
+    @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 
     <div class="dashboard" id="dashboard">
         <twitter initial-tweets="{{ json_encode($initialTweets) }}" grid="a1:a3"></twitter>
