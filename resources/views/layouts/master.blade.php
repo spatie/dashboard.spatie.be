@@ -4,7 +4,7 @@
     <title>Laravel Dashboard</title>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,900' rel='stylesheet'
           type='text/css'>
-    <link href="{{ elixir("css/app.css") }}" rel="stylesheet"/>
+    <link href="{{ mix("css/app.css") }}" rel="stylesheet"/>
     <meta name="google" value="notranslate">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
@@ -16,7 +16,7 @@
         <script src="{{ config('app.url') }}:6001/socket.io/socket.io.js"></script>
     @endif
 
-    <script src="{{ elixir("js/app.js") }}"></script>
-    
+    <script src="{{ mix("js/app.js") }}"></script>
+
 </body>
 </html>
