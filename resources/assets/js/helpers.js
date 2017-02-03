@@ -23,11 +23,11 @@ export function relativeDate(value) {
     const date = moment(value);
 
     if (moment().isSame(date, 'd')) {
-        return "Today";
+        return 'Today';
     }
 
     if (moment().add(1, 'day').isSame(date, 'd')) {
-        return "Tomorrow";
+        return 'Tomorrow';
     }
 
     return 'In ' + date.toNow(true);
@@ -49,7 +49,7 @@ export function relativeDateTime(value) {
     }
 
     if (moment().diff(date, 'hours') >= 24) {
-        return "A day ago"
+        return 'A day ago';
     }
 
     if (moment().diff(date, 'hours') > 1) {
@@ -72,5 +72,5 @@ export function relativeDateTime(value) {
 }
 
 export function diffInSeconds(otherMoment) {
-    return moment().diff(otherMoment, 'seconds')
+    return moment().diff(otherMoment, 'seconds');
 }
