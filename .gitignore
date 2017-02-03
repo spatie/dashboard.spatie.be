@@ -16,6 +16,4 @@ _ide_helper*.php
 /public/js
 /public/doc/sass
 /public/media
-
-# REMOVE THIS LINE IN PROJECTS
-/resources/assets/js/back/redactor
+/public/mix-manifest.json
