@@ -27,47 +27,69 @@ export default {
     },
 
     mounted() {
-        const data = {
-            labels: this.labels,
-            datasets: [
-                {
-                    data: this.values,
-                    lineTension: 0.4,
-                    borderColor: this.lineColor,
-                    backgroundColor: this.backgroundColor,
-                    borderWidth: 2,
-                    pointRadius: 0,
+        this.renderChart();
+
+        this.$watch('labels', this.updateChart);
+        this.$watch('values', this.updateChart);
+    },
+
+    data() {
+        return {
+            options: {
+                scales: {
+                    xAxes: [{
+                        display: false,
+                        ticks: {
+                            maxTicksLimit: 6,
+                        },
+                    }],
+                    yAxes: [{
+                        display: false,
+                        ticks: {
+                            beginAtZero: true,
+                            suggestedMax: 100,
+                        },
+                    }],
                 },
-            ],
-        };
-
-        const options = {
-            scales: {
-                xAxes: [{
-                    display: false,
-                    ticks: {
-                        maxTicksLimit: 6,
-                    },
-                }],
-                yAxes: [{
-                    display: false,
-                    ticks: {
-                        beginAtZero: true,
-                        suggestedMax: 100,
-                    },
-                }],
+                responsive: true,
+                maintainAspectRatio: false,
             },
-            responsive: true,
-            maintainAspectRatio: false,
         };
+    },
 
-        new Chart(
-            this.$el.getContext('2d'), {
-                type: 'line',
-                data,
-                options,
-            }
-        );
+    computed: {
+        dataset() {
+            return {
+                data: this.values,
+                lineTension: 0.4,
+                borderColor: this.lineColor,
+                backgroundColor: this.backgroundColor,
+                borderWidth: 2,
+                pointRadius: 0,
+            };
+        },
+    },
+
+    methods: {
+        renderChart() {
+            this.chart = new Chart(
+                this.$el.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: this.labels,
+                        datasets: [this.dataset],
+                    },
+                    options: this.options,
+                }
+            );
+        },
+
+        updateChart() {
+            this.chart.data.labels = this.labels;
+            this.chart.data.datasets[0] = this.dataset;
+
+            this.chart.update();
+        },
     },
 };
 </script>
