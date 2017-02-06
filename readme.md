@@ -22,8 +22,7 @@ Our configured dashboard has following tiles:
 Install this package by running cloning this repository and install like you normally install Laravel.
 
 - Run `composer install` and `npm install yarn`
-- Run `yarn` and copy webpack config `cp ./node_modules/laravel-mix/setup/webpack.config.js ./`
-- Run `webpack` to generate assets
+- Run `yarn` and `yarn run dev` to generate assets
 - Copy .env.example to .env and fill your values (`php artisan key:generate`, database, pusher values etc)
 - Run `php artisan migrate --seed`, this will seed a user based on your `BASIC_AUTH` `.env` values
 - Start you queue listener and setup the Laravel scheduler.
