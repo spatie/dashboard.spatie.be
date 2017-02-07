@@ -7,6 +7,8 @@
 .current-time__time {
     @include font-sans-light;
 
+    display: block;
+
     font-size: setting($font-size, l);
     letter-spacing: .05em;
     line-height: 1;
@@ -14,6 +16,8 @@
 
 .current-time__date {
     @include font-sans-bold;
+
+    display: block;
 
     color: color($red);
 

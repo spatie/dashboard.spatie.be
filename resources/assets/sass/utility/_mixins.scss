@@ -14,7 +14,7 @@
     background-image: url($url);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: #{(100/setting($grid, cols) - 15)}vw;
+    background-size: #{(100/setting($grid, cols))*.5}vw;
     opacity: .2;
 }
 
@@ -24,7 +24,7 @@
     background-image: url($url);
     background-position: center;
     background-repeat: repeat;
-    background-size: #{(100/setting($grid, cols) - 15)}vw;
+    background-size: #{(100/setting($grid, cols))*.5}vw;
     opacity: .2;
 }
 

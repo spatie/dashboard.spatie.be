@@ -3,11 +3,11 @@
 }
 
 .tweet {
+    @include tile-color(color($gray, darker));
+
     margin-bottom: setting($grid, cell-padding);
     padding: setting($grid, cell-padding);
 
-    color: $white;
-    background-color: color($blue, light, .35);
     border-radius: .25vw;
 }
 
@@ -24,7 +24,7 @@
 .tweet__user__handle {
     @include ellipsis;
 
-    color: color($blue, lighter);
+    color: color($gray, light);
 
     font-size: setting($font-size, xxs);
 }
@@ -73,7 +73,7 @@
 }
 
 .tweet__body__hashtag {
-    color: color($blue, lighter);
+    color: color($gray, light);
 }
 
 .tweet__attachment {
@@ -97,7 +97,7 @@
 .tweet__meta {
     margin-top: .5vw;
 
-    color: color($blue, lighter);
+    color: color($gray, light);
 
     font-size: setting($font-size, xxs);
 }
