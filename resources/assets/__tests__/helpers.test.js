@@ -28,7 +28,8 @@ describe('relativeDateTime', () => {
     it('it can describe how far a date is in the future', () => {
         assert.equal('Today', relativeDate(moment()));
         assert.equal('Tomorrow', relativeDate(moment().add(1, 'day')));
-        assert.equal('In 3 days', relativeDate(moment().add(3, 'days')));
+        assert.equal('Next ' + moment().add(2, 'days').format('dddd'), relativeDate(moment().add(2, 'days')));
+        assert.equal('Next ' + moment().add(7, 'days').format('dddd'), relativeDate(moment().add(7, 'days')));
         assert.equal('In 10 days', relativeDate(moment().add(10, 'days')));
         assert.equal('In a month', relativeDate(moment().add(30, 'days')));
         assert.equal('In 3 months', relativeDate(moment().add(80, 'days')));
