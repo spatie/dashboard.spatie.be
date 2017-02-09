@@ -37,5 +37,15 @@ class ListenForMentions extends Command
                 event(new Mentioned($tweetProperties));
             })
             ->startListening();
+
+        app(TwitterStreamingApi::class)
+            ->userStream()
+            ->onEvent(function(array $event) {
+                if (isset($event['event']) && $event['event'] === 'quoted_tweet') {
+                    dump($event);
+                    event(new Mentioned($event['target_object']));
+                }
+            })
+            ->startListening();
     }
 }
