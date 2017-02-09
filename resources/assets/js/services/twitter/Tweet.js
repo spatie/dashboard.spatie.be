@@ -2,10 +2,14 @@ import { get } from 'lodash';
 import moment from 'moment';
 import twemoji from 'twemoji';
 
-export default class {
+class Tweet {
 
     constructor(tweetProperties) {
         this.tweetProperties = tweetProperties;
+
+        if (this.hasQuote) {
+            this.quotedTweet = new Tweet(this.tweetProperties.quoted_status);
+        }
     }
 
     get authorScreenName() {
@@ -26,6 +30,14 @@ export default class {
 
     get date() {
         return moment(this.tweetProperties['created_at'], 'dd MMM DD HH:mm:ss ZZ YYYY');
+    }
+
+    get hasQuote() {
+        return this.tweetProperties['is_quote_status'];
+    }
+
+    get quote() {
+        return this.quotedTweet || null;
     }
 
     get text() {
@@ -69,3 +81,5 @@ export default class {
         return 'small';
     }
 }
+
+export default Tweet;
