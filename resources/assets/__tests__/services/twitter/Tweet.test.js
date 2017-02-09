@@ -2,15 +2,18 @@ import { assert } from 'chai';
 import Tweet from '../../../js/services/twitter/Tweet';
 import tweetProperties from './fixtures/tweetText';
 import tweetWithImageProperties from './fixtures/tweetWithImage';
+import tweetWithQuoteProperties from './fixtures/tweetWithQuote';
 
 let tweet;
 let tweetWithImage;
+let tweetWithQuote;
 
 describe('Mention', () => {
 
     beforeEach(() => {
         tweet = new Tweet(tweetProperties);
         tweetWithImage = new Tweet(tweetWithImageProperties);
+        tweetWithQuote = new Tweet(tweetWithQuoteProperties);
     });
 
     it('can get the author screen name', () => {
@@ -45,5 +48,15 @@ describe('Mention', () => {
 
     it('can determine the display class of a tweet', () => {
         assert.equal(tweet.displayClass, 'large');
+    });
+
+    it('can determine whether a tweet has a quote', () => {
+        assert.isFalse(tweet.hasQuote);
+        assert.isTrue(tweetWithQuote.hasQuote);
+    });
+
+    it('can get the quoted tweet', () => {
+        assert.isNull(tweet.quote);
+        assert.instanceOf(tweetWithQuote.quote, Tweet);
     });
 });
