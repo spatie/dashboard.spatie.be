@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import { get, last } from 'lodash';
 import moment from 'moment';
 import twemoji from 'twemoji';
 
@@ -50,6 +50,10 @@ class Tweet {
         text = get(this.tweetProperties, 'extended_entities.media', [])
             .map(media => media.url)
             .reduce((text, mediaUrl) => text.replace(mediaUrl, ''), text);
+
+        if (this.hasQuote) {
+            text = text.replace(last(this.tweetProperties.entities.urls).url, '');
+        }
 
         return text;
     }
