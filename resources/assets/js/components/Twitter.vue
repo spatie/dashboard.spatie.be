@@ -29,6 +29,23 @@
                 <div v-if="tweet.image" class="tweet__attachment">
                     <img :src="tweet.image" />
                 </div>
+
+                <div v-if="tweet.hasQuote" class="tweet--quoted">
+                    <div class="tweet__header">
+                        <div class="tweet__user">
+                            <div class="tweet__user__name">
+                                {{ tweet.quote.authorName }}
+                            </div>
+                            <div class="tweet__user__handle">
+                                {{ tweet.quote.authorScreenName }}
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="tweet__body tweet__body--small"
+                        v-html="tweet.quote.html"
+                    ></div>
+                </div>
             </div>
         </section>
     </grid>
