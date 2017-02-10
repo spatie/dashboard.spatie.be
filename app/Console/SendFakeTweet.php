@@ -2,11 +2,9 @@
 
 namespace App\Console;
 
-use App\Events\GitHub\FileContentFetched;
-use App\Events\Twitter\Mentioned;
 use Carbon\Carbon;
-use GitHub;
 use Illuminate\Console\Command;
+use App\Events\Twitter\Mentioned;
 use Illuminate\Foundation\Inspiring;
 
 class SendFakeTweet extends Command
@@ -16,14 +14,14 @@ class SendFakeTweet extends Command
      *
      * @var string
      */
-    protected $signature = 'dashboard:fake-tweet {text?} {--Q|quote=}';
+    protected $signature = 'dashboard:fake-tweet {text?} {--Q|quote : Attach a quote to the tweet}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Send a fake tweet.';
+    protected $description = 'Send a fake tweet (optionally with a quote).';
 
     /**
      * Execute the console command.
@@ -33,7 +31,7 @@ class SendFakeTweet extends Command
     public function handle()
     {
         $text = $this->argument('text') ?? Inspiring::quote();
-        $quote = $this->option('quote') ?? '';
+        $quote = $this->option('quote') ? Inspiring::quote() : '';
         event(new Mentioned($this->getFakeTweetProperties($text, $quote)));
     }
 
