@@ -5,7 +5,7 @@
             <div class="tweets__icon" v-if="!onDisplay.length">
             </div>
 
-            <div class="tweet" v-for="tweet in onDisplay">
+            <div class="tweet" v-for="tweet in onDisplay" v-if="tweet.authorScreenName != ownScreenName">
                 <div class="tweet__header">
                     <div class="tweet__avatar"
                          :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
@@ -76,6 +76,7 @@
                 displayingTopTweetSince: new moment(),
                 onDisplay: [],
                 waitingLine: [],
+                ownScreenName: '@spatie_be'
             };
         },
 
