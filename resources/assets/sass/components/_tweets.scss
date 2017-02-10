@@ -11,6 +11,15 @@
     border-radius: .25vw;
 }
 
+.tweet--quoted {
+    @include tile-color(color($gray, dark, .5));
+
+    margin-top: setting($grid, cell-padding);
+    padding: setting($grid, cell-padding);
+
+    border-radius: .25vw;
+}
+
 .tweet__header {
     display: flex;
     align-items: center;

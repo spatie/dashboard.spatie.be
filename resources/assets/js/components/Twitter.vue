@@ -30,7 +30,7 @@
                     <img :src="tweet.image" />
                 </div>
 
-                <div v-if="tweet.hasQuote" class="tweet_quote">
+                <div v-if="tweet.hasQuote" class="tweet--quoted">
                     <div class="tweet__header">
                         <div class="tweet__user">
                             <div class="tweet__user__name">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div
-                        class="tweet__body small"
+                        class="tweet__body tweet__body--small"
                         v-html="tweet.quote.html"
                     ></div>
                 </div>
