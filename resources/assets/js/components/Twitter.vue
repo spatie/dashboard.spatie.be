@@ -73,7 +73,7 @@
 
         data() {
             return {
-                displayingTopTweetSince: new moment(),
+                displayingTopTweetSince: moment(),
                 tweets: [],
                 waitingLine: [],
                 ownScreenName: '@spatie_be'
@@ -114,7 +114,7 @@
 
                 this.tweets = this.tweets.slice(0,20);
 
-                this.displayingTopTweetSince = new moment();
+                this.displayingTopTweetSince = moment();
             },
 
             getSaveStateConfig() {
