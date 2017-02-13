@@ -26,7 +26,7 @@ class TweetHistory
 
         array_unshift($tweets, $tweetProperties);
 
-        $tweets = array_slice($tweets, 0, 10);
+        $tweets = array_slice($tweets, 0, 20);
 
         $this->valuestore->put('tweets', $tweets);
     }

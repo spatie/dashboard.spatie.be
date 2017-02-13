@@ -112,7 +112,7 @@
 
                 this.tweets.unshift(this.waitingLine.shift());
 
-                this.tweets = this.tweets.slice(0,10);
+                this.tweets = this.tweets.slice(0,20);
 
                 this.displayingTopTweetSince = new moment();
             },
