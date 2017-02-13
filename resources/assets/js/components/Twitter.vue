@@ -5,7 +5,7 @@
             <div class="tweets__icon" v-if="!onDisplay.length">
             </div>
 
-            <div class="tweet" v-for="tweet in onDisplay" v-if="tweet.authorScreenName != ownScreenName">
+            <div class="tweet" v-for="tweet in onDisplay">
                 <div class="tweet__header">
                     <div class="tweet__avatar"
                          :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
@@ -74,14 +74,14 @@
         data() {
             return {
                 displayingTopTweetSince: new moment(),
-                onDisplay: [],
+                tweets: [],
                 waitingLine: [],
                 ownScreenName: '@spatie_be'
             };
         },
 
         created() {
-            this.onDisplay = JSON.parse(this.initialTweets).map(tweetProperties => new Tweet(tweetProperties));
+            this.tweets = JSON.parse(this.initialTweets).map(tweetProperties => new Tweet(tweetProperties));
 
             setInterval(this.processWaitingLine, 1000);
         },
@@ -110,9 +110,9 @@
                     return;
                 }
 
-                this.onDisplay.unshift(this.waitingLine.shift());
+                this.tweets.unshift(this.waitingLine.shift());
 
-                this.onDisplay = this.onDisplay.slice(0,10);
+                this.tweets = this.tweets.slice(0,10);
 
                 this.displayingTopTweetSince = new moment();
             },
@@ -122,6 +122,17 @@
                     cacheKey: `twitter`,
                 };
             },
+        },
+
+        computed: {
+            onDisplay() {
+                return this.tweets.filter((tweet) => {
+                    return (
+                        (tweet.authorScreenName != this.ownScreenName)
+                        && (! tweet.isRetweet)
+                    );
+                });
+            }
         },
     };
 </script>
