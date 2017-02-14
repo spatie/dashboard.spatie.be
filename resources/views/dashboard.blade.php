@@ -5,7 +5,7 @@
     @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 
     <div class="dashboard" id="dashboard">
-        <twitter initial-tweets="{{ json_encode($initialTweets) }}" grid="a1:a3"></twitter>
+        <twitter :initial-tweets="{{ json_encode($initialTweets) }}" grid="a1:a3"></twitter>
         <google-calendar grid="b1:b2"></google-calendar>
         <rain-forecast grid="b3"></rain-forecast>
         <github-file file-name="freek" grid="c1"></github-file>

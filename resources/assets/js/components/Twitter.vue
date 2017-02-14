@@ -81,7 +81,7 @@
         },
 
         created() {
-            this.tweets = JSON.parse(this.initialTweets).map(tweetProperties => new Tweet(tweetProperties));
+            this.tweets = this.initialTweets.map(tweetProperties => new Tweet(tweetProperties));
 
             setInterval(this.processWaitingLine, 1000);
         },
