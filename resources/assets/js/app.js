@@ -11,6 +11,7 @@ import LastFm from './components/LastFm';
 import PackagistStatistics from './components/PackagistStatistics';
 import RainForecast from './components/RainForecast';
 import Twitter from './components/Twitter';
+import NewRelicServer from './components/NewRelicServer';
 
 new Vue({
 
@@ -25,6 +26,7 @@ new Vue({
         PackagistStatistics,
         RainForecast,
         Twitter,
+        NewRelicServer,
     },
 
     created() {

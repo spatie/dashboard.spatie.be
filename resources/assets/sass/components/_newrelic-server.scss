@@ -1,0 +1,42 @@
+.new-relic__title {
+    color: color($gray, light);
+    opacity: 1;
+    font-size: setting($font-size, m);
+    text-transform: uppercase;
+}
+
+.new-relic__servers {
+    color: $white;
+    font-size: setting($font-size, s);
+}
+
+.new-relic__server {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.new-relic__server__title {
+    @include font-sans-bold;
+}
+
+.new-relic__server__data {
+    color: color($gray, light);
+    font-size: setting($font-size, xs);
+}
+
+.new-relic__server__status {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+
+    &.green {
+        background-color: darkgreen; //color($green, darker);
+    }
+    &.yellow {
+        background-color: color($yellow);
+    }
+    &.red {
+        background-color: color($red);
+    }
+}
