@@ -32,6 +32,10 @@ class Tweet {
         return moment(this.tweetProperties['created_at'], 'dd MMM DD HH:mm:ss ZZ YYYY');
     }
 
+    get isRetweet() {
+        return this.tweetProperties.hasOwnProperty('retweeted_status');
+    }
+
     get hasQuote() {
         return this.tweetProperties['is_quote_status'];
     }
