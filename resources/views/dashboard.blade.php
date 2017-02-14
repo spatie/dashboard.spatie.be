@@ -12,7 +12,8 @@
         <github-file file-name="seb" grid="d1"></github-file>
         <github-file file-name="rogier" grid="c2"></github-file>
         <github-file file-name="willem" grid="d2"></github-file>
-        <internet-connection grid="c3"></internet-connection>
+        {{--<internet-connection grid="c3"></internet-connection>--}}
+        <uptime-monitor grid="c3"></uptime-monitor>
         <last-fm grid="d3:e3"></last-fm>
         <current-time grid="e1" dateformat="ddd DD/MM"></current-time>
         <packagist-statistics grid="e2"></packagist-statistics>

@@ -7,6 +7,7 @@ import CurrentTime from './components/CurrentTime';
 import GithubFile from './components/GithubFile';
 import GoogleCalendar from './components/GoogleCalendar';
 import InternetConnection from './components/InternetConnection';
+import UptimeMonitor from './components/UptimeMonitor';
 import LastFm from './components/LastFm';
 import PackagistStatistics from './components/PackagistStatistics';
 import RainForecast from './components/RainForecast';
@@ -21,6 +22,7 @@ new Vue({
         GithubFile,
         GoogleCalendar,
         InternetConnection,
+        UptimeMonitor,
         LastFm,
         PackagistStatistics,
         RainForecast,
