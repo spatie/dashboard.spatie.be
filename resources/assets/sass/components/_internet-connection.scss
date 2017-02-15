@@ -1,16 +1,40 @@
 .internet-connection {
-    @include mod('down') {
-        background-color: color($red);
+    display: flex;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
 
-        .internet-connection__icon {
-            @include background-icon('/svg/internet--down.svg');
-        }
-    }
-    @include mod('up') {
-        background-color: color($green, darker);
+    background-color: rgba($black, .25);
 
-        .internet-connection__icon {
-            @include background-icon('/svg/internet--up.svg');
-        }
-    }
+    justify-content: space-around;
+}
+
+.internet-connection__alert {
+    display: flex;
+    align-items: center;
+    padding: .75em 1.5em;
+
+    background-color: color($red, default, .95);
+    border-radius: 1em 1em 0 0;
+    box-shadow: 0 0 100px rgba($black, .15);
+
+    font-size: setting($font-size, m);
+
+    justify-content: space-around ;
+}
+
+.internet-connection__icon {
+    @include icon('/svg/internet--down.svg');
+
+    font-size: setting($font-size, l);
+}
+
+.internet-connection__text {
+    padding-left: .5em;
+
+    color: color($red, lightest);
 }

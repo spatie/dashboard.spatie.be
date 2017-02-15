@@ -1,31 +1,24 @@
 <template>
-    <grid :position="grid">
-        <section :class="addClassModifiers('internet-connection', online ? 'up': 'down')">
-            <div class="internet-connection__icon">
-            </div>
-        </section>
-    </grid>
+    <section v-if="offline" class="internet-connection">
+        <div class="internet-connection__alert">
+            <span class="internet-connection__icon"></span>
+            <span class="internet-connection__text">Internet connection</span>
+        </div>
+    </section>
 </template>
 
 <script>
 import echo from '../mixins/echo';
-import Grid from './Grid';
 import { addClassModifiers } from '../helpers';
 import moment from 'moment';
 
 export default {
 
-    components: {
-        Grid,
-    },
-
     mixins: [echo],
-
-    props: ['grid'],
 
     data() {
         return {
-            online: true,
+            offline: false,
             lastHeartBeatReceivedAt: moment(),
         };
     },
@@ -40,7 +33,7 @@ export default {
         determineConnectionStatus() {
             const lastHeartBeatReceivedSecondsAgo = moment().diff(this.lastHeartBeatReceivedAt, 'seconds');
 
-            this.online = lastHeartBeatReceivedSecondsAgo < 125;
+            this.offline = lastHeartBeatReceivedSecondsAgo > 125;
         },
 
         getEventHandlers() {
