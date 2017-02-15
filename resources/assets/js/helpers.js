@@ -1,5 +1,6 @@
 import { upperFirst } from 'lodash';
 import moment from 'moment';
+import duration from 'moment-duration-format';
 
 export function formatNumber(value) {
     if (! value) {
@@ -17,6 +18,10 @@ export function addClassModifiers(base, modifiers = []) {
     modifiers = modifiers.map(modifier => `${base}--${modifier}`);
 
     return [base, ...modifiers];
+}
+
+export function formatDuration(start) {
+    return moment.duration(moment().diff(start), 'milliseconds').format("d[d] h[h] m[m]");
 }
 
 export function relativeDate(value) {
