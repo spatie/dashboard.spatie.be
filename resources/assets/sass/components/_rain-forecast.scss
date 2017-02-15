@@ -3,19 +3,30 @@
         .rain-forecast__background {
             @include background-icon('/svg/forecast--dry.svg');
         }
+
+        .rain-forecast__title {
+            color: color($gray, dark);
+            text-align: center;
+            font-size: setting($font-size, xs);
+        }
     }
     @include mod(wet) {
+
+        background-color: color($blue, default, .85);
+
         .rain-forecast__background {
             @include background-pattern('/svg/forecast--wet.svg');
         }
     }
     @include mod(rainy) {
+
+        background-color: color($blue, default, .85);
+
         .rain-forecast__background {
             @include background-pattern('/svg/forecast--rainy.svg');
         }
     }
 
-    background-color: color($blue, light, .35);
 }
 
 .rain-forecast__background {

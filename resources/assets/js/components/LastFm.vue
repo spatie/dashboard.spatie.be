@@ -2,7 +2,7 @@
     <grid :position="grid" modifiers="transparent">
         <section :class="addClassModifiers('last-fm', currentlyPlaying ? 'playing' : 'stopped')">
             <div class="last-fm__content" v-if="currentlyPlaying">
-                <div class="last-fm__cover" v-if="hasCover" v-bind:style="{ backgroundImage: 'url(' + artwork + ')' }">
+                <div :class="addClassModifiers('last-fm__cover', !hasCover ? 'empty' : '')" v-bind:style="{ backgroundImage: 'url(' + cover + ')' }">
                 </div>
                 <div class="last-fm__text">
                     <div class="last-fm__artist">
@@ -16,8 +16,9 @@
                     </span>
                 </div>
             </div>
-            <div class="last-fm__empty" v-else></div>
-            <div class="last-fm__background" v-if="hasCover" v-bind:style="{ backgroundImage: 'url(' + artwork + ')' }"></div>
+            <div class="last-fm__background" v-if="currentlyPlaying" v-bind:style="{ backgroundImage: 'url(' + cover + ')' }"></div>
+
+            <div class="last-fm__icon" v-if="!currentlyPlaying"></div>
         </section>
     </grid>
 </template>
@@ -54,6 +55,9 @@ export default {
         hasCover() {
             return !! this.artwork;
         },
+        cover() {
+            return this.artwork || '/images/last-fm__cover.jpg';
+        }
     },
 
     methods: {

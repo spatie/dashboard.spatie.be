@@ -4,7 +4,7 @@
     z-index: 1;
 }
 
-.last-fm__empty {
+.last-fm__icon {
     @include background-icon('/svg/music.svg');
 }
 
@@ -21,7 +21,6 @@
     opacity: .3;
 
     filter: blur(25px);
-    mix-blend-mode: lighten;
 
     @at-root {
         @keyframes ken-burns {
@@ -58,10 +57,13 @@
     margin: setting($grid, cell-padding);
     padding-bottom: 25%;
 
+    background-color: rgba($white, .1);
     background-position: center;
     background-size: cover;
     border-radius: .25vw;
     box-shadow: 0 1px 10px rgba($black, .25);
+
+
 }
 
 .last-fm__text {
