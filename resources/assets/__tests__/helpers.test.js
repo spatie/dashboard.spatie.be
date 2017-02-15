@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import { relativeDateTime, relativeDate } from '../js/helpers'
+import { relativeDateTime, relativeDate, formatDuration } from '../js/helpers'
 import moment from 'moment';
 import MockDate from 'mockdate';
 
@@ -8,6 +8,23 @@ describe('relativeDateTime', () => {
     beforeEach(() => {
         MockDate.set('1/1/2016');
     });
+
+    it('it can describe the duration since a certain time', () => {
+        assert.equal('0m', formatDuration(moment()));
+        assert.equal('0m', formatDuration(moment().subtract(10, 'seconds')));
+        assert.equal('0m', formatDuration(moment().subtract(11, 'seconds')));
+        assert.equal('0m', formatDuration(moment().subtract(59, 'seconds')));
+        assert.equal('1m', formatDuration(moment().subtract(60, 'seconds')));
+        assert.equal('1m', formatDuration(moment().subtract(119, 'seconds')));
+        assert.equal('2m', formatDuration(moment().subtract(120, 'seconds')));
+        assert.equal('1h 0m', formatDuration(moment().subtract(1, 'hour')));
+        assert.equal('1h 15m', formatDuration(moment().subtract(1, 'hour').subtract(15, 'minutes')));
+        assert.equal('2h 0m', formatDuration(moment().subtract(2, 'hour')));
+        assert.equal('1d 0h 0m', formatDuration(moment().subtract(1, 'day')));
+        assert.equal('1d 2h 30m', formatDuration(moment().subtract(1, 'day').subtract(2, 'hours').subtract(30, 'minutes')));
+        assert.equal('2d 0h 0m', formatDuration(moment().subtract(2, 'day')));
+    });
+
 
     it('it can describe how long a date time is in the past', () => {
         assert.equal('Just now', relativeDateTime(moment()));
