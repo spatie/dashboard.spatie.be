@@ -5,13 +5,15 @@
         }
 
         .rain-forecast__title {
-            color: color($gray, dark);
-            text-align: center;
+            color: color($gray);
+
             font-size: setting($font-size, xs);
+            text-align: center;
+            background-color: color($gray, darker);
+            border-radius: .25vw;
         }
     }
     @include mod(wet) {
-
         background-color: color($blue, default, .85);
 
         .rain-forecast__background {
@@ -19,14 +21,12 @@
         }
     }
     @include mod(rainy) {
-
         background-color: color($blue, default, .85);
 
         .rain-forecast__background {
             @include background-pattern('/svg/forecast--rainy.svg');
         }
     }
-
 }
 
 .rain-forecast__background {
