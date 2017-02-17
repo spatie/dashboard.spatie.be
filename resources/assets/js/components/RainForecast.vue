@@ -9,7 +9,7 @@
                 <graph
                   :labels="graphLabels"
                   :values="graphData"
-                  line-color="rgba(19,134,158, .5)"
+                  line-color="rgba(19,134,158, .75)"
                   background-color="rgba(19,134,158, .25)"
                 ></graph>
             </div>
@@ -37,6 +37,9 @@ export default {
 
     computed: {
         status() {
+
+            return 'rainy';
+
             if (this.noRainPredicted === true) {
                 return 'dry';
             }
