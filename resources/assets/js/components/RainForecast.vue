@@ -38,8 +38,6 @@ export default {
     computed: {
         status() {
 
-            return 'rainy';
-
             if (this.noRainPredicted === true) {
                 return 'dry';
             }
