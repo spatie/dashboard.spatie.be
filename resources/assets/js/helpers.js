@@ -36,7 +36,7 @@ export function relativeDate(value) {
     }
 
     if (date.isBetween(moment().add(1, 'day'), moment().add(8, 'days'), 'day')) {
-        return 'Next ' + date.format('dddd');
+        return date.format('dddd');
     }
 
     return 'In ' + date.toNow(true);
