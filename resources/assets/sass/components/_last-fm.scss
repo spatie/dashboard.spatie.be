@@ -5,7 +5,7 @@
 }
 
 .last-fm__icon {
-    @include background-icon('/svg/music.svg');
+    @include background-icon('../svg/music.svg');
 }
 
 .last-fm__background {
@@ -94,7 +94,7 @@
     white-space: nowrap;
 
     &:before {
-        @include icon('/svg/music.svg');
+        @include icon('../svg/music.svg');
 
         margin-right: .25em;
     }

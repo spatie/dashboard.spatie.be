@@ -5,7 +5,7 @@
         }
 
         .uptime-monitor__background {
-            @include background-icon('/svg/uptime-monitor.svg');
+            @include background-icon('../svg/uptime-monitor.svg');
 
             position: absolute;
             bottom: 0;
