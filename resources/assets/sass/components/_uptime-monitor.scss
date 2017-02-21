@@ -36,11 +36,12 @@
 }
 
 .uptime-monitor__notifications {
-    font-size: setting($font-size, s);
+    font-size: setting($font-size, xs);
 }
 
 .uptime-monitor__notification {
     padding-bottom: 1.5vh;
+    border-color: color($yellow, dark, .5);
 }
 
 .uptime-monitor__notification__title {
@@ -51,5 +52,6 @@
 }
 
 .uptime-monitor__notification__time {
-    color: $white;
+    font-size: setting($font-size, s);
+    color: $black;
 }

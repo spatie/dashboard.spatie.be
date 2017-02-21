@@ -40,7 +40,7 @@
 
         data() {
             return {
-                failingUrls: [],
+                failingUrls: [{url:'italic.be'}],
             };
         },
 
