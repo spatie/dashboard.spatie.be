@@ -2006,6 +2006,12 @@ file-loader@^0.9.0:
   dependencies:
     loader-utils "~0.2.5"
 
+file-loader@0.10.0:
+  version "0.10.0"
+  resolved "https://npm.spatie.be/file-loader/-/file-loader-0.10.0.tgz#bbe6db7474ac92c7f54fdc197cf547e98b6b8e12"
+  dependencies:
+    loader-utils "~0.2.5"
+
 filename-regex@^2.0.0:
   version "2.0.0"
   resolved "https://npm.spatie.be/filename-regex/-/filename-regex-2.0.0.tgz#996e3e80479b98b9897f15a8a58b3d084e926775"
@@ -3182,7 +3188,7 @@ loader-runner@^2.3.0:
   version "2.3.0"
   resolved "https://npm.spatie.be/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
 
-loader-utils@^0.2.10, loader-utils@^0.2.11, loader-utils@^0.2.15, loader-utils@^0.2.16, loader-utils@^0.2.5, loader-utils@^0.2.7, loader-utils@~0.2.2, loader-utils@~0.2.5:
+loader-utils@^0.2.10, loader-utils@^0.2.11, loader-utils@^0.2.15, loader-utils@^0.2.16, loader-utils@^0.2.5, loader-utils@^0.2.7, loader-utils@~0.2.2, loader-utils@~0.2.5, loader-utils@0.2.16:
   version "0.2.16"
   resolved "https://npm.spatie.be/loader-utils/-/loader-utils-0.2.16.tgz#f08632066ed8282835dff88dfb52704765adee6d"
   dependencies:
@@ -4978,6 +4984,13 @@ supports-color@^3.1.0, supports-color@^3.1.1, supports-color@^3.1.2, supports-co
   resolved "https://npm.spatie.be/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:
     has-flag "^1.0.0"
+
+svg-url-loader:
+  version "2.0.2"
+  resolved "https://npm.spatie.be/svg-url-loader/-/svg-url-loader-2.0.2.tgz#079b4764b4bc12eed9d01b6d76d98e234246194f"
+  dependencies:
+    file-loader "0.10.0"
+    loader-utils "0.2.16"
 
 svgo@^0.7.0:
   version "0.7.2"

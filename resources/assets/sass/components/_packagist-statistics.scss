@@ -19,7 +19,7 @@
 
 .packagist-statistics__stars {
     &:before {
-        @include icon('/svg/star.svg');
+        @include icon('../svg/star.svg');
     }
 }
 

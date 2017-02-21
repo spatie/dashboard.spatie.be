@@ -18,6 +18,19 @@ mix
             ),
         ],
 
+        module: {
+            rules: [
+                {
+                    test: /\.svg/,
+                    loaders: [
+                        {
+                            loader: 'svg-url-loader',
+                        },
+                    ],
+                },
+            ],
+        },
+
         stats: {
             // The "pretty" errors sometimes lack information. To display full
             // stack traces, run `DEBUG=1 yarn run dev`.
