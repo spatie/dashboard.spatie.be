@@ -62,7 +62,7 @@ export default {
                 return foreCastItem.chanceOfRain < 40;
             }).length;
 
-            return foreCastItemWithNoRain.length === 0;
+            return foreCastItemWithNoRain === 0;
         },
 
         graphLabels() {
