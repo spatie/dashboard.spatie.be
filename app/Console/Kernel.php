@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Exceptions\Handler;
+use Exception;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,17 +27,32 @@ class Kernel extends ConsoleKernel
     ];
 
     /**
+     * The Artisan commands that are scheduled to run on a certain frequency.
+     * 
+     * @var array
+     */
+    protected $scheduled = [
+        \App\Components\LastFm\FetchCurrentTrack::class => 'everyMinute',
+        \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class => 'everyFiveMinutes',
+        \App\Components\GitHub\FetchGitHubFileContent::class => 'everyFiveMinutes',
+        \App\Components\InternetConnectionStatus\SendHeartbeat::class => 'everyMinute',
+        \App\Components\Packagist\FetchTotals::class => 'hourly',
+        \App\Components\RainForecast\FetchRainForecast::class => 'everyMinute',
+    ];
+
+    /**
      * Define the application's command schedule.
      *
      * @param \Illuminate\Console\Scheduling\Schedule $schedule
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(\App\Components\LastFm\FetchCurrentTrack::class)->everyMinute();
-        $schedule->command(\App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class)->everyFiveMinutes();
-        $schedule->command(\App\Components\GitHub\FetchGitHubFileContent::class)->everyFiveMinutes();
-        $schedule->command(\App\Components\InternetConnectionStatus\SendHeartbeat::class)->everyMinute();
-        $schedule->command(\App\Components\Packagist\FetchTotals::class)->hourly();
-        $schedule->command(\App\Components\RainForecast\FetchRainForecast::class)->everyMinute();
+        foreach ($this->scheduled as $command => $frequency) {
+            try {
+                $this->scheduled($command)->$frequency();
+            } catch (Exception $e) {
+                $this->app->make(Handler::class)->report($e);
+            }
+        }
     }
 }
