@@ -49,7 +49,7 @@ class Kernel extends ConsoleKernel
     {
         foreach ($this->scheduled as $command => $frequency) {
             try {
-                $this->scheduled($command)->$frequency();
+                $schedule->command($command)->$frequency();
             } catch (Exception $e) {
                 $this->app->make(Handler::class)->report($e);
             }
