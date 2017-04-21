@@ -55,6 +55,11 @@ describe('Mention', () => {
         assert.isTrue(tweetWithQuote.hasQuote);
     });
 
+    it('cant have quotes in quotes', () => {
+        assert.isFalse(tweetWithQuote.quote.hasQuote);
+        assert.isNull(tweetWithQuote.quote.quote);
+    });
+
     it('can get the quoted tweet', () => {
         assert.isNull(tweet.quote);
         assert.instanceOf(tweetWithQuote.quote, Tweet);
