@@ -2,11 +2,7 @@
     <grid :position="grid" modifiers="padded overflow">
         <section class="packagist-statistics">
             <h1>Package Downloads</h1>
-                <ul>
-                <li class="packagist-statistic">
-                    <span class="packagist-statistics__stars"></span>
-                    <span class="packagist-statistics__count">{{ formatNumber(stars) }}</span>
-                </li>
+            <ul>
                 <li class="packagist-statistic">
                     <h2 class="packagist-statistics__period">24 hours</h2>
                     <span class="packagist-statistics__count">{{ formatNumber(daily) }}</span>
@@ -42,7 +38,6 @@ export default {
 
     data() {
         return {
-            stars: 0,
             daily: 0,
             monthly: 0,
             total: 0,
@@ -55,7 +50,6 @@ export default {
         getEventHandlers() {
             return {
                 'Packagist.TotalsFetched': response => {
-                    this.stars = response.stars;
                     this.daily = response.daily;
                     this.monthly = response.monthly;
                     this.total = response.total;
@@ -70,4 +64,5 @@ export default {
         },
     },
 };
+
 </script>

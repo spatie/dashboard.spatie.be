@@ -5,6 +5,7 @@ import Vue from 'vue';
 
 import CurrentTime from './components/CurrentTime';
 import GithubFile from './components/GithubFile';
+import GithubStatistics from './components/GithubStatistics';
 import GoogleCalendar from './components/GoogleCalendar';
 import InternetConnection from './components/InternetConnection';
 import UptimeMonitor from './components/UptimeMonitor';
@@ -20,6 +21,7 @@ new Vue({
     components: {
         CurrentTime,
         GithubFile,
+        GithubStatistics,
         GoogleCalendar,
         InternetConnection,
         UptimeMonitor,

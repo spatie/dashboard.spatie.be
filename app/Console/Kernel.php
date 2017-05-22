@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Components\GitHub\FetchGitHubFileContent::class,
+        \App\Components\GitHub\FetchGitHubStatistics::class,
         \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class,
         \App\Components\LastFm\FetchCurrentTrack::class,
         \App\Components\Packagist\FetchTotals::class,
@@ -35,6 +36,7 @@ class Kernel extends ConsoleKernel
         \App\Components\LastFm\FetchCurrentTrack::class => 'everyMinute',
         \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class => 'everyFiveMinutes',
         \App\Components\GitHub\FetchGitHubFileContent::class => 'everyFiveMinutes',
+        \App\Components\GitHub\FetchGitHubStatistics::class => 'hourly',
         \App\Components\InternetConnectionStatus\SendHeartbeat::class => 'everyMinute',
         \App\Components\Packagist\FetchTotals::class => 'hourly',
         \App\Components\RainForecast\FetchRainForecast::class => 'everyMinute',

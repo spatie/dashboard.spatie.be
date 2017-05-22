@@ -23,7 +23,7 @@ class GithubWebhookController extends Controller
 
         $payload = file_get_contents('php://input');
 
-        $calculatedHash = hash_hmac($usedAlgorithm, $payload, env('GITHUB_HOOK_SECRET'));
+        $calculatedHash = hash_hmac($usedAlgorithm, $payload, config('services.github.hook_secret'));
 
         return $calculatedHash === $gitHubHash;
     }

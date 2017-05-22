@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'My Application',
+    'name' => 'Dashboard',
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://dashboard.spatie.be'),
 
     /*
     |--------------------------------------------------------------------------
@@ -172,11 +172,11 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Tail\TailServiceProvider::class,
         Spatie\GoogleCalendar\GoogleCalendarServiceProvider::class,
-        GrahamCampbell\GitHub\GitHubServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         App\Providers\CollectionServiceProvider::class,
         Spatie\BladeJavaScript\BladeJavaScriptServiceProvider::class,
         Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiServiceProvider::class,
+        App\Services\GitHub\GitHubServiceProvider::class,
     ],
 
     /*
@@ -225,7 +225,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'GoogleCalendar' => Spatie\GoogleCalendar\GoogleCalendarFacade::class,
-        'GitHub' => GrahamCampbell\GitHub\Facades\GitHub::class,
         'TwitterStreamingApi' => Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiFacade::class,
     ],
 
