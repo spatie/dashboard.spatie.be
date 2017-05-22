@@ -9,25 +9,10 @@ use Spatie\Packagist\Packagist;
 
 class FetchTotals extends Command
 {
-    /**
-     * The console command name.
-     *
-     * @var string
-     */
     protected $signature = 'dashboard:packagist';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Fetch the total amount of downloads of packages for a vendor.';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
         $client = new Client();

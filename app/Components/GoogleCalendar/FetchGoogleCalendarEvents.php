@@ -10,25 +10,10 @@ use Spatie\GoogleCalendar\Event;
 
 class FetchGoogleCalendarEvents extends Command
 {
-    /**
-     * The console command name.
-     *
-     * @var string
-     */
     protected $signature = 'dashboard:calendar';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Fetch Google Calendar events.';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
         $events = collect(Event::get())

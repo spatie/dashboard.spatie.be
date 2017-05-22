@@ -9,25 +9,10 @@ use Illuminate\Console\Command;
 
 class FetchRainForecast extends Command
 {
-    /**
-     * The console command name.
-     *
-     * @var string
-     */
     protected $signature = 'dashboard:rain';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Fetch the rain forecast.';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
         $lat = 51.2194;
