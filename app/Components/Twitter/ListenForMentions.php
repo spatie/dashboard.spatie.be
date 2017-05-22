@@ -25,7 +25,7 @@ class ListenForMentions extends Command
 
         app(TwitterStreamingApi::class)
             ->userStream()
-            ->onEvent(function(array $event) {
+            ->onEvent(function (array $event) {
                 if (isset($event['event']) && $event['event'] === 'quoted_tweet') {
                     dump($event);
                     event(new Mentioned($event['target_object']));

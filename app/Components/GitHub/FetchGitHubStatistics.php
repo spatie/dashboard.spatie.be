@@ -3,7 +3,6 @@
 namespace App\Components\GitHub;
 
 use App\Events\GitHub\StatisticsFetched;
-use App\Events\GitHub\TotalsFetched;
 use App\Services\GitHub\GitHubApi;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
@@ -22,8 +21,8 @@ class FetchGitHubStatistics extends Command
             ->fetchPublicRepositories($userName)
             ->pipe(function (Collection $repos) use ($api, $userName) {
                 return [
-                    'stars' => $repos->sum('stargazers_count'),
-                    'issues' => $repos->sum('open_issues'),
+                    'stars'        => $repos->sum('stargazers_count'),
+                    'issues'       => $repos->sum('open_issues'),
                     'pullRequests' => $repos->sum(function ($repo) use ($api, $userName) {
                         return count($api->fetchPullRequests($userName, $repo['name']));
                     }),

@@ -29,17 +29,17 @@ class Kernel extends ConsoleKernel
 
     /**
      * The Artisan commands that are scheduled to run on a certain frequency.
-     * 
+     *
      * @var array
      */
     protected $scheduled = [
-        \App\Components\LastFm\FetchCurrentTrack::class => 'everyMinute',
+        \App\Components\LastFm\FetchCurrentTrack::class                 => 'everyMinute',
         \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class => 'everyFiveMinutes',
-        \App\Components\GitHub\FetchGitHubFileContent::class => 'everyFiveMinutes',
-        \App\Components\GitHub\FetchGitHubStatistics::class => 'hourly',
-        \App\Components\InternetConnectionStatus\SendHeartbeat::class => 'everyMinute',
-        \App\Components\Packagist\FetchTotals::class => 'hourly',
-        \App\Components\RainForecast\FetchRainForecast::class => 'everyMinute',
+        \App\Components\GitHub\FetchGitHubFileContent::class            => 'everyFiveMinutes',
+        \App\Components\GitHub\FetchGitHubStatistics::class             => 'hourly',
+        \App\Components\InternetConnectionStatus\SendHeartbeat::class   => 'everyMinute',
+        \App\Components\Packagist\FetchTotals::class                    => 'hourly',
+        \App\Components\RainForecast\FetchRainForecast::class           => 'everyMinute',
     ];
 
     /**
