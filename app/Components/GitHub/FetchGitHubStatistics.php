@@ -9,6 +9,7 @@ use GitHub;
 use Github\Client;
 use Github\ResultPager;
 use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
 
 class FetchGitHubStatistics extends Command
 {
@@ -22,10 +23,9 @@ class FetchGitHubStatistics extends Command
 
         $totals = $api
             ->fetchPublicRepositories($userName)
-            ->pipe(function ($repos) use ($api, $userName) {
+            ->pipe(function (Collection $repos) use ($api, $userName) {
                 return [
                     'stars' => $repos->sum('stargazers_count'),
-                    'forks' => $repos->sum('forks_count'),
                     'issues' => $repos->sum('open_issues'),
                     'pullRequests' => $repos->sum(function ($repo) use ($api, $userName) {
                         return count($api->fetchPullRequests($userName, $repo['name']));
@@ -33,11 +33,9 @@ class FetchGitHubStatistics extends Command
                     'contributors' => $repos->sum(function ($repo) use ($api, $userName) {
                         return count($api->fetchContributors($userName, $repo['name']));
                     }),
-
+                    'numberOfRepos' => $repos->count(),
                 ];
             });
-
-        dd($totals);
 
         event(new StatisticsFetched($totals));
     }

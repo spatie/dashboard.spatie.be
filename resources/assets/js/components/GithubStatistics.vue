@@ -1,10 +1,10 @@
 <template>
-    <grid :position="grid" modifiers="padded overflow blue">
+    <grid :position="grid" modifiers="padded overflow">
         <section class="packagist-statistics">
             <h1>GitHub</h1>
             <ul>
                 <li class="packagist-statistic">
-                    <span class="packagist-statistics__period">Stars</span>
+                    <span class="packagist-statistics__stars"></span>
                     <span class="packagist-statistics__count">{{ formatNumber(stars) }}</span>
                 </li>
                 <li class="packagist-statistic">
@@ -20,8 +20,8 @@
                     <span class="packagist-statistics__count">{{ formatNumber(contributors) }}</span>
                 </li>
                 <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">Forks</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(forks) }}</span>
+                    <h2 class="packagist-statistics__period"># Repos</h2>
+                    <span class="packagist-statistics__count">{{ formatNumber(numberOfRepos) }}</span>
                 </li>
 
             </ul>
@@ -47,11 +47,11 @@ export default {
 
     data() {
         return {
-            stars: 0
+            stars: 0,
             issues: 0,
             pullRequests: 0,
             contributors: 0,
-            forks: 0
+            numberOfRepos: 0,
         };
     },
 
@@ -65,7 +65,7 @@ export default {
                     this.issues = response.issues;
                     this.pullRequests = response.pullRequests;
                     this.contributors = response.contributors;
-                    this.forks = response.forks;
+                    this.numberOfRepos = response.numberOfRepos;
                 },
             };
         },

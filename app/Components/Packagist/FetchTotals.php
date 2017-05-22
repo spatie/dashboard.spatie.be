@@ -40,7 +40,6 @@ class FetchTotals extends Command
                 })
                 ->pipe(function ($packageProperties) {
                     return [
-                        'stars' => $packageProperties->sum('favers'),
                         'daily' => $packageProperties->sum('downloads.daily'),
                         'monthly' => $packageProperties->sum('downloads.monthly'),
                         'total' => $packageProperties->sum('downloads.total'),

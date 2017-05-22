@@ -6,13 +6,15 @@ use App\Events\DashboardEvent;
 
 class StatisticsFetched extends DashboardEvent
 {
+    public $stars;
+
     public $issues;
 
     public $pullRequests;
 
-    public $forks;
-
     public $contributors;
+
+    public $numberOfRepos;
 
     public function __construct(array $totals)
     {
