@@ -3,38 +3,24 @@
 namespace App\Components\GitHub;
 
 use App\Events\GitHub\FileContentFetched;
+use App\Services\GitHub\GitHubApi;
 use GitHub;
 use Illuminate\Console\Command;
 
 class FetchGitHubFileContent extends Command
 {
-    /**
-     * The console command name.
-     *
-     * @var string
-     */
     protected $signature = 'dashboard:github-files';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Fetch GitHub file content.';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
+    public function handle(GitHubApi $api)
     {
-        $fileNames = explode(',', env('GITHUB_FILES'));
+        $fileNames = explode(',', config('services.github.files'));
 
-        $fileContent = collect($fileNames)
+        $contentOfFiles = collect($fileNames)
             ->combine($fileNames)
-            ->map(function ($fileName) {
-                return GitHub::repo()->contents()->show('spatie', 'tasks', "{$fileName}.md", 'master');
+            ->map(function ($fileName) use ($api) {
+                return $api->fetchFileContent('spatie', 'tasks',"{$fileName}.md",'master');
             })
             ->map(function ($fileInfo) {
                 return file_get_contents($fileInfo['download_url']);
@@ -44,6 +30,6 @@ class FetchGitHubFileContent extends Command
             })
             ->toArray();
 
-        event(new FileContentFetched($fileContent));
+        event(new FileContentFetched($contentOfFiles));
     }
 }
