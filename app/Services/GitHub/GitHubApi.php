@@ -22,12 +22,12 @@ class GitHubApi
         });
     }
 
-    public function fetchContributors($userName, $repoName): Collection
+    public function fetchContributors(string $userName, string $repoName): Collection
     {
         return collect($this->fetchAllResults('repo', 'statistics', [$userName, $repoName]));
     }
 
-    public function fetchPullRequests($userName, $repoName): Collection
+    public function fetchPullRequests(string $userName, string $repoName): Collection
     {
         return collect($this->fetchAllResults('pull_request', 'all', [$userName, $repoName]));
     }
@@ -42,7 +42,14 @@ class GitHubApi
         );
     }
 
-    protected function fetchAllResults($interfaceName, $method, $parameters): array
+    /**
+     * @param string $interfaceName
+     * @param string $method
+     * @param array $parameters
+     *
+     * @return array|string
+     */
+    protected function fetchAllResults(string $interfaceName, string $method, array $parameters)
     {
         return (new ResultPager($this->client))->fetchAll(
             $this->client->api($interfaceName),
