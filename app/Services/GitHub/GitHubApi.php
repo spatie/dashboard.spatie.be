@@ -42,7 +42,7 @@ class GitHubApi
         );
     }
 
-    protected function fetchAllResults($interfaceName, $method, $parameters)
+    protected function fetchAllResults($interfaceName, $method, $parameters): array
     {
         return (new ResultPager($this->client))->fetchAll(
             $this->client->api($interfaceName),
