@@ -12,9 +12,10 @@
         <github-file file-name="willem" grid="c3"></github-file>
         <rain-forecast grid="d1"></rain-forecast>
         <uptime-monitor grid="d2"></uptime-monitor>
-        <last-fm grid="d3:e3"></last-fm>
+        <last-fm grid="d3:d3"></last-fm>
         <current-time grid="e1" dateformat="ddd DD/MM"></current-time>
         <packagist-statistics grid="e2"></packagist-statistics>
+        <github-statistics grid="e3"></github-statistics>
 
         <internet-connection></internet-connection>
     </div>

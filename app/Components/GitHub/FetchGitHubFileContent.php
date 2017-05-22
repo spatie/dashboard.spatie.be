@@ -13,7 +13,7 @@ class FetchGitHubFileContent extends Command
      *
      * @var string
      */
-    protected $signature = 'dashboard:github';
+    protected $signature = 'dashboard:github-files';
 
     /**
      * The console command description.
