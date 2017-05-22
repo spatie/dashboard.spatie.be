@@ -12,6 +12,7 @@
         "barryvdh/laravel-ide-helper": "^2.1",
         "fennb/phirehose": "^1.0",
         "guzzlehttp/guzzle": "^6.2",
+        "knplabs/github-api": "^2.4",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "league/commonmark": "^0.13.2",
