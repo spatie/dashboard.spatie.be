@@ -5,9 +5,6 @@ namespace App\Components\GitHub;
 use App\Events\GitHub\StatisticsFetched;
 use App\Events\GitHub\TotalsFetched;
 use App\Services\GitHub\GitHubApi;
-use GitHub;
-use Github\Client;
-use Github\ResultPager;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 
@@ -15,7 +12,7 @@ class FetchGitHubStatistics extends Command
 {
     protected $signature = 'dashboard:github-statistics';
 
-    protected $description = 'Fetch GitHub forks, issues, PRs.';
+    protected $description = 'Fetch GitHub statistics.';
 
     public function handle(GitHubApi $api)
     {
