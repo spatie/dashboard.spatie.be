@@ -28,6 +28,6 @@ class FetchGoogleCalendarEvents extends Command
             ->unique('name')
             ->toArray();
 
-            event(new EventsFetched($events));
+        event(new EventsFetched($events));
     }
 }

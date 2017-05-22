@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
         User::truncate();
 
         User::create([
-            'name' => 'dashboard user',
-            'email' => env('BASIC_AUTH_USERNAME'),
+            'name'     => 'dashboard user',
+            'email'    => env('BASIC_AUTH_USERNAME'),
             'password' => bcrypt(env('BASIC_AUTH_PASSWORD')),
         ]);
     }
