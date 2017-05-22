@@ -7,8 +7,8 @@
 
 namespace App\Services\CommonMark\Strikethrough;
 
-use League\CommonMark\ElementRendererInterface;
 use League\CommonMark\HtmlElement;
+use League\CommonMark\ElementRendererInterface;
 use League\CommonMark\Inline\Element\AbstractInline;
 use League\CommonMark\Inline\Renderer\InlineRendererInterface;
 
@@ -17,7 +17,7 @@ class StrikethroughRenderer implements InlineRendererInterface
     /** {@inheritdoc} */
     public function render(AbstractInline $inline, ElementRendererInterface $htmlRenderer)
     {
-        if (!($inline instanceof Strikethrough)) {
+        if (! ($inline instanceof Strikethrough)) {
             throw new \InvalidArgumentException(sprintf('Incompatible inline type: %s', get_class($inline)));
         }
 

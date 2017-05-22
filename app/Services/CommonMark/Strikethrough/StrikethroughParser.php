@@ -7,11 +7,11 @@
 
 namespace App\Services\CommonMark\Strikethrough;
 
+use League\CommonMark\Util\RegexHelper;
 use League\CommonMark\Delimiter\Delimiter;
 use League\CommonMark\Inline\Element\Text;
-use League\CommonMark\Inline\Parser\AbstractInlineParser;
 use League\CommonMark\InlineParserContext;
-use League\CommonMark\Util\RegexHelper;
+use League\CommonMark\Inline\Parser\AbstractInlineParser;
 
 class StrikethroughParser extends AbstractInlineParser
 {
@@ -64,19 +64,19 @@ class StrikethroughParser extends AbstractInlineParser
         $beforeIsWhitespace = preg_match('/\pZ|\s/u', $charBefore);
         $beforeIsPunctuation = preg_match(RegexHelper::REGEX_PUNCTUATION, $charBefore);
 
-        $leftFlanking = $numDelims > 0 && !$afterIsWhitespace &&
-            !($afterIsPunctuation &&
-                !$beforeIsWhitespace &&
-                !$beforeIsPunctuation);
+        $leftFlanking = $numDelims > 0 && ! $afterIsWhitespace &&
+            ! ($afterIsPunctuation &&
+                ! $beforeIsWhitespace &&
+                ! $beforeIsPunctuation);
 
-        $rightFlanking = $numDelims > 0 && !$beforeIsWhitespace &&
-            !($beforeIsPunctuation &&
-                !$afterIsWhitespace &&
-                !$afterIsPunctuation);
+        $rightFlanking = $numDelims > 0 && ! $beforeIsWhitespace &&
+            ! ($beforeIsPunctuation &&
+                ! $afterIsWhitespace &&
+                ! $afterIsPunctuation);
 
         if ($character === '_') {
-            $canOpen = $leftFlanking && (!$rightFlanking || $beforeIsPunctuation);
-            $canClose = $rightFlanking && (!$leftFlanking || $afterIsPunctuation);
+            $canOpen = $leftFlanking && (! $rightFlanking || $beforeIsPunctuation);
+            $canClose = $rightFlanking && (! $leftFlanking || $afterIsPunctuation);
         } else {
             $canOpen = $leftFlanking;
             $canClose = $rightFlanking;

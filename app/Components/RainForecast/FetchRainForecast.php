@@ -2,10 +2,10 @@
 
 namespace App\Components\RainForecast;
 
-use App\Events\RainForecast\ForecastFetched;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
+use App\Events\RainForecast\ForecastFetched;
 
 class FetchRainForecast extends Command
 {

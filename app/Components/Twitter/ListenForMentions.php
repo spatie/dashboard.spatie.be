@@ -2,8 +2,8 @@
 
 namespace App\Components\Twitter;
 
-use App\Events\Twitter\Mentioned;
 use Illuminate\Console\Command;
+use App\Events\Twitter\Mentioned;
 use Spatie\LaravelTwitterStreamingApi\TwitterStreamingApi;
 
 class ListenForMentions extends Command
@@ -25,7 +25,7 @@ class ListenForMentions extends Command
 
         app(TwitterStreamingApi::class)
             ->userStream()
-            ->onEvent(function(array $event) {
+            ->onEvent(function (array $event) {
                 if (isset($event['event']) && $event['event'] === 'quoted_tweet') {
                     dump($event);
                     event(new Mentioned($event['target_object']));

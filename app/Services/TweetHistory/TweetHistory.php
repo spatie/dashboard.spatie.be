@@ -7,7 +7,7 @@ use Spatie\Valuestore\Valuestore;
 
 class TweetHistory
 {
-    /** @var \Spatie\Valuestore\Valuestore  */
+    /** @var \Spatie\Valuestore\Valuestore */
     protected $valuestore;
 
     public function __construct()

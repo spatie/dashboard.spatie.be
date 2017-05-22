@@ -2,10 +2,10 @@
 
 namespace App\Components\LastFm;
 
-use App\Events\LastFm\NothingPlaying;
-use App\Events\LastFm\TrackIsPlaying;
 use Illuminate\Console\Command;
 use Spatie\NowPlaying\NowPlaying;
+use App\Events\LastFm\NothingPlaying;
+use App\Events\LastFm\TrackIsPlaying;
 
 class FetchCurrentTrack extends Command
 {

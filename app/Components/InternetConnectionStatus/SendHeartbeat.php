@@ -2,8 +2,8 @@
 
 namespace App\Components\InternetConnectionStatus;
 
-use App\Events\InternetConnectionStatus\Heartbeat;
 use Illuminate\Console\Command;
+use App\Events\InternetConnectionStatus\Heartbeat;
 
 class SendHeartbeat extends Command
 {
