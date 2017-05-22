@@ -8,8 +8,8 @@
 namespace App\Services\CommonMark\Strikethrough;
 
 use League\CommonMark\Delimiter\Delimiter;
-use League\CommonMark\Delimiter\DelimiterStack;
 use League\CommonMark\Inline\Element\Text;
+use League\CommonMark\Delimiter\DelimiterStack;
 use League\CommonMark\Inline\Processor\InlineProcessorInterface;
 
 class StrikethroughProcessor implements InlineProcessorInterface

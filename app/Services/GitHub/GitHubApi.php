@@ -17,7 +17,7 @@ class GitHubApi
     {
         $repos = $this->fetchAllResults('organization', 'repositories', [$userName]);
 
-        return collect($repos)->filter(function($repo) {
+        return collect($repos)->filter(function ($repo) {
             return $repo['private'] === false;
         });
     }
@@ -56,6 +56,5 @@ class GitHubApi
             $method,
             $parameters
         );
-
     }
 }

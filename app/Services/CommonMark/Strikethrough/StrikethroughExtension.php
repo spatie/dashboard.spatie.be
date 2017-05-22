@@ -9,8 +9,8 @@ namespace App\Services\CommonMark\Strikethrough;
 
 use League\CommonMark\Extension\Extension;
 use League\CommonMark\Inline\Parser\InlineParserInterface;
-use League\CommonMark\Inline\Processor\InlineProcessorInterface;
 use League\CommonMark\Inline\Renderer\InlineRendererInterface;
+use League\CommonMark\Inline\Processor\InlineProcessorInterface;
 
 class StrikethroughExtension extends Extension
 {

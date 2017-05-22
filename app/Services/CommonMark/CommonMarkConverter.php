@@ -2,11 +2,11 @@
 
 namespace App\Services\CommonMark;
 
-use App\Services\CommonMark\Strikethrough\StrikethroughExtension;
 use League\CommonMark\Converter;
 use League\CommonMark\DocParser;
 use League\CommonMark\Environment;
 use League\CommonMark\HtmlRenderer;
+use App\Services\CommonMark\Strikethrough\StrikethroughExtension;
 
 /**
  * Converts CommonMark-compatible Markdown to HTML.

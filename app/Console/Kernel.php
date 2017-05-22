@@ -2,8 +2,8 @@
 
 namespace App\Console;
 
-use App\Exceptions\Handler;
 use Exception;
+use App\Exceptions\Handler;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
 
     /**
      * The Artisan commands that are scheduled to run on a certain frequency.
-     * 
+     *
      * @var array
      */
     protected $scheduled = [

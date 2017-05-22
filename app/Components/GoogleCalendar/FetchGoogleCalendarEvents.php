@@ -2,11 +2,11 @@
 
 namespace App\Components\GoogleCalendar;
 
-use App\Events\GoogleCalendar\EventsFetched;
-use Carbon\Carbon;
 use DateTime;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Spatie\GoogleCalendar\Event;
+use App\Events\GoogleCalendar\EventsFetched;
 
 class FetchGoogleCalendarEvents extends Command
 {
@@ -28,6 +28,6 @@ class FetchGoogleCalendarEvents extends Command
             ->unique('name')
             ->toArray();
 
-            event(new EventsFetched($events));
+        event(new EventsFetched($events));
     }
 }
