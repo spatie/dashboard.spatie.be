@@ -34,9 +34,9 @@ class Kernel extends ConsoleKernel
      */
     protected $scheduled = [
         \App\Components\LastFm\FetchCurrentTrack::class => 'everyMinute',
-        \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class => 'everyFiveMinutes',
+        \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class => 'everyMinute',
         \App\Components\GitHub\FetchGitHubFileContent::class => 'everyFiveMinutes',
-        \App\Components\GitHub\FetchGitHubStatistics::class => 'hourly',
+        \App\Components\GitHub\FetchGitHubStatistics::class => 'everyThirtyMinutes',
         \App\Components\InternetConnectionStatus\SendHeartbeat::class => 'everyMinute',
         \App\Components\Packagist\FetchTotals::class => 'hourly',
         \App\Components\RainForecast\FetchRainForecast::class => 'everyMinute',
