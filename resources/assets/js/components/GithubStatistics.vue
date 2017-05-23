@@ -20,7 +20,7 @@
                     <span class="packagist-statistics__count">{{ formatNumber(contributors) }}</span>
                 </li>
                 <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period"># Repos</h2>
+                    <h2 class="packagist-statistics__period">Repos</h2>
                     <span class="packagist-statistics__count">{{ formatNumber(numberOfRepos) }}</span>
                 </li>
 
