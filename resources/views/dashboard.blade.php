@@ -6,13 +6,13 @@
 
     <div class="dashboard" id="dashboard">
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" grid="a1:a3"></twitter>
-        <google-calendar grid="b1:b3"></google-calendar>
-        <github-file file-name="freek" grid="c1"></github-file>
-        <github-file file-name="seb" grid="c2"></github-file>
-        <github-file file-name="willem" grid="c3"></github-file>
-        <rain-forecast grid="d1"></rain-forecast>
+        <google-calendar grid="b1:b2"></google-calendar>
+        <last-fm grid="c1:d1"></last-fm>
+        <rain-forecast grid="c2"></rain-forecast>
         <uptime-monitor grid="d2"></uptime-monitor>
-        <last-fm grid="d3:d3"></last-fm>
+        <github-file file-name="freek" grid="b3"></github-file>
+        <github-file file-name="seb" grid="c3"></github-file>
+        <github-file file-name="willem" grid="d3"></github-file>
         <current-time grid="e1" dateformat="ddd DD/MM"></current-time>
         <packagist-statistics grid="e2"></packagist-statistics>
         <github-statistics grid="e3"></github-statistics>
