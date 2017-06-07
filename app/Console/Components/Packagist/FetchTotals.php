@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Components\Packagist;
+namespace App\Console\Components\Packagist;
 
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
@@ -11,7 +11,7 @@ class FetchTotals extends Command
 {
     protected $signature = 'dashboard:fetch-packagist-totals';
 
-    protected $description = 'Fetch the total amount of downloads of packages for a vendor.';
+    protected $description = 'Fetch totals for all our PHP packages';
 
     public function handle()
     {

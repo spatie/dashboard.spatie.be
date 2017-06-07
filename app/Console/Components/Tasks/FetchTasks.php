@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Components\Tasks;
+namespace App\Console\Components\Tasks;
 
-use GitHub;
 use Illuminate\Console\Command;
 use App\Services\GitHub\GitHubApi;
-use App\Events\GitHub\FileContentFetched;
+use App\Events\GitHub\TasksFetched;
 
 class FetchTasks extends Command
 {
     protected $signature = 'dashboard:fetch-tasks';
 
-    protected $description = 'Fetch team members tasks from GitHub.';
+    protected $description = 'Fetch team members tasks from GitHub';
 
     public function handle(GitHubApi $api)
     {
@@ -30,6 +29,6 @@ class FetchTasks extends Command
             })
             ->toArray();
 
-        event(new FileContentFetched($contentOfFiles));
+        event(new TasksFetched($contentOfFiles));
     }
 }

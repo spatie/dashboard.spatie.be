@@ -52,12 +52,12 @@
 </template>
 
 <script>
-    import echo from '../../mixins/echo';
-    import Grid from '../atoms/Grid';
-    import RelativeDate from '../atoms/RelativeDate';
-    import Tweet from '../../services/twitter/Tweet';
+    import echo from '../mixins/echo';
+    import Grid from './atoms/Grid';
+    import RelativeDate from './atoms/RelativeDate';
+    import Tweet from '../services/twitter/Tweet';
     import moment from 'moment';
-    import {diffInSeconds, addClassModifiers} from '../../helpers';
+    import {diffInSeconds, addClassModifiers} from '../helpers';
     import { map } from 'lodash';
 
     export default {

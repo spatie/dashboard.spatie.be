@@ -9,9 +9,9 @@ use Illuminate\Foundation\Inspiring;
 
 class SendFakeTweet extends Command
 {
-    protected $signature = 'dashboard:fake-tweet {text?} {--Q|quote : Attach a quote to the tweet}';
+    protected $signature = 'dashboard:send-fake-tweet {text?} {--Q|quote : Attach a quote to the tweet}';
 
-    protected $description = 'Send a fake tweet (optionally with a quote).';
+    protected $description = 'Send a fake tweet.';
 
     public function handle()
     {
@@ -37,7 +37,7 @@ class SendFakeTweet extends Command
             'quote' => $quote,
             'currentTime' => Carbon::now()->subHour()->format('D M d H:i:s +0000 Y'),
             'textLength' => strlen($text)
-        ])->reduce(function ($tweetContent, $replace, $search) use ($tweetContent) {
+        ])->reduce(function ($tweetContent, $replace, $search) {
             return str_replace($search, $replace, $tweetContent);
         }, $tweetContent);
 

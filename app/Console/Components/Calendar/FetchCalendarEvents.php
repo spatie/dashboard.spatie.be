@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Components\GoogleCalendar;
+namespace App\Console\Components\Calendar;
 
 use DateTime;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Spatie\GoogleCalendar\Event;
-use App\Events\GoogleCalendar\EventsFetched;
+use App\Events\Calendar\EventsFetched;
 
 class FetchCalendarEvents extends Command
 {
     protected $signature = 'dashboard:fetch-calendar-events';
 
-    protected $description = 'Fetch events from Google Calendar.';
+    protected $description = 'Fetch events from Google Calendar';
 
     public function handle()
     {

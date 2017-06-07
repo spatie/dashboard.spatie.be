@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events\GoogleCalendar;
+namespace App\Events\Calendar;
 
 use App\Events\DashboardEvent;
 

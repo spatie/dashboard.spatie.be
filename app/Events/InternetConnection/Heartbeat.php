@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events\InternetConnectionStatus;
+namespace App\Events\InternetConnection;
 
 use App\Events\DashboardEvent;
 

@@ -15,14 +15,13 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Components\GitHub\FetchTasks::class,
-        \App\Components\GitHub\FetchStatistics::class,
-        \App\Components\GoogleCalendar\FetchCalendarEvents::class,
-        \App\Components\LastFm\FetchCurrentTrack::class,
-        \App\Components\Packagist\FetchTotals::class,
-        \App\Components\InternetConnectionStatus\SendHeartbeat::class,
-        \App\Components\RainForecast\FetchRainForecast::class,
-        \App\Components\Twitter\ListenForMentions::class,
+        \App\Console\Components\Calendar\FetchCalendarEvents::class,
+        \App\Console\Components\GitHub\FetchTotals::class,
+        \App\Console\Components\InternetConnection\SendHeartbeat::class,
+        \App\Console\Components\Music\FetchCurrentTrack::class,
+        \App\Console\Components\Packagist\FetchTotals::class,
+        \App\Console\Components\Tasks\FetchTasks::class,
+        \App\Console\Components\Twitter\ListenForMentions::class,
         SendFakeTweet::class,
         UpdateDashboard::class,
     ];
@@ -33,28 +32,11 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $scheduled = [
-        \App\Components\LastFm\FetchCurrentTrack::class => 'everyMinute',
-        \App\Components\GoogleCalendar\FetchCalendarEvents::class => 'everyMinute',
-        \App\Components\GitHub\FetchTasks::class => 'everyFiveMinutes',
-        \App\Components\GitHub\FetchStatistics::class => 'everyThirtyMinutes',
-        \App\Components\InternetConnectionStatus\SendHeartbeat::class => 'everyMinute',
-        \App\Components\Packagist\FetchTotals::class => 'hourly',
-        \App\Components\RainForecast\FetchRainForecast::class => 'everyMinute',
+        \App\Console\Components\Calendar\FetchCalendarEvents::class => 'everyMinute',
+        \App\Console\Components\Music\FetchCurrentTrack::class => 'everyMinute',
+        \App\Console\Components\InternetConnection\SendHeartbeat::class => 'everyMinute',
+        \App\Console\Components\Tasks\FetchTasks::class => 'everyFiveMinutes',
+        \App\Console\Components\GitHub\FetchTotals::class => 'everyThirtyMinutes',
+        \App\Console\Components\Packagist\FetchTotals::class => 'hourly',
     ];
-
-    /**
-     * Define the application's command schedule.
-     *
-     * @param \Illuminate\Console\Scheduling\Schedule $schedule
-     */
-    protected function schedule(Schedule $schedule)
-    {
-        foreach ($this->scheduled as $command => $frequency) {
-            try {
-                $schedule->command($command)->$frequency();
-            } catch (Exception $e) {
-                $this->app->make(Handler::class)->report($e);
-            }
-        }
-    }
 }

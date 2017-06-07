@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Components\InternetConnectionStatus;
+namespace App\Console\Components\InternetConnection;
 
 use Illuminate\Console\Command;
-use App\Events\InternetConnectionStatus\Heartbeat;
+use App\Events\InternetConnection\Heartbeat;
 
 class SendHeartbeat extends Command
 {
-    protected $signature = 'dashboard:send-heart';
+    protected $signature = 'dashboard:send-heartbeat';
 
-    protected $description = 'Send a heartbeat to help the client verify that it is connected to the internet.';
+    protected $description = 'Send a heartbeat to the internet connection tile';
 
     public function handle()
     {

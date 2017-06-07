@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Events\GitHub;
+namespace App\Events\Tasks;
 
 use App\Events\DashboardEvent;
 
-class FileContentFetched extends DashboardEvent
+class TasksFetched extends DashboardEvent
 {
     /** @var array */
     public $fileContent;

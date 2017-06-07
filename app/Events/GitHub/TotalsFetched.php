@@ -4,7 +4,7 @@ namespace App\Events\GitHub;
 
 use App\Events\DashboardEvent;
 
-class StatisticsFetched extends DashboardEvent
+class TotalsFetched extends DashboardEvent
 {
     public $stars;
 
