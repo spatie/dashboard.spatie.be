@@ -12,14 +12,14 @@ class FetchTasks extends Command
 
     protected $description = 'Fetch team members tasks from GitHub';
 
-    public function handle(GitHubApi $api)
+    public function handle(GitHubApi $gitHub)
     {
         $fileNames = explode(',', config('services.github.files'));
 
         $contentOfFiles = collect($fileNames)
             ->combine($fileNames)
-            ->map(function ($fileName) use ($api) {
-                return $api->fetchFileContent('spatie', 'tasks', "{$fileName}.md", 'master');
+            ->map(function ($fileName) use ($gitHub) {
+                return $gitHub->fetchFileContent('spatie', 'tasks', "{$fileName}.md", 'master');
             })
             ->map(function ($fileInfo) {
                 return file_get_contents($fileInfo['download_url']);
