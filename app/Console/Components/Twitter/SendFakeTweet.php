@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console;
+namespace App\Console\Components\Twitter;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
