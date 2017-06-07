@@ -11,7 +11,7 @@ class SendFakeTweet extends Command
 {
     protected $signature = 'dashboard:send-fake-tweet {text?} {--Q|quote : Attach a quote to the tweet}';
 
-    protected $description = 'Send a fake tweet.';
+    protected $description = 'Send a fake tweet';
 
     public function handle()
     {
@@ -30,17 +30,24 @@ class SendFakeTweet extends Command
             ? 'regularTweet'
             : 'tweetWithQuote';
 
-        $tweetContent = file_get_contents(resource_path("stubs/tweet/{$stubName}.json"));
+        $tweetStub = file_get_contents(resource_path("stubs/tweets/{$stubName}.json"));
 
-        collect([
-            'text' => $text,
-            'quote' => $quote,
-            'currentTime' => Carbon::now()->subHour()->format('D M d H:i:s +0000 Y'),
-            'textLength' => strlen($text)
-        ])->reduce(function ($tweetContent, $replace, $search) {
-            return str_replace($search, $replace, $tweetContent);
-        }, $tweetContent);
+        $tweetContent = $this->fillPlaceHolders($tweetStub, [
+            '%text%' => $text,
+            '%quote%' => $quote,
+            '%currentTime%' => Carbon::now()->subHour()->format('D M d H:i:s +0000 Y'),
+            '%textLength%' => strlen($text)
+        ]);
 
-        return json_decode($tweetContent);
+        return json_decode($tweetContent, true);
+    }
+
+    protected function fillPlaceHolders(string $text, array $replacements): string
+    {
+        return str_replace(
+            array_keys($replacements),
+            array_values($replacements),
+            $text
+        );
     }
 }
