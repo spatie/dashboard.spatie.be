@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -23,17 +24,13 @@ class Kernel extends ConsoleKernel
         UpdateDashboard::class,
     ];
 
-    /**
-     * The Artisan commands that are scheduled to run on a certain frequency.
-     *
-     * @var array
-     */
-    protected $scheduled = [
-        \App\Console\Components\Calendar\FetchCalendarEvents::class => 'everyMinute',
-        \App\Console\Components\Music\FetchCurrentTrack::class => 'everyMinute',
-        \App\Console\Components\InternetConnection\SendHeartbeat::class => 'everyMinute',
-        \App\Console\Components\Tasks\FetchTasks::class => 'everyFiveMinutes',
-        \App\Console\Components\GitHub\FetchTotals::class => 'everyThirtyMinutes',
-        \App\Console\Components\Packagist\FetchTotals::class => 'hourly',
-    ];
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->command('dashboard:fetch-calendar-events')->everyMinute();
+        $schedule->command('dashboard:fetch-current-track')->everyMinute();
+        $schedule->command('dashboard:send-heartbeat')->everyMinute();
+        $schedule->command('dashboard:fetch-tasks')->everyFiveMinutes();
+        $schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
+        $schedule->command('dashboard:fetch-packagist-totals')->hourly();
+    }
 }
