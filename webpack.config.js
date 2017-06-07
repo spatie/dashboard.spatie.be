@@ -329,6 +329,7 @@ if (Mix.inProduction) {
             }
         }),
 
+        /*
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             compress: {
@@ -336,6 +337,7 @@ if (Mix.inProduction) {
                 drop_console: true
             }
         })
+        */
     ]);
 }
 
