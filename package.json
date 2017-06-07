@@ -9,6 +9,7 @@
     "lint": "eslint resources/assets/js --ext .js,.vue --fix"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "chart.js": "^2.1.4",
     "laravel-echo": "^1.0.1",
     "lodash": "^4.17.4",
