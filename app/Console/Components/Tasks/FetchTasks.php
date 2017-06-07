@@ -2,8 +2,8 @@
 
 namespace App\Console\Components\Tasks;
 
-use App\Events\Tasks\TasksFetched;
 use Illuminate\Console\Command;
+use App\Events\Tasks\TasksFetched;
 use App\Services\GitHub\GitHubApi;
 
 class FetchTasks extends Command

@@ -36,7 +36,7 @@ class SendFakeTweet extends Command
             '%text%' => $text,
             '%quote%' => $quote,
             '%currentTime%' => Carbon::now()->subHour()->format('D M d H:i:s +0000 Y'),
-            '%textLength%' => strlen($text)
+            '%textLength%' => strlen($text),
         ]);
 
         return json_decode($tweetContent, true);

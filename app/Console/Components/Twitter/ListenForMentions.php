@@ -19,7 +19,7 @@ class ListenForMentions extends Command
         $this->listenForMentions([
             'spatie.be',
             '@spatie_be',
-            'github.com/spatie'
+            'github.com/spatie',
         ]);
 
         $this->listenForQuoted();

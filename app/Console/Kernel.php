@@ -2,9 +2,6 @@
 
 namespace App\Console;
 
-use Exception;
-use App\Exceptions\Handler;
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
