@@ -53,8 +53,8 @@
 
 <script>
     import echo from '../mixins/echo';
-    import Grid from './Grid';
-    import RelativeDate from './RelativeDate';
+    import Grid from './atoms/Grid';
+    import RelativeDate from './atoms/RelativeDate';
     import Tweet from '../services/twitter/Tweet';
     import moment from 'moment';
     import {diffInSeconds, addClassModifiers} from '../helpers';

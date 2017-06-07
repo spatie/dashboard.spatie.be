@@ -1,11 +1,12 @@
 @setup
-$server = 'spatie.be';
+$server = 'dashboard.spatie.be';
+$userAndServer = "forge@{$server}";
 $siteName = 'dashboard.spatie.be';
 $pathOnServer = '/home/forge/' . $siteName;
 $deploymentId = 'Deployment of ' . $siteName . ':' . $pathOnServer . ' by ' . get_current_user(). ':';
 @endsetup
 
-@servers(['web' => $server, 'localhost' => '127.0.0.1'])
+@servers(['web' => $userAndServer, 'localhost' => '127.0.0.1'])
 
 @task('display start message', ['on' => 'localhost'])
 echo 'start deploying on {{ $server }}. Path: {{ $pathOnServer }}'
@@ -54,7 +55,7 @@ php artisan up
 @endtask
 
 @task('reload php', ['on' => 'web'])
-sudo service php7.0-fpm restart
+sudo service php7.1-fpm restart
 sudo supervisorctl restart all
 @endtask
 

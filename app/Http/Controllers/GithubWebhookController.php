@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Artisan;
+use Illuminate\Routing\Controller;
 
 class GithubWebhookController extends Controller
 {
@@ -10,16 +11,16 @@ class GithubWebhookController extends Controller
     {
         abort_unless($this->requestSignatureIsValid(), 403);
 
-        Artisan::call('dashboard:github');
+        Artisan::call('dashboard:fetch-tasks');
 
         echo 'ok';
     }
 
-    protected function requestSignatureIsValid() : bool
+    protected function requestSignatureIsValid(): bool
     {
         $gitHubSignature = request()->header('X-Hub-Signature');
 
-        list($usedAlgorithm, $gitHubHash) = explode('=', $gitHubSignature, 2);
+        [$usedAlgorithm, $gitHubHash] = explode('=', $gitHubSignature, 2);
 
         $payload = file_get_contents('php://input');
 

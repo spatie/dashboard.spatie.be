@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Laravel Dashboard</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,900' rel='stylesheet'
+    <title>Dashboard</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,900'
+          rel='stylesheet'
           type='text/css'>
     <link href="{{ mix("css/app.css") }}" rel="stylesheet"/>
     <meta name="google" value="notranslate">

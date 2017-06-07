@@ -8,19 +8,15 @@ class UpdateDashboard extends Command
 {
     protected $signature = 'dashboard:update';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
+    protected $description = 'Update all components displayed on the dashboard.';
+
     public function handle()
     {
-        $this->call('dashboard:calendar');
-        $this->call('dashboard:github-files');
-        $this->call('dashboard:github-statistics');
-        $this->call('dashboard:heartbeat');
-        $this->call('dashboard:lastfm');
-        $this->call('dashboard:packagist');
-        $this->call('dashboard:rain');
+        $this->call('dashboard:fetch-github-totals');
+        $this->call('dashboard:fetch-calendar-events');
+        $this->call('dashboard:send-heartbeat');
+        $this->call('dashboard:fetch-current-track');
+        $this->call('dashboard:fetch-packagist-totals');
+        $this->call('dashboard:fetch-tasks');
     }
 }

@@ -35,4 +35,9 @@ class TweetHistory
     {
         return $this->valuestore->get('tweets', []);
     }
+
+    public static function all(): array
+    {
+        return (new static())->getTweets();
+    }
 }

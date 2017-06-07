@@ -3,32 +3,30 @@ import './bootstrap.js';
 import Echo from 'laravel-echo';
 import Vue from 'vue';
 
-import CurrentTime from './components/CurrentTime';
-import GithubFile from './components/GithubFile';
-import GithubStatistics from './components/GithubStatistics';
-import GoogleCalendar from './components/GoogleCalendar';
+import Calendar from './components/Calendar';
+import Github from './components/Github';
 import InternetConnection from './components/InternetConnection';
-import UptimeMonitor from './components/UptimeMonitor';
-import LastFm from './components/LastFm';
-import PackagistStatistics from './components/PackagistStatistics';
-import RainForecast from './components/RainForecast';
+import Music from './components/Music';
+import Packagist from './components/Packagist';
+import Tasks from './components/Tasks';
+import TimeWeather from './components/TimeWeather';
 import Twitter from './components/Twitter';
+import Uptime from './components/Uptime';
 
 new Vue({
 
     el: '#dashboard',
 
     components: {
-        CurrentTime,
-        GithubFile,
-        GithubStatistics,
-        GoogleCalendar,
+        Calendar,
+        Github,
         InternetConnection,
-        UptimeMonitor,
-        LastFm,
-        PackagistStatistics,
-        RainForecast,
+        Music,
+        Packagist,
+        Tasks,
+        TimeWeather,
         Twitter,
+        Uptime,
     },
 
     created() {

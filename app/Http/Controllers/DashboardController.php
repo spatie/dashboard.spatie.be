@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Services\TweetHistory\TweetHistory;
+use Illuminate\Routing\Controller;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $pusherKey = config('broadcasting.connections.pusher.key');
-        $pusherCluster = config('broadcasting.connections.pusher.options.cluster');
+        return view('dashboard')->with([
+            'pusherKey' => config('broadcasting.connections.pusher.key'),
 
-        $initialTweets = (new TweetHistory())->getTweets();
+            'pusherCluster' => config('broadcasting.connections.pusher.options.cluster'),
 
-        $usingNodeServer = usingNodeServer();
+            'initialTweets' => TweetHistory::all(),
 
-        return view('dashboard')->with(compact('pusherKey', 'pusherCluster', 'initialTweets', 'usingNodeServer'));
+            'usingNodeServer' => usingNodeServer(),
+        ]);
     }
 }

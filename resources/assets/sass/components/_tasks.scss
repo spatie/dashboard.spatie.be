@@ -1,0 +1,10 @@
+.tasks__title {
+    color: color($blue, light);
+
+    font-size: setting($font-size, m);
+    text-transform: uppercase;
+}
+
+.tasks__content {
+    font-size: setting($font-size, s);
+}

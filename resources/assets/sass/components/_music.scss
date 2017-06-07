@@ -1,0 +1,101 @@
+
+.music {
+    height: 100%;
+    z-index: 1;
+}
+
+.music__icon {
+    @include background-icon('../svg/music.svg');
+}
+
+.music__background {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    bottom: -50px;
+    left: -50px;
+    //animation: ken-burns 30s alternate infinite ease-in-out; // -> use only with a decent graphic card
+
+    background-position: center;
+    background-size: cover;
+    opacity: .3;
+
+    filter: blur(25px);
+
+    @at-root {
+        @keyframes ken-burns {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.25);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+.music__content {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    justify-content: center;
+}
+
+.music__cover {
+    flex-shrink: 0;
+    width: 25%;
+    margin: setting($grid, cell-padding);
+    padding-bottom: 25%;
+
+    background-color: rgba($white, .1);
+    background-position: center;
+    background-size: cover;
+    border-radius: .25vw;
+    box-shadow: 0 1px 10px rgba($black, .25);
+}
+
+.music__text {
+    max-width: 90%;
+    margin: setting($grid, cell-padding);
+
+    transition: width .5s linear;
+}
+
+.music___artist {
+    @include font-sans-black;
+
+    font-size: setting($font-size, m);
+}
+
+.music__track {
+    font-size: setting($font-size, xs);
+}
+
+.music__user {
+    display: inline-block;
+    margin-top: 1em;
+    padding: .25em .5em;
+    z-index: 3;
+
+    background: rgba($black, .2);
+    border-radius: .25vw;
+
+    font-size: setting($font-size, xs);
+    white-space: nowrap;
+
+    &:before {
+        @include icon('../svg/music.svg');
+
+        margin-right: .25em;
+    }
+}
