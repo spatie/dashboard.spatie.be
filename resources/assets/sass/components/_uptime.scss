@@ -1,11 +1,11 @@
-.uptime-monitor {
+.uptime {
     @include mod(empty) {
-        .uptime-monitor__empty {
+        .uptime__empty {
             height: 100%;
         }
 
-        .uptime-monitor__background {
-            @include background-icon('../svg/uptime-monitor.svg');
+        .uptime__background {
+            @include background-icon('../svg/uptime.svg');
 
             position: absolute;
             bottom: 0;
@@ -15,7 +15,7 @@
             z-index: 1;
         }
 
-        .uptime-monitor__title {
+        .uptime__title {
             z-index: 2;
 
             color: color($gray);
@@ -28,30 +28,30 @@
     }
 }
 
-.uptime-monitor__title {
+.uptime__title {
     color: $black;
 
     font-size: setting($font-size, m);
     text-transform: uppercase;
 }
 
-.uptime-monitor__notifications {
+.uptime__notifications {
     font-size: setting($font-size, xs);
 }
 
-.uptime-monitor__notification {
+.uptime__notification {
     padding-bottom: 1.5vh;
     border-color: color($yellow, dark, .5);
 }
 
-.uptime-monitor__notification__title {
+.uptime__notification__title {
     @include font-sans-bold;
     @include ellipsis;
 
     color: $black;
 }
 
-.uptime-monitor__notification__time {
+.uptime__notification__time {
     font-size: setting($font-size, s);
     color: $black;
 }

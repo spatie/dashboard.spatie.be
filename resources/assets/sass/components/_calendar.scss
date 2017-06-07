@@ -1,20 +1,20 @@
-.google-calendar__title {
+.calendar__title {
     color: color($blue, light);
 
     font-size: setting($font-size, m);
     text-transform: uppercase;
 }
 
-.google-calendar__events {
+.calendar__events {
     color: color($blue, light);
 
     font-size: setting($font-size, s);
 }
 
-.google-calendar__event {
+.calendar__event {
     padding-bottom: 1.5vh;
 }
 
-.google-calendar__event__title {
+.calendar__event__title {
     @include font-sans-bold;
 }

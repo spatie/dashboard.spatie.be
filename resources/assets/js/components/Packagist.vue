@@ -1,19 +1,19 @@
 <template>
     <grid :position="grid" modifiers="padded overflow">
-        <section class="packagist-statistics">
+        <section class="packagist">
             <h1>Package Downloads</h1>
             <ul>
                 <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">24 hours</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(daily) }}</span>
+                    <h2 class="packagist__period">24 hours</h2>
+                    <span class="packagist__count">{{ formatNumber(daily) }}</span>
                 </li>
                 <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">30 days</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(monthly) }}</span>
+                    <h2 class="packagist__period">30 days</h2>
+                    <span class="packagist__count">{{ formatNumber(monthly) }}</span>
                 </li>
                 <li class="packagist-statistic -total">
-                    <h2 class="packagist-statistics__period">Total</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(total) }}</span>
+                    <h2 class="packagist__period">Total</h2>
+                    <span class="packagist__count">{{ formatNumber(total) }}</span>
                 </li>
             </ul>
         </section>
@@ -59,7 +59,7 @@ export default {
 
         getSaveStateConfig() {
             return {
-                cacheKey: 'packagist-statistics',
+                cacheKey: 'packagist',
             };
         },
     },

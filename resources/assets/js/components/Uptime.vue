@@ -1,20 +1,20 @@
 <template>
     <grid :position="grid" :modifiers="hasNotifications? 'overflow padded yellow' : 'padded'">
-        <section :class="hasNotifications ? 'uptime-monitor' : addClassModifiers('uptime-monitor', 'empty')" >
+        <section :class="hasNotifications ? 'uptime' : addClassModifiers('uptime', 'empty')" >
             <div v-if="hasNotifications">
-                <h1 class="uptime-monitor__title">Downtime</h1>
-                <ul class="uptime-monitor__notifications">
-                    <li v-for="failing in failingUrls" class="uptime-monitor__notification">
-                        <h2 class="uptime-monitor__notification__title">{{ failing.url }}</h2>
-                        <div class="uptime-monitor__notification__time">
+                <h1 class="uptime__title">Downtime</h1>
+                <ul class="uptime__notifications">
+                    <li v-for="failing in failingUrls" class="uptime__notification">
+                        <h2 class="uptime__notification__title">{{ failing.url }}</h2>
+                        <div class="uptime__notification__time">
                             {{ failing.startedFailingAt | formatDuration }}
                         </div>
                     </li>
                 </ul>
             </div>
 
-            <h1 v-if="!hasNotifications" class="uptime-monitor__title">Sites are up</h1>
-            <div v-if="!hasNotifications" class="uptime-monitor__background"></div>
+            <h1 v-if="!hasNotifications" class="uptime__title">Sites are up</h1>
+            <div v-if="!hasNotifications" class="uptime__background"></div>
         </section>
     </grid>
 </template>
@@ -52,18 +52,17 @@
 
 
         methods: {
-
             addClassModifiers,
 
             getEventHandlers() {
                 return {
-                    'UptimeMonitor.UptimeCheckSucceeded': response => {
+                    'Uptime.UptimeCheckSucceeded': response => {
                         this.remove(response.url);
                     },
-                    'UptimeMonitor.UptimeCheckRecovered': response => {
+                    'Uptime.UptimeCheckRecovered': response => {
                         this.remove(response.url);
                     },
-                    'UptimeMonitor.UptimeCheckFailed': response => {
+                    'Uptime.UptimeCheckFailed': response => {
                         this.add(response.url, response.startedFailingAt);
                     },
                 };
@@ -75,6 +74,7 @@
 
             add(url, startedFailingAt) {
                 this.failingUrls = this.failingUrls.filter(failingUrl => url != failingUrl.url);
+
                 this.failingUrls.push({ url, startedFailingAt });
             },
         },

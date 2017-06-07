@@ -1,14 +1,14 @@
 
-.last-fm {
+.music {
     height: 100%;
     z-index: 1;
 }
 
-.last-fm__icon {
+.music__icon {
     @include background-icon('../svg/music.svg');
 }
 
-.last-fm__background {
+.music__background {
     position: absolute;
     top: -50px;
     right: -50px;
@@ -37,7 +37,7 @@
     }
 }
 
-.last-fm__content {
+.music__content {
     display: flex;
     align-content: center;
     align-items: center;
@@ -51,7 +51,7 @@
     justify-content: center;
 }
 
-.last-fm__cover {
+.music__cover {
     flex-shrink: 0;
     width: 25%;
     margin: setting($grid, cell-padding);
@@ -64,24 +64,24 @@
     box-shadow: 0 1px 10px rgba($black, .25);
 }
 
-.last-fm__text {
+.music__text {
     max-width: 90%;
     margin: setting($grid, cell-padding);
 
     transition: width .5s linear;
 }
 
-.last-fm___artist {
+.music___artist {
     @include font-sans-black;
 
     font-size: setting($font-size, m);
 }
 
-.last-fm__track {
+.music__track {
     font-size: setting($font-size, xs);
 }
 
-.last-fm__user {
+.music__user {
     display: inline-block;
     margin-top: 1em;
     padding: .25em .5em;

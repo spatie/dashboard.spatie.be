@@ -1,6 +1,6 @@
-import { get, last } from 'lodash';
 import moment from 'moment';
 import twemoji from 'twemoji';
+import { get, last } from 'lodash';
 
 class Tweet {
 

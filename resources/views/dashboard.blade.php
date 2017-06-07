@@ -8,11 +8,14 @@
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" grid="a1:a3"></twitter>
         <calendar grid="b1:b2"></calendar>
         <music grid="c1:d1"></music>
-        <uptime grid="d2"></uptime>
-        <tasks file-name="freek" grid="b3"></tasks>
-        <tasks file-name="seb" grid="c3"></tasks>
-        <tasks file-name="willem" grid="d3"></tasks>
-        <time grid="e1" dateformat="ddd DD/MM"></time>
+        <uptime grid="b3"></uptime>
+
+        <tasks team-member="freek" grid="c2"></tasks>
+        <tasks team-member="alex" grid="d2"></tasks>
+        <tasks team-member="seb" grid="c3"></tasks>
+        <tasks team-member="willem" grid="d3"></tasks>
+
+        <time-weather grid="e1" dateformat="ddd DD/MM"></time-weather>
         <packagist grid="e2"></packagist>
         <github grid="e3"></github>
 

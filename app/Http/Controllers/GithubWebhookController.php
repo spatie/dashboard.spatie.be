@@ -11,12 +11,12 @@ class GithubWebhookController extends Controller
     {
         abort_unless($this->requestSignatureIsValid(), 403);
 
-        Artisan::call('dashboard:github');
+        Artisan::call('dashboard:fetch-tasks');
 
         echo 'ok';
     }
 
-    protected function requestSignatureIsValid() : bool
+    protected function requestSignatureIsValid(): bool
     {
         $gitHubSignature = request()->header('X-Hub-Signature');
 

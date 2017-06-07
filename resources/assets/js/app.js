@@ -9,7 +9,7 @@ import InternetConnection from './components/InternetConnection';
 import Music from './components/Music';
 import Packagist from './components/Packagist';
 import Tasks from './components/Tasks';
-import Time from './components/Time';
+import TimeWeather from './components/TimeWeather';
 import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
 
@@ -24,7 +24,7 @@ new Vue({
         Music,
         Packagist,
         Tasks,
-        Time,
+        TimeWeather,
         Twitter,
         Uptime,
     },

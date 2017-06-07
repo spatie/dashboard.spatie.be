@@ -1,24 +1,24 @@
 <template>
     <grid :position="grid" modifiers="transparent">
-        <section :class="addClassModifiers('last-fm', currentlyPlaying ? 'playing' : 'stopped')">
-            <div class="last-fm__content" v-if="currentlyPlaying">
-                <div :class="addClassModifiers('last-fm__cover', !hasCover ? 'empty' : '')" v-bind:style="{ backgroundImage: 'url(' + cover + ')' }">
+        <section :class="addClassModifiers('music', currentlyPlaying ? 'playing' : 'stopped')">
+            <div class="music__content" v-if="currentlyPlaying">
+                <div :class="addClassModifiers('music__cover', !hasCover ? 'empty' : '')" v-bind:style="{ backgroundImage: 'url(' + cover + ')' }">
                 </div>
-                <div class="last-fm__text">
-                    <div class="last-fm__artist">
+                <div class="music__text">
+                    <div class="music__artist">
                         {{ artist }}
                     </div>
-                    <div class="last-fm__track">
+                    <div class="music__track">
                         {{ trackName }}
                     </div>
-                    <span class="last-fm__user">
+                    <span class="music__user">
                         {{ userName }}
                     </span>
                 </div>
             </div>
-            <div class="last-fm__background" v-if="currentlyPlaying" v-bind:style="{ backgroundImage: 'url(' + cover + ')' }"></div>
+            <div class="music__background" v-if="currentlyPlaying" v-bind:style="{ backgroundImage: 'url(' + cover + ')' }"></div>
 
-            <div class="last-fm__icon" v-if="!currentlyPlaying"></div>
+            <div class="music__icon" v-if="!currentlyPlaying"></div>
         </section>
     </grid>
 </template>
@@ -56,7 +56,7 @@ export default {
             return !! this.artwork;
         },
         cover() {
-            return this.artwork || '/images/last-fm__cover.jpg';
+            return this.artwork || '/images/music__cover.jpg';
         }
     },
 
@@ -65,10 +65,10 @@ export default {
 
         getEventHandlers() {
             return {
-                'LastFm.NothingPlaying': () => {
+                'Music.NothingPlaying': () => {
                     this.artist = '';
                 },
-                'LastFm.TrackIsPlaying': response => {
+                'Music.TrackIsPlaying': response => {
                     this.artist = response.trackInfo.artist;
                     this.trackName = response.trackInfo.trackName;
                     this.artwork = response.trackInfo.artwork;
@@ -79,7 +79,7 @@ export default {
 
         getSaveStateConfig() {
             return {
-                cacheKey: 'last-fm',
+                cacheKey: 'music',
             };
         },
     },

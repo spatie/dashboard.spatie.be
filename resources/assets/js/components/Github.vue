@@ -1,27 +1,27 @@
 <template>
     <grid :position="grid" modifiers="padded overflow">
-        <section class="packagist-statistics">
+        <section class="packagist">
             <h1>GitHub</h1>
             <ul>
                 <li class="packagist-statistic">
-                    <span class="packagist-statistics__stars"></span>
-                    <span class="packagist-statistics__count">{{ formatNumber(stars) }}</span>
+                    <span class="packagist__stars"></span>
+                    <span class="packagist__count">{{ formatNumber(stars) }}</span>
                 </li>
                 <li class="packagist-statistic">
-                    <span class="packagist-statistics__period">Issues</span>
-                    <span class="packagist-statistics__count">{{ formatNumber(issues) }}</span>
+                    <span class="packagist__period">Issues</span>
+                    <span class="packagist__count">{{ formatNumber(issues) }}</span>
                 </li>
                 <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">Pull Requests</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(pullRequests) }}</span>
+                    <h2 class="packagist__period">Pull Requests</h2>
+                    <span class="packagist__count">{{ formatNumber(pullRequests) }}</span>
                 </li>
                 <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">Contributors</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(contributors) }}</span>
+                    <h2 class="packagist__period">Contributors</h2>
+                    <span class="packagist__count">{{ formatNumber(contributors) }}</span>
                 </li>
                 <li class="packagist-statistic">
-                    <h2 class="packagist-statistics__period">Repos</h2>
-                    <span class="packagist-statistics__count">{{ formatNumber(numberOfRepos) }}</span>
+                    <h2 class="packagist__period">Repos</h2>
+                    <span class="packagist__count">{{ formatNumber(numberOfRepos) }}</span>
                 </li>
 
             </ul>
@@ -60,7 +60,7 @@ export default {
 
         getEventHandlers() {
             return {
-                'GitHub.StatisticsFetched': response => {
+                'GitHub.TotalsFetched': response => {
                     this.stars = response.stars;
                     this.issues = response.issues;
                     this.pullRequests = response.pullRequests;
@@ -72,7 +72,7 @@ export default {
 
         getSaveStateConfig() {
             return {
-                cacheKey: `github-statistics`,
+                cacheKey: `github`,
             };
         },
     },

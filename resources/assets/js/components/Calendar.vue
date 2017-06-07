@@ -1,11 +1,11 @@
 <template>
     <grid :position="grid" modifiers="overflow padded blue">
-       <section class="google-calendar">
-           <h1 class="google-calendar__title">Upcoming</h1>
-           <ul class="google-calendar__events">
-               <li v-for="event in events"  class="google-calendar__event">
-                   <h2 class="google-calendar__event__title">{{ event.name }}</h2>
-                   <div class="google-calendar__event__date">{{ relativeDate(event.date) }}</div>
+       <section class="calendar">
+           <h1 class="calendar__title">Upcoming</h1>
+           <ul class="calendar__events">
+               <li v-for="event in events"  class="calendar__event">
+                   <h2 class="calendar__event__title">{{ event.name }}</h2>
+                   <div class="calendar__event__date">{{ relativeDate(event.date) }}</div>
                </li>
            </ul>
        </section>
@@ -39,7 +39,7 @@ export default {
 
         getEventHandlers() {
             return {
-                'GoogleCalendar.EventsFetched': response => {
+                'Calendar.EventsFetched': response => {
                     this.events = response.events;
                 },
             };
@@ -47,7 +47,7 @@ export default {
 
         getSaveStateConfig() {
             return {
-                cacheKey: 'google-calendar',
+                cacheKey: 'calendar',
             };
         },
     },
