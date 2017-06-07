@@ -15,9 +15,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Components\GitHub\FetchGitHubFileContent::class,
-        \App\Components\GitHub\FetchGitHubStatistics::class,
-        \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class,
+        \App\Components\GitHub\FetchTasks::class,
+        \App\Components\GitHub\FetchStatistics::class,
+        \App\Components\GoogleCalendar\FetchCalendarEvents::class,
         \App\Components\LastFm\FetchCurrentTrack::class,
         \App\Components\Packagist\FetchTotals::class,
         \App\Components\InternetConnectionStatus\SendHeartbeat::class,
@@ -34,9 +34,9 @@ class Kernel extends ConsoleKernel
      */
     protected $scheduled = [
         \App\Components\LastFm\FetchCurrentTrack::class => 'everyMinute',
-        \App\Components\GoogleCalendar\FetchGoogleCalendarEvents::class => 'everyMinute',
-        \App\Components\GitHub\FetchGitHubFileContent::class => 'everyFiveMinutes',
-        \App\Components\GitHub\FetchGitHubStatistics::class => 'everyThirtyMinutes',
+        \App\Components\GoogleCalendar\FetchCalendarEvents::class => 'everyMinute',
+        \App\Components\GitHub\FetchTasks::class => 'everyFiveMinutes',
+        \App\Components\GitHub\FetchStatistics::class => 'everyThirtyMinutes',
         \App\Components\InternetConnectionStatus\SendHeartbeat::class => 'everyMinute',
         \App\Components\Packagist\FetchTotals::class => 'hourly',
         \App\Components\RainForecast\FetchRainForecast::class => 'everyMinute',

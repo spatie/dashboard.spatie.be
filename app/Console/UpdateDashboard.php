@@ -8,11 +8,6 @@ class UpdateDashboard extends Command
 {
     protected $signature = 'dashboard:update';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
         $this->call('dashboard:calendar');

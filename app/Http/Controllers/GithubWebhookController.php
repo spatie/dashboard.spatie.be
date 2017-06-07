@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Artisan;
+use Illuminate\Routing\Controller;
 
 class GithubWebhookController extends Controller
 {
@@ -19,7 +20,7 @@ class GithubWebhookController extends Controller
     {
         $gitHubSignature = request()->header('X-Hub-Signature');
 
-        list($usedAlgorithm, $gitHubHash) = explode('=', $gitHubSignature, 2);
+        [$usedAlgorithm, $gitHubHash] = explode('=', $gitHubSignature, 2);
 
         $payload = file_get_contents('php://input');
 
