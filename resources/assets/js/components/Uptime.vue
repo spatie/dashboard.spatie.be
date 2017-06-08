@@ -68,14 +68,14 @@
                 };
             },
 
-            remove(url) {
-                this.failingUrls = this.failingUrls.filter(failingUrl => url != failingUrl.url);
-            },
-
             add(url, startedFailingAt) {
                 this.failingUrls = this.failingUrls.filter(failingUrl => url != failingUrl.url);
 
-                this.failingUrls.push({url, startedFailingAt});
+                this.failingUrls.push({ url, startedFailingAt });
+            },
+
+            remove(url) {
+                this.failingUrls = this.failingUrls.filter(failingUrl => url != failingUrl.url);
             },
         },
     };
