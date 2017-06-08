@@ -1,40 +1,33 @@
 .internet-connection {
-    display: flex;
-    align-items: flex-end;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1000;
-
-    background-color: rgba($black, .25);
-
-    justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($black, .25);
 }
 
 .internet-connection__alert {
-    display: flex;
-    align-items: center;
-    padding: .75em 1.5em;
-
-    background-color: color($red, default, .95);
-    border-radius: 1em 1em 0 0;
-    box-shadow: 0 0 100px rgba($black, .15);
-
-    font-size: setting($font-size, m);
-
-    justify-content: space-around ;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: .75em 1.5em;
+  border-radius: 1em 1em 0 0;
+  background-color: color($red, default, .95);
+  box-shadow: 0 0 100px rgba($black, .15);
+  font-size: setting($font-size, m);
 }
 
 .internet-connection__icon {
-    @include icon('/images/svg/alert.svg');
-
-    font-size: setting($font-size, l);
+  @include icon('/images/svg/alert.svg');
+  font-size: setting($font-size, l);
 }
 
 .internet-connection__text {
-    padding-left: .5em;
-
-    color: color($red, lightest);
+  padding-left: .5em;
+  color: color($red, lightest);
 }

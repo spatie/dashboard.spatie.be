@@ -1,17 +1,14 @@
 @import 'utility/functions';
 @import 'utility/mixins';
-
 @import 'settings/colors';
 @import 'settings/grid';
 @import 'settings/typography';
-
 @import 'layout/defaults';
 @import 'layout/dashboard';
 @import 'layout/emoji';
 @import 'layout/graph';
 @import 'layout/grid';
-
-@import 'components/current-time';
+@import 'components/time-weather';
 @import 'components/internet-connection';
 @import 'components/calendar';
 @import 'components/tasks';
@@ -19,3 +16,4 @@
 @import 'components/packagist';
 @import 'components/tweets';
 @import 'components/uptime';
+@import 'vendor/weather-icons';

@@ -1,33 +1,28 @@
 .packagist-statistic {
-    @include clearfix;
-    @include mod(total) {
-        font-size: setting($font-size, m);
-    }
+  @include clearfix;
+  @include mod(total) {
+    font-size: setting($font-size, m);
+  }
 }
 
 .packagist__period {
-    @include font-sans;
-
-    top: .1em;
-    float: left;
-
-    color: color($gray, light);
-
-    font-size: setting($font-size, s);
-    text-transform: uppercase;
+  @include font-sans;
+  top: .1em;
+  float: left;
+  color: color($gray, light);
+  text-transform: uppercase;
+  font-size: setting($font-size, s);
 }
 
 .packagist__stars {
-    &:before {
-        @include icon('/images/svg/star.svg');
-    }
+  &:before {
+    @include icon('/images/svg/star.svg');
+  }
 }
 
 .packagist__count {
-    @include font-sans-black;
-
-    float: right;
-    vertical-align: top;
-
-    color: color($yellow);
+  @include font-sans-black;
+  float: right;
+  color: color($yellow);
+  vertical-align: top;
 }

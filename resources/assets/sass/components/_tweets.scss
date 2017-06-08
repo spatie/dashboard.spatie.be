@@ -1,112 +1,99 @@
 .tweets__icon {
-    @include background-icon('/images/svg/twitter.svg');
+  @include background-icon('/images/svg/twitter.svg');
 }
 
 .tweet {
-    @include tile-color(color($gray, darker));
-
-    margin-bottom: setting($grid, cell-padding);
-    padding: setting($grid, cell-padding);
-
-    border-radius: .25vw;
+  @include tile-color(color($gray, darker));
+  margin-bottom: setting($grid, cell-padding);
+  padding: setting($grid, cell-padding);
+  border-radius: .25vw;
 }
 
 .tweet--quoted {
-    @include tile-color(color($gray, dark, .5));
-
-    margin-top: setting($grid, cell-padding);
-    padding: setting($grid, cell-padding);
-
-    border-radius: .25vw;
+  @include tile-color(color($gray, dark, .5));
+  margin-top: setting($grid, cell-padding);
+  padding: setting($grid, cell-padding);
+  border-radius: .25vw;
 }
 
 .tweet__header {
-    display: flex;
-    align-items: center;
-    margin-bottom: setting($grid, cell-padding);
+  display: flex;
+  align-items: center;
+  margin-bottom: setting($grid, cell-padding);
 }
 
 .tweet__user {
-    min-width: 0; // needed for ellipsis in flex context
+  min-width: 0; // needed for ellipsis in flex context
 }
 
 .tweet__user__handle {
-    @include ellipsis;
-
-    color: color($gray, light);
-
-    font-size: setting($font-size, xxs);
+  @include ellipsis;
+  color: color($gray, light);
+  font-size: setting($font-size, xxs);
 }
 
 .tweet__user__name {
-    @include font-sans-bold;
-    @include ellipsis;
-
-    font-size: setting($font-size, xxs);
+  @include font-sans-bold;
+  @include ellipsis;
+  font-size: setting($font-size, xxs);
 }
 
 .tweet__avatar {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: 2.5vw;
-    height: 2.5vw;
-    margin-right: .5vw;
-    overflow: hidden;
-
-    background-color: $white;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 1.25vw;
-    box-shadow: 0 1px 10px rgba($black, .25);
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  margin-right: .5vw;
+  width: 2.5vw;
+  height: 2.5vw;
+  border-radius: 1.25vw;
+  background-color: $white;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 1px 10px rgba($black, .25);
 }
 
 .tweet__body {
-    @include mod(small) {
-        font-size: setting($font-size, xxs);
-    }
-    @include mod(default) {
-        font-size: setting($font-size, s);
-    }
-    @include mod(medium) {
-        font-size: setting($font-size, default);
-    }
-    @include mod(large) {
-        font-size: setting($font-size, m);
-    }
+  @include mod(small) {
+    font-size: setting($font-size, xxs);
+  }
+  @include mod(default) {
+    font-size: setting($font-size, s);
+  }
+  @include mod(medium) {
+    font-size: setting($font-size, default);
+  }
+  @include mod(large) {
+    font-size: setting($font-size, m);
+  }
 }
 
 .tweet__body__handle {
-    @include font-sans-black;
+  @include font-sans-black;
 }
 
 .tweet__body__hashtag {
-    color: color($gray, light);
+  color: color($gray, light);
 }
 
 .tweet__attachment {
-    margin-top: setting($grid, cell-padding);
-    overflow: hidden;
+  overflow: hidden;
+  margin-top: setting($grid, cell-padding);
+  text-align: center;
+  opacity: .75;
 
-    opacity: .75;
-
-    text-align: center;
-
-    img {
-        max-width: 100%;
-        max-height: 15vh;
-        vertical-align: middle;
-
-        border-radius: .25vw;
-        box-shadow: 0 1px 10px rgba($black, .25);
-    }
+  img {
+    max-width: 100%;
+    max-height: 15vh;
+    border-radius: .25vw;
+    box-shadow: 0 1px 10px rgba($black, .25);
+    vertical-align: middle;
+  }
 }
 
 .tweet__meta {
-    margin-top: .5vw;
-
-    color: color($gray, light);
-
-    font-size: setting($font-size, xxs);
+  margin-top: .5vw;
+  color: color($gray, light);
+  font-size: setting($font-size, xxs);
 }

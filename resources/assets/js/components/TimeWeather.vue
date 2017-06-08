@@ -1,76 +1,82 @@
 <template>
     <grid :position="grid">
-        <section class="current-time">
-            <time class="current-time__content">
-                <span class="current-time__time">{{ time }}</span>
-                <span class="current-time__date">{{ date }}</span>
+        <section class="time-weather">
+            <time class="time-weather__content">
+                <span class="time-weather__date">{{ date }}</span>
+                <span class="time-weather__time">{{ time }}</span>
+                <span class="time-weather__weather">
+                    <span class="time-weather__weather__temperature">{{ weather.temperature }}</span>
+                    <span class="time-weather__weather__description">
+                        <i class="wi" :class="weather.icon"></i>
+                    </span>
+                </span>
             </time>
-
-            Temperature: {{ weather.temperature }}
-            Description: {{ weather.description }}
         </section>
-
     </grid>
 </template>
 
 <script>
-import Grid from './atoms/Grid';
-import moment from 'moment';
-import weather from '../services/weather/Weather';
+    import Grid from './atoms/Grid';
+    import moment from 'moment';
+    import weather from '../services/weather/Weather';
+    import icons from '../services/weather/icons';
 
-export default {
+    export default {
 
-    components: {
-        Grid,
-    },
-
-    props: {
-        dateformat: {
-            type: String,
-            default: 'DD-MM-YYYY',
+        components: {
+            Grid,
         },
-        timeformat: {
-            type: String,
-            default: 'HH:mm:ss',
-        },
-        grid: {
-            type: String,
-        },
-    },
 
-    data() {
-        return {
-            date: '',
-            time: '',
-            weather: {
-                temperature: '',
-                description: '',
+        props: {
+            dateformat: {
+                type: String,
+                default: 'DD-MM-YYYY',
             },
-        };
-    },
-
-    created() {
-        this.refreshTime();
-        setInterval(this.refreshTime, 1000);
-
-       this.fetchWeather();
-       setInterval(this.fetchWeather, 15 * 60 * 1000)
-    },
-
-    methods: {
-        refreshTime() {
-            this.date = moment().format(this.dateformat);
-            this.time = moment().format(this.timeformat);
+            timeformat: {
+                type: String,
+                default: 'HH:mm:ss',
+            },
+            grid: {
+                type: String,
+            },
         },
 
-        async fetchWeather() {
-            const conditions = await weather.conditions();
-
-            this.weather.temperature = conditions.temp;
-            this.weather.description = conditions.text;
+        data() {
+            return {
+                date: '',
+                time: '',
+                weather: {
+                    temperature: '',
+                    description: '',
+                    icon: ''
+                },
+            };
         },
-    },
-};
+
+        created() {
+            this.refreshTime();
+            setInterval(this.refreshTime, 1000);
+
+            this.fetchWeather();
+            setInterval(this.fetchWeather, 15 * 60 * 1000);
+        },
+
+        methods: {
+            refreshTime() {
+                this.date = moment().format(this.dateformat);
+                this.time = moment().format(this.timeformat);
+            },
+
+            async fetchWeather() {
+                const conditions = await weather.conditions();
+
+                this.weather.temperature = conditions.temp;
+                this.weather.description = conditions.text;
+                this.weather.icon = icons[conditions.code] || 'wi-cloud';
+            },
+
+        },
+    };
 
 
 </script>

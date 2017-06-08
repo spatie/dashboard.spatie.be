@@ -1,13 +1,10 @@
 .dashboard {
-    @include font-sans;
-
-    position: fixed;
-    top: setting($grid, cell-spacing)/2;
-    right: setting($grid, cell-spacing)/2;
-    bottom: setting($grid, cell-spacing)/2;
-    left: setting($grid, cell-spacing)/2;
-
-    color: $white;
-
-    font-size: setting($font-size, base);
+  @include font-sans;
+  position: fixed;
+  top: setting($grid, cell-spacing)/2;
+  right: setting($grid, cell-spacing)/2;
+  bottom: setting($grid, cell-spacing)/2;
+  left: setting($grid, cell-spacing)/2;
+  color: $white;
+  font-size: setting($font-size, base);
 }

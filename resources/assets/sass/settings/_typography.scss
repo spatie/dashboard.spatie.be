@@ -1,25 +1,25 @@
 @mixin font-sans-light {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 300;
+  font-weight: 300;
+  font-style: normal;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 @mixin font-sans {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 400;
+  font-weight: 400;
+  font-style: normal;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 @mixin font-sans-bold {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 600;
+  font-weight: 600;
+  font-style: normal;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 @mixin font-sans-black {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 900;
+  font-weight: 900;
+  font-style: normal;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 $font-size: (

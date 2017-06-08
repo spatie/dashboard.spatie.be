@@ -1,20 +1,18 @@
 .calendar__title {
-    color: color($blue, light);
-
-    font-size: setting($font-size, m);
-    text-transform: uppercase;
+  color: color($blue, light);
+  text-transform: uppercase;
+  font-size: setting($font-size, m);
 }
 
 .calendar__events {
-    color: color($blue, light);
-
-    font-size: setting($font-size, s);
+  color: color($blue, light);
+  font-size: setting($font-size, s);
 }
 
 .calendar__event {
-    padding-bottom: 1.5vh;
+  padding-bottom: 1.5vh;
 }
 
 .calendar__event__title {
-    @include font-sans-bold;
+  @include font-sans-bold;
 }
