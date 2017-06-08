@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import { relativeDateTime } from '../../helpers';
+    import {relativeDateTime} from '../../helpers';
     import moment from 'moment';
 
     export default{
@@ -13,8 +13,8 @@
         props: ['moment'],
 
         data(){
-            return{
-                relativeDateTime : ''
+            return {
+                relativeDateTime: ''
             }
         },
 
