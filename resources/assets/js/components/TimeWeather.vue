@@ -69,7 +69,7 @@
                 const conditions = await weather.conditions();
 
                 this.weather.temperature = conditions.temp;
-                this.weather.iconClass = 'wi-yahoo-' + conditions.code;
+                this.weather.iconClass = `wi-yahoo-${conditions.code}`;
             },
         },
     };
