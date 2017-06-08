@@ -22,7 +22,7 @@
 <script>
     import echo from '../mixins/echo';
     import Grid from './atoms/Grid';
-    import {addClassModifiers, formatDuration} from '../helpers';
+    import { addClassModifiers, formatDuration } from '../helpers';
 
     export default {
 
@@ -31,7 +31,7 @@
         },
 
         filters: {
-            formatDuration
+            formatDuration,
         },
 
         mixins: [echo],
@@ -47,7 +47,7 @@
         computed: {
             hasNotifications() {
                 return this.failingUrls.length > 0;
-            }
+            },
         },
 
 
@@ -69,13 +69,13 @@
             },
 
             add(url, startedFailingAt) {
-                this.failingUrls = this.failingUrls.filter(failingUrl => url != failingUrl.url);
+                this.failingUrls = this.failingUrls.filter(failingUrl => url !== failingUrl.url);
 
                 this.failingUrls.push({ url, startedFailingAt });
             },
 
             remove(url) {
-                this.failingUrls = this.failingUrls.filter(failingUrl => url != failingUrl.url);
+                this.failingUrls = this.failingUrls.filter(failingUrl => url !== failingUrl.url);
             },
         },
     };

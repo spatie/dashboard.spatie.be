@@ -16,7 +16,7 @@
     import echo from '../mixins/echo';
     import Grid from './atoms/Grid';
     import saveState from 'vue-save-state';
-    import {relativeDate} from '../helpers';
+    import { relativeDate } from '../helpers';
 
     export default {
 
@@ -52,4 +52,5 @@
             },
         },
     };
+
 </script>

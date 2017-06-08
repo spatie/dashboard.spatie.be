@@ -40,10 +40,6 @@ export function relativeDate(value) {
     return 'In ' + date.toNow(true);
 }
 
-function isToday(date) {
-    return moment().isSame(date, 'd');
-}
-
 export function relativeDateTime(value) {
     const date = moment(value);
 

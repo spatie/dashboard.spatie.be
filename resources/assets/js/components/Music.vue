@@ -28,7 +28,7 @@
 <script>
     import echo from '../mixins/echo';
     import Grid from './atoms/Grid';
-    import {addClassModifiers} from '../helpers';
+    import { addClassModifiers } from '../helpers';
     import saveState from 'vue-save-state';
 
     export default {
@@ -59,7 +59,7 @@
             },
             cover() {
                 return this.artwork || '/images/music__cover.jpg';
-            }
+            },
         },
 
         methods: {

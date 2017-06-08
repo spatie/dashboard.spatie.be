@@ -47,7 +47,7 @@
                 time: '',
                 weather: {
                     temperature: '',
-                    icon: ''
+                    icon: '',
                 },
             };
         },

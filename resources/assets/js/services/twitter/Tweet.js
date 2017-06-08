@@ -37,7 +37,7 @@ class Tweet {
     }
 
     get hasQuote() {
-        return this.tweetProperties['is_quote_status'] && this.tweetProperties['quoted_status'] != null;
+        return this.tweetProperties['is_quote_status'] && this.tweetProperties['quoted_status'] !== null;
     }
 
     get quote() {

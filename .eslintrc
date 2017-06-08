@@ -8,6 +8,9 @@
         "$": true,
         "jQuery": true
     },
+    "parserOptions": {
+        "ecmaVersion": 2017
+    },
     "plugins": [
         "vue"
     ]

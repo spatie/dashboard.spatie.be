@@ -5,17 +5,16 @@
 </template>
 
 <script>
-    import {relativeDateTime} from '../../helpers';
-    import moment from 'moment';
+    import { relativeDateTime } from '../../helpers';
 
     export default{
 
         props: ['moment'],
 
-        data(){
+        data() {
             return {
-                relativeDateTime: ''
-            }
+                relativeDateTime: '',
+            };
         },
 
         created() {
@@ -25,9 +24,8 @@
 
         methods: {
             refreshRelativeDateTime() {
-                this.relativeDateTime = relativeDateTime(this.moment)
+                this.relativeDateTime = relativeDateTime(this.moment);
             },
         },
-    }
-
+    };
 </script>

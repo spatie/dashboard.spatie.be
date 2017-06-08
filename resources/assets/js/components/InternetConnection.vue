@@ -9,7 +9,7 @@
 
 <script>
     import echo from '../mixins/echo';
-    import {addClassModifiers} from '../helpers';
+    import { addClassModifiers } from '../helpers';
     import moment from 'moment';
 
     export default {

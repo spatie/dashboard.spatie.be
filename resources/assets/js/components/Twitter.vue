@@ -57,8 +57,7 @@
     import RelativeDate from './atoms/RelativeDate';
     import Tweet from '../services/twitter/Tweet';
     import moment from 'moment';
-    import {diffInSeconds, addClassModifiers} from '../helpers';
-    import {map} from 'lodash';
+    import { diffInSeconds, addClassModifiers } from '../helpers';
 
     export default {
 
@@ -76,7 +75,7 @@
                 displayingTopTweetSince: moment(),
                 tweets: [],
                 waitingLine: [],
-                ownScreenName: '@spatie_be'
+                ownScreenName: '@spatie_be',
             };
         },
 
@@ -92,13 +91,13 @@
             getEventHandlers() {
                 return {
                     'Twitter.Mentioned': response => {
-                        this.addToWaitingLine(new Tweet(response.tweetProperties))
+                        this.addToWaitingLine(new Tweet(response.tweetProperties));
                     },
                 };
             },
 
             addToWaitingLine(tweet) {
-                this.waitingLine.push(tweet)
+                this.waitingLine.push(tweet);
             },
 
             processWaitingLine() {
@@ -128,7 +127,7 @@
             onDisplay() {
                 return this.tweets.filter(tweet => {
                     return (
-                        (tweet.authorScreenName != this.ownScreenName)
+                        (tweet.authorScreenName !== this.ownScreenName)
                         && (!tweet.isRetweet)
                     );
                 });
