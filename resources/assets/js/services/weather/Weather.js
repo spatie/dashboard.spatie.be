@@ -15,9 +15,7 @@ class Weather {
     async performQuery(query) {
         const endpoint = `https://query.yahooapis.com/v1/public/yql?q=${query}&format=json`;
 
-        const data = await axios.get(endpoint);
-
-        return data;
+        return await axios.get(endpoint);
     }
 }
 
