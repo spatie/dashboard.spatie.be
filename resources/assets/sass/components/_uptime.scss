@@ -5,7 +5,7 @@
         }
 
         .uptime__background {
-            @include background-icon('../svg/uptime.svg');
+            @include background-icon('/images/svg/uptime.svg');
 
             position: absolute;
             bottom: 0;

@@ -5,7 +5,7 @@
 }
 
 .music__icon {
-    @include background-icon('../svg/music.svg');
+    @include background-icon('/images/svg/music.svg');
 }
 
 .music__background {
@@ -94,7 +94,7 @@
     white-space: nowrap;
 
     &:before {
-        @include icon('../svg/music.svg');
+        @include icon('/images/svg/music.svg');
 
         margin-right: .25em;
     }

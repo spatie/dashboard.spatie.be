@@ -19,7 +19,7 @@
 
 .packagist__stars {
     &:before {
-        @include icon('../svg/star.svg');
+        @include icon('/images/svg/star.svg');
     }
 }
 

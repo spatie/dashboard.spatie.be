@@ -28,7 +28,7 @@
 }
 
 .internet-connection__icon {
-    @include icon('../svg/alert.svg');
+    @include icon('/images/svg/alert.svg');
 
     font-size: setting($font-size, l);
 }
