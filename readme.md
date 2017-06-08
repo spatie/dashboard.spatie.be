@@ -8,13 +8,12 @@ This repo contains the source code of https://dashboard.spatie.be
 
 Our configured dashboard has following tiles:
 
-- Twitter stream with all tweets mentioning [@spatie_be](https://twitter.com/spatie_be)
+- Twitter stream with all tweets mentioning and quoting [@spatie_be](https://twitter.com/spatie_be)
 - Team calendar via [Google Calendar](https://google.com/calendar)
 - Music currently playing via [Last.fm](https://last.fm)
-- Clock/date
+- Clock/date/weather
 - Team todo's via GitHub files
 - [Packagist](https://packagist.org/) stars and total downloads
-- Rain forecast (for the bikers amongst us) via [buienradar.nl](http://buienradar.nl)
 - Internet up/down via WebSockets
 
 ## Installation
