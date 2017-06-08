@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
     "chart.js": "^2.1.4",
     "laravel-echo": "^1.0.1",
     "lodash": "^4.17.4",
