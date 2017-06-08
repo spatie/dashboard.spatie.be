@@ -7,7 +7,7 @@
                 <span class="time-weather__weather">
                     <span class="time-weather__weather__temperature">{{ weather.temperature }}</span>
                     <span class="time-weather__weather__description">
-                        <i class="wi" :class="weather.icon"></i>
+                        <i class="wi" :class="weather.iconClass"></i>
                     </span>
                 </span>
             </time>
@@ -46,7 +46,7 @@
                 time: '',
                 weather: {
                     temperature: '',
-                    icon: '',
+                    iconClass: '',
                 },
             };
         },
@@ -69,7 +69,7 @@
                 const conditions = await weather.conditions();
 
                 this.weather.temperature = conditions.temp;
-                this.weather.icon = 'wi-yahoo-' + conditions.code;
+                this.weather.iconClass = 'wi-yahoo-' + conditions.code;
             },
         },
     };
