@@ -1,4 +1,4 @@
-const icons = {
+export default {
     '0': 'wi-tornado',
     '1': 'wi-storm-showers',
     '2': 'wi-tornado',
@@ -49,5 +49,3 @@ const icons = {
     '47': 'wi-thunderstorm',
     '3200': 'wi-cloud',
 };
-
-export default icons;
