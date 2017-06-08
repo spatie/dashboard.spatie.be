@@ -19,15 +19,15 @@
                     </div>
                 </div>
                 <div
-                    :class="addClassModifiers('tweet__body', tweet.displayClass)"
-                    v-html="tweet.html"
+                        :class="addClassModifiers('tweet__body', tweet.displayClass)"
+                        v-html="tweet.html"
                 ></div>
                 <div class="tweet__meta">
                     <relative-date :moment="tweet.date"></relative-date>
                 </div>
 
                 <div v-if="tweet.image" class="tweet__attachment">
-                    <img :src="tweet.image" />
+                    <img :src="tweet.image"/>
                 </div>
 
                 <div v-if="tweet.hasQuote" class="tweet--quoted">
@@ -42,8 +42,8 @@
                         </div>
                     </div>
                     <div
-                        class="tweet__body tweet__body--small"
-                        v-html="tweet.quote.html"
+                            class="tweet__body tweet__body--small"
+                            v-html="tweet.quote.html"
                     ></div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
     import Tweet from '../services/twitter/Tweet';
     import moment from 'moment';
     import {diffInSeconds, addClassModifiers} from '../helpers';
-    import { map } from 'lodash';
+    import {map} from 'lodash';
 
     export default {
 
@@ -112,7 +112,7 @@
 
                 this.tweets.unshift(this.waitingLine.shift());
 
-                this.tweets = this.tweets.slice(0,20);
+                this.tweets = this.tweets.slice(0, 20);
 
                 this.displayingTopTweetSince = moment();
             },
@@ -129,10 +129,10 @@
                 return this.tweets.filter((tweet) => {
                     return (
                         (tweet.authorScreenName != this.ownScreenName)
-                        && (! tweet.isRetweet)
+                        && (!tweet.isRetweet)
                     );
                 });
-            }
+            },
         },
     };
 </script>

@@ -17,9 +17,9 @@
 
 <script>
     import Grid from './atoms/Grid';
+    import icons from '../services/weather/icons';
     import moment from 'moment';
     import weather from '../services/weather/Weather';
-    import icons from '../services/weather/icons';
 
     export default {
 
@@ -47,7 +47,6 @@
                 time: '',
                 weather: {
                     temperature: '',
-                    description: '',
                     icon: ''
                 },
             };
@@ -71,12 +70,8 @@
                 const conditions = await weather.conditions();
 
                 this.weather.temperature = conditions.temp;
-                this.weather.description = conditions.text;
                 this.weather.icon = icons[conditions.code] || 'wi-cloud';
             },
-
         },
     };
-
-
 </script>

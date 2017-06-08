@@ -30,51 +30,51 @@
 </template>
 
 <script>
-import { formatNumber } from '../helpers';
-import echo from '../mixins/echo';
-import Grid from './atoms/Grid';
-import saveState from 'vue-save-state';
+    import {formatNumber} from '../helpers';
+    import echo from '../mixins/echo';
+    import Grid from './atoms/Grid';
+    import saveState from 'vue-save-state';
 
-export default {
+    export default {
 
-    components: {
-        Grid,
-    },
+        components: {
+            Grid,
+        },
 
-    mixins: [echo, saveState],
+        mixins: [echo, saveState],
 
-    props: ['grid'],
+        props: ['grid'],
 
-    data() {
-        return {
-            stars: 0,
-            issues: 0,
-            pullRequests: 0,
-            contributors: 0,
-            numberOfRepos: 0,
-        };
-    },
-
-    methods: {
-        formatNumber,
-
-        getEventHandlers() {
+        data() {
             return {
-                'GitHub.TotalsFetched': response => {
-                    this.stars = response.stars;
-                    this.issues = response.issues;
-                    this.pullRequests = response.pullRequests;
-                    this.contributors = response.contributors;
-                    this.numberOfRepos = response.numberOfRepos;
-                },
+                stars: 0,
+                issues: 0,
+                pullRequests: 0,
+                contributors: 0,
+                numberOfRepos: 0,
             };
         },
 
-        getSaveStateConfig() {
-            return {
-                cacheKey: `github`,
-            };
+        methods: {
+            formatNumber,
+
+            getEventHandlers() {
+                return {
+                    'GitHub.TotalsFetched': response => {
+                        this.stars = response.stars;
+                        this.issues = response.issues;
+                        this.pullRequests = response.pullRequests;
+                        this.contributors = response.contributors;
+                        this.numberOfRepos = response.numberOfRepos;
+                    },
+                };
+            },
+
+            getSaveStateConfig() {
+                return {
+                    cacheKey: `github`,
+                };
+            },
         },
-    },
-};
+    };
 </script>

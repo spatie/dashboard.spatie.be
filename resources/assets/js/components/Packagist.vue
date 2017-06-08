@@ -21,48 +21,48 @@
 </template>
 
 <script>
-import { formatNumber } from '../helpers';
-import echo from '../mixins/echo';
-import Grid from './atoms/Grid';
-import saveState from 'vue-save-state';
+    import {formatNumber} from '../helpers';
+    import echo from '../mixins/echo';
+    import Grid from './atoms/Grid';
+    import saveState from 'vue-save-state';
 
-export default {
+    export default {
 
-    components: {
-        Grid,
-    },
+        components: {
+            Grid,
+        },
 
-    mixins: [echo, saveState],
+        mixins: [echo, saveState],
 
-    props: ['grid'],
+        props: ['grid'],
 
-    data() {
-        return {
-            daily: 0,
-            monthly: 0,
-            total: 0,
-        };
-    },
-
-    methods: {
-        formatNumber,
-
-        getEventHandlers() {
+        data() {
             return {
-                'Packagist.TotalsFetched': response => {
-                    this.daily = response.daily;
-                    this.monthly = response.monthly;
-                    this.total = response.total;
-                },
+                daily: 0,
+                monthly: 0,
+                total: 0,
             };
         },
 
-        getSaveStateConfig() {
-            return {
-                cacheKey: 'packagist',
-            };
+        methods: {
+            formatNumber,
+
+            getEventHandlers() {
+                return {
+                    'Packagist.TotalsFetched': response => {
+                        this.daily = response.daily;
+                        this.monthly = response.monthly;
+                        this.total = response.total;
+                    },
+                };
+            },
+
+            getSaveStateConfig() {
+                return {
+                    cacheKey: 'packagist',
+                };
+            },
         },
-    },
-};
+    };
 
 </script>

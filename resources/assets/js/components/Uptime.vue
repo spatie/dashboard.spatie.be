@@ -1,6 +1,6 @@
 <template>
     <grid :position="grid" :modifiers="hasNotifications? 'overflow padded yellow' : 'padded'">
-        <section :class="hasNotifications ? 'uptime' : addClassModifiers('uptime', 'empty')" >
+        <section :class="hasNotifications ? 'uptime' : addClassModifiers('uptime', 'empty')">
             <div v-if="hasNotifications">
                 <h1 class="uptime__title">Downtime</h1>
                 <ul class="uptime__notifications">
@@ -22,7 +22,7 @@
 <script>
     import echo from '../mixins/echo';
     import Grid from './atoms/Grid';
-    import { addClassModifiers, formatDuration } from '../helpers';
+    import {addClassModifiers, formatDuration} from '../helpers';
 
     export default {
 
@@ -75,7 +75,7 @@
             add(url, startedFailingAt) {
                 this.failingUrls = this.failingUrls.filter(failingUrl => url != failingUrl.url);
 
-                this.failingUrls.push({ url, startedFailingAt });
+                this.failingUrls.push({url, startedFailingAt});
             },
         },
     };
