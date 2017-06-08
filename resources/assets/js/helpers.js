@@ -19,7 +19,7 @@ export function addClassModifiers(base, modifiers = []) {
 }
 
 export function formatDuration(start) {
-    return moment.duration(moment().diff(start), 'milliseconds').format("d[d] h[h] m[m]");
+    return moment.duration(moment().diff(start), 'milliseconds').format('d[d] h[h] m[m]');
 }
 
 export function relativeDate(value) {
