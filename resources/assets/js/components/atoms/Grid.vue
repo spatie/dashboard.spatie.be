@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import {addClassModifiers} from '../../helpers';
+    import { addClassModifiers } from '../../helpers';
 
     export default {
 
