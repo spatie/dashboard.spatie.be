@@ -8,41 +8,22 @@ use Spatie\LaravelTwitterStreamingApi\TwitterStreamingApi;
 
 class ListenForMentions extends Command
 {
-    protected $signature = 'dashboard:twitter';
+    protected $signature = 'dashboard:listen-twitter-mentions';
 
     protected $description = 'Listen for mentions on Twitter';
 
     public function handle()
     {
-        $this->info('Listening for tweets...');
+        $this->info('Listening for mentions...');
 
-        $this->listenForMentions([
-            'spatie.be',
-            '@spatie_be',
-            'github.com/spatie',
-        ]);
-
-        $this->listenForQuoted();
-    }
-
-    protected function listenForMentions(array $listenFor)
-    {
         app(TwitterStreamingApi::class)
             ->publicStream()
-            ->whenHears($listenFor, function (array $tweetProperties) {
+            ->whenHears([
+                'spatie.be',
+                '@spatie_be',
+                'github.com/spatie',
+            ], function (array $tweetProperties) {
                 event(new Mentioned($tweetProperties));
-            })
-            ->startListening();
-    }
-
-    protected function listenForQuoted()
-    {
-        app(TwitterStreamingApi::class)
-            ->userStream()
-            ->onEvent(function (array $event) {
-                if (isset($event['event']) && $event['event'] === 'quoted_tweet') {
-                    event(new Mentioned($event['target_object']));
-                }
             })
             ->startListening();
     }

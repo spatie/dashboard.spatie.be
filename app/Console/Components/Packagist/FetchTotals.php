@@ -15,9 +15,7 @@ class FetchTotals extends Command
 
     public function handle()
     {
-        $client = new Client();
-
-        $packagist = new Packagist($client);
+        $packagist = new Packagist(new Client());
 
         $totals = collect($packagist->getPackagesByVendor(config('services.packagist.vendor'))['packageNames'])
                 ->map(function ($packageName) use ($packagist) {

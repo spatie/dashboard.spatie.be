@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Components\Packagist\FetchTotals::class,
         \App\Console\Components\Tasks\FetchTasks::class,
         \App\Console\Components\Twitter\ListenForMentions::class,
+        \App\Console\Components\Twitter\ListenForQuotes::class,
         \App\Console\Components\Twitter\SendFakeTweet::class,
         UpdateDashboard::class,
     ];
