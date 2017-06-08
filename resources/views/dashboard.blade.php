@@ -10,8 +10,8 @@
         <music grid="c1:d1"></music>
         <uptime grid="b3"></uptime>
 
-        <tasks team-member="freek" grid="c2"></tasks>
-        <tasks team-member="alex" grid="d2"></tasks>
+        <tasks team-member="alex" grid="c2"></tasks>
+        <tasks team-member="freek" grid="d2"></tasks>
         <tasks team-member="seb" grid="c3"></tasks>
         <tasks team-member="willem" grid="d3"></tasks>
 
