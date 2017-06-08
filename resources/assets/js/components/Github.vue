@@ -72,7 +72,7 @@
 
             getSaveStateConfig() {
                 return {
-                    cacheKey: `github`,
+                    cacheKey: 'github',
                 };
             },
         },
