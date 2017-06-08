@@ -20,17 +20,17 @@ class GitHubWebhookController extends Controller
     {
         $gitHubSignature = request()->header('X-Hub-Signature');
 
-        logger(compact('gitHubSignature'));
+        var_dump(compact('gitHubSignature'));
 
         [$usedAlgorithm, $gitHubHash] = explode('=', $gitHubSignature, 2);
 
         $payload = file_get_contents('php://input');
 
-        logger(compact('payload'));
+        var_dump(compact('payload'));
 
         $calculatedHash = hash_hmac($usedAlgorithm, $payload, config('services.github.hook_secret'));
 
-        logger(compact('gitHubHash', 'calculatedHash'));
+        var_dump(compact('gitHubHash', 'calculatedHash'));
 
         return $calculatedHash === $gitHubHash;
     }
