@@ -7,7 +7,7 @@
                 <span class="time-weather__weather">
                     <span class="time-weather__weather__temperature">{{ weather.temperature }}</span>
                     <span class="time-weather__weather__description">
-                        <i class="wi" :class="weather.icon"></i>
+                        <i class="wi" :class="weather.iconClass"></i>
                     </span>
                 </span>
             </time>
@@ -17,7 +17,6 @@
 
 <script>
     import Grid from './atoms/Grid';
-    import icons from '../services/weather/icons';
     import moment from 'moment';
     import weather from '../services/weather/Weather';
 
@@ -47,7 +46,7 @@
                 time: '',
                 weather: {
                     temperature: '',
-                    icon: '',
+                    iconClass: '',
                 },
             };
         },
@@ -70,7 +69,7 @@
                 const conditions = await weather.conditions();
 
                 this.weather.temperature = conditions.temp;
-                this.weather.icon = icons[conditions.code] || 'wi-cloud';
+                this.weather.iconClass = 'wi-yahoo-' + conditions.code;
             },
         },
     };
