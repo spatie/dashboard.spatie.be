@@ -16,7 +16,6 @@
     @if(usingNodeServer())
         <script src="{{ config('app.url') }}:6001/socket.io/socket.io.js"></script>
     @endif
-    <script>window.localStorage.clear();</script>
     <script src="{{ mix("js/app.js") }}"></script>
 
 </body>
