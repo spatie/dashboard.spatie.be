@@ -1,6 +1,4 @@
-import { upperFirst } from 'lodash';
 import moment from 'moment';
-import duration from 'moment-duration-format';
 
 export function formatNumber(value) {
     if (! value) {
