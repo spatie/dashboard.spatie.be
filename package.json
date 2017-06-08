@@ -17,6 +17,7 @@
     "babel-preset-env": "^1.5.2",
     "chai": "^3.5.0",
     "chart.js": "^2.1.4",
+    "cross-env": "^5.0.1",
     "eslint": "^3.7.1",
     "eslint-config-spatie": "^1.2.2",
     "eslint-plugin-html": "^1.5.3",
