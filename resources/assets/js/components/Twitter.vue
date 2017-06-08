@@ -119,14 +119,14 @@
 
             getSaveStateConfig() {
                 return {
-                    cacheKey: `twitter`,
+                    cacheKey: 'twitter',
                 };
             },
         },
 
         computed: {
             onDisplay() {
-                return this.tweets.filter((tweet) => {
+                return this.tweets.filter(tweet => {
                     return (
                         (tweet.authorScreenName != this.ownScreenName)
                         && (!tweet.isRetweet)
