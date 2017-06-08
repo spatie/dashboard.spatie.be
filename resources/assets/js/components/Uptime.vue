@@ -56,14 +56,14 @@
 
             getEventHandlers() {
                 return {
-                    'Uptime.UptimeCheckSucceeded': response => {
-                        this.remove(response.url);
+                    'Uptime.UptimeCheckFailed': response => {
+                        this.add(response.url, response.startedFailingAt);
                     },
                     'Uptime.UptimeCheckRecovered': response => {
                         this.remove(response.url);
                     },
-                    'Uptime.UptimeCheckFailed': response => {
-                        this.add(response.url, response.startedFailingAt);
+                    'Uptime.UptimeCheckSucceeded': response => {
+                        this.remove(response.url);
                     },
                 };
             },
