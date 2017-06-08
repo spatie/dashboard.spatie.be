@@ -1,9 +1,6 @@
-# DEV
+# BACK END
 .env
 _ide_helper*.php
-.phpstorm.meta.php
-
-# BACK END
 /vendor
 
 # FRONT END
