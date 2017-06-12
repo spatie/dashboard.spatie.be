@@ -1,6 +1,7 @@
 import moment from 'moment';
 import twemoji from 'twemoji';
 import { get, last } from 'lodash';
+import unicodeSubstring from 'unicode-substring';
 
 class Tweet {
 
@@ -17,7 +18,7 @@ class Tweet {
     }
 
     get authorName() {
-        return this.tweetProperties['user']['name'];
+        return twemoji.parse(this.tweetProperties['user']['name']);
     }
 
     get authorAvatar() {
@@ -47,13 +48,13 @@ class Tweet {
     get text() {
         let text = this.tweetProperties['text'];
 
-        if (this.tweetProperties.hasOwnProperty('display_text_range')) {
-            text = text.substr(...this.tweetProperties['display_text_range']);
-        }
-
         text = get(this.tweetProperties, 'extended_entities.media', [])
             .map(media => media.url)
             .reduce((text, mediaUrl) => text.replace(mediaUrl, ''), text);
+
+        if (this.tweetProperties.hasOwnProperty('display_text_range')) {
+            text = unicodeSubstring(text, ...this.tweetProperties['display_text_range']);
+        }
 
         if (this.hasQuote) {
             text = text.replace(last(this.tweetProperties.entities.urls).url, '');

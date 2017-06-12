@@ -6777,9 +6777,9 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
 
-twemoji@^2.2.0:
+twemoji@^2.3.0:
   version "2.3.0"
-  resolved "https://registry.npmjs.org/twemoji/-/twemoji-2.3.0.tgz#45b4af4292d42f2fdf2d8ec5b86d5a8a996bc018"
+  resolved "https://npm.spatie.be/twemoji/-/twemoji-2.3.0.tgz#45b4af4292d42f2fdf2d8ec5b86d5a8a996bc018"
 
 type-check@~0.3.2:
   version "0.3.2"
@@ -6841,6 +6841,10 @@ ultron@1.0.x:
 underscore@1.7.x:
   version "1.7.0"
   resolved "https://registry.npmjs.org/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
+
+unicode-substring@^0.1.0:
+  version "0.1.0"
+  resolved "https://npm.spatie.be/unicode-substring/-/unicode-substring-0.1.0.tgz#6120ce3c390385dbcd0f60c32b9065c4181d4b36"
 
 uniq@^1.0.1:
   version "1.0.1"

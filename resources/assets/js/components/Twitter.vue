@@ -10,9 +10,7 @@
                     <div class="tweet__avatar"
                          :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
                     <div class="tweet__user">
-                        <div class="tweet__user__name">
-                            {{ tweet.authorName }}
-                        </div>
+                        <div class="tweet__user__name" v-html="tweet.authorName"></div>
                         <div class="tweet__user__handle">
                             {{ tweet.authorScreenName }}
                         </div>
@@ -33,9 +31,7 @@
                 <div v-if="tweet.hasQuote" class="tweet--quoted">
                     <div class="tweet__header">
                         <div class="tweet__user">
-                            <div class="tweet__user__name">
-                                {{ tweet.quote.authorName }}
-                            </div>
+                            <div class="tweet__user__name" v-html="tweet.quote.authorName"></div>
                             <div class="tweet__user__handle">
                                 {{ tweet.quote.authorScreenName }}
                             </div>
