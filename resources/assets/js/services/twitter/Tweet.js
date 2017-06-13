@@ -1,7 +1,7 @@
 import moment from 'moment';
 import twemoji from 'twemoji';
 import { get, last } from 'lodash';
-import unicodeSubstring from 'unicode-substring';
+import { substring } from 'stringz';
 
 class Tweet {
 
@@ -53,7 +53,7 @@ class Tweet {
             .reduce((text, mediaUrl) => text.replace(mediaUrl, ''), text);
 
         if (this.tweetProperties.hasOwnProperty('display_text_range')) {
-            text = unicodeSubstring(text, ...this.tweetProperties['display_text_range']);
+            text = substring(text, ...this.tweetProperties['display_text_range']);
         }
 
         if (this.hasQuote) {
