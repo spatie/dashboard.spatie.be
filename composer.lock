@@ -2396,20 +2396,20 @@
         },
         {
             "name": "spatie/packagist-api",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/packagist-api.git",
-                "reference": "770ad50c97370e71fcb81d9d367239193c994fe9"
+                "reference": "440f22878930310bf9f2aaee03166ac39368b3e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/packagist-api/zipball/770ad50c97370e71fcb81d9d367239193c994fe9",
-                "reference": "770ad50c97370e71fcb81d9d367239193c994fe9",
+                "url": "https://api.github.com/repos/spatie/packagist-api/zipball/440f22878930310bf9f2aaee03166ac39368b3e9",
+                "reference": "440f22878930310bf9f2aaee03166ac39368b3e9",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^6.1",
+                "guzzlehttp/guzzle": "^6.2.3",
                 "php": "^5.5|^7.0"
             },
             "require-dev": {
@@ -2446,7 +2446,7 @@
                 "packagist",
                 "spatie"
             ],
-            "time": "2016-05-14T17:48:10+00:00"
+            "time": "2017-06-13T11:39:34+00:00"
         },
         {
             "name": "spatie/twitter-streaming-api",
@@ -3146,16 +3146,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4"
+                "reference": "f29dca382a6485c3cbe6379f0c61230167681937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/e79d363049d1c2128f133a2667e4f4190904f7f4",
-                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f29dca382a6485c3cbe6379f0c61230167681937",
+                "reference": "f29dca382a6485c3cbe6379f0c61230167681937",
                 "shasum": ""
             },
             "require": {
@@ -3167,7 +3167,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -3201,7 +3201,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2017-06-09T14:24:12+00:00"
         },
         {
             "name": "symfony/process",
