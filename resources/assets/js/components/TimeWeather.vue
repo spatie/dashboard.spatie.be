@@ -1,5 +1,5 @@
 <template>
-    <grid :position="grid">
+    <grid-area :position="position">
         <section class="time-weather">
             <time class="time-weather__content">
                 <span class="time-weather__date">{{ date }}</span>
@@ -12,30 +12,30 @@
                 </span>
             </time>
         </section>
-    </grid>
+    </grid-area>
 </template>
 
 <script>
-    import Grid from './atoms/Grid';
+    import GridArea from './atoms/GridArea';
     import moment from 'moment';
     import weather from '../services/weather/Weather';
 
     export default {
 
         components: {
-            Grid,
+            GridArea,
         },
 
         props: {
-            dateformat: {
+            dateFormat: {
                 type: String,
                 default: 'DD-MM-YYYY',
             },
-            timeformat: {
+            timeFormat: {
                 type: String,
                 default: 'HH:mm:ss',
             },
-            grid: {
+            position: {
                 type: String,
             },
         },
@@ -61,8 +61,8 @@
 
         methods: {
             refreshTime() {
-                this.date = moment().format(this.dateformat);
-                this.time = moment().format(this.timeformat);
+                this.date = moment().format(this.dateFormat);
+                this.time = moment().format(this.timeFormat);
             },
 
             async fetchWeather() {

@@ -1,26 +1,26 @@
 <template>
-    <grid :position="grid" modifiers="overflow padded blue">
+    <grid-area :position="position" modifiers="overflow">
         <section class="github-file">
             <h1 class="github-file__title">{{ teamMember }}</h1>
             <div class="github-file__content" v-html="tasks"></div>
         </section>
-    </grid>
+    </grid-area>
 </template>
 
 <script>
     import echo from '../mixins/echo';
-    import Grid from './atoms/Grid';
+    import GridArea from './atoms/GridArea';
     import saveState from 'vue-save-state';
 
     export default {
 
         components: {
-            Grid,
+            GridArea,
         },
 
         mixins: [echo, saveState],
 
-        props: ['teamMember', 'grid'],
+        props: ['teamMember', 'position'],
 
         data() {
             return {

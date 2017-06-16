@@ -1,40 +1,40 @@
 <template>
-    <grid :position="grid" modifiers="padded overflow">
-        <section class="packagist">
+    <grid-area :position="position" modifiers="overflow">
+        <section class="statistics">
             <h1>Package Downloads</h1>
             <ul>
-                <li class="packagist-statistic">
-                    <h2 class="packagist__period">24 hours</h2>
-                    <span class="packagist__count">{{ formatNumber(daily) }}</span>
+                <li class="statistic">
+                    <h2 class="statistic__label">24 hours</h2>
+                    <span class="statistic__count">{{ formatNumber(daily) }}</span>
                 </li>
-                <li class="packagist-statistic">
-                    <h2 class="packagist__period">30 days</h2>
-                    <span class="packagist__count">{{ formatNumber(monthly) }}</span>
+                <li class="statistic">
+                    <h2 class="statistic__label">30 days</h2>
+                    <span class="statistic__count">{{ formatNumber(monthly) }}</span>
                 </li>
-                <li class="packagist-statistic -total">
-                    <h2 class="packagist__period">Total</h2>
-                    <span class="packagist__count">{{ formatNumber(total) }}</span>
+                <li class="statistic">
+                    <h2 class="statistic__label">Total</h2>
+                    <span class="statistic__count">{{ formatNumber(total) }}</span>
                 </li>
             </ul>
         </section>
-    </grid>
+    </grid-area>
 </template>
 
 <script>
     import { formatNumber } from '../helpers';
     import echo from '../mixins/echo';
-    import Grid from './atoms/Grid';
+    import GridArea from './atoms/GridArea';
     import saveState from 'vue-save-state';
 
     export default {
 
         components: {
-            Grid,
+            GridArea,
         },
 
         mixins: [echo, saveState],
 
-        props: ['grid'],
+        props: ['position'],
 
         data() {
             return {

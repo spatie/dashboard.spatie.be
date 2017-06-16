@@ -1,49 +1,48 @@
 <template>
-    <grid :position="grid" modifiers="padded overflow">
-        <section class="packagist">
+    <grid-area :position="position">
+        <section class="statistics">
             <h1>GitHub</h1>
             <ul>
-                <li class="packagist-statistic">
-                    <span class="packagist__stars"></span>
-                    <span class="packagist__count">{{ formatNumber(stars) }}</span>
+                <li class="statistic">
+                    <span class="statistic__stars"></span>
+                    <span class="statistic__count">{{ formatNumber(stars) }}</span>
                 </li>
-                <li class="packagist-statistic">
-                    <span class="packagist__period">Issues</span>
-                    <span class="packagist__count">{{ formatNumber(issues) }}</span>
+                <li class="statistic">
+                    <span class="statistic__label">Issues</span>
+                    <span class="statistic__count">{{ formatNumber(issues) }}</span>
                 </li>
-                <li class="packagist-statistic">
-                    <h2 class="packagist__period">Pull Requests</h2>
-                    <span class="packagist__count">{{ formatNumber(pullRequests) }}</span>
+                <li class="statistic">
+                    <h2 class="statistic__label">Pull Requests</h2>
+                    <span class="statistic__count">{{ formatNumber(pullRequests) }}</span>
                 </li>
-                <li class="packagist-statistic">
-                    <h2 class="packagist__period">Contributors</h2>
-                    <span class="packagist__count">{{ formatNumber(contributors) }}</span>
+                <li class="statistic">
+                    <h2 class="statistic__label">Contributors</h2>
+                    <span class="statistic__count">{{ formatNumber(contributors) }}</span>
                 </li>
-                <li class="packagist-statistic">
-                    <h2 class="packagist__period">Repos</h2>
-                    <span class="packagist__count">{{ formatNumber(numberOfRepos) }}</span>
+                <li class="statistic">
+                    <h2 class="statistic__label">Repos</h2>
+                    <span class="statistic__count">{{ formatNumber(numberOfRepos) }}</span>
                 </li>
-
             </ul>
         </section>
-    </grid>
+    </grid-area>
 </template>
 
 <script>
     import { formatNumber } from '../helpers';
     import echo from '../mixins/echo';
-    import Grid from './atoms/Grid';
+    import GridArea from './atoms/GridArea';
     import saveState from 'vue-save-state';
 
     export default {
 
         components: {
-            Grid,
+            GridArea,
         },
 
         mixins: [echo, saveState],
 
-        props: ['grid'],
+        props: ['position'],
 
         data() {
             return {

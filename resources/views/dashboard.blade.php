@@ -2,23 +2,24 @@
 
 @section('content')
 
-    @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
+@javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 
-    <div class="dashboard" id="dashboard">
-        <twitter :initial-tweets="{{ json_encode($initialTweets) }}" grid="a1:a3"></twitter>
-        <calendar grid="b1:b2"></calendar>
-        <music grid="c1:d1"></music>
-        <uptime grid="b3"></uptime>
+    <div id="dashboard">
+        <dashboard columns="5" rows="3">
+            <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a3"></twitter>
+            <calendar position="b1:b2"></calendar>
+            <music position="c1:d1"></music>
+            <uptime position="b3"></uptime>
 
-        <tasks team-member="alex" grid="c2"></tasks>
-        <tasks team-member="freek" grid="d2"></tasks>
-        <tasks team-member="seb" grid="c3"></tasks>
-        <tasks team-member="willem" grid="d3"></tasks>
+            <tasks team-member="alex" position="c2"></tasks>
+            <tasks team-member="freek" position="d2"></tasks>
+            <tasks team-member="seb" position="c3"></tasks>
+            <tasks team-member="willem" position="d3"></tasks>
 
-        <time-weather grid="e1" dateformat="ddd DD/MM"></time-weather>
-        <packagist grid="e2"></packagist>
-        <github grid="e3"></github>
-
+            <time-weather position="e1" date-format="ddd DD/MM"></time-weather>
+            <packagist position="e2"></packagist>
+            <github position="e3"></github>
+        </dashboard>
         <internet-connection></internet-connection>
     </div>
 @endsection

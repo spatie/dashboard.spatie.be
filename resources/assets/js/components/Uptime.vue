@@ -1,5 +1,5 @@
 <template>
-    <grid :position="grid" :modifiers="hasNotifications? 'overflow padded yellow' : 'padded'">
+    <grid-area :position="position" :modifiers="hasNotifications? 'overflow yellow' : ''">
         <section :class="hasNotifications ? 'uptime' : addClassModifiers('uptime', 'empty')">
             <div v-if="hasNotifications">
                 <h1 class="uptime__title">Downtime</h1>
@@ -12,22 +12,21 @@
                     </li>
                 </ul>
             </div>
-
             <h1 v-if="!hasNotifications" class="uptime__title">Sites are up</h1>
             <div v-if="!hasNotifications" class="uptime__background"></div>
         </section>
-    </grid>
+    </grid-area>
 </template>
 
 <script>
     import echo from '../mixins/echo';
-    import Grid from './atoms/Grid';
+    import GridArea from './atoms/GridArea';
     import { addClassModifiers, formatDuration } from '../helpers';
 
     export default {
 
         components: {
-            Grid,
+            GridArea,
         },
 
         filters: {
@@ -36,7 +35,7 @@
 
         mixins: [echo],
 
-        props: ['grid'],
+        props: ['position'],
 
         data() {
             return {
