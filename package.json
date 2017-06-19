@@ -8,7 +8,7 @@
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "lint": "lint:css && lint:js",
+    "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint resources/assets/css/**/**.css --fix",
     "lint:js": "eslint resources/assets/js --ext .js,.vue"
   },
@@ -31,8 +31,6 @@
     "mockdate": "^2.0.1",
     "moment": "^2.13.0",
     "moment-duration-format": "^1.3.0",
-    "postcss-apply": "^0.8.0",
-    "postcss-cli": "^3.0.0",
     "pusher-js": "^3.2.1",
     "stringz": "^0.2.1",
     "svg-url-loader": "^2.0.2",

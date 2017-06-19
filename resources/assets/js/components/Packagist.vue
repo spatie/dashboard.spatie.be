@@ -4,15 +4,15 @@
             <h1>Package Downloads</h1>
             <ul>
                 <li class="statistic">
-                    <h2 class="statistic__label">24 hours</h2>
+                    <span class="statistic__label">24 hours</span>
                     <span class="statistic__count">{{ formatNumber(daily) }}</span>
                 </li>
                 <li class="statistic">
-                    <h2 class="statistic__label">30 days</h2>
+                    <span class="statistic__label">30 days</span>
                     <span class="statistic__count">{{ formatNumber(monthly) }}</span>
                 </li>
                 <li class="statistic">
-                    <h2 class="statistic__label">Total</h2>
+                    <span class="statistic__label">Total</span>
                     <span class="statistic__count">{{ formatNumber(total) }}</span>
                 </li>
             </ul>

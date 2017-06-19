@@ -1,15 +1,13 @@
 <template>
     <grid-area :position="position" modifiers="overflow transparent">
         <section class="tweets">
-            <div class="tweets__icon" v-if="!onDisplay.length">
-            </div>
             <div class="tweet" v-for="tweet in onDisplay">
                 <div class="tweet__header">
                     <div class="tweet__avatar"
                     :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
                     <div class="tweet__user">
-                        <div class="tweet__user__name" v-html="tweet.authorName"></div>
-                        <div class="tweet__user__handle">
+                        <div class="tweet__user__name h-ellipsis" v-html="tweet.authorName"></div>
+                        <div class="tweet__user__handle h-ellipsis">
                             {{ tweet.authorScreenName }}
                         </div>
                     </div>
@@ -18,7 +16,7 @@
                 v-html="tweet.html"></div>
                 <div class="tweet__meta">
                     <relative-date :moment="tweet.date"></relative-date>
-                    <span v-if="tweet.hasQuote" class="tweet__user__handle">
+                    <span v-if="tweet.hasQuote" class="tweet__user__handle h-ellipsis">
                         In reply to {{ tweet.quote.authorScreenName }}
                     </span>
                 </div>
@@ -30,6 +28,8 @@
                 </div>
             </div>
         </section>
+        <div class="tweets__icon h-background-icon" v-if="!onDisplay.length">
+        </div>
     </grid-area>
 </template>
 

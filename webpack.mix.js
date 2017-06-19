@@ -4,14 +4,11 @@ mix
     .js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/css/app.css', 'public/css')
 
+	.version()
+
     .options({
-        postCss: [
-            require('postcss-apply')(),
-        ],
         processCssUrls: false,
     })
-
-	.version()
 
     .webpackConfig({
         module: {

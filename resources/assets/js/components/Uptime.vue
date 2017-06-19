@@ -1,20 +1,20 @@
 <template>
-    <grid-area :position="position" :modifiers="hasNotifications? 'overflow yellow' : ''">
-        <section :class="hasNotifications ? 'uptime' : addClassModifiers('uptime', 'empty')">
+    <grid-area :position="position" :modifiers="hasNotifications? 'overflow yellow' : 'overflow'">
+        <section class="uptime">
             <div v-if="hasNotifications">
                 <h1 class="uptime__title">Downtime</h1>
                 <ul class="uptime__notifications">
                     <li v-for="failing in failingUrls" class="uptime__notification">
-                        <h2 class="uptime__notification__title">{{ failing.url }}</h2>
+                        <h2 class="uptime__notification__title h-ellipsis">{{ failing.url }}</h2>
                         <div class="uptime__notification__time">
                             {{ failing.startedFailingAt | formatDuration }}
                         </div>
                     </li>
                 </ul>
             </div>
-            <h1 v-if="!hasNotifications" class="uptime__title">Sites are up</h1>
-            <div v-if="!hasNotifications" class="uptime__background"></div>
+            <h1 v-else class="uptime__title--up">Sites are up</h1>
         </section>
+        <div v-if="!hasNotifications" class="uptime__background h-background-icon"></div>
     </grid-area>
 </template>
 
