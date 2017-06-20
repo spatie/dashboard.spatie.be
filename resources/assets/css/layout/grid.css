@@ -1,0 +1,51 @@
+.grid__area {
+    overflow: hidden;
+    padding: var(--grid-padding);
+    border-radius: .25vw;
+    background-color: var(--tile-background-color);
+    color: white;
+    text-shadow: 1px 1px 1px var(--tile-background-color);
+}
+
+.grid__area--blue {
+    --tile-background-color: var(--blue-darker);
+}
+
+.grid__area--green {
+    --tile-background-color: var(--green-darker);
+}
+
+.grid__area--orange {
+    --tile-background-color: var(--orange);
+}
+
+.grid__area--overflow:after {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 1px;
+    box-shadow: 0 0 .5em .5em var(--tile-background-color);
+    content: '';
+}
+
+.grid__area--red {
+    --tile-background-color: var(--red);
+}
+
+.grid__area--transparent {
+    --tile-background-color: var(--dashboard-background-color);
+
+    border: solid 1px var(--tile-background-color);
+}
+
+.grid__area--yellow {
+    --tile-background-color: var(--yellow);
+
+    color: black;
+}
+
+.grid__area > * {
+    height: 100%;
+}

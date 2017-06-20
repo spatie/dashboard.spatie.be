@@ -1,0 +1,16 @@
+:root {
+    --font-family: 'Source Sans Pro', sans-serif;
+    --font-weight: 400;
+    --font-weight-light: 400;
+    --font-weight-bold: 600;
+    --font-weight-black: 900;
+    --font-size-base: 1.5vw;
+    --font-size-xxs: .65rem;
+    --font-size-xs: .8rem;
+    --font-size-s: .9rem;
+    --font-size-default: 1rem;
+    --font-size-m: 1.1rem;
+    --font-size-l: 2rem;
+    --font-size-xl: 3rem;
+    --font-size-xxl: 4rem;
+}
