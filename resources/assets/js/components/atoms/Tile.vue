@@ -1,5 +1,5 @@
 <template>
-    <div :class="gridAreaLook" :style="gridAreaPosition">
+    <div :class="tileLook" :style="tilePosition">
         <slot></slot>
     </div>
 </template>
@@ -12,12 +12,12 @@
         props: ['position', 'modifiers'],
 
         computed: {
-            gridAreaPosition() {
+            tilePosition() {
                 return `grid-area: ${positionToGridAreaNotation(this.position)}`;
             },
 
-            gridAreaLook() {
-                return addClassModifiers('grid__area', this.modifiers);
+            tileLook() {
+                return addClassModifiers('tile', this.modifiers);
             },
         },
     };

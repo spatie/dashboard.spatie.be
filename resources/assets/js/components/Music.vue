@@ -1,5 +1,5 @@
 <template>
-    <grid-area :position="position" modifiers="transparent">
+    <tile :position="position" modifiers="transparent">
         <section :class="addClassModifiers('music', currentlyPlaying ? 'playing' : 'stopped')">
             <div class="music__content" v-if="currentlyPlaying">
                 <div :class="addClassModifiers('music__cover', !hasCover ? 'empty' : '')"
@@ -22,19 +22,19 @@
                  v-bind:style="{ backgroundImage: 'url(' + cover + ')' }"></div>
         </section>
         <div class="music__icon h-background-icon" v-if="!currentlyPlaying"></div>
-    </grid-area>
+    </tile>
 </template>
 
 <script>
     import echo from '../mixins/echo';
-    import GridArea from './atoms/GridArea';
+    import Tile from './atoms/Tile';
     import { addClassModifiers } from '../helpers';
     import saveState from 'vue-save-state';
 
     export default {
 
         components: {
-            GridArea,
+            Tile,
         },
 
         mixins: [echo, saveState],

@@ -4,8 +4,7 @@
 
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 
-    <div id="dashboard">
-        <dashboard columns="5" rows="3">
+        <dashboard id="dashboard" columns="5" rows="3">
             <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a3"></twitter>
             <calendar position="b1:b2"></calendar>
             <music position="c1:d1"></music>
@@ -19,7 +18,8 @@
             <time-weather position="e1" date-format="ddd DD/MM"></time-weather>
             <packagist position="e2"></packagist>
             <github position="e3"></github>
+
+            <internet-connection></internet-connection>
         </dashboard>
-        <internet-connection></internet-connection>
-    </div>
+
 @endsection

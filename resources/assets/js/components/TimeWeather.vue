@@ -1,5 +1,5 @@
 <template>
-    <grid-area :position="position">
+    <tile :position="position">
         <section class="time-weather">
             <time class="time-weather__content">
                 <span class="time-weather__date">{{ date }}</span>
@@ -12,18 +12,18 @@
                 </span>
             </time>
         </section>
-    </grid-area>
+    </tile>
 </template>
 
 <script>
-    import GridArea from './atoms/GridArea';
+    import Tile from './atoms/Tile';
     import moment from 'moment';
     import weather from '../services/weather/Weather';
 
     export default {
 
         components: {
-            GridArea,
+            Tile,
         },
 
         props: {

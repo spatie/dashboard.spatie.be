@@ -1,4 +1,4 @@
-.grid__area {
+.tile {
     overflow: hidden;
     padding: var(--grid-padding);
     border-radius: .25vw;
@@ -7,19 +7,19 @@
     text-shadow: 1px 1px 1px var(--tile-background-color);
 }
 
-.grid__area--blue {
+.tile--blue {
     --tile-background-color: var(--blue-darker);
 }
 
-.grid__area--green {
+.tile--green {
     --tile-background-color: var(--green-darker);
 }
 
-.grid__area--orange {
+.tile--orange {
     --tile-background-color: var(--orange);
 }
 
-.grid__area--overflow:after {
+.tile--overflow:after {
     position: absolute;
     bottom: -1px;
     left: 0;
@@ -30,22 +30,22 @@
     content: '';
 }
 
-.grid__area--red {
+.tile--red {
     --tile-background-color: var(--red);
 }
 
-.grid__area--transparent {
+.tile--transparent {
     --tile-background-color: var(--dashboard-background-color);
 
     border: solid 1px var(--tile-background-color);
 }
 
-.grid__area--yellow {
+.tile--yellow {
     --tile-background-color: var(--yellow);
 
     color: black;
 }
 
-.grid__area > * {
+.tile > * {
     height: 100%;
 }

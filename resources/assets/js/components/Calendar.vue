@@ -1,5 +1,5 @@
 <template>
-    <grid-area :position="position" modifiers="overflow">
+    <tile :position="position" modifiers="overflow">
         <section class="calendar">
             <h1 class="calendar__title">Upcoming</h1>
             <ul class="calendar__events">
@@ -9,19 +9,19 @@
                 </li>
             </ul>
         </section>
-    </grid-area>
+    </tile>
 </template>
 
 <script>
     import echo from '../mixins/echo';
-    import GridArea from './atoms/GridArea';
+    import Tile from './atoms/Tile';
     import saveState from 'vue-save-state';
     import { relativeDate } from '../helpers';
 
     export default {
 
         components: {
-            GridArea,
+            Tile,
         },
 
         mixins: [echo, saveState],

@@ -1,5 +1,5 @@
 <template>
-    <grid-area :position="position" modifiers="overflow transparent">
+    <tile :position="position" modifiers="overflow transparent">
         <section class="tweets">
             <div class="tweet" v-for="tweet in onDisplay">
                 <div class="tweet__header">
@@ -30,12 +30,12 @@
         </section>
         <div class="tweets__icon h-background-icon" v-if="!onDisplay.length">
         </div>
-    </grid-area>
+    </tile>
 </template>
 
 <script>
     import echo from '../mixins/echo';
-    import GridArea from './atoms/GridArea';
+    import Tile from './atoms/Tile';
     import RelativeDate from './atoms/RelativeDate';
     import Tweet from '../services/twitter/Tweet';
     import moment from 'moment';
@@ -44,7 +44,7 @@
     export default {
 
         components: {
-            GridArea,
+            Tile,
             RelativeDate,
         },
 
