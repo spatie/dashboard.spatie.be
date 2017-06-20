@@ -1,5 +1,5 @@
 <template>
-    <grid :position="grid" modifiers="transparent">
+    <tile :position="position" modifiers="transparent">
         <section :class="addClassModifiers('music', currentlyPlaying ? 'playing' : 'stopped')">
             <div class="music__content" v-if="currentlyPlaying">
                 <div :class="addClassModifiers('music__cover', !hasCover ? 'empty' : '')"
@@ -13,33 +13,33 @@
                         {{ trackName }}
                     </div>
                     <span class="music__user">
+                        <span class="music__user__icon h-icon"></span>
                         {{ userName }}
                     </span>
                 </div>
             </div>
             <div class="music__background" v-if="currentlyPlaying"
                  v-bind:style="{ backgroundImage: 'url(' + cover + ')' }"></div>
-
-            <div class="music__icon" v-if="!currentlyPlaying"></div>
         </section>
-    </grid>
+        <div class="music__icon h-background-icon" v-if="!currentlyPlaying"></div>
+    </tile>
 </template>
 
 <script>
     import echo from '../mixins/echo';
-    import Grid from './atoms/Grid';
+    import Tile from './atoms/Tile';
     import { addClassModifiers } from '../helpers';
     import saveState from 'vue-save-state';
 
     export default {
 
         components: {
-            Grid,
+            Tile,
         },
 
         mixins: [echo, saveState],
 
-        props: ['grid'],
+        props: ['position'],
 
         data() {
             return {

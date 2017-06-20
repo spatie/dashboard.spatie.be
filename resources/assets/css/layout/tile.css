@@ -1,0 +1,51 @@
+.tile {
+    overflow: hidden;
+    padding: var(--grid-padding);
+    border-radius: .25vw;
+    background-color: var(--tile-background-color);
+    color: white;
+    text-shadow: 1px 1px 1px var(--tile-background-color);
+}
+
+.tile--blue {
+    --tile-background-color: var(--blue-darker);
+}
+
+.tile--green {
+    --tile-background-color: var(--green-darker);
+}
+
+.tile--orange {
+    --tile-background-color: var(--orange);
+}
+
+.tile--overflow:after {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 1px;
+    box-shadow: 0 0 .5em .5em var(--tile-background-color);
+    content: '';
+}
+
+.tile--red {
+    --tile-background-color: var(--red);
+}
+
+.tile--transparent {
+    --tile-background-color: var(--dashboard-background-color);
+
+    border: solid 1px var(--tile-background-color);
+}
+
+.tile--yellow {
+    --tile-background-color: var(--yellow);
+
+    color: black;
+}
+
+.tile > * {
+    height: 100%;
+}

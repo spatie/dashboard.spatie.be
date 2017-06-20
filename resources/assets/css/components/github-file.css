@@ -1,0 +1,9 @@
+.github-file__title {
+    color: var(--blue-light);
+    text-transform: uppercase;
+    font-size: var(--font-size-m);
+}
+
+.github-file__content {
+    font-size: var(--font-size-s);
+}

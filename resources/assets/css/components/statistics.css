@@ -1,0 +1,21 @@
+.statistic {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-s);
+}
+
+.statistic__label {
+    top: .1em;
+    text-transform: uppercase;
+    font-size: var(--font-size-s);
+}
+
+.statistic__stars {
+    --icon-url: url('/images/svg/star.svg');
+}
+
+.statistic__count {
+    color: var(--yellow);
+    vertical-align: top;
+    font-weight: var(--font-weight-black);
+}

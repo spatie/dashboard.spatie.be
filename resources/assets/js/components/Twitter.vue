@@ -1,55 +1,41 @@
 <template>
-    <grid :position="grid" modifiers="overflow transparent">
+    <tile :position="position" modifiers="overflow transparent">
         <section class="tweets">
-
-            <div class="tweets__icon" v-if="!onDisplay.length">
-            </div>
-
             <div class="tweet" v-for="tweet in onDisplay">
                 <div class="tweet__header">
                     <div class="tweet__avatar"
-                         :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
+                    :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
                     <div class="tweet__user">
-                        <div class="tweet__user__name" v-html="tweet.authorName"></div>
-                        <div class="tweet__user__handle">
+                        <div class="tweet__user__name h-ellipsis" v-html="tweet.authorName"></div>
+                        <div class="tweet__user__handle h-ellipsis">
                             {{ tweet.authorScreenName }}
                         </div>
                     </div>
                 </div>
-                <div
-                        :class="addClassModifiers('tweet__body', tweet.displayClass)"
-                        v-html="tweet.html"
-                ></div>
+                <div :class="addClassModifiers('tweet__body', tweet.displayClass)"
+                v-html="tweet.html"></div>
                 <div class="tweet__meta">
                     <relative-date :moment="tweet.date"></relative-date>
+                    <span v-if="tweet.hasQuote" class="tweet__user__handle h-ellipsis">
+                        In reply to {{ tweet.quote.authorScreenName }}
+                    </span>
                 </div>
-
                 <div v-if="tweet.image" class="tweet__attachment">
-                    <img :src="tweet.image"/>
+                    <img class="tweet__attachment__image" :src="tweet.image"/>
                 </div>
-
                 <div v-if="tweet.hasQuote" class="tweet--quoted">
-                    <div class="tweet__header">
-                        <div class="tweet__user">
-                            <div class="tweet__user__name" v-html="tweet.quote.authorName"></div>
-                            <div class="tweet__user__handle">
-                                {{ tweet.quote.authorScreenName }}
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                            class="tweet__body tweet__body--small"
-                            v-html="tweet.quote.html"
-                    ></div>
+                    <div class="tweet__body tweet__body--small" v-html="tweet.quote.html"></div>
                 </div>
             </div>
         </section>
-    </grid>
+        <div class="tweets__icon h-background-icon" v-if="!onDisplay.length">
+        </div>
+    </tile>
 </template>
 
 <script>
     import echo from '../mixins/echo';
-    import Grid from './atoms/Grid';
+    import Tile from './atoms/Tile';
     import RelativeDate from './atoms/RelativeDate';
     import Tweet from '../services/twitter/Tweet';
     import moment from 'moment';
@@ -58,13 +44,13 @@
     export default {
 
         components: {
-            Grid,
+            Tile,
             RelativeDate,
         },
 
         mixins: [echo],
 
-        props: ['grid', 'initialTweets'],
+        props: ['position', 'initialTweets'],
 
         data() {
             return {

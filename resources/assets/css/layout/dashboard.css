@@ -1,0 +1,12 @@
+.dashboard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    padding: var(--grid-gap);
+    width: 100%;
+    height: 100%;
+    background-color: var(--dashboard-background-color);
+    color: var(--color);
+    grid-gap: var(--grid-gap);
+}

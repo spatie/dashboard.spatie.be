@@ -1,0 +1,15 @@
+.calendar__events {
+    font-size: var(--font-size-s);
+}
+
+.calendar__event {
+    padding-bottom: 1.5vh;
+}
+
+.calendar__event__title {
+    font-weight: var(--font-weight-bold);
+}
+
+.calendar__event__date {
+    color: var(--red-light);
+}

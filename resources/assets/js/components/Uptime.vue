@@ -1,33 +1,32 @@
 <template>
-    <grid :position="grid" :modifiers="hasNotifications? 'overflow padded yellow' : 'padded'">
-        <section :class="hasNotifications ? 'uptime' : addClassModifiers('uptime', 'empty')">
+    <tile :position="position" :modifiers="hasNotifications? 'overflow yellow' : 'overflow'">
+        <section class="uptime">
             <div v-if="hasNotifications">
                 <h1 class="uptime__title">Downtime</h1>
                 <ul class="uptime__notifications">
                     <li v-for="failing in failingUrls" class="uptime__notification">
-                        <h2 class="uptime__notification__title">{{ failing.url }}</h2>
+                        <h2 class="uptime__notification__title h-ellipsis">{{ failing.url }}</h2>
                         <div class="uptime__notification__time">
                             {{ failing.startedFailingAt | formatDuration }}
                         </div>
                     </li>
                 </ul>
             </div>
-
-            <h1 v-if="!hasNotifications" class="uptime__title">Sites are up</h1>
-            <div v-if="!hasNotifications" class="uptime__background"></div>
+            <h1 v-else class="uptime__title--up">Sites are up</h1>
         </section>
-    </grid>
+        <div v-if="!hasNotifications" class="uptime__background h-background-icon"></div>
+    </tile>
 </template>
 
 <script>
     import echo from '../mixins/echo';
-    import Grid from './atoms/Grid';
+    import Tile from './atoms/Tile';
     import { addClassModifiers, formatDuration } from '../helpers';
 
     export default {
 
         components: {
-            Grid,
+            Tile,
         },
 
         filters: {
@@ -36,7 +35,7 @@
 
         mixins: [echo],
 
-        props: ['grid'],
+        props: ['position'],
 
         data() {
             return {
