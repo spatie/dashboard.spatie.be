@@ -64,7 +64,8 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
-        ]
+        ],
+        "laravel-echo-server": "laravel-echo-server start"
     },
     "config": {
         "preferred-install": "dist",
