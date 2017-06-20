@@ -3,7 +3,7 @@
 }
 
 .music__icon {
-    --background-icon-url: url('/images/svg/music.svg');
+    background-image: url('/images/svg/music.svg');
 }
 
 .music__background {
@@ -69,7 +69,7 @@
 }
 
 .music__user__icon {
-    --icon-url: url(/images/svg/music.svg);
+    background-image: url(/images/svg/music.svg);
 
     margin-right: .25em;
 }

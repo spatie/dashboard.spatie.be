@@ -3,7 +3,7 @@
 }
 
 .tweets__icon {
-    --background-icon-url: url('/images/svg/twitter.svg');
+    background-image: url('/images/svg/twitter.svg');
 }
 
 .tweet {

@@ -11,7 +11,7 @@
 }
 
 .statistic__stars {
-    --icon-url: url('/images/svg/star.svg');
+    background-image: url('/images/svg/star.svg');
 }
 
 .statistic__count {
