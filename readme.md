@@ -1,6 +1,6 @@
 # dashboard.spatie.be [![Composer Cache](https://shield.with.social/cc/github/spatie/dashboard.spatie.be/master.svg?style=flat-square)](https://packagist.org/packages/laravel/framework)
 
-This repo contains the source code of https://dashboard.spatie.be
+This repo contains the source code our dashboard.
 
 ## Example
 
