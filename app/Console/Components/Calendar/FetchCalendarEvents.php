@@ -17,9 +17,7 @@ class FetchCalendarEvents extends Command
     public function handle()
     {
         $events = collect(Event::get())
-            ->reject(function (Event $event) {
-                return $event->name === 'Poetsvrouwman';
-            })->map(function (Event $event) {
+            ->map(function (Event $event) {
                 $sortDate = $event->getSortDate();
 
                 return [
