@@ -1,13 +1,13 @@
 .statistic {
     display: flex;
+    align-items: baseline;
     justify-content: space-between;
     font-size: var(--font-size-s);
 }
 
 .statistic__label {
-    top: .1em;
     text-transform: uppercase;
-    font-size: var(--font-size-s);
+    font-size: var(--font-size-xs);
 }
 
 .statistic__stars {
@@ -17,5 +17,6 @@
 .statistic__count {
     color: var(--yellow);
     vertical-align: top;
+    white-space: nowrap;
     font-weight: var(--font-weight-black);
 }
