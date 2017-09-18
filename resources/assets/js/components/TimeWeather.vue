@@ -37,7 +37,7 @@
             },
             timeFormat: {
                 type: String,
-                default: 'HH:mm:ss',
+                default: 'HH:mm',
             },
             timeZone: {
                 type: String,
