@@ -1,5 +1,5 @@
 <template>
-    <tile :position="position" :modifiers="hasNotifications? 'overflow yellow' : 'overflow'">
+    <tile v-if="hasNotifications" :position="position" modifiers="overflow yellow above">
         <section class="uptime">
             <div v-if="hasNotifications">
                 <h1 class="uptime__title">Downtime</h1>

@@ -5,6 +5,25 @@
     background-color: var(--tile-background-color);
     color: white;
     text-shadow: 1px 1px 1px var(--tile-background-color);
+
+    h1 {
+        color: var(--gray-light);
+    }
+}
+
+.tile--overflow:after {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 1px;
+    box-shadow: 0 0 .5em .5em var(--tile-background-color);
+    content: '';
+}
+
+.tile--above {
+    z-index: 500;
 }
 
 .tile--blue {
@@ -17,17 +36,6 @@
 
 .tile--orange {
     --tile-background-color: var(--orange);
-}
-
-.tile--overflow:after {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    height: 1px;
-    box-shadow: 0 0 .5em .5em var(--tile-background-color);
-    content: '';
 }
 
 .tile--red {
@@ -44,6 +52,10 @@
     --tile-background-color: var(--yellow);
 
     color: black;
+
+    h1 {
+        color: inherit;
+    }
 }
 
 .tile > * {

@@ -34,7 +34,6 @@ ul {
 
 h1 {
     margin-bottom: .5em;
-    color: var(--gray-light);
     text-transform: uppercase;
     font-weight: var(--font-weight-light);
     font-size: var(--font-size-m);

@@ -51,7 +51,7 @@
     margin-left: .25em;
 }
 
-@media (min-height: 50em) {
+@media (min-height: 60em) {
     .time-weather__weather,
     .time-weather__date {
         display: block;
