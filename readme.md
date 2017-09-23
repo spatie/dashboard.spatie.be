@@ -16,6 +16,10 @@ Our configured dashboard has following tiles:
 - [Packagist](https://packagist.org/) stars and total downloads
 - Internet up/down via WebSockets
 
+## How it works
+
+Our own [Freek Van der Herten](https://twitter.com/freekmurze) gave a talk on the dashboard at Laracon EU where he explained how the dashboard works behind the screens. You can watch his video [on Youtube](https://www.youtube.com/watch?v=jtB_rTh61Zo).
+
 ## Installation
 
 Install this package by running cloning this repository and install like you normally install Laravel.
