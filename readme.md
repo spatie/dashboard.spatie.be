@@ -18,7 +18,7 @@ Our configured dashboard has following tiles:
 
 ## How it works
 
-Our own [Freek Van der Herten](https://twitter.com/freekmurze) gave a talk on the dashboard at Laracon EU where he explained how the dashboard works behind the screens. You can watch his video [on Youtube](https://www.youtube.com/watch?v=jtB_rTh61Zo).
+Our own [Freek Van der Herten](https://twitter.com/freekmurze) gave a talk on the dashboard at Laracon EU where he explained how the dashboard works behind the screens. The talk was recorded and published [on Youtube](https://www.youtube.com/watch?v=jtB_rTh61Zo).
 
 ## Installation
 
