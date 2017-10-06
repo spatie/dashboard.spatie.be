@@ -18,7 +18,7 @@ class FetchTotals extends Command
         $userName = config('services.github.username');
 
         $totals = $gitHub
-            ->fetchPublicRepositories($userName)
+            ->fetchRepositories($userName)
             ->pipe(function (Collection $repos) use ($gitHub, $userName) {
                 return [
                     'stars' => $repos->sum('stargazers_count'),
