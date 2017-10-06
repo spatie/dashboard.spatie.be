@@ -31,14 +31,14 @@
 }
 
 .time-weather__date {
-    display: none;
+    display: block;
     color: var(--gray-light);
     text-transform: uppercase;
     font-size: var(--font-size-xs);
 }
 
 .time-weather__weather {
-    display: none;
+    display: block;
     color: var(--gray-light);
     font-size: var(--font-size-m);
 }

@@ -13,13 +13,11 @@ class GitHubApi
         $this->client = $client;
     }
 
-    public function fetchPublicRepositories(string $userName): Collection
+    public function fetchRepositories(string $userName): Collection
     {
         $repos = $this->fetchAllResults('organization', 'repositories', [$userName]);
 
-        return collect($repos)->filter(function ($repo) {
-            return $repo['private'] === false;
-        });
+        return collect($repos);
     }
 
     public function fetchContributors(string $userName, string $repoName): Collection
@@ -30,6 +28,11 @@ class GitHubApi
     public function fetchPullRequests(string $userName, string $repoName): Collection
     {
         return collect($this->fetchAllResults('pull_request', 'all', [$userName, $repoName]));
+    }
+
+    public function fetchLabels(string $userName, string $repoName, int $pullId): Collection
+    {
+        return collect($this->fetchAllResults('issue', 'show', [$userName, $repoName, $pullId])['labels']);
     }
 
     public function fetchFileContent($userName, $repoName, $fileName, $branchName): array

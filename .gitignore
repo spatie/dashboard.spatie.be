@@ -2,6 +2,7 @@
 .env
 _ide_helper*.php
 /vendor
+.idea
 
 # FRONT END
 /node_modules
