@@ -7,9 +7,9 @@
                     <span class="statistic__label">Pull Requests</span>
                     <span class="statistic__count">{{ formatNumber(pullRequests.count) }}</span>
                 </li>
-                <li class="statistic" v-for="label in pullRequests.labels">
-                    <span class="statistic__label">{{ label.name }}</span>
-                    <span class="statistic__count">{{ formatNumber(label.count) }}</span>
+                <li class="github-label" v-for="label in pullRequests.labels" :style="{ 'background-color': `#` +  label.color }">
+                    <span class="github-label__label">{{ label.name }}</span>
+                    <span class="github-label__count">{{ formatNumber(label.count) }}</span>
                 </li>
             </ul>
         </section>
