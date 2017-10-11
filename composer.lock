@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a2151598b4a61c3c3ceba868740b3139",
+    "hash": "61cc1b772051aaa5ef7e7ed70da49dce",
     "content-hash": "39c023a3417f787895f7f7d7c0c1ecc8",
     "packages": [
         {
@@ -183,16 +183,16 @@
         },
         {
             "name": "developmint/npm-stats-api",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Developmint/npm-stats-api.git",
-                "reference": "120da1510c62688c2fa4431fd801fcababae6a35"
+                "reference": "8dede867a81bf178c1c89541e75bccaf16135004"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Developmint/npm-stats-api/zipball/120da1510c62688c2fa4431fd801fcababae6a35",
-                "reference": "120da1510c62688c2fa4431fd801fcababae6a35",
+                "url": "https://api.github.com/repos/Developmint/npm-stats-api/zipball/8dede867a81bf178c1c89541e75bccaf16135004",
+                "reference": "8dede867a81bf178c1c89541e75bccaf16135004",
                 "shasum": ""
             },
             "require": {
@@ -228,7 +228,7 @@
                 "npm",
                 "stats"
             ],
-            "time": "2017-10-11 18:38:05"
+            "time": "2017-10-11 20:59:56"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -728,16 +728,16 @@
         },
         {
             "name": "google/auth",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-auth-library-php.git",
-                "reference": "db8e3022a308cb0e988026d38e67b91a42b41622"
+                "reference": "548d27d670f0236dc5258fa4cdde6e7b63464cfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/db8e3022a308cb0e988026d38e67b91a42b41622",
-                "reference": "db8e3022a308cb0e988026d38e67b91a42b41622",
+                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/548d27d670f0236dc5258fa4cdde6e7b63464cfd",
+                "reference": "548d27d670f0236dc5258fa4cdde6e7b63464cfd",
                 "shasum": ""
             },
             "require": {
@@ -754,9 +754,6 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ],
                 "psr-4": {
                     "Google\\Auth\\": "src"
                 }
@@ -772,7 +769,7 @@
                 "google",
                 "oauth2"
             ],
-            "time": "2017-07-31 16:34:40"
+            "time": "2017-10-10 17:01:45"
         },
         {
             "name": "guzzlehttp/guzzle",
