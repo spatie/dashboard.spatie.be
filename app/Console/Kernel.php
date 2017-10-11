@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Components\Calendar\FetchCalendarEvents::class,
         \App\Console\Components\GitHub\FetchTotals::class,
         \App\Console\Components\InternetConnection\SendHeartbeat::class,
+        \App\Console\Components\Npm\FetchTotals::class,
         \App\Console\Components\Music\FetchCurrentTrack::class,
         \App\Console\Components\Packagist\FetchTotals::class,
         \App\Console\Components\Tasks\FetchTasks::class,
