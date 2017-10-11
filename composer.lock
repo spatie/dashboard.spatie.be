@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a9089e5fb65de13f63abbe7b868f5f3d",
-    "content-hash": "c217928151bba8a7672d175fd07b9970",
+    "hash": "a2151598b4a61c3c3ceba868740b3139",
+    "content-hash": "39c023a3417f787895f7f7d7c0c1ecc8",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -180,6 +180,55 @@
                 "stream_filter_register"
             ],
             "time": "2017-08-18 09:54:01"
+        },
+        {
+            "name": "developmint/npm-stats-api",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Developmint/npm-stats-api.git",
+                "reference": "120da1510c62688c2fa4431fd801fcababae6a35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Developmint/npm-stats-api/zipball/120da1510c62688c2fa4431fd801fcababae6a35",
+                "reference": "120da1510c62688c2fa4431fd801fcababae6a35",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Developmint\\NpmStats\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Lichter",
+                    "email": "alichter@developmint.de",
+                    "homepage": "https://developmint.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Fetch stats for your NPM packages",
+            "homepage": "https://github.com/developmint/npm-stats-api",
+            "keywords": [
+                "api",
+                "developmint",
+                "npm",
+                "stats"
+            ],
+            "time": "2017-10-11 18:38:05"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
