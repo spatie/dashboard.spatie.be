@@ -43,12 +43,10 @@ class FetchTotals extends Command
          * allowed range for bulk is lower than normal, which would lead to wrong,
          * incomplete or weird data in some cases
          *
-
-        $packages = $packageList->filter(function ($package) {
+         */
+        list($scoped, $nonScoped) = $packageList->partition(function ($package) {
             return strpos($package, "@") === 0;
         });
-
-        $nonScoped = $packageList->diff($packages);
 
         $bulkString = substr($nonScoped->reduce(function ($bulkString, $package) {
             $bulkString .= "{$package},";
@@ -56,21 +54,23 @@ class FetchTotals extends Command
             return $bulkString;
         }, ""), 0, -1);
 
-        $packages->push($bulkString);
 
-        */
+        $nonScopedTotals = [
+            "daily" => collect($npmStats->getStats($bulkString))->sum("downloads"),
+            "monthly" => collect($npmStats->getStats($bulkString, NpmStats::LAST_MONTH))->sum("downloads"),
+            "total" => collect($npmStats->getStats($bulkString, NpmStats::LAST_YEAR))->sum("downloads"),
+        ];
 
-
-        //Let's take the most naive approach by now! But.. 3 calls per package, 16 packages -> 48 calls. Damn!
-
-        $totals = $packageList->reduce(function ($carry, $package) use ($npmStats) {
+        $totals = $scoped->reduce(function ($carry, $package) use ($npmStats) {
 
             $carry["daily"] += $npmStats->getStats($package)["downloads"];
             $carry["monthly"] += $npmStats->getStats($package, NpmStats::LAST_MONTH)["downloads"];
-            $carry["total"] += $npmStats->getStats($package, NpmStats::TOTAL)["downloads"];
+            $carry["total"] += $npmStats->getStats($package, NpmStats::LAST_YEAR)["downloads"];
 
             return $carry;
-        }, ["daily" => 0, "monthly" => 0, "total" => 0]);
+        }, $nonScopedTotals);
+
+        dd($totals);
 
         event(new TotalsFetched($totals));
     }

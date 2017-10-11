@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "61cc1b772051aaa5ef7e7ed70da49dce",
+    "hash": "a2151598b4a61c3c3ceba868740b3139",
     "content-hash": "39c023a3417f787895f7f7d7c0c1ecc8",
     "packages": [
         {
@@ -183,16 +183,16 @@
         },
         {
             "name": "developmint/npm-stats-api",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Developmint/npm-stats-api.git",
-                "reference": "8dede867a81bf178c1c89541e75bccaf16135004"
+                "reference": "df9127031cffce662805c474b4d71bb13b8457f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Developmint/npm-stats-api/zipball/8dede867a81bf178c1c89541e75bccaf16135004",
-                "reference": "8dede867a81bf178c1c89541e75bccaf16135004",
+                "url": "https://api.github.com/repos/Developmint/npm-stats-api/zipball/df9127031cffce662805c474b4d71bb13b8457f4",
+                "reference": "df9127031cffce662805c474b4d71bb13b8457f4",
                 "shasum": ""
             },
             "require": {
@@ -228,7 +228,7 @@
                 "npm",
                 "stats"
             ],
-            "time": "2017-10-11 20:59:56"
+            "time": "2017-10-11 21:46:30"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
