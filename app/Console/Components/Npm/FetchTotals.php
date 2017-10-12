@@ -26,33 +26,16 @@ class FetchTotals extends Command
          * incomplete or weird data in some cases
          *
          */
-        list($scoped, $nonScoped) = $packageList->partition(function ($package) {
-            return strpos($package, "@") === 0;
-        });
-
-        $bulkString = substr($nonScoped->reduce(function ($bulkString, $package) {
-            $bulkString .= "{$package},";
-
-            return $bulkString;
-        }, ""), 0, -1);
 
 
-        $nonScopedTotals = [
-            "daily" => collect($npmStats->getStats($bulkString))->sum("downloads"),
-            "monthly" => collect($npmStats->getStats($bulkString, NpmStats::LAST_MONTH))->sum("downloads"),
-            "total" => collect($npmStats->getStats($bulkString, NpmStats::LAST_YEAR))->sum("downloads"),
-        ];
-
-        $totals = $scoped->reduce(function ($carry, $package) use ($npmStats) {
+        $totals = $packageList->reduce(function ($carry, $package) use ($npmStats) {
 
             $carry["daily"] += $npmStats->getStats($package)["downloads"];
             $carry["monthly"] += $npmStats->getStats($package, NpmStats::LAST_MONTH)["downloads"];
-            $carry["total"] += $npmStats->getStats($package, NpmStats::LAST_YEAR)["downloads"];
+            $carry["total"] += $npmStats->getStats($package, NpmStats::TOTAL)["downloads"];
 
             return $carry;
-        }, $nonScopedTotals);
-
-        dd($totals);
+        }, ["daily" => 0, "monthly" => 0, "total" => 0]);
 
         event(new TotalsFetched($totals));
     }
