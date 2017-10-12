@@ -17,25 +17,7 @@ class FetchTotals extends Command
     {
         $npmStats = new NpmStats(new Client());
 
-        $packageList = collect([
-            "spatie-scss",
-            "form-backend-validation",
-            "vue-save-state",
-            "@spatie/blender-js",
-            "npm-install-peers",
-            "eslint-config-spatie",
-            "vue-tabs-component",
-            "@spatie/blender-css",
-            "vue-expose-inject",
-            "@spatie/blender-media",
-            "vue-table-component",
-            "@spatie/blender-content-blocks",
-            "font-awesome-filetypes",
-            "@spatie/attachment-uploader",
-            "postcss-assign",
-            "@spatie/scss",
-            "spatie-dom"
-        ]);
+        $packageList = $this->getPackageList();
 
         /*
          * First idea was to filter the non-scoped and scoped packages so at least the
@@ -73,5 +55,28 @@ class FetchTotals extends Command
         dd($totals);
 
         event(new TotalsFetched($totals));
+    }
+
+    private function getPackageList()
+    {
+        return collect([
+            "spatie-scss",
+            "form-backend-validation",
+            "vue-save-state",
+            "@spatie/blender-js",
+            "npm-install-peers",
+            "eslint-config-spatie",
+            "vue-tabs-component",
+            "@spatie/blender-css",
+            "vue-expose-inject",
+            "@spatie/blender-media",
+            "vue-table-component",
+            "@spatie/blender-content-blocks",
+            "font-awesome-filetypes",
+            "@spatie/attachment-uploader",
+            "postcss-assign",
+            "@spatie/scss",
+            "spatie-dom"
+        ]);
     }
 }
