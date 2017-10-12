@@ -28,14 +28,19 @@ class FetchTotals extends Command
          */
 
 
-        $totals = $packageList->reduce(function ($carry, $package) use ($npmStats) {
-
-            $carry["daily"] += $npmStats->getStats($package)["downloads"];
-            $carry["monthly"] += $npmStats->getStats($package, NpmStats::LAST_MONTH)["downloads"];
-            $carry["total"] += $npmStats->getStats($package, NpmStats::TOTAL)["downloads"];
-
-            return $carry;
-        }, ["daily" => 0, "monthly" => 0, "total" => 0]);
+        $totals = $packageList->map(function ($packageName) use ($npmStats) {
+            return [
+                'daily' => $npmStats->getStats($packageName)["downloads"],
+                'monthly' => $npmStats->getStats($packageName, NpmStats::LAST_MONTH)["downloads"],
+                'total' => $npmStats->getStats($packageName, NpmStats::TOTAL)["downloads"],
+            ];
+        })->pipe(function ($packageProperties) {
+            return [
+                'daily' => $packageProperties->sum('daily'),
+                'monthly' => $packageProperties->sum('monthly'),
+                'total' => $packageProperties->sum('total'),
+            ];
+        });
 
         event(new TotalsFetched($totals));
     }
