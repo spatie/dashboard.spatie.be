@@ -2,7 +2,7 @@
 
 namespace App\Console\Components\Npm;
 
-use App\Events\Packagist\TotalsFetched;
+use App\Events\Npm\TotalsFetched;
 use Developmint\NpmStats\NpmStats;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
