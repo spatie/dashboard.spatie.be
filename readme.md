@@ -13,7 +13,8 @@ Our configured dashboard has following tiles:
 - Music currently playing via [Last.fm](https://last.fm)
 - Clock/date/weather
 - Team todo's via GitHub files
-- [Packagist](https://packagist.org/) stars and total downloads
+- [Packagist](https://packagist.org) downloads
+- [NPM](https://npmjs.com) downloads
 - Internet up/down via WebSockets
 
 ## How it works
