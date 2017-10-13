@@ -13,6 +13,8 @@ class FetchTotals extends Command
 
     protected $description = 'Fetch totals for all our NPM packages';
 
+    private $packageUrl = "https://spatie.be/en/api/packages";
+
     public function handle()
     {
         $npmStats = new NpmStats(new Client());
@@ -26,7 +28,6 @@ class FetchTotals extends Command
          * incomplete or weird data in some cases
          *
          */
-
 
         $totals = $packageList->map(function ($packageName) use ($npmStats) {
             return [
@@ -47,24 +48,12 @@ class FetchTotals extends Command
 
     private function getPackageList()
     {
-        return collect([
-            "spatie-scss",
-            "form-backend-validation",
-            "vue-save-state",
-            "@spatie/blender-js",
-            "npm-install-peers",
-            "eslint-config-spatie",
-            "vue-tabs-component",
-            "@spatie/blender-css",
-            "vue-expose-inject",
-            "@spatie/blender-media",
-            "vue-table-component",
-            "@spatie/blender-content-blocks",
-            "font-awesome-filetypes",
-            "@spatie/attachment-uploader",
-            "postcss-assign",
-            "@spatie/scss",
-            "spatie-dom"
-        ]);
+        return collect(json_decode((new Client())->get($this->packageUrl)->getBody()->getContents()))
+            ->filter(function ($package) {
+                return $package->type === "javascript";
+            })
+            ->map(function ($package) {
+                return $package->name;
+            });
     }
 }
