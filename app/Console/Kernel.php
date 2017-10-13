@@ -34,5 +34,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('dashboard:fetch-tasks')->everyFiveMinutes();
         $schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
         $schedule->command('dashboard:fetch-packagist-totals')->hourly();
+        $schedule->command('dashboard:fetch-npm-totals')->hourly();
     }
 }

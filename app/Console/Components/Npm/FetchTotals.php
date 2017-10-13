@@ -11,44 +11,37 @@ class FetchTotals extends Command
 {
     protected $signature = 'dashboard:fetch-npm-totals';
 
-    protected $description = 'Fetch totals for all our NPM packages';
-
-    private $packageUrl = "https://spatie.be/en/api/packages";
+    protected $description = 'Fetch totals for all our npm packages';
 
     public function handle()
     {
-        $npmStats = new NpmStats(new Client());
+        $httpClient = new Client();
 
-        $packageList = $this->getPackageList();
+        $npmStats = new NpmStats($httpClient);
 
-        /*
-         * First idea was to filter the non-scoped and scoped packages so at least the
-         * scoped packages could've been processed by bulk. This would work, but the
-         * allowed range for bulk is lower than normal, which would lead to wrong,
-         * incomplete or weird data in some cases
-         *
-         */
-
-        $totals = $packageList->map(function ($packageName) use ($npmStats) {
-            return [
-                'daily' => $npmStats->getStats($packageName)["downloads"],
-                'monthly' => $npmStats->getStats($packageName, NpmStats::LAST_MONTH)["downloads"],
-                'total' => $npmStats->getStats($packageName, NpmStats::TOTAL)["downloads"],
-            ];
-        })->pipe(function ($packageProperties) {
-            return [
-                'daily' => $packageProperties->sum('daily'),
-                'monthly' => $packageProperties->sum('monthly'),
-                'total' => $packageProperties->sum('total'),
-            ];
-        });
+        $totals = $this->getPackageList()
+            ->map(function ($packageName) use ($npmStats) {
+                return [
+                    'daily' => $npmStats->getStats($packageName)['downloads'],
+                    'monthly' => $npmStats->getStats($packageName, NpmStats::LAST_MONTH)['downloads'],
+                    'total' => $npmStats->getStats($packageName, NpmStats::TOTAL)['downloads'],
+                ];
+            })->pipe(function ($packageProperties) {
+                return [
+                    'daily' => $packageProperties->sum('daily'),
+                    'monthly' => $packageProperties->sum('monthly'),
+                    'total' => $packageProperties->sum('total'),
+                ];
+            });
 
         event(new TotalsFetched($totals));
     }
 
     private function getPackageList()
     {
-        return collect(json_decode((new Client())->get($this->packageUrl)->getBody()->getContents()))
+        $packages = json_decode(file_get_contents('https://spatie.be/en/api/packages'));
+
+        return collect($packages)
             ->filter(function ($package) {
                 return $package->type === "javascript";
             })
