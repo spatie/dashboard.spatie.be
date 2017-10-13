@@ -2,10 +2,10 @@
 
 namespace App\Console\Components\Npm;
 
-use App\Events\Npm\TotalsFetched;
-use Developmint\NpmStats\NpmStats;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
+use App\Events\Npm\TotalsFetched;
+use Developmint\NpmStats\NpmStats;
 
 class FetchTotals extends Command
 {
@@ -43,7 +43,7 @@ class FetchTotals extends Command
 
         return collect($packages)
             ->filter(function ($package) {
-                return $package->type === "javascript";
+                return $package->type === 'javascript';
             })
             ->map(function ($package) {
                 return $package->name;
