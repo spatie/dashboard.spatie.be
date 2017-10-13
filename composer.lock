@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a9089e5fb65de13f63abbe7b868f5f3d",
-    "content-hash": "c217928151bba8a7672d175fd07b9970",
+    "hash": "a2151598b4a61c3c3ceba868740b3139",
+    "content-hash": "39c023a3417f787895f7f7d7c0c1ecc8",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -180,6 +180,55 @@
                 "stream_filter_register"
             ],
             "time": "2017-08-18 09:54:01"
+        },
+        {
+            "name": "developmint/npm-stats-api",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Developmint/npm-stats-api.git",
+                "reference": "df9127031cffce662805c474b4d71bb13b8457f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Developmint/npm-stats-api/zipball/df9127031cffce662805c474b4d71bb13b8457f4",
+                "reference": "df9127031cffce662805c474b4d71bb13b8457f4",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Developmint\\NpmStats\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Lichter",
+                    "email": "alichter@developmint.de",
+                    "homepage": "https://developmint.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Fetch stats for your NPM packages",
+            "homepage": "https://github.com/developmint/npm-stats-api",
+            "keywords": [
+                "api",
+                "developmint",
+                "npm",
+                "stats"
+            ],
+            "time": "2017-10-11 21:46:30"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -679,16 +728,16 @@
         },
         {
             "name": "google/auth",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-auth-library-php.git",
-                "reference": "db8e3022a308cb0e988026d38e67b91a42b41622"
+                "reference": "548d27d670f0236dc5258fa4cdde6e7b63464cfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/db8e3022a308cb0e988026d38e67b91a42b41622",
-                "reference": "db8e3022a308cb0e988026d38e67b91a42b41622",
+                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/548d27d670f0236dc5258fa4cdde6e7b63464cfd",
+                "reference": "548d27d670f0236dc5258fa4cdde6e7b63464cfd",
                 "shasum": ""
             },
             "require": {
@@ -705,9 +754,6 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ],
                 "psr-4": {
                     "Google\\Auth\\": "src"
                 }
@@ -723,7 +769,7 @@
                 "google",
                 "oauth2"
             ],
-            "time": "2017-07-31 16:34:40"
+            "time": "2017-10-10 17:01:45"
         },
         {
             "name": "guzzlehttp/guzzle",
