@@ -11,7 +11,7 @@ class FetchTotals extends Command
 {
     protected $signature = 'dashboard:fetch-npm-totals';
 
-    protected $description = 'Fetch totals for all our npm packages';
+    protected $description = 'Fetch totals for all our JavaScript packages';
 
     public function handle()
     {
