@@ -1,7 +1,7 @@
 <template>
     <tile :position="position" modifiers="overflow">
         <section class="statistics">
-            <h1>NPM Stats</h1>
+            <h1>NPM</h1>
             <ul>
                 <li class="statistic">
                     <span class="statistic__label">24 hours</span>
