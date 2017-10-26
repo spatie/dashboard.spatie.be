@@ -44,7 +44,7 @@
 }
 
 .time-weather__weather__temperature:after {
-    content: '°';
+    content: '\00b0';
 }
 
 .time-weather__weather__description {
