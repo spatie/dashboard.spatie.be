@@ -1,7 +1,7 @@
 <template>
     <tile :position="position" modifiers="overflow">
         <section class="statistics">
-            <h1>Packagist</h1>
+            <h1>NPM</h1>
             <ul>
                 <li class="statistic">
                     <span class="statistic__label">24 hours</span>
@@ -49,7 +49,7 @@
 
             getEventHandlers() {
                 return {
-                    'Packagist.TotalsFetched': response => {
+                    'Npm.TotalsFetched': response => {
                         this.daily = response.daily;
                         this.monthly = response.monthly;
                         this.total = response.total;
@@ -59,7 +59,7 @@
 
             getSaveStateConfig() {
                 return {
-                    cacheKey: 'packagist',
+                    cacheKey: 'npm',
                 };
             },
         },

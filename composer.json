@@ -10,8 +10,10 @@
     "require": {
         "php": ">=7.0.0",
         "barryvdh/laravel-ide-helper": "^2.1",
+        "developmint/npm-stats-api": "^1.0",
         "erusev/parsedown": "^1.6",
         "fennb/phirehose": "^1.0",
+        "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.2",
         "knplabs/github-api": "^2.4",
         "laravel/framework": "5.5.*",
@@ -25,13 +27,12 @@
         "spatie/laravel-twitter-streaming-api": "^0.0.2",
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/packagist-api": "^1.0.1",
-        "spatie/valuestore": "^1.1",
-        "fideloper/proxy": "~3.3"
+        "spatie/valuestore": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
+        "phpunit/phpunit": "~6.0",
         "filp/whoops": "~2.0"
     },
     "autoload": {
