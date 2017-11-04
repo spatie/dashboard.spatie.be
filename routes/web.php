@@ -5,3 +5,6 @@ Route::group(['middleware' => 'auth.basic'], function () {
 });
 
 Route::post('/webhook/github', 'GitHubWebhookController@gitRepoReceivedPush');
+
+Route::ohDearWebhooks('/oh-dear-webhooks');
+
