@@ -3,7 +3,6 @@
 namespace App\Events\Uptime;
 
 use App\Events\DashboardEvent;
-use Spatie\UptimeMonitor\Events\UptimeCheckFailed as MonitorEvent;
 
 class UptimeCheckRecovered extends DashboardEvent
 {
