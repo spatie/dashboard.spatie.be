@@ -17,6 +17,10 @@ class EventServiceProvider extends ServiceProvider
         ],
     ];
 
+    protected $subscribe = [
+        \App\Services\OhDearWebhooks\EventSubscriber::class,
+    ];
+
     /**
      * Register any events for your application.
      */

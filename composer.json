@@ -18,6 +18,7 @@
         "knplabs/github-api": "^2.4",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
+        "ohdearapp/laravel-ohdear-webhooks": "0.0.2",
         "pda/pheanstalk": "^3.1",
         "php-http/guzzle6-adapter": "^1.1",
         "pusher/pusher-php-server": "^3.0",
