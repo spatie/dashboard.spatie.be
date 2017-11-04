@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Services\OhDearWebhooks\EventSubscriber;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
