@@ -2,30 +2,35 @@
 
 namespace App\Services\OhDearWebhooks;
 
+use App\Events\Uptime\UptimeCheckFailed;
+use App\Events\Uptime\UptimeCheckRecovered;
 use Illuminate\Events\Dispatcher;
+use OhDear\LaravelWebhooks\OhDearWebhookCall;
 
 class EventSubscriber
 {
-    public function onUptimeCheckFailed($event) {
-        \Log::info('get event on onUptimeCheckFailed');
-        \Log::info(print_r($event, true));
+    public function onUptimeCheckFailed(OhDearWebhookCall $ohDearWebhookCall) {
+        $site = $ohDearWebhookCall->site();
+
+        event(new UptimeCheckFailed($site['id'], $site['url']));
     }
 
-    public function onUptimeCheckRecovered($event) {
-        \Log::info('get event on onUptimeCheckFailed');
-        \Log::info(print_r($event, true));
+    public function onUptimeCheckRecovered(OhDearWebhookCall $ohDearWebhookCall) {
+        $site = $ohDearWebhookCall->site();
+
+        event(new UptimeCheckRecovered($site['id'], $site['url']));
     }
 
     public function subscribe(Dispatcher $events)
     {
         $events->listen(
             'ohdear-webhooks::uptimeCheckFailed',
-            'App\Services\OhDearWebhooks\EventSubscribers@onUptimeCheckFailed'
+            'App\Services\OhDearWebhooks\EventSubscriber@onUptimeCheckFailed'
         );
 
         $events->listen(
-            'ohdear-webhooks::uptimeCheckRestored',
-            'App\Services\OhDearWebhooks\EventSubscribers@onUptimeCheckRestored'
+            'ohdear-webhooks::uptimeCheckRecovered',
+            'App\Services\OhDearWebhooks\EventSubscriber@onUptimeCheckRecovered'
         );
     }
 

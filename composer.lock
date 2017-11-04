@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "22fbf61d34d65eedba1d0fb316469391",
+    "content-hash": "9cf13f83fd5f706438aa4c39a45aec0d",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -735,16 +735,16 @@
         },
         {
             "name": "google/apiclient",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "f3fadd538315d62ebd1191d89ac791468c617260"
+                "reference": "b69b8ac4bf6501793c389d4e013a79d09c85c5f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/f3fadd538315d62ebd1191d89ac791468c617260",
-                "reference": "f3fadd538315d62ebd1191d89ac791468c617260",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/b69b8ac4bf6501793c389d4e013a79d09c85c5f2",
+                "reference": "b69b8ac4bf6501793c389d4e013a79d09c85c5f2",
                 "shasum": ""
             },
             "require": {
@@ -790,20 +790,20 @@
             "keywords": [
                 "google"
             ],
-            "time": "2017-07-10T15:34:54+00:00"
+            "time": "2017-11-03T01:19:53+00:00"
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.29",
+            "version": "v0.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client-services.git",
-                "reference": "d23e00e38b209d5dc60c1bb71c8f065ee5b6823e"
+                "reference": "297db7f5557dc8beba00a4e824abcaa595382269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/d23e00e38b209d5dc60c1bb71c8f065ee5b6823e",
-                "reference": "d23e00e38b209d5dc60c1bb71c8f065ee5b6823e",
+                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/297db7f5557dc8beba00a4e824abcaa595382269",
+                "reference": "297db7f5557dc8beba00a4e824abcaa595382269",
                 "shasum": ""
             },
             "require": {
@@ -827,7 +827,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2017-10-08T00:22:35+00:00"
+            "time": "2017-10-28T00:23:44+00:00"
         },
         {
             "name": "google/auth",
@@ -1212,16 +1212,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.14",
+            "version": "v5.5.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "26c700eb79e5bb55b59df2c495c9c71f16f43302"
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/26c700eb79e5bb55b59df2c495c9c71f16f43302",
-                "reference": "26c700eb79e5bb55b59df2c495c9c71f16f43302",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c678100e84934ec85c9f8bc26bd0a60222682719",
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719",
                 "shasum": ""
             },
             "require": {
@@ -1262,7 +1262,6 @@
                 "illuminate/database": "self.version",
                 "illuminate/encryption": "self.version",
                 "illuminate/events": "self.version",
-                "illuminate/exception": "self.version",
                 "illuminate/filesystem": "self.version",
                 "illuminate/hashing": "self.version",
                 "illuminate/http": "self.version",
@@ -1340,7 +1339,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-10-03T17:41:03+00:00"
+            "time": "2017-10-25T19:10:45+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1568,7 +1567,7 @@
         },
         {
             "name": "mtdowling/cron-expression",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mtdowling/cron-expression.git",
@@ -1612,37 +1611,40 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "doctrine/collections": "1.*",
-                "phpunit/phpunit": "~4.1"
+                "doctrine/collections": "^1.0",
+                "doctrine/common": "^2.6",
+                "phpunit/phpunit": "^4.1"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "DeepCopy\\": "src/DeepCopy/"
-                }
+                },
+                "files": [
+                    "src/DeepCopy/deep_copy.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Create deep copies (clones) of your objects",
-            "homepage": "https://github.com/myclabs/DeepCopy",
             "keywords": [
                 "clone",
                 "copy",
@@ -1650,7 +1652,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12T18:52:22+00:00"
+            "time": "2017-10-19T19:58:43+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1707,16 +1709,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a"
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/a1e8e1a30e1352f118feff1a8481066ddc2f234a",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89",
                 "shasum": ""
             },
             "require": {
@@ -1754,20 +1756,20 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-09-02T17:10:46+00:00"
+            "time": "2017-11-04T11:48:34+00:00"
         },
         {
             "name": "ohdearapp/laravel-ohdear-webhooks",
-            "version": "dev-master",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ohdearapp/laravel-ohdear-webhooks.git",
-                "reference": "b8f636bdd5240b00f62f7e3a3147471b5ee20087"
+                "reference": "4709d13f2cca2ddf2dc2459263ba6339a0263a0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ohdearapp/laravel-ohdear-webhooks/zipball/b8f636bdd5240b00f62f7e3a3147471b5ee20087",
-                "reference": "b8f636bdd5240b00f62f7e3a3147471b5ee20087",
+                "url": "https://api.github.com/repos/ohdearapp/laravel-ohdear-webhooks/zipball/4709d13f2cca2ddf2dc2459263ba6339a0263a0f",
+                "reference": "4709d13f2cca2ddf2dc2459263ba6339a0263a0f",
                 "shasum": ""
             },
             "require": {
@@ -1813,7 +1815,7 @@
                 "ohdear",
                 "uptime"
             ],
-            "time": "2017-11-04T13:49:15+00:00"
+            "time": "2017-11-04T15:58:00+00:00"
         },
         {
             "name": "orchestra/testbench",
@@ -2194,26 +2196,27 @@
         },
         {
             "name": "php-http/client-common",
-            "version": "1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/client-common.git",
-                "reference": "154d36542eb96ee95daa504591eab78af2484baa"
+                "reference": "1901ad36347227c14751a218d8f4ea1467d1f1ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/client-common/zipball/154d36542eb96ee95daa504591eab78af2484baa",
-                "reference": "154d36542eb96ee95daa504591eab78af2484baa",
+                "url": "https://api.github.com/repos/php-http/client-common/zipball/1901ad36347227c14751a218d8f4ea1467d1f1ed",
+                "reference": "1901ad36347227c14751a218d8f4ea1467d1f1ed",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
                 "php-http/httplug": "^1.1",
-                "php-http/message": "^1.2",
+                "php-http/message": "^1.6",
                 "php-http/message-factory": "^1.0",
                 "symfony/options-resolver": "^2.6 || ^3.0"
             },
             "require-dev": {
+                "guzzlehttp/psr7": "^1.4",
                 "henrikbjorn/phpspec-code-coverage": "^1.0",
                 "phpspec/phpspec": "^2.4"
             },
@@ -2225,7 +2228,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -2251,7 +2254,7 @@
                 "http",
                 "httplug"
             ],
-            "time": "2017-03-30T12:50:04+00:00"
+            "time": "2017-10-16T16:16:36+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -2751,16 +2754,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "34a7699e6f31b1ef4035ee36444407cecf9f56aa"
+                "reference": "f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34a7699e6f31b1ef4035ee36444407cecf9f56aa",
-                "reference": "34a7699e6f31b1ef4035ee36444407cecf9f56aa",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b",
+                "reference": "f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b",
                 "shasum": ""
             },
             "require": {
@@ -2839,7 +2842,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2017-06-05T06:31:10+00:00"
+            "time": "2017-10-23T05:04:54+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -2906,16 +2909,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.2.2",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b"
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8ed1902a57849e117b5651fc1a5c48110946c06b",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d",
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d",
                 "shasum": ""
             },
             "require": {
@@ -2924,7 +2927,7 @@
                 "php": "^7.0",
                 "phpunit/php-file-iterator": "^1.4.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^1.4.11 || ^2.0",
+                "phpunit/php-token-stream": "^2.0",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
                 "sebastian/environment": "^3.0",
                 "sebastian/version": "^2.0.1",
@@ -2966,7 +2969,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03T12:40:43+00:00"
+            "time": "2017-11-03T13:47:33+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3156,16 +3159,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.4.1",
+            "version": "6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b770d8ba7e60295ee91d69d5a5e01ae833cac220"
+                "reference": "06b28548fd2b4a20c3cd6e247dc86331a7d4db13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b770d8ba7e60295ee91d69d5a5e01ae833cac220",
-                "reference": "b770d8ba7e60295ee91d69d5a5e01ae833cac220",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/06b28548fd2b4a20c3cd6e247dc86331a7d4db13",
+                "reference": "06b28548fd2b4a20c3cd6e247dc86331a7d4db13",
                 "shasum": ""
             },
             "require": {
@@ -3236,7 +3239,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-10-07T17:53:53+00:00"
+            "time": "2017-10-16T13:18:59+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3539,16 +3542,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.11",
+            "version": "v0.8.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "b193cd020e8c6b66cea6457826ae005e94e6d2c0"
+                "reference": "91e53c16560bdb8b9592544bb38429ae00d6baee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/b193cd020e8c6b66cea6457826ae005e94e6d2c0",
-                "reference": "b193cd020e8c6b66cea6457826ae005e94e6d2c0",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/91e53c16560bdb8b9592544bb38429ae00d6baee",
+                "reference": "91e53c16560bdb8b9592544bb38429ae00d6baee",
                 "shasum": ""
             },
             "require": {
@@ -3608,20 +3611,20 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-07-29T19:30:02+00:00"
+            "time": "2017-11-04T16:06:49+00:00"
         },
         {
             "name": "pusher/pusher-php-server",
-            "version": "3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pusher/pusher-http-php.git",
-                "reference": "a013bd4190e12422365e559b309f54ec50cbd0dd"
+                "reference": "03d3417748fc70a889c97271e25e282ff1ff0ae3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/a013bd4190e12422365e559b309f54ec50cbd0dd",
-                "reference": "a013bd4190e12422365e559b309f54ec50cbd0dd",
+                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/03d3417748fc70a889c97271e25e282ff1ff0ae3",
+                "reference": "03d3417748fc70a889c97271e25e282ff1ff0ae3",
                 "shasum": ""
             },
             "require": {
@@ -3660,7 +3663,7 @@
                 "rest",
                 "trigger"
             ],
-            "time": "2017-07-10T09:21:10+00:00"
+            "time": "2017-10-20T11:18:01+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -3791,30 +3794,30 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a"
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1174d9018191e93cb9d719edec01257fc05f8158",
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
                 "sebastian/diff": "^2.0",
-                "sebastian/exporter": "^3.0"
+                "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -3845,13 +3848,13 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "homepage": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
                 "equality"
             ],
-            "time": "2017-08-03T07:14:59+00:00"
+            "time": "2017-11-03T07:16:52+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -4371,16 +4374,16 @@
         },
         {
             "name": "spatie/laravel-google-calendar",
-            "version": "2.0.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-google-calendar.git",
-                "reference": "687d61bf0bc91c144d1a524477e3fe9f638c26b5"
+                "reference": "159c6b2a2bf36bfdbb83c2b7016091a00b3480b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-google-calendar/zipball/687d61bf0bc91c144d1a524477e3fe9f638c26b5",
-                "reference": "687d61bf0bc91c144d1a524477e3fe9f638c26b5",
+                "url": "https://api.github.com/repos/spatie/laravel-google-calendar/zipball/159c6b2a2bf36bfdbb83c2b7016091a00b3480b5",
+                "reference": "159c6b2a2bf36bfdbb83c2b7016091a00b3480b5",
                 "shasum": ""
             },
             "require": {
@@ -4432,7 +4435,7 @@
                 "schedule",
                 "spatie"
             ],
-            "time": "2017-07-19T22:20:04+00:00"
+            "time": "2017-10-16T14:11:57+00:00"
         },
         {
             "name": "spatie/laravel-tail",
@@ -5338,16 +5341,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
+                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
-                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
+                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
                 "shasum": ""
             },
             "require": {
@@ -5359,7 +5362,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -5393,7 +5396,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T15:44:48+00:00"
+            "time": "2017-10-11T12:05:26+00:00"
         },
         {
             "name": "symfony/process",
@@ -5846,16 +5849,16 @@
     "packages-dev": [
         {
             "name": "filp/whoops",
-            "version": "2.1.10",
+            "version": "2.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "ffbbd2c06c64b08fb47974eed5dbce4ca2bb0eec"
+                "reference": "a99f0b151846021ba7a73b4e3cba3ebc9f14f03e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/ffbbd2c06c64b08fb47974eed5dbce4ca2bb0eec",
-                "reference": "ffbbd2c06c64b08fb47974eed5dbce4ca2bb0eec",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/a99f0b151846021ba7a73b4e3cba3ebc9f14f03e",
+                "reference": "a99f0b151846021ba7a73b4e3cba3ebc9f14f03e",
                 "shasum": ""
             },
             "require": {
@@ -5900,10 +5903,10 @@
                 "exception",
                 "handling",
                 "library",
-                "whoops",
-                "zf2"
+                "throwable",
+                "whoops"
             ],
-            "time": "2017-08-03T18:23:40+00:00"
+            "time": "2017-10-15T13:05:10+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -6018,9 +6021,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "ohdearapp/laravel-ohdear-webhooks": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

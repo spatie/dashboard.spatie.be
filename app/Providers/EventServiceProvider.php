@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\OhDearWebhooks\EventSubscriber;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -15,6 +16,10 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\Twitter\Mentioned::class => [
             \App\Services\TweetHistory\TweetHistory::class,
         ],
+    ];
+
+    protected $subscribe = [
+        \App\Services\OhDearWebhooks\EventSubscriber::class,
     ];
 
     /**

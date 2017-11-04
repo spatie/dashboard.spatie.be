@@ -6,9 +6,11 @@
                 <ul class="uptime__notifications">
                     <li v-for="failing in failingUrls" class="uptime__notification">
                         <h2 class="uptime__notification__title h-ellipsis">{{ failing.url }}</h2>
+                        <!--
                         <div class="uptime__notification__time">
                             {{ failing.startedFailingAt | formatDuration }}
                         </div>
+                        -->
                     </li>
                 </ul>
             </div>
@@ -49,14 +51,13 @@
             },
         },
 
-
         methods: {
             addClassModifiers,
 
             getEventHandlers() {
                 return {
                     'Uptime.UptimeCheckFailed': response => {
-                        this.add(response.url, response.startedFailingAt);
+                        this.add(response.url);
                     },
                     'Uptime.UptimeCheckRecovered': response => {
                         this.remove(response.url);
@@ -67,10 +68,10 @@
                 };
             },
 
-            add(url, startedFailingAt) {
+            add(url) {
                 this.failingUrls = this.failingUrls.filter(failingUrl => url !== failingUrl.url);
 
-                this.failingUrls.push({ url, startedFailingAt });
+                this.failingUrls.push({ url });
             },
 
             remove(url) {
