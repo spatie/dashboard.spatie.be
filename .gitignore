@@ -11,3 +11,4 @@ _ide_helper*.php
 /public/js
 /public/media
 /public/mix-manifest.json
+package-lock.json
