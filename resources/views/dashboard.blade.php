@@ -6,11 +6,11 @@
 
 <dashboard id="dashboard" columns="6" rows="3">
     <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a3"></twitter>
+    <uptime position="a1:a3"></uptime>
     <packagist position="b1"></packagist>
     <npm position="b2"></npm>
     <github position="b3"></github>
-    <music position="c1"></music>
-    <uptime position="d1"></uptime>
+    <music position="c1:d1"></music>
     <tasks team-member="alex" position="c2"></tasks>
     <tasks team-member="brent" position="d2"></tasks>
     <tasks team-member="freek" position="e2"></tasks>
