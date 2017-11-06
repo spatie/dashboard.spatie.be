@@ -5,9 +5,11 @@
             <ul class="uptime__notifications">
                 <li v-for="failing in failingUrls" class="uptime__notification">
                     <h2 class="uptime__notification__title h-ellipsis">{{ failing.url }}</h2>
+                    <!--
                     <div class="uptime__notification__time">
                         {{ failing.startedFailingAt | formatDuration }}
                     </div>
+                    -->
                 </li>
             </ul>
         </section>
