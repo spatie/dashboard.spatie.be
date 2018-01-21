@@ -13,5 +13,5 @@ moment.updateLocale('en', {
 });
 
 // Pusher is forcing us to globally register the library. Bug? Shouldn't be
-// necessary, hopefully we can remove this ar some point.
+// necessary, hopefully we can remove this at some point.
 window.Pusher = require('pusher-js');
