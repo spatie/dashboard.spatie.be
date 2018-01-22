@@ -14,24 +14,24 @@ cache:
     - $HOME/node_modules
 
 before_script:
+  - chmod +x ./artisan
   - composer validate
   - composer install --prefer-dist --no-suggest
   - composer outdated --direct
   - composer require --dev jakub-onderka/php-parallel-lint
-
-script:
-  - chmod +x ./artisan
-  - vendor/bin/parallel-lint --blame --exclude vendor/ .
   - composer require --dev melihovv/laravel-compile-views
-  - ./artisan view:compile
-  - vendor/bin/parallel-lint storage/framework/views/
   - yarn
   - yarn run dev
   - cp -v .env.example .env
   - sed -e 's|^BASIC_AUTH_USERNAME=|&user|' -e 's|^BASIC_AUTH_PASSWORD=|&secret|' -i .env
-  - sed -e 's|^APP_URL=|APP_URL=http://localhost:8080|' -i .env
+  - sed -e 's|^APP_URL=.*|APP_URL=http://localhost:8088|' -i .env
   - ./artisan key:generate
   - echo ".databases" | sqlite3 database/database.sqlite
-  - ./artisan serve --host=localhost --port=8080 &
+
+script:
+  - vendor/bin/parallel-lint --blame --exclude vendor/ .
+  - ./artisan view:compile
+  - vendor/bin/parallel-lint storage/framework/views/
   - vendor/bin/phpunit --configuration ./phpunit.xml
-  - wget -qSO- "http://localhost:8080/" | grep -F -x '</html>'
+  - ./artisan serve --host=localhost --port=8088 &
+  - wget -v -S -O- "http://localhost:8088/" | grep -F -x '</html>'
