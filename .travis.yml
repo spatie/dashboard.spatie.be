@@ -1,0 +1,42 @@
+sudo: false
+dist: trusty
+
+language: php
+php: 
+  - 7.1
+  - 7.2
+  - nightly
+
+cache:
+  yarn: true
+  directories:
+    - $HOME/.composer/cache/files
+    - $HOME/node_modules
+
+before_script:
+  - chmod +x ./artisan
+  - composer validate
+  - composer install --prefer-dist --no-suggest
+  - composer require --dev jakub-onderka/php-parallel-lint
+  - composer require --dev melihovv/laravel-compile-views
+  - yarn
+  - yarn run dev
+  - cp -v .env.example .env
+  - sed -e 's|^BASIC_AUTH_USERNAME=|&user|' -e 's|^BASIC_AUTH_PASSWORD=|&secret|' -i .env
+  - sed -e 's|^APP_URL=.*|APP_URL=http://localhost:8088|' -i .env
+  - ./artisan key:generate
+  - echo ".databases" | sqlite3 database/database.sqlite
+
+script:
+  - ./artisan migrate --seed
+  - composer outdated --direct
+  - vendor/bin/parallel-lint --blame --exclude vendor/ .
+  - ./artisan view:compile
+  - vendor/bin/parallel-lint storage/framework/views/
+  - vendor/bin/phpunit --configuration ./phpunit.xml
+  - ./artisan serve --host=localhost --port=8088 &
+  - sleep 3
+  - wget -v -S -O- --http-user=user --http-password=secret --auth-no-challenge "http://localhost:8088/" | grep -F -x '</html>'
+
+after_failure:
+  - cat storage/logs/laravel.log
