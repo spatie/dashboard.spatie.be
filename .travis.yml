@@ -36,3 +36,6 @@ script:
   - ./artisan serve --host=localhost --port=8088 &
   - sleep 3
   - wget -v -S -O- --http-user=user --http-password=secret --auth-no-challenge "http://localhost:8088/" | grep -F -x '</html>'
+
+after_failure:
+  - cat storage/logs/laravel.log
