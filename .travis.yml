@@ -28,6 +28,7 @@ before_script:
   - echo ".databases" | sqlite3 database/database.sqlite
 
 script:
+  - ./artisan migrate --seed
   - composer outdated --direct
   - vendor/bin/parallel-lint --blame --exclude vendor/ .
   - ./artisan view:compile
