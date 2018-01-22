@@ -17,7 +17,6 @@ before_script:
   - chmod +x ./artisan
   - composer validate
   - composer install --prefer-dist --no-suggest
-  - composer outdated --direct
   - composer require --dev jakub-onderka/php-parallel-lint
   - composer require --dev melihovv/laravel-compile-views
   - yarn
@@ -29,9 +28,11 @@ before_script:
   - echo ".databases" | sqlite3 database/database.sqlite
 
 script:
+  - composer outdated --direct
   - vendor/bin/parallel-lint --blame --exclude vendor/ .
   - ./artisan view:compile
   - vendor/bin/parallel-lint storage/framework/views/
   - vendor/bin/phpunit --configuration ./phpunit.xml
-  - ./artisan serve --host=localhost --port=8088 &
+  - ./artisan serve --env=testing-ci --host=localhost --port=8088 &
+  - sleep 3
   - wget -v -S -O- "http://localhost:8088/" | grep -F -x '</html>'
