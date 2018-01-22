@@ -33,6 +33,6 @@ script:
   - ./artisan view:compile
   - vendor/bin/parallel-lint storage/framework/views/
   - vendor/bin/phpunit --configuration ./phpunit.xml
-  - ./artisan serve --env=testing-ci --host=localhost --port=8088 &
+  - ./artisan serve --host=localhost --port=8088 &
   - sleep 3
-  - wget -v -S -O- "http://localhost:8088/" | grep -F -x '</html>'
+  - wget -v -S -O- --http-user=user --http-password=secret --auth-no-challenge "http://localhost:8088/" | grep -F -x '</html>'
