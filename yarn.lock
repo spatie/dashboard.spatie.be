@@ -4817,9 +4817,9 @@ known-css-properties@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.2.0.tgz#899c94be368e55b42d7db8d5be7d73a4a4a41454"
 
-laravel-echo@1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/laravel-echo/-/laravel-echo-1.3.2.tgz#986a5abded5e9ba179bb92c915adb687b035e961"
+laravel-echo@^1.3.0:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/laravel-echo/-/laravel-echo-1.3.3.tgz#ecda4b0d397344cca6fec3ae81bf59ddb1a26c2b"
 
 laravel-mix@0.*:
   version "0.12.1"
