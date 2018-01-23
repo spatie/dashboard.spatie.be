@@ -45,7 +45,7 @@ yarn
 @task('generate assets', ['on' => 'web'])
 echo 'generating assets'
 cd '{{ $pathOnServer }}'
-yarn run production
+yarn run dev
 @endtask
 
 @task('bring app up', ['on' => 'web'])
