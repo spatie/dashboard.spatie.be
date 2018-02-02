@@ -31,10 +31,11 @@
         "spatie/valuestore": "^1.1"
     },
     "require-dev": {
+        "filp/whoops": "~2.0",
+        "friendsofphp/php-cs-fixer": "^2.10",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~6.0",
-        "filp/whoops": "~2.0"
+        "phpunit/phpunit": "~6.0"
     },
     "autoload": {
         "classmap": [
@@ -55,6 +56,9 @@
         ]
     },
     "scripts": {
+        "fix-cs": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
         ],
