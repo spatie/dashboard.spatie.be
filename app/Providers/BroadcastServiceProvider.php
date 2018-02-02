@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Broadcast;
 
 class BroadcastServiceProvider extends ServiceProvider
 {

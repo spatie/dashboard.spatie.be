@@ -2,10 +2,10 @@
 
 namespace App\Console\Components\Packagist;
 
-use App\Events\Packagist\TotalsFetched;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Spatie\Packagist\Packagist;
+use App\Events\Packagist\TotalsFetched;
 
 class FetchTotals extends Command
 {
