@@ -34,86 +34,82 @@
 </template>
 
 <script>
-    import echo from '../mixins/echo';
-    import Tile from './atoms/Tile';
-    import RelativeDate from './atoms/RelativeDate';
-    import Tweet from '../services/twitter/Tweet';
-    import moment from 'moment';
-    import { diffInSeconds, addClassModifiers } from '../helpers';
+import echo from '../mixins/echo';
+import Tile from './atoms/Tile';
+import RelativeDate from './atoms/RelativeDate';
+import Tweet from '../services/twitter/Tweet';
+import moment from 'moment';
+import { diffInSeconds, addClassModifiers } from '../helpers';
 
-    export default {
+export default {
+    components: {
+        Tile,
+        RelativeDate,
+    },
 
-        components: {
-            Tile,
-            RelativeDate,
-        },
+    mixins: [echo],
 
-        mixins: [echo],
+    props: ['position', 'initialTweets'],
 
-        props: ['position', 'initialTweets'],
+    data() {
+        return {
+            displayingTopTweetSince: moment(),
+            tweets: [],
+            waitingLine: [],
+            ownScreenName: '@spatie_be',
+        };
+    },
 
-        data() {
+    created() {
+        this.tweets = this.initialTweets.map(tweetProperties => new Tweet(tweetProperties));
+
+        setInterval(this.processWaitingLine, 1000);
+    },
+
+    methods: {
+        addClassModifiers,
+
+        getEventHandlers() {
             return {
-                displayingTopTweetSince: moment(),
-                tweets: [],
-                waitingLine: [],
-                ownScreenName: '@spatie_be',
+                'Twitter.Mentioned': response => {
+                    this.addToWaitingLine(new Tweet(response.tweetProperties));
+                },
             };
         },
 
-        created() {
-            this.tweets = this.initialTweets.map(tweetProperties => new Tweet(tweetProperties));
-
-            setInterval(this.processWaitingLine, 1000);
+        addToWaitingLine(tweet) {
+            this.waitingLine.push(tweet);
         },
 
-        methods: {
-            addClassModifiers,
+        processWaitingLine() {
+            if (this.waitingLine.length === 0) {
+                return;
+            }
 
-            getEventHandlers() {
-                return {
-                    'Twitter.Mentioned': response => {
-                        this.addToWaitingLine(new Tweet(response.tweetProperties));
-                    },
-                };
-            },
+            if (diffInSeconds(this.displayingTopTweetSince) < 5) {
+                return;
+            }
 
-            addToWaitingLine(tweet) {
-                this.waitingLine.push(tweet);
-            },
+            this.tweets.unshift(this.waitingLine.shift());
 
-            processWaitingLine() {
-                if (this.waitingLine.length === 0) {
-                    return;
-                }
+            this.tweets = this.tweets.slice(0, 20);
 
-                if (diffInSeconds(this.displayingTopTweetSince) < 5) {
-                    return;
-                }
-
-                this.tweets.unshift(this.waitingLine.shift());
-
-                this.tweets = this.tweets.slice(0, 20);
-
-                this.displayingTopTweetSince = moment();
-            },
-
-            getSaveStateConfig() {
-                return {
-                    cacheKey: 'twitter',
-                };
-            },
+            this.displayingTopTweetSince = moment();
         },
 
-        computed: {
-            onDisplay() {
-                return this.tweets.filter(tweet => {
-                    return (
-                        (tweet.authorScreenName !== this.ownScreenName)
-                        && (!tweet.isRetweet)
-                    );
-                });
-            },
+        getSaveStateConfig() {
+            return {
+                cacheKey: 'twitter',
+            };
         },
-    };
+    },
+
+    computed: {
+        onDisplay() {
+            return this.tweets.filter(tweet => {
+                return tweet.authorScreenName !== this.ownScreenName && !tweet.isRetweet;
+            });
+        },
+    },
+};
 </script>

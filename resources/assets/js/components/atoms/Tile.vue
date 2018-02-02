@@ -5,20 +5,19 @@
 </template>
 
 <script>
-    import { addClassModifiers, positionToGridAreaNotation } from '../../helpers';
+import { addClassModifiers, positionToGridAreaNotation } from '../../helpers';
 
-    export default {
+export default {
+    props: ['position', 'modifiers'],
 
-        props: ['position', 'modifiers'],
-
-        computed: {
-            tilePosition() {
-                return `grid-area: ${positionToGridAreaNotation(this.position)}`;
-            },
-
-            tileLook() {
-                return addClassModifiers('tile', this.modifiers);
-            },
+    computed: {
+        tilePosition() {
+            return `grid-area: ${positionToGridAreaNotation(this.position)}`;
         },
-    };
+
+        tileLook() {
+            return addClassModifiers('tile', this.modifiers);
+        },
+    },
+};
 </script>

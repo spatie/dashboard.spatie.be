@@ -33,7 +33,7 @@ ul {
 }
 
 h1 {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     text-transform: uppercase;
     font-weight: var(--font-weight-light);
     font-size: var(--font-size-m);
@@ -44,6 +44,6 @@ h2 {
 }
 
 li {
-    padding: .35vh 0;
-    border-bottom: solid 2px rgba(255, 255, 255, .2);
+    padding: 0.35vh 0;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.2);
 }

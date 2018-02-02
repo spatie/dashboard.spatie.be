@@ -12,62 +12,61 @@
 </template>
 
 <script>
-    import echo from '../mixins/echo';
-    import Tile from './atoms/Tile';
-    import { addClassModifiers, formatDuration } from '../helpers';
+import echo from '../mixins/echo';
+import Tile from './atoms/Tile';
+import { addClassModifiers, formatDuration } from '../helpers';
 
-    export default {
+export default {
+    components: {
+        Tile,
+    },
 
-        components: {
-            Tile,
+    filters: {
+        formatDuration,
+    },
+
+    mixins: [echo],
+
+    props: ['position'],
+
+    data() {
+        return {
+            failingUrls: [],
+        };
+    },
+
+    computed: {
+        hasFailingUrls() {
+            return this.failingUrls.length > 0;
         },
+    },
 
-        filters: {
-            formatDuration,
-        },
+    methods: {
+        addClassModifiers,
 
-        mixins: [echo],
-
-        props: ['position'],
-
-        data() {
+        getEventHandlers() {
             return {
-                failingUrls: [],
+                'Uptime.UptimeCheckFailed': response => {
+                    this.add(response.url);
+                },
+                'Uptime.UptimeCheckRecovered': response => {
+                    this.remove(response.url);
+                },
+                'Uptime.UptimeCheckSucceeded': response => {
+                    this.remove(response.url);
+                },
             };
         },
 
-        computed: {
-            hasFailingUrls() {
-                return this.failingUrls.length > 0;
-            },
+        add(url) {
+            this.failingUrls = this.failingUrls.filter(failingUrl => url !== failingUrl.url);
+
+            this.failingUrls.push({ url });
         },
 
-        methods: {
-            addClassModifiers,
-
-            getEventHandlers() {
-                return {
-                    'Uptime.UptimeCheckFailed': response => {
-                        this.add(response.url);
-                    },
-                    'Uptime.UptimeCheckRecovered': response => {
-                        this.remove(response.url);
-                    },
-                    'Uptime.UptimeCheckSucceeded': response => {
-                        this.remove(response.url);
-                    },
-                };
-            },
-
-            add(url) {
-                this.failingUrls = this.failingUrls.filter(failingUrl => url !== failingUrl.url);
-
-                this.failingUrls.push({ url });
-            },
-
-            remove(url) {
-                this.failingUrls = this.failingUrls.filter(failingUrl => url !== failingUrl.url);
-            },
+        remove(url) {
+            this.failingUrls = this.failingUrls.filter(failingUrl => url !== failingUrl.url);
         },
-    };
+    },
+};
 </script>

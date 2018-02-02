@@ -8,40 +8,39 @@
 </template>
 
 <script>
-    import echo from '../mixins/echo';
-    import Tile from './atoms/Tile';
-    import saveState from 'vue-save-state';
+import echo from '../mixins/echo';
+import Tile from './atoms/Tile';
+import saveState from 'vue-save-state';
 
-    export default {
+export default {
+    components: {
+        Tile,
+    },
 
-        components: {
-            Tile,
-        },
+    mixins: [echo, saveState],
 
-        mixins: [echo, saveState],
+    props: ['teamMember', 'position'],
 
-        props: ['teamMember', 'position'],
+    data() {
+        return {
+            tasks: '',
+        };
+    },
 
-        data() {
+    methods: {
+        getEventHandlers() {
             return {
-                tasks: '',
+                'Tasks.TasksFetched': response => {
+                    this.tasks = response.tasks[this.teamMember];
+                },
             };
         },
 
-        methods: {
-            getEventHandlers() {
-                return {
-                    'Tasks.TasksFetched': response => {
-                        this.tasks = response.tasks[this.teamMember];
-                    },
-                };
-            },
-
-            getSaveStateConfig() {
-                return {
-                    cacheKey: `tasks-${this.teamMember}`,
-                };
-            },
+        getSaveStateConfig() {
+            return {
+                cacheKey: `tasks-${this.teamMember}`,
+            };
         },
-    };
+    },
+};
 </script>

@@ -26,64 +26,63 @@
 </template>
 
 <script>
-    import echo from '../mixins/echo';
-    import Tile from './atoms/Tile';
-    import { addClassModifiers } from '../helpers';
-    import saveState from 'vue-save-state';
+import echo from '../mixins/echo';
+import Tile from './atoms/Tile';
+import { addClassModifiers } from '../helpers';
+import saveState from 'vue-save-state';
 
-    export default {
+export default {
+    components: {
+        Tile,
+    },
 
-        components: {
-            Tile,
+    mixins: [echo, saveState],
+
+    props: ['position'],
+
+    data() {
+        return {
+            artist: '',
+            trackName: '',
+            artwork: '',
+            userName: '',
+        };
+    },
+
+    computed: {
+        currentlyPlaying() {
+            return !!this.artist;
         },
+        hasCover() {
+            return !!this.artwork;
+        },
+        cover() {
+            return this.artwork || '/images/music__cover.jpg';
+        },
+    },
 
-        mixins: [echo, saveState],
+    methods: {
+        addClassModifiers,
 
-        props: ['position'],
-
-        data() {
+        getEventHandlers() {
             return {
-                artist: '',
-                trackName: '',
-                artwork: '',
-                userName: '',
+                'Music.NothingPlaying': () => {
+                    this.artist = '';
+                },
+                'Music.TrackIsPlaying': response => {
+                    this.artist = response.trackInfo.artist;
+                    this.trackName = response.trackInfo.trackName;
+                    this.artwork = response.trackInfo.artwork;
+                    this.userName = response.userName;
+                },
             };
         },
 
-        computed: {
-            currentlyPlaying() {
-                return !!this.artist;
-            },
-            hasCover() {
-                return !!this.artwork;
-            },
-            cover() {
-                return this.artwork || '/images/music__cover.jpg';
-            },
+        getSaveStateConfig() {
+            return {
+                cacheKey: 'music',
+            };
         },
-
-        methods: {
-            addClassModifiers,
-
-            getEventHandlers() {
-                return {
-                    'Music.NothingPlaying': () => {
-                        this.artist = '';
-                    },
-                    'Music.TrackIsPlaying': response => {
-                        this.artist = response.trackInfo.artist;
-                        this.trackName = response.trackInfo.trackName;
-                        this.artwork = response.trackInfo.artwork;
-                        this.userName = response.userName;
-                    },
-                };
-            },
-
-            getSaveStateConfig() {
-                return {
-                    cacheKey: 'music',
-                };
-            },
-        },
-    };
+    },
+};
 </script>

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller;
 use App\Services\TweetHistory\TweetHistory;
+use Illuminate\Routing\Controller;
 
 class DashboardController extends Controller
 {

@@ -9,7 +9,7 @@
 .tweet {
     margin-bottom: var(--grid-gap);
     padding: var(--grid-gap);
-    border-radius: .25vw;
+    border-radius: 0.25vw;
     background-color: var(--gray-darker);
     word-break: break-word;
 }
@@ -17,13 +17,13 @@
 .tweet--quoted {
     margin-top: var(--grid-gap);
     padding: var(--grid-gap) 0;
-    border-top: dotted 2px rgba(255, 255, 255, .15);
+    border-top: dotted 2px rgba(255, 255, 255, 0.15);
 }
 
 .tweet__header {
     display: flex;
     align-items: center;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 
 .tweet__user {
@@ -46,7 +46,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     overflow: hidden;
-    margin-right: .5vw;
+    margin-right: 0.5vw;
     width: 2.5vw;
     height: 2.5vw;
     border-radius: 1.25vw;
@@ -54,7 +54,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, .25);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
 }
 
 .tweet__body--default {
@@ -85,19 +85,19 @@
     overflow: hidden;
     margin-top: var(--grid-gap);
     text-align: center;
-    opacity: .75;
+    opacity: 0.75;
 }
 
 .tweet__attachment__image {
     max-width: 100%;
     max-height: 15vh;
-    border-radius: .25vw;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, .25);
+    border-radius: 0.25vw;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
     vertical-align: middle;
 }
 
 .tweet__meta {
-    margin-top: .5vw;
+    margin-top: 0.5vw;
     color: var(--gray-light);
     font-size: var(--font-size-xxs);
 }

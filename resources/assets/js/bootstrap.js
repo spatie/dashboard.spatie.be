@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import moment from 'moment';
 
 moment.updateLocale('en', {

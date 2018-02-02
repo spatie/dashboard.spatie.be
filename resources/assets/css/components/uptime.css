@@ -15,7 +15,7 @@
 
 .uptime__title--up {
     z-index: 2;
-    border-radius: .25vw;
+    border-radius: 0.25vw;
     text-align: center;
 }
 
@@ -25,7 +25,7 @@
 
 .uptime__notification {
     padding-bottom: 1.5vh;
-    border-color: rgba(0, 0, 0, .2);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 .uptime__notification__title {

@@ -5,27 +5,26 @@
 </template>
 
 <script>
-    import { relativeDateTime } from '../../helpers';
+import { relativeDateTime } from '../../helpers';
 
-    export default{
+export default {
+    props: ['moment'],
 
-        props: ['moment'],
+    data() {
+        return {
+            relativeDateTime: '',
+        };
+    },
 
-        data() {
-            return {
-                relativeDateTime: '',
-            };
+    created() {
+        this.refreshRelativeDateTime();
+        setInterval(this.refreshRelativeDateTime, 1000);
+    },
+
+    methods: {
+        refreshRelativeDateTime() {
+            this.relativeDateTime = relativeDateTime(this.moment);
         },
-
-        created() {
-            this.refreshRelativeDateTime();
-            setInterval(this.refreshRelativeDateTime, 1000);
-        },
-
-        methods: {
-            refreshRelativeDateTime() {
-                this.relativeDateTime = relativeDateTime(this.moment);
-            },
-        },
-    };
+    },
+};
 </script>
