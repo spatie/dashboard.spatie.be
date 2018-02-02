@@ -8,17 +8,17 @@
     justify-content: space-around;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, .35);
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
 .internet-connection__alert {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: .75em 1.5em;
+    padding: 0.75em 1.5em;
     border-radius: 1em 1em 0 0;
     background-color: var(--red);
-    box-shadow: 0 0 100px rgba(0, 0, 0, .15);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.15);
     font-size: var(--font-size-m);
 }
 
@@ -28,6 +28,6 @@
 }
 
 .internet-connection__text {
-    padding-left: .5em;
+    padding-left: 0.5em;
     color: var(--red-lightest);
 }

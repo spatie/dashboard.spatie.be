@@ -5,14 +5,13 @@
 </template>
 
 <script>
-    export default {
+export default {
+    props: ['rows', 'columns'],
 
-        props: ['rows', 'columns'],
-
-        computed: {
-            gridTemplate() {
-                return `grid-template: repeat(${ this.rows }, 1fr) / repeat(${ this.columns }, 1fr);`;
-            },
+    computed: {
+        gridTemplate() {
+            return `grid-template: repeat(${this.rows}, 1fr) / repeat(${this.columns}, 1fr);`;
         },
-    };
+    },
+};
 </script>

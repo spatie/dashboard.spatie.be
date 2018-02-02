@@ -8,41 +8,43 @@
 </template>
 
 <script>
-    import echo from '../mixins/echo';
-    import { addClassModifiers } from '../helpers';
-    import moment from 'moment';
+import echo from '../mixins/echo';
+import { addClassModifiers } from '../helpers';
+import moment from 'moment';
 
-    export default {
+export default {
+    mixins: [echo],
 
-        mixins: [echo],
+    data() {
+        return {
+            offline: false,
+            lastHeartBeatReceivedAt: moment(),
+        };
+    },
 
-        data() {
+    created() {
+        setInterval(this.determineConnectionStatus, 1000);
+    },
+
+    methods: {
+        addClassModifiers,
+
+        determineConnectionStatus() {
+            const lastHeartBeatReceivedSecondsAgo = moment().diff(
+                this.lastHeartBeatReceivedAt,
+                'seconds'
+            );
+
+            this.offline = lastHeartBeatReceivedSecondsAgo > 125;
+        },
+
+        getEventHandlers() {
             return {
-                offline: false,
-                lastHeartBeatReceivedAt: moment(),
+                'InternetConnection.Heartbeat': () => {
+                    this.lastHeartBeatReceivedAt = moment();
+                },
             };
         },
-
-        created() {
-            setInterval(this.determineConnectionStatus, 1000);
-        },
-
-        methods: {
-            addClassModifiers,
-
-            determineConnectionStatus() {
-                const lastHeartBeatReceivedSecondsAgo = moment().diff(this.lastHeartBeatReceivedAt, 'seconds');
-
-                this.offline = lastHeartBeatReceivedSecondsAgo > 125;
-            },
-
-            getEventHandlers() {
-                return {
-                    'InternetConnection.Heartbeat': () => {
-                        this.lastHeartBeatReceivedAt = moment();
-                    },
-                };
-            },
-        },
-    };
+    },
+};
 </script>

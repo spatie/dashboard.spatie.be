@@ -13,44 +13,42 @@
 </template>
 
 <script>
-    import echo from '../mixins/echo';
-    import Tile from './atoms/Tile';
-    import saveState from 'vue-save-state';
-    import { relativeDate } from '../helpers';
+import echo from '../mixins/echo';
+import Tile from './atoms/Tile';
+import saveState from 'vue-save-state';
+import { relativeDate } from '../helpers';
 
-    export default {
+export default {
+    components: {
+        Tile,
+    },
 
-        components: {
-            Tile,
-        },
+    mixins: [echo, saveState],
 
-        mixins: [echo, saveState],
+    props: ['position'],
 
-        props: ['position'],
+    data() {
+        return {
+            events: [],
+        };
+    },
 
-        data() {
+    methods: {
+        relativeDate,
+
+        getEventHandlers() {
             return {
-                events: [],
+                'Calendar.EventsFetched': response => {
+                    this.events = response.events;
+                },
             };
         },
 
-        methods: {
-            relativeDate,
-
-            getEventHandlers() {
-                return {
-                    'Calendar.EventsFetched': response => {
-                        this.events = response.events;
-                    },
-                };
-            },
-
-            getSaveStateConfig() {
-                return {
-                    cacheKey: 'calendar',
-                };
-            },
+        getSaveStateConfig() {
+            return {
+                cacheKey: 'calendar',
+            };
         },
-    };
-
+    },
+};
 </script>

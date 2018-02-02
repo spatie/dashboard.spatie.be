@@ -10,9 +10,9 @@
 
 .time-weather__time {
     display: block;
-    padding: .1em 0;
+    padding: 0.1em 0;
     color: var(--yellow);
-    letter-spacing: .05em;
+    letter-spacing: 0.05em;
     font-weight: var(--font-weight-light);
     font-size: var(--font-size-l);
     line-height: 1;
@@ -48,7 +48,7 @@
 }
 
 .time-weather__weather__description {
-    margin-left: .25em;
+    margin-left: 0.25em;
 }
 
 @media (min-height: 60em) {

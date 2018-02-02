@@ -17,67 +17,70 @@
 </template>
 
 <script>
-    import Tile from './atoms/Tile';
-    import moment from 'moment-timezone';
-    import weather from '../services/weather/Weather';
+import Tile from './atoms/Tile';
+import moment from 'moment-timezone';
+import weather from '../services/weather/Weather';
 
-    export default {
+export default {
+    components: {
+        Tile,
+    },
 
-        components: {
-            Tile,
+    props: {
+        weatherCity: {
+            type: String,
+        },
+        dateFormat: {
+            type: String,
+            default: 'DD-MM-YYYY',
+        },
+        timeFormat: {
+            type: String,
+            default: 'HH:mm',
+        },
+        timeZone: {
+            type: String,
+        },
+        position: {
+            type: String,
+        },
+    },
+
+    data() {
+        return {
+            date: '',
+            time: '',
+            weather: {
+                temperature: '',
+                iconClass: '',
+            },
+        };
+    },
+
+    created() {
+        this.refreshTime();
+        setInterval(this.refreshTime, 1000);
+
+        this.fetchWeather();
+        setInterval(this.fetchWeather, 15 * 60 * 1000);
+    },
+
+    methods: {
+        refreshTime() {
+            this.date = moment()
+                .tz(this.timeZone)
+                .format(this.dateFormat);
+            this.time = moment()
+                .tz(this.timeZone)
+                .format(this.timeFormat);
         },
 
-        props: {
-            weatherCity: {
-                type: String,
-            },
-            dateFormat: {
-                type: String,
-                default: 'DD-MM-YYYY',
-            },
-            timeFormat: {
-                type: String,
-                default: 'HH:mm',
-            },
-            timeZone: {
-                type: String,
-            },
-            position: {
-                type: String,
-            },
+        async fetchWeather() {
+            const conditions = await weather.conditions(this.weatherCity);
+
+            this.weather.temperature = conditions.temp;
+            this.weather.iconClass = `wi-yahoo-${conditions.code}`;
         },
-
-        data() {
-            return {
-                date: '',
-                time: '',
-                weather: {
-                    temperature: '',
-                    iconClass: '',
-                },
-            };
-        },
-
-        created() {
-            this.refreshTime();
-            setInterval(this.refreshTime, 1000);
-
-            this.fetchWeather();
-            setInterval(this.fetchWeather, 15 * 60 * 1000);
-        },
-
-        methods: {
-            refreshTime() {
-                this.date = moment().tz(this.timeZone).format(this.dateFormat);
-                this.time = moment().tz(this.timeZone).format(this.timeFormat);
-            },
-
-            async fetchWeather() {
-                const conditions = await weather.conditions(this.weatherCity);
-
-                this.weather.temperature = conditions.temp;
-                this.weather.iconClass = `wi-yahoo-${conditions.code}`;
-            },
-        },
-    };
+    },
+};
 </script>

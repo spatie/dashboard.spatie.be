@@ -2,10 +2,10 @@
 
 namespace App\Console\Components\Music;
 
-use Illuminate\Console\Command;
-use Spatie\NowPlaying\NowPlaying;
 use App\Events\Music\NothingPlaying;
 use App\Events\Music\TrackIsPlaying;
+use Illuminate\Console\Command;
+use Spatie\NowPlaying\NowPlaying;
 
 class FetchCurrentTrack extends Command
 {

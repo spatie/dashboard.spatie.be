@@ -9,7 +9,6 @@ let tweetWithImage;
 let tweetWithQuote;
 
 describe('Mention', () => {
-
     beforeEach(() => {
         tweet = new Tweet(tweetProperties);
         tweetWithImage = new Tweet(tweetWithImageProperties);
@@ -30,11 +29,17 @@ describe('Mention', () => {
     });
 
     it('can get the html of a tweet', () => {
-        assert.equal(tweet.html, '<span class="tweet__body__handle">@jarenduren</span> testtweet <span class="tweet__body__hashtag">#cool</span>');
+        assert.equal(
+            tweet.html,
+            '<span class="tweet__body__handle">@jarenduren</span> testtweet <span class="tweet__body__hashtag">#cool</span>'
+        );
     });
 
     it('can get the avatar of the author', () => {
-        assert.equal(tweet.authorAvatar, 'https://pbs.twimg.com/profile_images/613846262383652864/3UKkvJFq_normal.jpg');
+        assert.equal(
+            tweet.authorAvatar,
+            'https://pbs.twimg.com/profile_images/613846262383652864/3UKkvJFq_normal.jpg'
+        );
     });
 
     it('can get the image of the tweet', () => {

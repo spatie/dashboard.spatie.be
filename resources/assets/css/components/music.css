@@ -14,7 +14,7 @@
     left: -50px;
     background-position: center;
     background-size: cover;
-    opacity: .3;
+    opacity: 0.3;
     filter: blur(25px);
 }
 
@@ -35,17 +35,17 @@
     margin: var(--grid-gap);
     padding-bottom: 25%;
     width: 25%;
-    border-radius: .25vw;
-    background-color: rgba(255, 255, 255, .1);
+    border-radius: 0.25vw;
+    background-color: rgba(255, 255, 255, 0.1);
     background-position: center;
     background-size: cover;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, .25);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
 }
 
 .music__text {
     margin: var(--grid-gap);
     max-width: 90%;
-    transition: width .5s linear;
+    transition: width 0.5s linear;
 }
 
 .music___artist {
@@ -61,9 +61,9 @@
     z-index: 3;
     display: inline-block;
     margin-top: 1em;
-    padding: .25em .5em;
-    border-radius: .25vw;
-    background: rgba(0, 0, 0, .25);
+    padding: 0.25em 0.5em;
+    border-radius: 0.25vw;
+    background: rgba(0, 0, 0, 0.25);
     white-space: nowrap;
     font-size: var(--font-size-xs);
 }
@@ -71,5 +71,5 @@
 .music__user__icon {
     background-image: url(/images/svg/music.svg);
 
-    margin-right: .25em;
+    margin-right: 0.25em;
 }
