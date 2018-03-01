@@ -1,7 +1,6 @@
 <template>
-    <tile :position="position">
+    <tile :position="position" modifiers="overflow">
         <section class="time-weather">
-            <span class="time-weather__time-zone">{{ weatherCity }}</span>
             <time class="time-weather__content">
                 <span class="time-weather__date">{{ date }}</span>
                 <span class="time-weather__time">{{ time }}</span>
@@ -12,6 +11,7 @@
                     </span>
                 </span>
             </time>
+            <span class="time-weather__time-zone">{{ weatherCity }}</span>
         </section>
     </tile>
 </template>
