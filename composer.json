@@ -57,7 +57,7 @@
         ]
     },
     "scripts": {
-        "fix-cs": [
+        "format": [
             "vendor/bin/php-cs-fixer fix"
         ],
         "post-root-package-install": [
