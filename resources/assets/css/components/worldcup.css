@@ -1,0 +1,6 @@
+.match {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: var(--font-size-s);
+}

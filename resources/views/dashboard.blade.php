@@ -17,7 +17,8 @@
     <tasks team-member="seb" position="d2"></tasks>
     <tasks team-member="willem" position="d3"></tasks>
     <time-weather position="e1" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
-    <calendar position="e2:e3"></calendar>
+    <calendar position="e2"></calendar>
+    <world-cup position="e3"></world-cup>
     <internet-connection></internet-connection>
 </dashboard>
 

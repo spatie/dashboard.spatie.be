@@ -22,6 +22,10 @@ export function formatDuration(start) {
     return moment.duration(moment().diff(start), 'milliseconds').format('d[d] h[h] m[m]');
 }
 
+export function formatUntil(start, timeZone) {
+    return moment(start).fromNow('d[d] h[h] m[m]');
+}
+
 export function relativeDate(value) {
     const date = moment(value);
 
