@@ -5,7 +5,7 @@
             <ul>
                 <li v-for="match in matches" class="match">
                     <span class="match__home">{{ match.home_team.code }}</span>
-                    <span v-if="match.status === 'future'" class="match__goals">{{ formatUntil(match.datetime) }}</span>
+                    <span v-if="match.status === 'future'" class="match__until">{{ formatUntil(match.datetime) }}</span>
                     <span v-else class="match__goals">{{ match.home_team.goals }} - {{ match.away_team.goals }}</span>
                     <span class="match__out">{{ match.away_team.code }}</span>
                 </li>

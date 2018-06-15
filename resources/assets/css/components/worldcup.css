@@ -4,3 +4,10 @@
     justify-content: space-between;
     font-size: var(--font-size-s);
 }
+
+.match__goals {
+    color: var(--yellow);
+    vertical-align: top;
+    white-space: nowrap;
+    font-weight: var(--font-weight-black);
+}
