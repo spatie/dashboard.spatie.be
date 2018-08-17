@@ -7,7 +7,7 @@ class Tweet {
     constructor(tweetProperties) {
         this.tweetProperties = tweetProperties;
 
-        if (this.hasQuote) {
+        if (this.hasQuote && this.tweetProperties.quoted_status) {
             this.quotedTweet = new Tweet(this.tweetProperties.quoted_status);
         }
     }
@@ -59,7 +59,9 @@ class Tweet {
         }
 
         if (this.hasQuote) {
-            text = text.replace(last(this.tweetProperties.entities.urls).url, '');
+            const quoteUrl = get(last(this.tweetProperties.entities.urls), 'url', '');
+
+            text = text.replace(quoteUrl, '');
         }
 
         return text;
