@@ -30,6 +30,13 @@ export default {
         weatherCity: {
             type: String,
         },
+        weatherFormat: {
+            type: String,
+            default: 'c',
+            validator: function (value) {
+                return ['c', 'f'].indexOf(value.toLowerCase()) !== -1
+            }
+        },
         dateFormat: {
             type: String,
             default: 'DD-MM-YYYY',
