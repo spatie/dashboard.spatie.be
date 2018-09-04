@@ -16,7 +16,7 @@
         "fideloper/proxy": "~4.0",
         "guzzlehttp/guzzle": "^6.2",
         "knplabs/github-api": "^2.4",
-        "laravel/framework": "5.7.x-dev",
+        "laravel/framework": "5.7.*",
         "laravel/tinker": "~1.0",
         "ohdearapp/laravel-ohdear-webhooks": "^1.0",
         "pda/pheanstalk": "^3.1",
@@ -81,6 +81,5 @@
         "laravel": {
             "dont-discover": []
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
