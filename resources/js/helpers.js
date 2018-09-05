@@ -85,13 +85,13 @@ export function diffInSeconds(otherMoment) {
 export function positionToGridAreaNotation(position) {
     const [from, to = null] = position.toLowerCase().split(':');
 
-    if (from.length !== 2 || (to && to.length !== 2)) {
+    if (from.length < 2 || (to && to.length < 2)) {
         return;
     }
 
-    const areaFrom = `${from[1]} / ${indexInAlphabet(from[0])}`;
+    const areaFrom = `${from.substring(1)} / ${indexInAlphabet(from[0])}`;
     const area = to
-        ? `${areaFrom} / ${Number(to[1]) + 1} / ${indexInAlphabet(to[0]) + 1}`
+        ? `${areaFrom} / ${Number(to.substring(1)) + 1} / ${indexInAlphabet(to[0]) + 1}`
         : areaFrom;
 
     return area;
