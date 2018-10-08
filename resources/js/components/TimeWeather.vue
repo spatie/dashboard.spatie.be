@@ -9,6 +9,9 @@
                     <span class="time-weather__weather__description">
                         <i class="wi" :class="weather.iconClass"></i>
                     </span>
+                    <span class="time-weather__weather__temperature">
+                        <office-temperature />
+                    </span>
                 </span>
             </time>
             <span class="time-weather__time-zone">{{ weatherCity }}</span>
@@ -20,9 +23,11 @@
 import Tile from './atoms/Tile';
 import moment from 'moment-timezone';
 import weather from '../services/weather/Weather';
+import OfficeTemperature from "./atoms/OfficeTemperature";
 
 export default {
     components: {
+        OfficeTemperature,
         Tile,
     },
 
