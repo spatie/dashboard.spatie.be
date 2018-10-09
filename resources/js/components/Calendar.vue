@@ -1,7 +1,7 @@
 <template>
     <tile :position="position" modifiers="overflow">
         <section class="calendar">
-            <h1 class="calendar__title">{{ gcalendarId }}</h1>
+            <h1 class="calendar__title">{{ calendarName }}</h1>
             <ul class="calendar__events">
                 <li v-for="event in calendarEvents.events" class="calendar__event">
                     <h2 class="calendar__event__title">{{ event.name }}</h2>
@@ -25,10 +25,11 @@ export default {
 
     mixins: [echo, saveState],
 
-    props: ['position', 'gcalendarId'],
+    props: ['position', 'calendarSummary'],
 
     data() {
         return {
+            calendarName: "",
             calendarEvents: [],
         };
     },
@@ -40,7 +41,8 @@ export default {
         getEventHandlers() {
             return {
                 'Calendar.EventsFetched': response => {
-                    this.calendarEvents = response.calendarEvents[this.gcalendarId];
+                    this.calendarName = response.calendarEvents[this.calendarSummary].calendarName;
+                    this.calendarEvents = response.calendarEvents[this.calendarSummary];
                 },
             };
         },

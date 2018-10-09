@@ -45,7 +45,8 @@ class FetchCalendarEvents extends Command
                 ->unique('name')
                 ->toArray();
 
-            $events[$calendarId] = [
+            $events[$calendarListItem->getSummary()] = [
+                'calendarName' => $calendarListItem->getSummary(),
                 'events' => $allEvents,
             ];
         }
