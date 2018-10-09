@@ -4,13 +4,14 @@ namespace App\Console\Components\Calendar;
 
 use DateTime;
 use Carbon\Carbon;
-use Illuminate\Console\Command;
-use Spatie\GoogleCalendar\Event;
 use App\CalendarList;
+use App\Events\Calendar\Event as Event;
 use App\Events\Calendar\EventsFetched;
-
 use Google_Service_Calendar_CalendarList;
+use Illuminate\Console\Command;
+use Spatie\GoogleCalendar\Event as GoogleCalendarEvent;
 use Spatie\GoogleCalendar\GoogleCalendarFactory;
+
 
 class FetchCalendarEvents extends Command
 {
@@ -20,35 +21,34 @@ class FetchCalendarEvents extends Command
 
     public function handle()
     {
+        $calendarId = $calendarId ?? config('google-calendar.calendar_id');
+        $calendarService = GoogleCalendarFactory::createForCalendarId($calendarId)->getService();
+        $startDate = Carbon::parse('today');
+        $endDate = Carbon::parse('tomorrow');
 
-        // $calendarId = $calendarId ?? config('google-calendar.calendar_id');
+        $queryParameters = [
+            'maxResults' => 4,
+            'singleEvents' => 'true',
+        ];
 
-        // $calendarService = GoogleCalendarFactory::createForCalendarId($calendarId)->getService();
-        // foreach ($calendarService->calendarList->listCalendarList() as $calendarListItem) {
-        //     dump($calendarListItem->getId());
-        //     $allEvents = $calendarService->events->listEvents($calendarListItem->getId(),['maxResults'=>5, 'orderBy'=>'updated','timeMin' => '2018-06-03T10:00:00-07:00','singleEvents'=>'true']);
-        //     foreach ($allEvents as $allEvent) {
-        //         dump($allEvent->summary);
-        //     }
-        //     // dump($calendarListItem->getId());
-        // }
+        foreach ($calendarService->calendarList->listCalendarList(['minAccessRole' => 'owner']) as $calendarListItem) {
+            $calendarId = $calendarListItem->getId();
+            $allEvents = collect(Event::get($startDate, $endDate, $queryParameters, $calendarId))
+                ->map(function (GoogleCalendarEvent $event) {
+                    $sortDate = $event->getSortDate();
 
+                    return [
+                        'name' => $event->name,
+                        'date' => Carbon::createFromFormat('Y-m-d H:i:s', $sortDate)->format(DateTime::ATOM),
+                    ];
+                })
+                ->unique('name')
+                ->toArray();
 
-
-
-
-
-        $events = collect(Event::get())
-            ->map(function (Event $event) {
-                $sortDate = $event->getSortDate();
-
-                return [
-                    'name' => $event->name,
-                    'date' => Carbon::createFromFormat('Y-m-d H:i:s', $sortDate)->format(DateTime::ATOM),
-                ];
-            })
-            ->unique('name')
-            ->toArray();
+            $events[$calendarId] = [
+                'events' => $allEvents,
+            ];
+        }
 
         event(new EventsFetched($events));
     }
