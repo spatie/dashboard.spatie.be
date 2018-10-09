@@ -7,10 +7,10 @@ use App\Events\DashboardEvent;
 class EventsFetched extends DashboardEvent
 {
     /** @var array */
-    public $events;
+    public $calendarEvents;
 
-    public function __construct(array $events)
+    public function __construct(array $calendarEvents)
     {
-        $this->events = $events;
+        $this->calendarEvents = $calendarEvents;
     }
 }
