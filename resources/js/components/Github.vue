@@ -1,28 +1,30 @@
 <template>
-    <tile :position="position" >
-        <h1 class="tile-title">GitHub</h1>
-        <ul class="tile-stats">
-            <li>
-                <span>★</span>
-                <span>{{ formatNumber(stars) }}</span>
-            </li>
-            <li>
-                <span>Issues</span>
-                <span>{{ formatNumber(issues) }}</span>
-            </li>
-            <li>
-                <span>Pull Requests</span>
-                <span>{{ formatNumber(pullRequests) }}</span>
-            </li>
-            <li>
-                <span>Contributors</span>
-                <span>{{ formatNumber(contributors) }}</span>
-            </li>
-            <li>
-                <span>Repos</span>
-                <span>{{ formatNumber(numberOfRepos) }}</span>
-            </li>
-        </ul>
+    <tile :position="position">
+        <div class="grid h-full" style="--template-rows: auto 1fr; --gap: 1rem">
+            <h1 class="tile-title">GitHub</h1>
+            <ul class="align-self-center tile-stats">
+                <li>
+                    <span>★</span>
+                    <span class="text-accent">{{ formatNumber(stars) }}</span>
+                </li>
+                <li>
+                    <span>Contributors</span>
+                    <span>{{ formatNumber(contributors) }}</span>
+                </li>
+                <li>
+                    <span>Repos</span>
+                    <span>{{ formatNumber(numberOfRepos) }}</span>
+                </li>
+                <li>
+                    <span>Issues</span>
+                    <span>{{ formatNumber(issues) }}</span>
+                </li>
+                <li>
+                    <span>Pull Requests</span>
+                    <span>{{ formatNumber(pullRequests) }}</span>
+                </li>
+            </ul>
+        </div>
     </tile>
 </template>
 

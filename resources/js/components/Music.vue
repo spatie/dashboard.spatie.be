@@ -1,27 +1,26 @@
 <template>
-    <tile :position="position" modifiers="transparent">
+    <tile :position="position">
         <section :class="currentlyPlaying ? 'playing' : 'stopped'">
-            <div class="music__content" v-if="currentlyPlaying">
+            <div v-if="currentlyPlaying">
                 <div :class="!hasCover ? 'empty' : ''"
                      v-bind:style="{ backgroundImage: 'url(' + cover + ')' }">
                 </div>
-                <div class="music__text">
-                    <div class="music__artist">
+                <div>
+                    <div>
                         {{ artist }}
                     </div>
-                    <div class="music__track">
+                    <div>
                         {{ trackName }}
                     </div>
-                    <span class="music__user">
-                        <span class="music__user__icon h-icon"></span>
+                    <span>
+                        <span></span>
                         {{ userName }}
                     </span>
                 </div>
             </div>
-            <div class="music__background" v-if="currentlyPlaying"
+            <div v-if="currentlyPlaying"
                  v-bind:style="{ backgroundImage: 'url(' + cover + ')' }"></div>
         </section>
-        <div class="music__icon h-background-icon" v-if="!currentlyPlaying"></div>
     </tile>
 </template>
 

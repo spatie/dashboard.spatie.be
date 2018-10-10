@@ -1,10 +1,10 @@
 <template>
-    <tile :position="position" >
-        <div class="flex mb-4 items-center w-full">
-            <div class="flex-none w-8 h-8 rounded-full overflow-hidden">
+    <tile :position="position">
+        <div class="flex items-center -mt-2 mb-4 w-full">
+            <div class="flex-none overflow-hidden w-8 h-8 rounded-full">
                 <img class="block rounded-full" :src="avatar" :alt="teamMember">
             </div>
-            <div class="flex-grow flex items-center text-xs text-grey-dark ml-2">
+            <div class="flex-grow flex items-center text-xs text-dimmed ml-2">
                 <span class="truncate">Artist — Album</span>
                 <span class="ml-1">♫</span>
             </div>

@@ -1,20 +1,22 @@
 <template>
-    <tile :position="position" >
-        <h1 class=tile-title>NPM</h1>
-        <ul class="tile-stats">
-            <li>
-                <span>24 hours</span>
-                <span>{{ formatNumber(daily) }}</span>
-            </li>
-            <li>
-                <span>30 days</span>
-                <span>{{ formatNumber(monthly) }}</span>
-            </li>
-            <li>
-                <span>Total</span>
-                <span>{{ formatNumber(total) }}</span>
-            </li>
-        </ul>
+    <tile :position="position">
+        <div class="grid h-full" style="--template-rows: auto 1fr; --gap: 1rem">
+            <h1 class=tile-title>NPM</h1>
+            <ul class="align-self-center tile-stats">
+                <li>
+                    <span>Total</span>
+                    <span class="text-accent">{{ formatNumber(total) }}</span>
+                </li>
+                <li>
+                    <span>30 days</span>
+                    <span>{{ formatNumber(monthly) }}</span>
+                </li>
+                <li>
+                    <span>24 hours</span>
+                    <span>{{ formatNumber(daily) }}</span>
+                </li>
+            </ul>
+        </div>
     </tile>
 </template>
 

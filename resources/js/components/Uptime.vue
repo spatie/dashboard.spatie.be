@@ -1,6 +1,6 @@
 <template>
-    <tile v-if="!hasFailingUrls" :position="position" style="--bg-color:#ffe165;">
-        <h1 class="tile-title text-black">Downtime</h1>
+    <tile v-if="hasFailingUrls" :position="position" style="--tile: var(--tile-warn)">
+        <h1 class="tile-title">Downtime</h1>
         <ul class="tile-list">
             <li v-for="failing in failingUrls">
                 <div class="truncate">{{ failing.url }}</div>

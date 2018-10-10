@@ -1,5 +1,16 @@
 @tailwind preflight;
 
+:root {
+    --color: rgba(0, 0, 0, .9);
+    --dimmed: rgba(0, 0, 0, .4);
+    --invers: rgba(255, 255, 255, .9);
+    --accent: #c03;
+    --tile: #fff;
+    --tile-warn: #ffe165;
+    --tile-error: #c03;
+    --canvas: rgba(0, 0, 0, .035);
+}
+
 * {
     position: relative;
     box-sizing: inherit;
@@ -22,7 +33,7 @@ html {
     @apply font-sans;
     @apply font-medium;
     @apply leading-normal;
-    @apply text-black;
+    @apply text-color;
 
     box-sizing: border-box;
     font-size: 1vw;

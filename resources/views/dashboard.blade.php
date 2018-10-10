@@ -4,7 +4,7 @@
 
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 
-<dashboard id="dashboard" class="fixed grid grid-template grid-gap pin w-screen h-screen p-8 bg-grey-lightest" style="--cols: 5; --rows: 12; --gap: 1rem">
+<dashboard id="dashboard" class="fixed grid pin w-screen h-screen p-8 bg-canvas" style="--gap: 1rem;">
     <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a12"></twitter>
     <uptime position="a1:a12"></uptime>
     <packagist position="b1:b4"></packagist>

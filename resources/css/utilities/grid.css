@@ -1,34 +1,16 @@
 .grid {
-    display: grid;
-}
-
-.grid-gap {
-    grid-gap: var(--gap, 0);
-}
-
-.grid-rows {
+    --gap: 0;
+    --rows: 1;
+    --cols: 1;
     --template-rows: repeat(var(--rows), 1fr);
-    grid-template-rows: var(--template-rows, none);
-}
-
-.grid-cols {
     --template-cols: repeat(var(--cols), 1fr);
-    grid-template-columns: var(--template-cols, none);
-}
-
-.grid-template {
-    --template-cols: repeat(var(--cols), 1fr);
-    --template-rows: repeat(var(--rows), 1fr);
     --template: var(--template-rows) / var(--template-cols);
+
+    display: grid;
+    grid-gap: var(--gap);
     grid-template: var(--template);
-}
-
-.grid-areas {
-    grid-template-areas: var(--areas, none);
-}
-
-.grid-area {
-    grid-area: var(--area, none);
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
 }
 
 .align-self-start {

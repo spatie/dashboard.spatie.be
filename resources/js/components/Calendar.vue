@@ -1,9 +1,9 @@
 <template>
-    <tile :position="position" >
-        <div class="grid grid-rows h-full" style="--template-rows: auto 1fr">
+    <tile :position="position">
+        <div class="grid h-full" style="--template-rows: auto 1fr; --gap: 1rem">
             <h1 class="tile-title">Upcoming</h1>
             <ul class="tile-list grid h-full">
-                <li v-for="event in events" class="grid align-content-center">
+                <li v-for="event in events" class="flex flex-col justify-center">
                     <div class="font-bold">{{ event.name }}</div>
                     <div class="text-sm">{{ relativeDate(event.date) }}</div>
                 </li>

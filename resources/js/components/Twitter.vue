@@ -1,5 +1,5 @@
 <template>
-    <tile :position="position" modifiers="overflow transparent">
+    <tile :position="position" style="--tile: transparent">
         <section class="tweets">
             <div class="tweet" v-for="tweet in onDisplay">
                 <div class="tweet__header">
