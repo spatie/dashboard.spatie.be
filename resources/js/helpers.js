@@ -8,16 +8,6 @@ export function formatNumber(value) {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 }
 
-export function addClassModifiers(base, modifiers = []) {
-    if (!Array.isArray(modifiers)) {
-        modifiers = modifiers.split(' ');
-    }
-
-    modifiers = modifiers.map(modifier => `${base}--${modifier}`);
-
-    return [base, ...modifiers];
-}
-
 export function formatDuration(start) {
     return moment.duration(moment().diff(start), 'milliseconds').format('d[d] h[h] m[m]');
 }

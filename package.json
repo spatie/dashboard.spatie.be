@@ -19,6 +19,7 @@
     "postcss-easy-import": "^3.0.0",
     "pusher-js": "^3.2.1",
     "stringz": "^0.2.1",
+    "tailwindcss": "^0.6.6",
     "twemoji": "^2.3.0",
     "vue": "^2.0.1",
     "vue-save-state": "^1.1.0"

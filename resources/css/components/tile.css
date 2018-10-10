@@ -1,0 +1,41 @@
+.tile {
+    --bg-color: #fff;
+    @apply grid;
+}
+
+.tile-content {
+    @apply p-6;
+    @apply overflow-hidden;
+    @apply rounded;
+    background-color: var(--bg-color);
+}
+
+.tile-content:after {
+    content: '';
+    @apply absolute pin;
+    box-shadow: inset 0 0 2rem var(--bg-color), inset 0 0 1rem var(--bg-color), inset 0 0 3px var(--bg-color);
+}
+
+.tile-title {
+    @apply font-medium;
+    @apply text-sm;
+    @apply tracking-wide;
+    @apply uppercase;
+    @apply mb-4;
+    @apply text-grey-dark;
+}
+
+.tile-list li {
+    @apply border-b-2 border-grey-lightest;
+    @apply py-2;
+}
+
+.tile-stats li {
+    @apply flex justify-between;
+    @apply border-b-2 border-grey-lightest;
+    @apply py-2;
+}
+
+.tile-stats li span:last-child {
+    @apply font-bold;
+}

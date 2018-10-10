@@ -1,21 +1,31 @@
 <template>
-    <tile :position="position" modifiers="overflow">
-        <section class="time-weather">
-            <time class="time-weather__content">
-                <span class="time-weather__date">{{ date }}</span>
-                <span class="time-weather__time">{{ time }}</span>
-                <span class="time-weather__weather">
-                    <span class="time-weather__weather__temperature">{{ weather.temperature }}</span>
-                    <span class="time-weather__weather__description">
-                        <i class="wi" :class="weather.iconClass"></i>
+    <tile :position="position" >
+        <div class="grid grid-rows grid-gap grid-areas justify-items-center h-full" style="--gap: 1rem; --template-rows: 1fr auto 1fr; --areas: 'empty' 'content' 'location';">
+            <div class="grid grid-area justify-items-center" style="--area: content;">
+                <div class="uppercase">
+                    {{ date }}
+                </div>
+                <div class="font-bold text-5xl tracking-wide leading-none text-red">
+                    {{ time }}
+                </div>
+            </div>
+            <div class="grid-area align-self-end uppercase" style="--area: location;">
+                <div class="grid grid-cols grid-gap" style="--template-cols: repeat(3, auto); --gap: 1rem">
+                    <span>
+                        {{ weather.temperature }}°
+                        <span class="text-sm uppercase text-grey-dark">out</span>
                     </span>
-                    <span class="time-weather__weather__temperature">
+                    <span>
                         <office-temperature />
+                        <span class="text-sm uppercase text-grey-dark">in</span>
                     </span>
-                </span>
-            </time>
-            <span class="time-weather__time-zone">{{ weatherCity }}</span>
-        </section>
+                    <i class="align-self-center wi" :class="weather.iconClass"></i>
+                </div>
+                <div class="hidden">
+                    {{ weatherCity }}
+                </div>
+            </div>
+        </div>
     </tile>
 </template>
 

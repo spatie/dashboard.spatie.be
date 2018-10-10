@@ -1,0 +1,68 @@
+.grid {
+    display: grid;
+}
+
+.grid-gap {
+    grid-gap: var(--gap, 0);
+}
+
+.grid-rows {
+    --template-rows: repeat(var(--rows), 1fr);
+    grid-template-rows: var(--template-rows, none);
+}
+
+.grid-cols {
+    --template-cols: repeat(var(--cols), 1fr);
+    grid-template-columns: var(--template-cols, none);
+}
+
+.grid-template {
+    --template-cols: repeat(var(--cols), 1fr);
+    --template-rows: repeat(var(--rows), 1fr);
+    --template: var(--template-rows) / var(--template-cols);
+    grid-template: var(--template);
+}
+
+.grid-areas {
+    grid-template-areas: var(--areas, none);
+}
+
+.grid-area {
+    grid-area: var(--area, none);
+}
+
+.align-self-start {
+    align-self: end;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-self-end {
+    align-self: end;
+}
+
+.align-content-start {
+    align-content: end;
+}
+
+.align-content-center {
+    align-content: center;
+}
+
+.align-content-end {
+    align-content: end;
+}
+
+.justify-items-start {
+    justify-items: start;
+}
+
+.justify-items-center {
+    justify-items: center;
+}
+
+.justify-items-end {
+    justify-items: end;
+}

@@ -1,9 +1,15 @@
 <template>
-    <tile :position="position" modifiers="overflow">
-        <section class="github-file">
-            <h1 class="github-file__title">{{ teamMember }}</h1>
-            <div class="github-file__content" v-html="tasks"></div>
-        </section>
+    <tile :position="position" >
+        <div class="flex mb-4 items-center w-full">
+            <div class="flex-none w-8 h-8 rounded-full overflow-hidden">
+                <img class="block rounded-full" :src="avatar" :alt="teamMember">
+            </div>
+            <div class="flex-grow flex items-center text-xs text-grey-dark ml-2">
+                <span class="truncate">Artist — Album</span>
+                <span class="ml-1">♫</span>
+            </div>
+        </div>
+        <div v-html="tasks" class="tile-list"></div>
     </tile>
 </template>
 
@@ -19,7 +25,7 @@ export default {
 
     mixins: [echo, saveState],
 
-    props: ['teamMember', 'position'],
+    props: ['teamMember', 'avatar', 'position'],
 
     data() {
         return {

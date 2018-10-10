@@ -9,5 +9,8 @@ mix
     .options({
         processCssUrls: false,
 
-        postCss: [require('postcss-easy-import')],
+        postCss: [
+            require('postcss-easy-import')(),
+            require('tailwindcss')('./tailwind.js'),
+        ],
     });

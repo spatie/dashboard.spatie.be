@@ -9,7 +9,6 @@
 
 <script>
 import echo from '../mixins/echo';
-import { addClassModifiers } from '../helpers';
 import moment from 'moment';
 
 export default {
@@ -27,7 +26,6 @@ export default {
     },
 
     methods: {
-        addClassModifiers,
 
         determineConnectionStatus() {
             const lastHeartBeatReceivedSecondsAgo = moment().diff(

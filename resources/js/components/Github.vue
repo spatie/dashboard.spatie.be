@@ -1,30 +1,28 @@
 <template>
-    <tile :position="position" modifiers="overflow">
-        <section class="statistics">
-            <h1>GitHub</h1>
-            <ul>
-                <li class="statistic">
-                    <span class="statistic__stars h-icon"></span>
-                    <span class="statistic__count">{{ formatNumber(stars) }}</span>
-                </li>
-                <li class="statistic">
-                    <span class="statistic__label">Issues</span>
-                    <span class="statistic__count">{{ formatNumber(issues) }}</span>
-                </li>
-                <li class="statistic">
-                    <span class="statistic__label">Pull Requests</span>
-                    <span class="statistic__count">{{ formatNumber(pullRequests) }}</span>
-                </li>
-                <li class="statistic">
-                    <span class="statistic__label">Contributors</span>
-                    <span class="statistic__count">{{ formatNumber(contributors) }}</span>
-                </li>
-                <li class="statistic">
-                    <span class="statistic__label">Repos</span>
-                    <span class="statistic__count">{{ formatNumber(numberOfRepos) }}</span>
-                </li>
-            </ul>
-        </section>
+    <tile :position="position" >
+        <h1 class="tile-title">GitHub</h1>
+        <ul class="tile-stats">
+            <li>
+                <span>★</span>
+                <span>{{ formatNumber(stars) }}</span>
+            </li>
+            <li>
+                <span>Issues</span>
+                <span>{{ formatNumber(issues) }}</span>
+            </li>
+            <li>
+                <span>Pull Requests</span>
+                <span>{{ formatNumber(pullRequests) }}</span>
+            </li>
+            <li>
+                <span>Contributors</span>
+                <span>{{ formatNumber(contributors) }}</span>
+            </li>
+            <li>
+                <span>Repos</span>
+                <span>{{ formatNumber(numberOfRepos) }}</span>
+            </li>
+        </ul>
     </tile>
 </template>
 

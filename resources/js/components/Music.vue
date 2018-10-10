@@ -1,8 +1,8 @@
 <template>
     <tile :position="position" modifiers="transparent">
-        <section :class="addClassModifiers('music', currentlyPlaying ? 'playing' : 'stopped')">
+        <section :class="currentlyPlaying ? 'playing' : 'stopped'">
             <div class="music__content" v-if="currentlyPlaying">
-                <div :class="addClassModifiers('music__cover', !hasCover ? 'empty' : '')"
+                <div :class="!hasCover ? 'empty' : ''"
                      v-bind:style="{ backgroundImage: 'url(' + cover + ')' }">
                 </div>
                 <div class="music__text">
@@ -28,7 +28,6 @@
 <script>
 import echo from '../mixins/echo';
 import Tile from './atoms/Tile';
-import { addClassModifiers } from '../helpers';
 import saveState from 'vue-save-state';
 
 export default {
@@ -62,8 +61,6 @@ export default {
     },
 
     methods: {
-        addClassModifiers,
-
         getEventHandlers() {
             return {
                 'Music.NothingPlaying': () => {

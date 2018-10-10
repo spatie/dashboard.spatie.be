@@ -1,22 +1,20 @@
 <template>
-    <tile :position="position" modifiers="overflow">
-        <section class="statistics">
-            <h1>NPM</h1>
-            <ul>
-                <li class="statistic">
-                    <span class="statistic__label">24 hours</span>
-                    <span class="statistic__count">{{ formatNumber(daily) }}</span>
-                </li>
-                <li class="statistic">
-                    <span class="statistic__label">30 days</span>
-                    <span class="statistic__count">{{ formatNumber(monthly) }}</span>
-                </li>
-                <li class="statistic">
-                    <span class="statistic__label">Total</span>
-                    <span class="statistic__count">{{ formatNumber(total) }}</span>
-                </li>
-            </ul>
-        </section>
+    <tile :position="position" >
+        <h1 class=tile-title>NPM</h1>
+        <ul class="tile-stats">
+            <li>
+                <span>24 hours</span>
+                <span>{{ formatNumber(daily) }}</span>
+            </li>
+            <li>
+                <span>30 days</span>
+                <span>{{ formatNumber(monthly) }}</span>
+            </li>
+            <li>
+                <span>Total</span>
+                <span>{{ formatNumber(total) }}</span>
+            </li>
+        </ul>
     </tile>
 </template>
 

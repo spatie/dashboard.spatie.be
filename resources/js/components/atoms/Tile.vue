@@ -1,22 +1,20 @@
 <template>
-    <div :class="tileLook" :style="tilePosition">
-        <slot></slot>
+    <div :style="tilePosition" class="tile">
+        <div class="tile-content">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
 <script>
-import { addClassModifiers, positionToGridAreaNotation } from '../../helpers';
+import { positionToGridAreaNotation } from '../../helpers';
 
 export default {
-    props: ['position', 'modifiers'],
+    props: ['position'],
 
     computed: {
         tilePosition() {
             return `grid-area: ${positionToGridAreaNotation(this.position)}`;
-        },
-
-        tileLook() {
-            return addClassModifiers('tile', this.modifiers);
         },
     },
 };

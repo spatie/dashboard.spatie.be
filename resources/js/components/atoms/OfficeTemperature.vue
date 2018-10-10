@@ -1,5 +1,5 @@
 <template>
-    <span v-if="temperature">{{ temperature }}</span>
+    <span v-if="temperature">{{ temperature }}°</span>
 </template>
 
 <script>

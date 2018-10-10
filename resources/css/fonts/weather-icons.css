@@ -23,8 +23,8 @@
     font-weight: normal;
     font-style: normal;
     font-family: 'weathericons';
-    src: url('../fonts/weathericons-regular-webfont.eot');
-    src: url('../fonts/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/weathericons-regular-webfont.woff2') format('woff2'), url('../fonts/weathericons-regular-webfont.woff') format('woff'), url('../fonts/weathericons-regular-webfont.ttf') format('truetype'), url('../fonts/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
+    src: url('/fonts/weathericons/weathericons-regular-webfont.eot');
+    src: url('/fonts/weathericons/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('/fonts/weathericons/weathericons-regular-webfont.woff2') format('woff2'), url('/fonts/weathericons/weathericons-regular-webfont.woff') format('woff'), url('/fonts/weathericons/weathericons-regular-webfont.ttf') format('truetype'), url('/fonts/weathericons/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
 }
 
 .wi {

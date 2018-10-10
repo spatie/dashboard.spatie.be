@@ -12,7 +12,7 @@
                         </div>
                     </div>
                 </div>
-                <div :class="addClassModifiers('tweet__body', tweet.displayClass)"
+                <div :class="tweet.displayClass"
                 v-html="tweet.html"></div>
                 <div class="tweet__meta">
                     <relative-date :moment="tweet.date"></relative-date>
@@ -39,7 +39,7 @@ import Tile from './atoms/Tile';
 import RelativeDate from './atoms/RelativeDate';
 import Tweet from '../services/twitter/Tweet';
 import moment from 'moment';
-import { diffInSeconds, addClassModifiers } from '../helpers';
+import { diffInSeconds } from '../helpers';
 
 export default {
     components: {
@@ -67,8 +67,6 @@ export default {
     },
 
     methods: {
-        addClassModifiers,
-
         getEventHandlers() {
             return {
                 'Twitter.Mentioned': response => {

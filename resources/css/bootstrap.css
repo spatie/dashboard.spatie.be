@@ -1,0 +1,54 @@
+@tailwind preflight;
+
+* {
+    position: relative;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+
+    &:after,
+    &:before {
+        box-sizing: inherit;
+    }
+}
+
+html {
+    @apply font-sans;
+    @apply font-medium;
+    @apply leading-normal;
+    @apply text-black;
+
+    box-sizing: border-box;
+    font-size: 1vw;
+}
+
+select:focus,
+input:focus {
+    outline: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+hr {
+    border: 0;
+    background-color: currentcolor;
+}
+
+img,
+svg {
+    display: block;
+    vertical-align: middle;
+}
