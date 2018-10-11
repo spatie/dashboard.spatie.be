@@ -37,9 +37,18 @@ class FetchCalendarEvents extends Command
                 ->map(function (GoogleCalendarEvent $event) {
                     $sortDate = $event->getSortDate();
 
+                    $attendees = collect($event->attendees)->map(function($element) {
+                        $username = explode('@', $element->email);
+
+                        return [
+                            'name' => ucwords((implode(' ', explode('.', $username[0]))))
+                        ];
+                    });
+
                     return [
+                        'attendees' => $attendees,
+                        'description' => $event->description,
                         'name' => $event->name,
-                        'date' => Carbon::createFromFormat('Y-m-d H:i:s', $sortDate)->format(DateTime::ATOM),
                     ];
                 })
                 ->unique('name')

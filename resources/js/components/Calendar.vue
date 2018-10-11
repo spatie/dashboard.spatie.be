@@ -5,7 +5,9 @@
             <ul class="calendar__events">
                 <li v-for="event in calendarEvents.events" class="calendar__event">
                     <h2 class="calendar__event__title">{{ event.name }}</h2>
-                    <div class="calendar__event__date">{{ relativeDate(event.date) }}</div>
+                    <ul class="calendar__event__attendees">
+                        <li v-for="attendee in event.attendees">{{ attendee.name }}</li>
+                    </ul>
                 </li>
             </ul>
         </section>
@@ -16,7 +18,7 @@
 import echo from '../mixins/echo';
 import Tile from './atoms/Tile';
 import saveState from 'vue-save-state';
-import { relativeDate, relativeDateTime } from '../helpers';
+import { relativeDate } from '../helpers';
 
 export default {
     components: {
@@ -31,16 +33,17 @@ export default {
         return {
             calendarName: "",
             calendarEvents: [],
+            attendees: [],
         };
     },
 
     methods: {
         relativeDate,
-        relativeDateTime,
 
         getEventHandlers() {
             return {
                 'Calendar.EventsFetched': response => {
+                    this.attendees = response.calendarEvents[this.calendarSummary].attendees;
                     this.calendarName = response.calendarEvents[this.calendarSummary].calendarName;
                     this.calendarEvents = response.calendarEvents[this.calendarSummary];
                 },

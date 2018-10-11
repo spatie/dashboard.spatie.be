@@ -6,10 +6,17 @@
     padding-bottom: 1.5vh;
 }
 
+.calendar__title {
+    color: var(--yellow-dark);
+}
 .calendar__event__title {
     font-weight: var(--font-weight-bold);
 }
 
 .calendar__event__date {
     color: var(--red-light);
+}
+
+.calendar__event__attendees {
+    color: var(--gray);
 }

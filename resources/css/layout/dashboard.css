@@ -10,3 +10,6 @@
     color: var(--color);
     grid-gap: var(--grid-gap);
 }
+.pre-formatted {
+  white-space: pre;
+}
