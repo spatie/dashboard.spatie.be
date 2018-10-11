@@ -8,18 +8,10 @@ This repo contains the source code of our dashboard.
 
 Our configured dashboard has following tiles:
 
-- Twitter stream with all tweets mentioning and quoting [@spatie_be](https://twitter.com/spatie_be)
-- Team calendar via [Google Calendar](https://google.com/calendar)
-- Music currently playing via [Last.fm](https://last.fm)
+- Ontime & Birthdays calendar via [Google Calendar](https://google.com/calendar)
 - Clock/date/weather
-- Team todo's via GitHub files
-- [Packagist](https://packagist.org) downloads
-- [NPM](https://npmjs.com) downloads
+- [Help's](https://help.tektonlabs.com) recently updated posts.
 - Internet up/down via WebSockets
-
-## How it works
-
-Our own [Freek Van der Herten](https://twitter.com/freekmurze) gave a talk on the dashboard at Laracon EU where he explained how the dashboard works behind the screens. The talk was recorded and published [on Youtube](https://www.youtube.com/watch?v=jtB_rTh61Zo).
 
 ## Installation
 
@@ -32,19 +24,15 @@ Install this package by running cloning this repository and install like you nor
 - Start your queue listener and setup the Laravel scheduler.
 - Open the dashboard in your browser, login and wait for the update events to fill the dashboard.
 
-## Postcardware
+## Support, How it works
 
-If you are using our dashboard, please send us a postcard from your hometown.
+Taken from Spatie's dashboard.
 
-Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
+Our own [Freek Van der Herten](https://twitter.com/freekmurze) gave a talk on the dashboard at Laracon EU where he explained how the dashboard works behind the screens. The talk was recorded and published [on Youtube](https://www.youtube.com/watch?v=jtB_rTh61Zo).
 
-All postcards are published [on our website](https://spatie.be/en/opensource/postcards).
-
-## Support
 This dashboard is tailormade to be displayed on the wall mounted tv in our office. We do not follow [semver](http://semver.org) for this project and do not provide support whatsoever. However if you're a bit familiar with Laravel and Vue you should easily find your way.
 
 For more details on the project, read our article about the [setup and components](https://murze.be/2017/06/building-realtime-dashboard-powered-laravel-vue-2017-edition/)
 
 ## License
-
 This project and the Laravel framework are open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
