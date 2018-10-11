@@ -23,10 +23,8 @@ class FetchCalendarEvents extends Command
     {
         $calendarId = $calendarId ?? config('google-calendar.calendar_id');
         $calendarService = GoogleCalendarFactory::createForCalendarId($calendarId)->getService();
-        // $startDate = Carbon::parse('today');
-        // $endDate = Carbon::parse('tomorrow');
-        $startDate = Carbon::parse('next friday');
-        $endDate = Carbon::parse('next saturday');
+        $startDate = Carbon::parse('today');
+        $endDate = Carbon::parse('tomorrow');
 
         $queryParameters = [
             'maxResults' => 4,
