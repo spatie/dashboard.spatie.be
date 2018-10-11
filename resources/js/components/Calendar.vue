@@ -5,11 +5,9 @@
             <ul class="calendar__events">
                 <li v-for="event in calendarEvents.events" class="calendar__event">
                     <h2 class="calendar__event__title">{{ event.name }}</h2>
-                    <textarea class="calendar__event__date">{{ event.description }}</textarea>
-                    <!--
-                    <div class="calendar__event__date">{{ event.description }}</div>
-                    <div class="calendar__event__date">{{ relativeDate(event.date) }}</div>
-                    -->
+                    <ul class="calendar__event__attendees">
+                        <li v-for="attendee in event.attendees">{{ attendee.name }}</li>
+                    </ul>
                 </li>
             </ul>
         </section>
@@ -35,6 +33,7 @@ export default {
         return {
             calendarName: "",
             calendarEvents: [],
+            attendees: [],
         };
     },
 
@@ -44,7 +43,7 @@ export default {
         getEventHandlers() {
             return {
                 'Calendar.EventsFetched': response => {
-                    console.log(response.calendarEvents[this.calendarSummary]);
+                    this.attendees = response.calendarEvents[this.calendarSummary].attendees;
                     this.calendarName = response.calendarEvents[this.calendarSummary].calendarName;
                     this.calendarEvents = response.calendarEvents[this.calendarSummary];
                 },

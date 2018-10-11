@@ -35,17 +35,22 @@ class FetchCalendarEvents extends Command
 
         foreach ($calendarService->calendarList->listCalendarList(['minAccessRole' => 'owner']) as $calendarListItem) {
             $calendarId = $calendarListItem->getId();
-            dump($calendarListItem->getId());
             $allEvents = collect(Event::get($startDate, $endDate, $queryParameters, $calendarId))
                 ->map(function (GoogleCalendarEvent $event) {
                     $sortDate = $event->getSortDate();
 
-            dump(json_encode($event->attendees));
+                    $attendees = collect($event->attendees)->map(function($element) {
+                        $username = explode('@', $element->email);
+
+                        return [
+                            'name' => ucwords((implode(' ', explode('.', $username[0]))))
+                        ];
+                    });
+
                     return [
-                        'name' => $event->name,
-                        // 'date' => Carbon::createFromFormat('Y-m-d H:i:s', $sortDate)->format(DateTime::ATOM),
+                        'attendees' => $attendees,
                         'description' => $event->description,
-                        // 'attendees' => $event->attendees,
+                        'name' => $event->name,
                     ];
                 })
                 ->unique('name')
@@ -56,7 +61,6 @@ class FetchCalendarEvents extends Command
                 'events' => $allEvents,
             ];
         }
-            // dump($events);
 
         event(new EventsFetched($events));
     }
