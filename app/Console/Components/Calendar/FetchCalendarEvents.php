@@ -23,8 +23,10 @@ class FetchCalendarEvents extends Command
     {
         $calendarId = $calendarId ?? config('google-calendar.calendar_id');
         $calendarService = GoogleCalendarFactory::createForCalendarId($calendarId)->getService();
-        $startDate = Carbon::parse('today');
-        $endDate = Carbon::parse('tomorrow');
+        // $startDate = Carbon::parse('today');
+        // $endDate = Carbon::parse('tomorrow');
+        $startDate = Carbon::parse('next friday');
+        $endDate = Carbon::parse('next saturday');
 
         $queryParameters = [
             'maxResults' => 4,
@@ -33,13 +35,17 @@ class FetchCalendarEvents extends Command
 
         foreach ($calendarService->calendarList->listCalendarList(['minAccessRole' => 'owner']) as $calendarListItem) {
             $calendarId = $calendarListItem->getId();
+            dump($calendarListItem->getId());
             $allEvents = collect(Event::get($startDate, $endDate, $queryParameters, $calendarId))
                 ->map(function (GoogleCalendarEvent $event) {
                     $sortDate = $event->getSortDate();
 
+            dump(json_encode($event->attendees));
                     return [
                         'name' => $event->name,
-                        'date' => Carbon::createFromFormat('Y-m-d H:i:s', $sortDate)->format(DateTime::ATOM),
+                        // 'date' => Carbon::createFromFormat('Y-m-d H:i:s', $sortDate)->format(DateTime::ATOM),
+                        'description' => $event->description,
+                        // 'attendees' => $event->attendees,
                     ];
                 })
                 ->unique('name')
@@ -50,6 +56,7 @@ class FetchCalendarEvents extends Command
                 'events' => $allEvents,
             ];
         }
+            // dump($events);
 
         event(new EventsFetched($events));
     }

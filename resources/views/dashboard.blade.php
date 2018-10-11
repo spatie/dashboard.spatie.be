@@ -16,11 +16,11 @@
     <tasks team-member="willem" position="d7:d9"></tasks>
     -->
     <time-weather position="c1:c3" date-format="ddd DD/MM" time-zone="America/Lima" weather-city="Lima"></time-weather>
-    <time-weather position="c4:c6" date-format="ddd DD/MM" time-zone="America/Los_Angeles" weather-city="Los Angeles"></time-weather>
-    <time-weather position="d4:d6" date-format="ddd DD/MM" time-zone="America/New_York" weather-city="New York"></time-weather>
-    <time-weather position="d1:d3" date-format="ddd DD/MM" time-zone="America/Mexico_City" weather-city="Mexico City"></time-weather>\
-    <calendar calendar-summary="Ontime" position="b1:b6"></calendar>
-    <calendar calendar-summary="TK Birthdays" position="e1:e6"></calendar>
+    <time-weather position="c4:c6" date-format="ddd DD/MM" time-zone="America/Los_Angeles" weather-city="San Francisco"></time-weather>
+    <time-weather position="d1:d3" date-format="ddd DD/MM" time-zone="America/Mexico_City" weather-city="Mexico City"></time-weather>
+    <time-weather position="d4:d6" date-format="ddd DD/MM" time-zone="America/New_York" weather-city="Charlotte"></time-weather>
+    <calendar calendar-summary="Ontime" position="e1:e6"></calendar>
+    <calendar calendar-summary="TK Birthdays" position="b1:b6"></calendar>
     <internet-connection></internet-connection>
 </dashboard>
 
