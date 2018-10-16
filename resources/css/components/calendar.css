@@ -1,5 +1,5 @@
 .calendar__events {
-    font-size: var(--font-size-s);
+    font-size: var(--font-size-xs);
 }
 
 .calendar__event {
@@ -7,16 +7,9 @@
 }
 
 .calendar__title {
-    color: var(--yellow-dark);
-}
-.calendar__event__title {
-    font-weight: var(--font-weight-bold);
-}
-
-.calendar__event__date {
-    color: var(--red-light);
+    color: var(--tk-blue);
 }
 
 .calendar__event__attendees {
-    color: var(--gray);
+    color: var(--tk-blue);
 }
