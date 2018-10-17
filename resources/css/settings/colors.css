@@ -41,7 +41,7 @@
     --gray-dark: #53575e;
     --gray-darker: #23272f;
     --gray-darkest: #1a1e25;
-    --color: var(--tk-blue);
+    --color: var(--blue-dark);
     --dashboard-background-color: var(--blue-dark);
     --tile-background-color: var(--blue-lightest);
 }

@@ -7,9 +7,9 @@
 }
 
 .calendar__title {
-    color: var(--tk-blue);
+    color: var(--blue-dark);
 }
 
 .calendar__event__attendees {
-    color: var(--tk-blue);
+    color: var(--blue-dark);
 }
