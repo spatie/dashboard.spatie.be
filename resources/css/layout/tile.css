@@ -3,11 +3,11 @@
     padding: var(--grid-padding);
     border-radius: 0.25vw;
     background-color: var(--tile-background-color);
-    color: white;
+    color: var(--blue-dark);
     text-shadow: 1px 1px 1px var(--tile-background-color);
 
     h1 {
-        color: var(--gray-light);
+        color: var(--blue-dark);
     }
 }
 

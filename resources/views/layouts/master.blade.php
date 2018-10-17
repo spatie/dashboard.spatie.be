@@ -7,6 +7,8 @@
           type='text/css'>
     <link href="{{ mix("css/app.css") }}" rel="stylesheet"/>
     <meta name="google" value="notranslate">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>

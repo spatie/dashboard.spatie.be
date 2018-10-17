@@ -16,15 +16,15 @@
     --yellow-lightest: #f7e8d4;
     --yellow-lighter: #f7d1a1;
     --yellow-light: #f6d169;
-    --yellow: #fbbd1a;
-    --yellow-dark: #b06f1c;
-    --yellow-darker: #734d00;
+    --yellow: #FFA910;
+    --yellow-dark: #FFA910;
+    --yellow-darker: #CE8817;
     --yellow-darkest: #422c00;
-    --blue-lightest: #e5f4f8;
-    --blue-lighter: #a7dceb;
-    --blue-light: #0faace;
-    --blue: #13869e;
-    --blue-dark: #11727f;
+    --blue-lightest: #EDF3F8;
+    --blue-lighter: #5188FF;
+    --blue-light: #3359FC;
+    --blue: #2648B5;
+    --blue-dark: #052039;
     --blue-darker: #202f53;
     --blue-darkest: #262835;
     --green-lightest: #cce9e5;
@@ -41,7 +41,7 @@
     --gray-dark: #53575e;
     --gray-darker: #23272f;
     --gray-darkest: #1a1e25;
-    --color: #fff;
-    --dashboard-background-color: var(--gray-darkest);
-    --tile-background-color: var(--gray-darker);
+    --color: var(--blue-dark);
+    --dashboard-background-color: var(--blue-dark);
+    --tile-background-color: var(--blue-lightest);
 }

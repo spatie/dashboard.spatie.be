@@ -17,7 +17,7 @@ class FetchLastUpdatedDocuments extends Command
     {
         $documents = $help->getRecentlyEdited()->map(function ($doc) {
             $action = $doc['updatedAt'] == $doc['publishedAt'] ? 'published' : 'modified';
-            $time = Carbon::parse($doc['updatedAt'])->diffForHumans();;
+            $time = Carbon::parse($doc['updatedAt'])->diffForHumans();
 
             return [
                 'title' => $doc['title'],

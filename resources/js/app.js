@@ -5,6 +5,8 @@ import Vue from 'vue';
 
 import Dashboard from './components/Dashboard';
 import Calendar from './components/Calendar';
+import Help from './components/Help';
+import Moody from './components/Moody';
 import Github from './components/Github';
 import InternetConnection from './components/InternetConnection';
 import Music from './components/Music';
@@ -21,6 +23,8 @@ new Vue({
     components: {
         Dashboard,
         Calendar,
+        Help,
+        Moody,
         Github,
         InternetConnection,
         Music,
