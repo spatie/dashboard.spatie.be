@@ -14,6 +14,7 @@ class UpdateDashboard extends Command
     {
         $this->call('dashboard:fetch-calendar-events');
         $this->call('dashboard:fetch-last-documents');
+        $this->call('dashboard:update-moody');
         $this->call('dashboard:send-heartbeat');
         // $this->call('dashboard:fetch-github-totals');
         // $this->call('dashboard:fetch-current-track');

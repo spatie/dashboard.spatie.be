@@ -1,7 +1,7 @@
 <template>
     <tile :position="position">
         <section class="moody__cover">
-            <iframe :src="src" width="100%" height="100%" frameBorder="0"></iframe>
+            <iframe :src="url?url:src" width="100%" height="100%" frameBorder="0"></iframe>
         </section>
     </tile>
 </template>
@@ -35,6 +35,13 @@ export default {
 
     methods: {
 
+        getEventHandlers() {
+            return {
+                'Moody.LastUpdatedRecords': response => {
+                    this.url = response.url;
+                },
+            };
+        },
         getSaveStateConfig() {
             return {
                 cacheKey: 'moody',
