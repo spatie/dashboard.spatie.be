@@ -9,9 +9,7 @@
                     <span class="time-weather__weather__description">
                         <i class="wi" :class="weather.iconClass"></i>
                     </span>
-                    <span class="time-weather__weather__temperature">
-                        <office-temperature />
-                    </span>
+                    <office-temperature />
                 </span>
             </time>
             <span class="time-weather__time-zone">{{ weatherCity }}</span>

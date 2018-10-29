@@ -1,5 +1,7 @@
 <template>
-    <span v-if="temperature">{{ temperature }}</span>
+    <span v-if="show" class="time-weather__weather__temperature">
+        <span>{{ temperature }}</span>
+    </span>
 </template>
 
 <script>
@@ -8,6 +10,12 @@
 
     export default {
         mixins: [echo, saveState],
+
+        computed: {
+            show() {
+                return this.temperature.length;
+            }
+        },
 
         data() {
             return {
