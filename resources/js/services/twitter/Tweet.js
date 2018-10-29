@@ -83,18 +83,18 @@ class Tweet {
 
     get displayClass() {
         if (this.text.length < 30) {
-            return 'large';
+            return 'text-lg';
         }
 
         if (this.text.length < 60) {
-            return 'medium';
+            return 'text-md';
         }
 
         if (this.text.length < 100) {
-            return 'default';
+            return 'text-base';
         }
 
-        return 'small';
+        return 'text-sm';
     }
 }
 

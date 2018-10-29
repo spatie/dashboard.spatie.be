@@ -1,8 +1,8 @@
 <template>
     <tile :position="position">
-        <div class="grid h-full" style="--template-rows: auto 1fr; --gap: 1rem">
-            <h1 class=tile-title>NPM</h1>
-            <ul class="align-self-center tile-stats">
+        <div class="grid h-full" style="--template-rows: auto 1fr;">
+            <h1 class=style-title>NPM</h1>
+            <ul class="align-self-center style-stats">
                 <li>
                     <span>Total</span>
                     <span class="text-accent">{{ formatNumber(total) }}</span>

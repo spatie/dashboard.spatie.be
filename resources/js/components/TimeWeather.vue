@@ -1,7 +1,7 @@
 <template>
-    <tile :position="position" >
+    <tile :position="position">
         <div class="grid justify-items-center h-full" style="--gap: 1rem; --template-rows: auto 1fr auto;">
-            <div class="tile-title">
+            <div class="style-title">
                     {{ date }}
             </div>
             <div class="align-self-center font-bold text-5xl tracking-wide leading-none text-accent">

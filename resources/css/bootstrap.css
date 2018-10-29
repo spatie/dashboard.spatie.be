@@ -1,14 +1,17 @@
 @tailwind preflight;
 
 :root {
-    --color: rgba(0, 0, 0, .9);
-    --dimmed: rgba(0, 0, 0, .4);
-    --invers: rgba(255, 255, 255, .9);
-    --accent: #c03;
-    --tile: #fff;
-    --tile-warn: #ffe165;
-    --tile-error: #c03;
-    --canvas: rgba(0, 0, 0, .035);
+    --text-default: rgba(0, 0, 0, .9);
+    --text-dimmed: rgba(0, 0, 0, .4);
+    --text-invers: rgba(255, 255, 255, .9);
+    --text-accent: #c03;
+
+    --bg-screen: rgba(0, 0, 0, .035);
+    --bg-tile: #fff;
+    --bg-warn: #ffe165;
+    --bg-error: #c03;
+
+    --gap: 1rem;
 }
 
 * {
@@ -30,11 +33,6 @@
 }
 
 html {
-    @apply font-sans;
-    @apply font-medium;
-    @apply leading-normal;
-    @apply text-color;
-
     box-sizing: border-box;
     font-size: 1vw;
 }

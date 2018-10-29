@@ -4,7 +4,7 @@
 
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 
-<dashboard id="dashboard" class="fixed grid pin w-screen h-screen p-8 bg-canvas" style="--gap: 1rem;">
+<div id="dashboard" class="fixed pin grid w-screen h-screen p-gap font-sans font-medium leading-normal text-default bg-screen">
     <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a12"></twitter>
     <uptime position="a1:a12"></uptime>
     <packagist position="b1:b4"></packagist>
@@ -20,6 +20,6 @@
     <time-weather position="e1:e4" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
     <calendar position="e5:e12"></calendar>
     <internet-connection></internet-connection>
-</dashboard>
+</div>
 
 @endsection

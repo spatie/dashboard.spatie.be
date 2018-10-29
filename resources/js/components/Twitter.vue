@@ -1,34 +1,26 @@
 <template>
-    <tile :position="position" style="--tile: transparent">
-        <section class="tweets">
-            <div class="tweet" v-for="tweet in onDisplay">
-                <div class="tweet__header">
-                    <div class="tweet__avatar"
-                    :style="'background-image: url('+ tweet.authorAvatar +')'"></div>
-                    <div class="tweet__user">
-                        <div class="tweet__user__name h-ellipsis" v-html="tweet.authorName"></div>
-                        <div class="tweet__user__handle h-ellipsis">
-                            {{ tweet.authorScreenName }}
-                        </div>
+    <tile class="rounded overflow-auto" :position="position" :transparent="true">
+        <div class="grid h-full" style="--auto-rows: auto; --gap: 1rem">
+            <div class="overflow-hidden rounded bg-tile p-gap" v-for="tweet in onDisplay">
+                <div class="flex items-center -mt-1 mb-4 w-full">
+                    <div class="flex-none overflow-hidden w-8 h-8 rounded-full">
+                        <img class="block w-8 h-8 rounded-full object-fit-cover" :src="tweet.authorAvatar" :alt="tweet.authorScreenName">
+                    </div>
+                    <div class="flex-grow leading-tight ml-2">
+                        <div class="text-sm truncate" v-html="tweet.authorName"></div>
+                        <div class="text-xs text-dimmed truncate" v-html="tweet.authorScreenName"></div>
                     </div>
                 </div>
-                <div :class="tweet.displayClass"
-                v-html="tweet.html"></div>
-                <div class="tweet__meta">
+                <div :class="tweet.displayClass" v-html="tweet.html"></div>
+                <div class="mt-1 text-xs text-dimmed">
                     <relative-date :moment="tweet.date"></relative-date>
-                    <span v-if="tweet.hasQuote" class="tweet__user__handle h-ellipsis">
+                    <span v-if="tweet.hasQuote">
                         In reply to {{ tweet.quote.authorScreenName }}
                     </span>
                 </div>
-                <div v-if="tweet.image" class="tweet__attachment">
-                    <img class="tweet__attachment__image" :src="tweet.image"/>
-                </div>
-                <div v-if="tweet.hasQuote" class="tweet--quoted">
-                    <div class="tweet__body tweet__body--small" v-html="tweet.quote.html"></div>
-                </div>
+                <img v-if="tweet.image" class="mt-gap max-h-48 mx-auto" :src="tweet.image" />
+                <div v-if="tweet.hasQuote" class="mt-gap py-2 pl-2 text-xs text-dimmed border-l-2 border-screen" v-html="tweet.hasQuote"></div>
             </div>
-        </section>
-        <div class="tweets__icon h-background-icon" v-if="!onDisplay.length">
         </div>
     </tile>
 </template>

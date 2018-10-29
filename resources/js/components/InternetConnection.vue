@@ -2,7 +2,7 @@
     <div v-if="offline" class="fixed pin">
         <div class="fixed pin bg-tile opacity-25"></div>
         <div class="fixed pin-b pin-l pin-r grid justify-items-center">
-            <span class="font-black bg-tile-error text-invers px-4 py-2 mb-6 rounded-full shadow-lg">No connection</span>
+            <span class="font-black bg-error text-invers px-4 py-2 mb-8 rounded-full shadow-lg">No connection</span>
         </div>
     </div>
 </template>

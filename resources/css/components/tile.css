@@ -1,21 +1,4 @@
-.tile {
-    @apply grid;
-}
-
-.tile-content {
-    @apply p-6;
-    @apply overflow-hidden;
-    @apply rounded;
-    @apply bg-tile;
-}
-
-.tile-content:after {
-    content: '';
-    @apply absolute pin;
-    box-shadow: inset 0 0 2rem var(--tile), inset 0 0 1rem var(--tile), inset 0 0 3px var(--tile);
-}
-
-.tile-title {
+.style-title {
     @apply font-medium;
     @apply text-sm;
     @apply tracking-wide;
@@ -23,17 +6,17 @@
     @apply text-dimmed;
 }
 
-.tile-list li {
-    @apply border-b-2 border-canvas;
+.style-list li {
+    @apply border-b-2 border-screen;
     @apply py-2;
 }
 
-.tile-stats li {
+.style-stats li {
     @apply flex justify-between;
-    @apply border-b-2 border-canvas;
+    @apply border-b-2 border-screen;
     @apply py-2;
 }
 
-.tile-stats li span:last-child {
+.style-stats li span:last-child {
     @apply font-bold;
 }

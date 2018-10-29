@@ -43,16 +43,21 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
-let colors = {
-  'color': 'var(--color)',
-  'invers': 'var(--invers)',
-  'dimmed': 'var(--dimmed)',
-  'accent': 'var(--accent)',
-  'tile': 'var(--tile)',
-  'tile-warn': 'var(--tile-warn)',
-  'tile-error': 'var(--tile-error)',
-  'canvas': 'var(--canvas)',
+let textColors = {
+  'default': 'var(--text-default)',
+  'invers': 'var(--text-invers)',
+  'dimmed': 'var(--text-dimmed)',
+  'accent': 'var(--text-accent)',
 }
+
+let bgColors = {
+  'screen': 'var(--bg-screen)',
+  'tile': 'var(--bg-tile)',
+  'warn': 'var(--bg-warn)',
+  'error': 'var(--bg-error)',
+}
+
+let colors = global.Object.assign(textColors, bgColors);
 
 module.exports = {
 
@@ -549,6 +554,8 @@ module.exports = {
   */
 
   maxHeight: {
+    '32': '8rem',
+    '48': '12rem',
     'full': '100%',
     'screen': '100vh',
   },
@@ -585,6 +592,7 @@ module.exports = {
     '20': '5rem',
     '24': '6rem',
     '32': '8rem',
+    'gap': 'var(--gap)',
   },
 
 
@@ -620,6 +628,7 @@ module.exports = {
     '20': '5rem',
     '24': '6rem',
     '32': '8rem',
+    'gap': 'var(--gap)',
   },
 
 
@@ -675,11 +684,7 @@ module.exports = {
 
   shadows: {
     default: '0 2px 4px 0 rgba(0,0,0,0.10)',
-    'sm': '0 0 1rem 0 rgba(0,0,0,0.05)',
-    'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
-    'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
-    'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
-    'outline': '0 0 0 3px rgba(52,144,220,0.5)',
+    'tile-inner': 'inset 0 0 2rem var(--bg-tile), inset 0 0 1rem var(--bg-tile), inset 0 0 3px var(--bg-tile)',
     'none': 'none',
   },
 

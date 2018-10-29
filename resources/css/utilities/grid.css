@@ -1,16 +1,17 @@
 .grid {
-    --gap: 0;
     --rows: 1;
     --cols: 1;
     --template-rows: repeat(var(--rows), 1fr);
     --template-cols: repeat(var(--cols), 1fr);
     --template: var(--template-rows) / var(--template-cols);
+    --auto-rows: 1fr;
+    --auto-cols: 1fr;
 
     display: grid;
     grid-gap: var(--gap);
     grid-template: var(--template);
-    grid-auto-rows: 1fr;
-    grid-auto-columns: 1fr;
+    grid-auto-rows: var(--auto-rows);
+    grid-auto-columns: var(--auto-cols);
 }
 
 .align-self-start {

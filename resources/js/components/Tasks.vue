@@ -1,15 +1,17 @@
 <template>
     <tile :position="position">
-        <div class="flex items-center -mt-2 mb-4 w-full">
-            <div class="flex-none overflow-hidden w-8 h-8 rounded-full">
-                <img class="block rounded-full" :src="avatar" :alt="teamMember">
+        <div class="grid h-full" style="--template-rows: auto 1fr;">
+            <div class="flex items-center -mt-1 w-full">
+                <div class="flex-none overflow-hidden w-8 h-8 rounded-full">
+                    <img class="block w-8 h-8 object-fit-cover rounded-full" :src="avatar" :alt="teamMember">
+                </div>
+                <div class="flex-grow flex items-center text-xs text-dimmed ml-2">
+                    <span class="truncate">Artist — Album</span>
+                    <span class="ml-1">♫</span>
+                </div>
             </div>
-            <div class="flex-grow flex items-center text-xs text-dimmed ml-2">
-                <span class="truncate">Artist — Album</span>
-                <span class="ml-1">♫</span>
-            </div>
+            <div v-html="tasks" class="style-list"></div>
         </div>
-        <div v-html="tasks" class="tile-list"></div>
     </tile>
 </template>
 
