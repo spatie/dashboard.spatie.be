@@ -50,14 +50,14 @@ let textColors = {
   'accent': 'var(--text-accent)',
 }
 
-let bgColors = {
+let backgroundColors = {
   'screen': 'var(--bg-screen)',
   'tile': 'var(--bg-tile)',
   'warn': 'var(--bg-warn)',
   'error': 'var(--bg-error)',
 }
 
-let colors = global.Object.assign(textColors, bgColors);
+let colors = global.Object.assign(textColors, backgroundColors);
 
 module.exports = {
 
@@ -208,14 +208,9 @@ module.exports = {
   */
 
   fontWeights: {
-    'hairline': 100,
-    'thin': 200,
-    'light': 300,
     'normal': 400,
     'medium': 500,
-    'semibold': 600,
     'bold': 700,
-    'extrabold': 800,
     'black': 900,
   },
 
@@ -350,7 +345,7 @@ module.exports = {
   |
   */
 
-  borderColors: global.Object.assign({ default: colors['grey-light'] }, colors),
+  borderColors: global.Object.assign({ default: '#ccc'}, colors),
 
 
   /*
@@ -593,6 +588,7 @@ module.exports = {
     '24': '6rem',
     '32': '8rem',
     'gap': 'var(--gap)',
+    'padding': 'var(--padding)',
   },
 
 
@@ -629,6 +625,7 @@ module.exports = {
     '24': '6rem',
     '32': '8rem',
     'gap': 'var(--gap)',
+    'padding': 'var(--padding)',
   },
 
 
@@ -728,6 +725,7 @@ module.exports = {
 
   opacity: {
     '0': '0',
+    '20': '.2',
     '25': '.25',
     '50': '.5',
     '75': '.75',

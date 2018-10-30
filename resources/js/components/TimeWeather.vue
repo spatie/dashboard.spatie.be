@@ -4,7 +4,7 @@
             <div class="style-title">
                     {{ date }}
             </div>
-            <div class="align-self-center font-bold text-5xl tracking-wide leading-none text-accent">
+            <div class="align-self-center font-bold text-5xl tracking-wide leading-none">
                 {{ time }}
             </div>
             <div class="uppercase">

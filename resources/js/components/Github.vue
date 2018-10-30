@@ -2,7 +2,7 @@
     <tile :position="position">
         <div class="grid h-full" style="--template-rows: auto 1fr;">
             <h1 class="style-title">GitHub</h1>
-            <ul class="align-self-center style-stats">
+            <ul class="align-self-center mt-2 style-stats">
                 <li>
                     <span>★</span>
                     <span class="text-accent">{{ formatNumber(stars) }}</span>

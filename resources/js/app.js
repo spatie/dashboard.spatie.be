@@ -6,10 +6,9 @@ import Vue from 'vue';
 import Calendar from './components/Calendar';
 import Github from './components/Github';
 import InternetConnection from './components/InternetConnection';
-import Music from './components/Music';
 import Npm from './components/Npm';
 import Packagist from './components/Packagist';
-import Tasks from './components/Tasks';
+import TeamMember from './components/TeamMember';
 import TimeWeather from './components/TimeWeather';
 import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
@@ -21,10 +20,9 @@ new Vue({
         Calendar,
         Github,
         InternetConnection,
-        Music,
         Npm,
         Packagist,
-        Tasks,
+        TeamMember,
         TimeWeather,
         Twitter,
         Uptime,

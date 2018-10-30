@@ -2,10 +2,10 @@
     <tile :position="position">
         <div class="grid h-full" style="--template-rows: auto 1fr;">
             <h1 class="style-title">Packagist</h1>
-            <ul class="align-self-center style-stats">
+            <ul class="align-self-center mt-2 style-stats">
                 <li>
                     <span>Total</span>
-                    <span  class="text-accent">{{ formatNumber(total) }}</span>
+                    <span class="text-accent">{{ formatNumber(total) }}</span>
                 </li>
                 <li>
                     <span>30 days</span>

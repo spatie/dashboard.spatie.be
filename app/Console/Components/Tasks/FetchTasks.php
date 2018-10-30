@@ -27,6 +27,9 @@ class FetchTasks extends Command
             ->map(function ($markdownContent) {
                 return markdownToHtml($markdownContent);
             })
+            ->map(function ($htmlContent) {
+                return formatTasks($htmlContent);
+            })
             ->toArray();
 
         event(new TasksFetched($contentOfFiles));

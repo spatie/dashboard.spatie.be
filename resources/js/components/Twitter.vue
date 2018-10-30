@@ -1,25 +1,23 @@
 <template>
     <tile class="rounded overflow-auto" :position="position" :transparent="true">
-        <div class="grid h-full" style="--auto-rows: auto; --gap: 1rem">
-            <div class="overflow-hidden rounded bg-tile p-gap" v-for="tweet in onDisplay">
-                <div class="flex items-center -mt-1 mb-4 w-full">
-                    <div class="flex-none overflow-hidden w-8 h-8 rounded-full">
-                        <img class="block w-8 h-8 rounded-full object-fit-cover" :src="tweet.authorAvatar" :alt="tweet.authorScreenName">
-                    </div>
+        <div class="grid h-full" style="--auto-rows: auto;">
+            <div class="overflow-hidden rounded bg-tile p-padding" v-for="tweet in onDisplay">
+                <div class="flex items-center w-full">
+                    <avatar :src="tweet.authorAvatar" />
                     <div class="flex-grow leading-tight ml-2">
-                        <div class="text-sm truncate" v-html="tweet.authorName"></div>
-                        <div class="text-xs text-dimmed truncate" v-html="tweet.authorScreenName"></div>
+                        <div class="font-medium text-sm truncate" v-html="tweet.authorName"></div>
+                        <div class="truncate text-xs text-dimmed" v-html="tweet.authorScreenName"></div>
                     </div>
                 </div>
-                <div :class="tweet.displayClass" v-html="tweet.html"></div>
+                <div class="mt-4" :class="tweet.displayClass" v-html="tweet.html"></div>
                 <div class="mt-1 text-xs text-dimmed">
                     <relative-date :moment="tweet.date"></relative-date>
                     <span v-if="tweet.hasQuote">
                         In reply to {{ tweet.quote.authorScreenName }}
                     </span>
                 </div>
-                <img v-if="tweet.image" class="mt-gap max-h-48 mx-auto" :src="tweet.image" />
-                <div v-if="tweet.hasQuote" class="mt-gap py-2 pl-2 text-xs text-dimmed border-l-2 border-screen" v-html="tweet.hasQuote"></div>
+                <img v-if="tweet.image" class="mt-4 max-h-48 mx-auto" :src="tweet.image" />
+                <div v-if="tweet.hasQuote" class="mt-4 py-2 pl-2 text-xs text-dimmed border-l-2 border-screen" v-html="tweet.hasQuote"></div>
             </div>
         </div>
     </tile>
@@ -27,6 +25,7 @@
 
 <script>
 import echo from '../mixins/echo';
+import Avatar from './atoms/Avatar';
 import Tile from './atoms/Tile';
 import RelativeDate from './atoms/RelativeDate';
 import Tweet from '../services/twitter/Tweet';
@@ -35,6 +34,7 @@ import { diffInSeconds } from '../helpers';
 
 export default {
     components: {
+        Avatar,
         Tile,
         RelativeDate,
     },

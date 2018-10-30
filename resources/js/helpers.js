@@ -12,6 +12,16 @@ export function formatDuration(start) {
     return moment.duration(moment().diff(start), 'milliseconds').format('d[d] h[h] m[m]');
 }
 
+export function withinWeek(value) {
+    const date = moment(value);
+
+    if (moment().diff(date, 'days') > -7) {
+        return true;
+    }
+
+    return false;
+}
+
 export function relativeDate(value) {
     const date = moment(value);
 
