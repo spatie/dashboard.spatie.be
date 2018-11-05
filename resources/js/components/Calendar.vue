@@ -1,11 +1,13 @@
 <template>
     <tile :position="position">
-        <div class="grid h-full" style="--template-rows: auto 1fr; --gap: 0">
-            <h1 class="style-title">Upcoming</h1>
-            <ul class="mt-2 style-list grid h-full">
-                <li v-for="event in events" class="flex-col justify-center">
-                    <div class="font-medium" :class="withinWeek(event.date) ? 'text-accent' : ''">{{ event.name }}</div>
-                    <div class="text-sm text-dimmed">{{ relativeDate(event.date) }}</div>
+        <div class="grid gap-padding h-full markup" style="--template-rows: auto 1fr;">
+            <h1>Upcoming</h1>
+            <ul class="grid gap-0 h-full">
+                <li v-for="event in events">
+                    <div class="my-auto">
+                        <div class="font-medium" :class="withinWeek(event.date) ? 'text-accent' : ''">{{ event.name }}</div>
+                        <div class="text-sm text-dimmed">{{ relativeDate(event.date) }}</div>
+                    </div>
                 </li>
             </ul>
         </div>

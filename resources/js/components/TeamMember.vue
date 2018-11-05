@@ -1,14 +1,14 @@
 <template>
     <tile :position="position">
-        <div class="grid h-full" style="--template-rows: auto 1fr;">
-            <div class="flex items-center w-full">
+        <div class="grid gap-padding h-full markup" style="--template-rows: auto 1fr;">
+            <div class="flex items-center w-full bg-tile z-10">
                 <avatar :src="avatar" />
                 <div class="flex-grow leading-tight ml-2">
                     <div class="font-medium text-sm truncate capitalize" v-html="name" />
                     <div class="truncate text-xs text-dimmed"><span>♫</span> Artist – Album</div>
                 </div>
             </div>
-            <div v-html="tasks" class="mt-2 style-list"></div>
+            <div v-html="formatTasks()"></div>
         </div>
     </tile>
 </template>
@@ -36,6 +36,10 @@ export default {
     },
 
     methods: {
+        formatTasks() {
+            return this.tasks.replace(/\(/g, '<span class="text-dimmed text-xs">').replace(/\)/g, '</span>')
+        },
+
         getEventHandlers() {
             return {
                 'Tasks.TasksFetched': response => {

@@ -587,8 +587,8 @@ module.exports = {
     '20': '5rem',
     '24': '6rem',
     '32': '8rem',
-    'gap': 'var(--gap)',
-    'padding': 'var(--padding)',
+    'spacing': 'var(--tile-spacing)',
+    'padding': 'var(--tile-padding)',
   },
 
 
@@ -624,8 +624,8 @@ module.exports = {
     '20': '5rem',
     '24': '6rem',
     '32': '8rem',
-    'gap': 'var(--gap)',
-    'padding': 'var(--padding)',
+    'spacing': 'var(--tile-spacing)',
+    'padding': 'var(--tile-padding)',
   },
 
 
@@ -725,7 +725,6 @@ module.exports = {
 
   opacity: {
     '0': '0',
-    '20': '.2',
     '25': '.25',
     '50': '.5',
     '75': '.75',

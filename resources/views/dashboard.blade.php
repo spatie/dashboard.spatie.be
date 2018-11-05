@@ -4,12 +4,12 @@
 
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 
-<div id="dashboard" class="fixed pin grid w-screen h-screen p-gap font-sans font-normal leading-normal text-default bg-screen">
+<div id="dashboard" class="fixed pin grid gap-spacing w-screen h-screen p-spacing font-sans font-normal leading-normal text-default bg-screen">
     <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a12"></twitter>
     <uptime position="a1:a12"></uptime>
-    <packagist position="b1:b3"></packagist>
-    <npm position="b4:b6"></npm>
-    <github position="b7:b12"></github>
+    <packagist position="b1:b4"></packagist>
+    <npm position="b5:b8"></npm>
+    <github position="b9:b12"></github>
     <team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" position="c1:c3"></team-member>
     <team-member name="alex" avatar="{{ gravatar('alex@spatie.be') }}" position="c4:c6"></team-member>
     <team-member name="brent" avatar="{{ gravatar('brent@spatie.be') }}" position="c7:c9"></team-member>

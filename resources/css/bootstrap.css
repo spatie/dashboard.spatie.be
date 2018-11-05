@@ -6,13 +6,27 @@
     --text-invers: rgba(255, 255, 255, .9);
     --text-accent: rgba(23, 34, 155, .9);
 
-    --bg-screen: rgba(0, 0, 0, .035);
+    --bg-screen: rgb(240, 240, 240);
     --bg-tile: rgb(255, 255, 255);
     --bg-warn: rgb(226, 205, 65);
     --bg-error: rgb(234, 15, 65);
 
-    --gap: 1.5rem;
-    --padding: 1.5rem;
+    --tile-spacing: 1.5rem;
+    --tile-padding: 1.5rem;
+}
+
+@media (prefers-color-scheme:light) {
+    :root {
+        --text-default: rgba(255, 255, 255, .9);
+        --text-dimmed: rgba(255, 255, 255, .6);
+        --text-invers: rgba(0, 0, 0, .9);
+        --text-accent: rgb(233, 213, 50);
+
+        --bg-screen: rgb(31, 31, 31);
+        --bg-tile: rgb(35, 35, 35);
+        --bg-warn: rgb(204, 177, 47);
+        --bg-error: rgb(234, 89, 114);
+    }
 }
 
 * {

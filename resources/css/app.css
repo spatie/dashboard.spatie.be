@@ -1,6 +1,5 @@
 @import './bootstrap';
 @import './fonts/*';
-@import './utilities/*';
 @import './components/*';
 
 @tailwind utilities;

@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-@import 'settings/*';
-@import 'helpers/*';
-@import 'layout/*';
-@import 'components/*';
-@import 'vendor/*';

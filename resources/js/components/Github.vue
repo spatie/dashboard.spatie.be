@@ -1,27 +1,27 @@
 <template>
     <tile :position="position">
-        <div class="grid h-full" style="--template-rows: auto 1fr;">
-            <h1 class="style-title">GitHub</h1>
-            <ul class="align-self-center mt-2 style-stats">
+        <div class="grid gap-padding h-full markup" style="--template-rows: auto 1fr;">
+            <h1>GitHub</h1>
+            <ul class="align-self-center">
                 <li>
                     <span>★</span>
-                    <span class="text-accent">{{ formatNumber(stars) }}</span>
+                    <span class="font-medium text-accent">{{ formatNumber(stars) }}</span>
                 </li>
                 <li>
                     <span>Contributors</span>
-                    <span>{{ formatNumber(contributors) }}</span>
+                    <span class="font-medium">{{ formatNumber(contributors) }}</span>
                 </li>
                 <li>
                     <span>Repos</span>
-                    <span>{{ formatNumber(numberOfRepos) }}</span>
+                    <span class="font-medium">{{ formatNumber(numberOfRepos) }}</span>
                 </li>
                 <li>
                     <span>Issues</span>
-                    <span>{{ formatNumber(issues) }}</span>
+                    <span class="font-medium">{{ formatNumber(issues) }}</span>
                 </li>
                 <li>
                     <span>Pull Requests</span>
-                    <span>{{ formatNumber(pullRequests) }}</span>
+                    <span class="font-medium">{{ formatNumber(pullRequests) }}</span>
                 </li>
             </ul>
         </div>

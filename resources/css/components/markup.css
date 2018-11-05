@@ -1,0 +1,17 @@
+.markup h1 {
+    @apply font-medium;
+    @apply text-sm;
+    @apply tracking-wide;
+    @apply uppercase;
+    @apply text-dimmed;
+}
+
+.markup li {
+    @apply flex justify-between items-baseline;
+    @apply border-b-2 border-screen;
+    @apply py-1;
+}
+
+.markup li:first-child {
+    @apply pt-0;
+}
