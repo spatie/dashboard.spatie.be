@@ -17,4 +17,8 @@ return [
     'packagist' => [
         'vendor' => env('PACKAGIST_VENDOR'),
     ],
+
+    'velo' => [
+        'stations' => explode(',', env('VELO_STATIONS')),
+    ]
 ];

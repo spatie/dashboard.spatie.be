@@ -14,6 +14,7 @@ import Tasks from './components/Tasks';
 import TimeWeather from './components/TimeWeather';
 import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
+import Velo from './components/Velo';
 
 new Vue({
     el: '#dashboard',
@@ -30,6 +31,7 @@ new Vue({
         TimeWeather,
         Twitter,
         Uptime,
+        Velo,
     },
 
     created() {
