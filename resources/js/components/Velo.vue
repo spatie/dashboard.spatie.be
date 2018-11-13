@@ -7,6 +7,7 @@
                     <span class="statistic__label">{{ station.name.substring(4) }}</span>
                     <span>
                         <span class="statistic__available">{{ station.bikes }}</span>
+                        <span class="statistic__available">{{ station.locks }}</span>
                     </span>
                 </li>
             </ul>

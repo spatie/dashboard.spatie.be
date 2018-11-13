@@ -20,5 +20,5 @@ return [
 
     'velo' => [
         'stations' => explode(',', env('VELO_STATIONS')),
-    ]
+    ],
 ];

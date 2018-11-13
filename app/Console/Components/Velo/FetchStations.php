@@ -2,12 +2,9 @@
 
 namespace App\Console\Components\Velo;
 
-use App\Events\Velo\StationsFetched;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
-use App\Services\GitHub\GitHubApi;
-use Illuminate\Support\Collection;
-use App\Events\GitHub\TotalsFetched;
+use App\Events\Velo\StationsFetched;
 
 class FetchStations extends Command
 {
@@ -29,6 +26,7 @@ class FetchStations extends Command
         })->mapWithKeys(function ($station) use ($allowedStations) {
             // To sort the stations in the same order as requested
             $key = array_search($station->id, $allowedStations);
+
             return [$key => $station];
         })->toArray();
 
