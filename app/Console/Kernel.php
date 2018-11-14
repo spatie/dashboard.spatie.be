@@ -7,11 +7,6 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
     protected $commands = [
         \App\Console\Components\Calendar\FetchCalendarEvents::class,
         \App\Console\Components\GitHub\FetchTotals::class,
@@ -22,6 +17,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Components\Tasks\FetchTasks::class,
         \App\Console\Components\Twitter\ListenForMentions::class,
         \App\Console\Components\Twitter\SendFakeTweet::class,
+        \App\Console\Components\Velo\FetchStations::class,
         UpdateDashboard::class,
     ];
 
@@ -34,5 +30,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
         $schedule->command('dashboard:fetch-packagist-totals')->hourly();
         $schedule->command('dashboard:fetch-npm-totals')->hourly();
+        $schedule->command('dashboard:fetch-velo-stations')->everyFiveMinutes();
     }
 }
