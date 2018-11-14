@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events\InternetConnection;
+namespace App\Events\Dashboard;
 
 use App\Events\DashboardEvent;
 
