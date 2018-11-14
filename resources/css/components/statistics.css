@@ -14,9 +14,16 @@
     background-image: url('/images/svg/star.svg');
 }
 
-.statistic__count {
-    color: var(--yellow);
+.statistic__count, .statistic__available {
     vertical-align: top;
     white-space: nowrap;
     font-weight: var(--font-weight-black);
+}
+
+.statistic__count {
+    color: var(--yellow);
+}
+
+.statistic__available {
+    color: var(--green);
 }
