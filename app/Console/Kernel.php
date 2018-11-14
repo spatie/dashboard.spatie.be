@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Components\GitHub\FetchTotals::class,
         \App\Console\Components\InternetConnection\SendHeartbeat::class,
         \App\Console\Components\Npm\FetchTotals::class,
-        \App\Console\Components\Music\FetchCurrentTrack::class,
+        \App\Console\Components\Music\FetchCurrentTracks::class,
         \App\Console\Components\Packagist\FetchTotals::class,
         \App\Console\Components\Tasks\FetchTasks::class,
         \App\Console\Components\Twitter\ListenForMentions::class,
@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('dashboard:fetch-calendar-events')->everyMinute();
-        $schedule->command('dashboard:fetch-current-track')->everyMinute();
+        $schedule->command('dashboard:fetch-current-tracks')->everyMinute();
         $schedule->command('dashboard:send-heartbeat')->everyMinute();
         $schedule->command('dashboard:fetch-tasks')->everyFiveMinutes();
         $schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();

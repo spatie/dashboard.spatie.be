@@ -5,7 +5,8 @@
                 <avatar :src="avatar" />
                 <div class="flex-grow leading-tight ml-2">
                     <div class="font-medium text-sm truncate capitalize" v-html="name" />
-                    <div class="truncate text-xs text-dimmed"><span v-html="renderMusicIcon()"></span> Artist – Album</div>
+                    <div v-if="currentTrack != ''" class="truncate text-xs text-dimmed">
+                        <span v-html="renderMusicIcon()"></span> {{ currentTrack }}</div>
                 </div>
             </div>
             <div v-html="formatTasks()"></div>
@@ -33,6 +34,7 @@ export default {
     data() {
         return {
             tasks: '',
+            currentTrack: '',
         };
     },
 
@@ -45,6 +47,20 @@ export default {
             return {
                 'Tasks.TasksFetched': response => {
                     this.tasks = response.tasks[this.name];
+                },
+                'Music.TeamMemberPlayingTrack': response => {
+                    if (response.teamMemberName !== this.name) {
+                        return;
+                    }
+
+                    this.currentTrack =  `${response.trackInfo.artist} - ${response.trackInfo.trackName}`;
+                },
+                'Music.TeamMemberPlayingNothing': response => {
+                    if (response.teamMemberName !== this.name) {
+                        return;
+                    }
+
+                    this.currentTrack = '';
                 },
             };
         },
