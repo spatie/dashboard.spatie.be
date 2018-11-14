@@ -8,7 +8,7 @@
                 {{ time }}
             </div>
             <div class="uppercase">
-                <div class="grid" style="--template-cols: repeat(3, auto); --gap: 1rem">
+                <div class="grid items-center" style="--template-cols: repeat(3, auto); --gap: 1rem">
                     <span>
                         {{ weather.temperature }}°
                         <span class="text-sm uppercase text-dimmed">out</span>
@@ -17,7 +17,7 @@
                         <office-temperature />
                         <span class="text-sm uppercase text-dimmed">in</span>
                     </span>
-                    <i class="align-self-center wi" :class="weather.iconClass"></i>
+                    <span class="text-3xl -mt-2" v-html="weather.icon"></span>
                 </div>
                 <div class="hidden">
                     {{ weatherCity }}
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import twemoji from 'twemoji';
 import Tile from './atoms/Tile';
 import moment from 'moment-timezone';
 import weather from '../services/weather/Weather';
@@ -91,8 +92,89 @@ export default {
         async fetchWeather() {
             const conditions = await weather.conditions(this.weatherCity);
 
+            let icon;
+
+            switch (parseInt(conditions.code)) {
+                case 0:
+                case 1:
+                case 2:
+                    icon = '🌪';
+                    break;
+                case 3:
+                case 4:
+                case 37:
+                case 38:
+                case 39:
+                case 45:
+                case 47:
+                    icon = '⛈';
+                    break;
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 17:
+                case 18:
+                    icon = '🌨';
+                    break;
+                case 11:
+                case 12:
+                case 35:
+                case 40:
+                    icon = '☔️';
+                    break;
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 42:
+                case 46:
+                    icon = '❄️';
+                    break;
+                case 19:
+                case 20:
+                case 21:
+                case 22:
+                    icon = '🌫';
+                    break;
+                case 23:
+                case 24:
+                case 25:
+                    icon = '💨';
+                    break;
+                case 26:
+                    icon = '☁️';
+                    break;
+                case 27:
+                case 28:
+                case 29:
+                case 30:
+                case 44:
+                    icon = '⛅️';
+                    break;
+                case 31:
+                case 33:
+                    icon = '🌌';
+                    break;
+                case 32:
+                case 34:
+                    icon = '☀️';
+                    break;
+                case 36:
+                    icon = '🌡';
+                    break;
+                case 41:
+                case 43:
+                    icon = '⛷';
+                    break;
+                default:
+                    icon = '🧐';
+            }
+
             this.weather.temperature = conditions.temp;
-            this.weather.iconClass = `wi-yahoo-${conditions.code}`;
+            this.weather.icon = twemoji.parse(icon) ;
         },
     },
 };

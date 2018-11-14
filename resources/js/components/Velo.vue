@@ -7,7 +7,7 @@
             </h1>
             <ul>
                 <li v-for="station in stations">
-                    <span>{{ station.name.substring(4) }}</span>
+                    <span :class="station.bikes == 0 ? 'line-through' : ''">{{ station.name.substring(4) }}</span>
                     <span>
                         <span :class="station.bikes < 3 ? 'text-danger' : ''" class="font-medium">{{ station.bikes }}</span>
                     </span>
@@ -56,6 +56,7 @@ export default {
         renderTitleIcon() {
             return twemoji.parse('🚲');
         },
+
     },
 
 };
