@@ -8,16 +8,24 @@
                     <span class="font-medium text-accent">{{ formatNumber(githubStars) }}</span>
                 </li>
                 <li>
-                    <span>githubContributors</span>
+                    <span>Contributors</span>
                     <span class="font-medium">{{ formatNumber(githubContributors) }}</span>
                 </li>
                 <li>
-                    <span>githubIssues</span>
+                    <span>Issues</span>
                     <span class="font-medium">{{ formatNumber(githubIssues) }}</span>
                 </li>
                 <li>
                     <span>Pull Requests</span>
                     <span class="font-medium">{{ formatNumber(githubPullRequests) }}</span>
+                </li>
+                <li>
+                    <span>Total (PHP)</span>
+                    <span class="font-medium">{{ formatNumber(packagistTotal) }}</span>
+                </li>
+                <li>
+                    <span>30 days (PHP)</span>
+                    <span class="font-medium">{{ formatNumber(packagistMonthly) }}</span>
                 </li>
             </ul>
         </div>
@@ -45,6 +53,9 @@ export default {
             githubIssues: 0,
             githubPullRequests: 0,
             githubContributors: 0,
+
+            packagistTotal: 0,
+            packagistMonthly: 0,
         };
     },
 
@@ -58,6 +69,10 @@ export default {
                     this.githubIssues = response.githubIssues;
                     this.githubPullRequests = response.githubPullRequests;
                     this.githubContributors = response.githubContributors;
+                },
+                'Statistics.PackagistTotalsFetched': response => {
+                    this.packagistTotal = response.total;
+                    this.packagistMonthly = response.monthly;
                 },
             };
         },
