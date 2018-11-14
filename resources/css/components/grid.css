@@ -16,6 +16,18 @@
     grid-gap: 0;
 }
 
+.gap-1 {
+    grid-gap: config('padding.1');
+}
+
+.gap-2 {
+    grid-gap: config('padding.2');
+}
+
+.gap-4 {
+    grid-gap: config('padding.4');
+}
+
 .align-self-start {
     align-self: end;
 }

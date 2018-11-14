@@ -1,6 +1,6 @@
 <template>
     <tile :position="position">
-        <div class="grid justify-items-center h-full" style="grid-template-rows: auto 1fr auto; grid-gap: 1rem">
+        <div class="grid gap-4 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
             <div class="markup">
                     <h1>{{ date }}</h1>
             </div>
@@ -8,7 +8,7 @@
                 {{ time }}
             </div>
             <div class="uppercase">
-                <div class="grid items-center" style="grid-template-columns: repeat(3, auto); grid-gap: 1rem">
+                <div class="grid gap-4 items-center" style="grid-template-columns: repeat(3, auto);">
                     <span>
                         {{ weather.temperature }}°
                         <span class="text-sm uppercase text-dimmed">out</span>

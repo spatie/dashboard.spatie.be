@@ -1,6 +1,6 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-padding h-full markup" style="grid-template-rows: 1.5rem 1fr;">
+        <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
             <div class="text-3xl -mt-4" v-html="emoji('🚲')" />
             <ul class="align-self-center">
                 <li v-for="station in stations">

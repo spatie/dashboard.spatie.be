@@ -1,8 +1,7 @@
 <template>
     <tile :position="position">
-        <div class="grid h-full markup"
-            :style="tasks != '' ? 'grid-template-rows: 1.5rem 1fr' : 'grid-template-rows: 1fr'"
-            style="grid-gap: 1rem"
+        <div class="grid gap-padding h-full markup"
+            :style="tasks != '' ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
         >
             <div class="flex items-center w-full bg-tile z-10">
                 <div v-if="artwork != ''" class="flex-none overflow-hidden w-8 h-8 rounded border-2 border-screen">

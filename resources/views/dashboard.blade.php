@@ -7,7 +7,6 @@
 <div id="dashboard" class="fixed pin grid gap-spacing w-screen h-screen p-spacing font-sans font-normal leading-normal text-default bg-screen">
     <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a12"></twitter>
     <uptime position="a1:a12"></uptime>
-    <velo position="e11:e12"></velo>
     <team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" position="b1:b4"></team-member>
     <team-member name="alex" avatar="{{ gravatar('alex@spatie.be') }}" position="c1:c4"></team-member>
     <team-member name="brent" avatar="{{ gravatar('brent@spatie.be') }}" position="d1:d4"></team-member>
@@ -18,7 +17,8 @@
     <team-member name="wouter" avatar="{{ gravatar('wouter@spatie.be') }}" position="d11:d12"></team-member>
     <statistics position="d5:d10"></statistics>
     <time-weather position="e1:e3" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
-    <calendar position="e4:e10"></calendar>
+    <calendar position="e4:e9"></calendar>
+    <velo position="e10:e12"></velo>
     <internet-connection></internet-connection>
 </div>
 
