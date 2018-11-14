@@ -7,7 +7,7 @@ use App\Services\TweetHistory\TweetHistory;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
         return view('dashboard')->with([
             'pusherKey' => config('broadcasting.connections.pusher.key'),
