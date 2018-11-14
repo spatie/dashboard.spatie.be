@@ -12,10 +12,6 @@
                     <span class="font-medium">{{ formatNumber(contributors) }}</span>
                 </li>
                 <li>
-                    <span>Repos</span>
-                    <span class="font-medium">{{ formatNumber(numberOfRepos) }}</span>
-                </li>
-                <li>
                     <span>Issues</span>
                     <span class="font-medium">{{ formatNumber(issues) }}</span>
                 </li>
@@ -49,7 +45,6 @@ export default {
             issues: 0,
             pullRequests: 0,
             contributors: 0,
-            numberOfRepos: 0,
         };
     },
 
@@ -63,7 +58,6 @@ export default {
                     this.issues = response.issues;
                     this.pullRequests = response.pullRequests;
                     this.contributors = response.contributors;
-                    this.numberOfRepos = response.numberOfRepos;
                 },
             };
         },
