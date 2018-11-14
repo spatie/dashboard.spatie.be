@@ -1,11 +1,11 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-padding h-full markup" style="--template-rows: auto 1fr;">
-            <div class="flex items-center w-full bg-tile z-10">
+        <div class="grid h-full markup" style="--template-rows: auto 1fr; grid-gap: .75rem">
+            <div class="flex items-center w-full bg-tile z-10" style="top: -.2rem">
                 <avatar :src="avatar" />
                 <div class="flex-grow leading-tight ml-2">
                     <div class="font-medium text-sm truncate capitalize" v-html="name" />
-                    <div class="truncate text-xs text-dimmed"><span>♫</span> Artist – Album</div>
+                    <div class="truncate text-xs text-dimmed"><span v-html="renderMusicIcon()"></span> Artist – Album</div>
                 </div>
             </div>
             <div v-html="formatTasks()"></div>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import twemoji from 'twemoji';
 import echo from '../mixins/echo';
 import Avatar from './atoms/Avatar';
 import Tile from './atoms/Tile';
@@ -37,7 +38,7 @@ export default {
 
     methods: {
         formatTasks() {
-            return this.tasks.replace(/\(/g, '<span class="text-dimmed text-xs">').replace(/\)/g, '</span>')
+            return this.tasks.replace(/\(/g, '<span class="ml-1 text-dimmed text-xs">').replace(/\)/g, '</span>')
         },
 
         getEventHandlers() {
@@ -52,6 +53,10 @@ export default {
             return {
                 cacheKey: `tasks-${this.name}`,
             };
+        },
+
+        renderMusicIcon() {
+            return twemoji.parse('🎧');
         },
     },
 };

@@ -8,7 +8,7 @@
     --auto-cols: 1fr;
 
     display: grid;
-    grid-gap: var(--gap);
+    grid-gap: var(--tile-spacing);
     grid-template: var(--template);
     grid-auto-rows: var(--auto-rows);
     grid-auto-columns: var(--auto-cols);
@@ -39,7 +39,7 @@
 }
 
 .align-content-start {
-    align-content: end;
+    align-content: start;
 }
 
 .align-content-center {

@@ -48,6 +48,7 @@ let textColors = {
   'invers': 'var(--text-invers)',
   'dimmed': 'var(--text-dimmed)',
   'accent': 'var(--text-accent)',
+  'danger': 'var(--text-danger)',
 }
 
 let backgroundColors = {

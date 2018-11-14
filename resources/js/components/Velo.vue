@@ -1,21 +1,24 @@
 <template>
-    <tile :position="position" modifiers="overflow">
-        <section class="statistics">
-            <h1>Velo</h1>
+    <tile :position="position">
+        <div class="grid gap-padding h-full markup" style="--template-rows: auto 1fr;">
+            <h1>
+                <span class="absolute text-3xl -mt-4" v-html="renderTitleIcon()"></span>
+                <span class="opacity-0">Velo</span>
+            </h1>
             <ul>
-                <li v-for="station in stations" class="statistic">
-                    <span class="statistic__label">{{ station.name.substring(4) }}</span>
+                <li v-for="station in stations">
+                    <span>{{ station.name.substring(4) }}</span>
                     <span>
-                        <span class="statistic__available">{{ station.bikes }}</span>
-                        <span class="statistic__available">{{ station.locks }}</span>
+                        <span :class="station.bikes < 3 ? 'text-danger' : ''" class="font-medium">{{ station.bikes }}</span>
                     </span>
                 </li>
             </ul>
-        </section>
+        </div>
     </tile>
 </template>
 
 <script>
+import twemoji from 'twemoji';
 import echo from '../mixins/echo';
 import Tile from './atoms/Tile';
 import saveState from 'vue-save-state';
@@ -49,6 +52,11 @@ export default {
                 cacheKey: 'velo',
             };
         },
+
+        renderTitleIcon() {
+            return twemoji.parse('🚲');
+        },
     },
+
 };
 </script>
