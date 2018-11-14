@@ -7,9 +7,7 @@
 <div id="dashboard" class="fixed pin grid gap-spacing w-screen h-screen p-spacing font-sans font-normal leading-normal text-default bg-screen">
     <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a12"></twitter>
     <uptime position="a1:a12"></uptime>
-    <packagist position="b1:b4"></packagist>
-    <npm position="b5:b8"></npm>
-    <statistics position="b9:b12"></statistics>
+    <statistics position="b1:b12"></statistics>
     <team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" position="c1:c3"></team-member>
     <team-member name="alex" avatar="{{ gravatar('alex@spatie.be') }}" position="c4:c6"></team-member>
     <team-member name="brent" avatar="{{ gravatar('brent@spatie.be') }}" position="c7:c9"></team-member>

@@ -27,6 +27,14 @@
                     <span>30 days (PHP)</span>
                     <span class="font-medium">{{ formatNumber(packagistMonthly) }}</span>
                 </li>
+                <li>
+                    <span>Total (JS)</span>
+                    <span class="font-medium">{{ formatNumber(npmTotal) }}</span>
+                </li>
+                <li>
+                    <span>30 days (JS)</span>
+                    <span class="font-medium">{{ formatNumber(npmMonthly) }}</span>
+                </li>
             </ul>
         </div>
     </tile>
@@ -56,6 +64,9 @@ export default {
 
             packagistTotal: 0,
             packagistMonthly: 0,
+
+            npmTotal: 0,
+            npmMonthly: 0,
         };
     },
 
@@ -70,9 +81,15 @@ export default {
                     this.githubPullRequests = response.githubPullRequests;
                     this.githubContributors = response.githubContributors;
                 },
+
                 'Statistics.PackagistTotalsFetched': response => {
                     this.packagistTotal = response.total;
                     this.packagistMonthly = response.monthly;
+                },
+
+                'Statistics.NpmTotalsFetched': response => {
+                    this.npmTotal = response.total;
+                    this.npmMonthly = response.monthly;
                 },
             };
         },

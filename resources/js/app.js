@@ -6,8 +6,6 @@ import Vue from 'vue';
 import Calendar from './components/Calendar';
 import Statistics from './components/Statistics';
 import InternetConnection from './components/InternetConnection';
-import Npm from './components/Npm';
-import Packagist from './components/Packagist';
 import TeamMember from './components/TeamMember';
 import TimeWeather from './components/TimeWeather';
 import Twitter from './components/Twitter';
@@ -21,8 +19,6 @@ new Vue({
         Calendar,
         Statistics,
         InternetConnection,
-        Npm,
-        Packagist,
         TeamMember,
         TimeWeather,
         Twitter,
