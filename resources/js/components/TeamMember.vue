@@ -12,7 +12,7 @@
                 <div class="flex-grow leading-tight ml-2">
                     <h2 class="truncate capitalize" v-html="name" />
                     <div v-if="currentTrack != ''" class="truncate text-xs text-dimmed">
-                        <span v-html="renderMusicIcon()"></span> {{ currentTrack }}
+                        <span v-html="emoji('🎵')" /> {{ currentTrack }}
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import twemoji from 'twemoji';
+import { emoji } from '../helpers';
 import echo from '../mixins/echo';
 import Avatar from './atoms/Avatar';
 import Tile from './atoms/Tile';
@@ -47,6 +47,8 @@ export default {
     },
 
     methods: {
+        emoji,
+
         formatTasks() {
             return this.tasks.replace(/\(/g, '<span class="ml-1 text-dimmed text-xs">').replace(/\)/g, '</span>')
         },
@@ -80,9 +82,6 @@ export default {
             };
         },
 
-        renderMusicIcon() {
-            return twemoji.parse('🎧');
-        },
     },
 };
 </script>
