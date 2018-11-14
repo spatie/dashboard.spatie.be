@@ -15,6 +15,7 @@ class TrackIsPlaying extends DashboardEvent
     public function __construct(array $trackInfo, string $userName)
     {
         $this->trackInfo = $trackInfo;
+
         $this->userName = $userName;
     }
 }

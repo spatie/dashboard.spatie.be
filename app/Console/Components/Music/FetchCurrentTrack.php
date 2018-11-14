@@ -17,16 +17,12 @@ class FetchCurrentTrack extends Command
     {
         $lastFm = new NowPlaying(config('services.last-fm.api_key'));
 
-        foreach (config('services.last-fm.users') as $userName) {
+        collect(config('services.last-fm.users'))->each(function(string $userName) use ($lastFm) {
             $currentTrack = $lastFm->getTrackInfo($userName);
 
-            if ($currentTrack) {
-                event(new TrackIsPlaying($currentTrack, $userName));
-
-                return;
-            }
-        }
-
-        event(new NothingPlaying());
+            $currentTrack
+                ? new TrackIsPlaying($currentTrack, $userName)
+                : new NothingPlaying($userName);
+        });
     }
 }
