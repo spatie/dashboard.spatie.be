@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Events\Npm;
+namespace App\Events\Statistics;
 
 use App\Events\DashboardEvent;
 
-class TotalsFetched extends DashboardEvent
+class PackagistTotalsFetched extends DashboardEvent
 {
     /** @var int */
     public $daily;
@@ -14,6 +14,9 @@ class TotalsFetched extends DashboardEvent
 
     /** @var int */
     public $total;
+
+    /** @var int */
+    public $stars;
 
     public function __construct(array $totals)
     {

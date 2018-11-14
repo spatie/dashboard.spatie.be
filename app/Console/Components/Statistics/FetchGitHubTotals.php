@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Console\Components\GitHub;
+namespace App\Console\Components\Statistics;
 
 use Illuminate\Console\Command;
 use App\Services\GitHub\GitHubApi;
 use Illuminate\Support\Collection;
-use App\Events\GitHub\TotalsFetched;
+use App\Events\Statistics\GitHubTotalsFetched;
 
-class FetchTotals extends Command
+class FetchGitHubTotals extends Command
 {
     protected $signature = 'dashboard:fetch-github-totals';
 
@@ -33,6 +33,6 @@ class FetchTotals extends Command
                 ];
             });
 
-        event(new TotalsFetched($totals));
+        event(new GitHubTotalsFetched($totals));
     }
 }

@@ -1,25 +1,19 @@
 <?php
 
-namespace App\Events\GitHub;
+namespace App\Events\Statistics;
 
 use App\Events\DashboardEvent;
 
-class TotalsFetched extends DashboardEvent
+class NpmTotalsFetched extends DashboardEvent
 {
     /** @var int */
-    public $stars;
+    public $daily;
 
     /** @var int */
-    public $issues;
+    public $monthly;
 
     /** @var int */
-    public $pullRequests;
-
-    /** @var int */
-    public $contributors;
-
-    /** @var int */
-    public $numberOfRepos;
+    public $total;
 
     public function __construct(array $totals)
     {
