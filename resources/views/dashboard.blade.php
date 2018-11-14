@@ -9,7 +9,7 @@
     <uptime position="a1:a12"></uptime>
     <packagist position="b1:b4"></packagist>
     <npm position="b5:b8"></npm>
-    <github position="b9:b12"></github>
+    <statistics position="b9:b12"></statistics>
     <team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" position="c1:c3"></team-member>
     <team-member name="alex" avatar="{{ gravatar('alex@spatie.be') }}" position="c4:c6"></team-member>
     <team-member name="brent" avatar="{{ gravatar('brent@spatie.be') }}" position="c7:c9"></team-member>

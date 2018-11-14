@@ -1,7 +1,7 @@
 <template>
     <tile :position="position">
         <div class="grid gap-padding h-full markup" style="--template-rows: auto 1fr;">
-            <h1>GitHub</h1>
+            <h1>Statistics</h1>
             <ul class="align-self-center">
                 <li>
                     <span>★</span>
