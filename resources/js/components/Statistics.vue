@@ -1,10 +1,10 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-padding h-full markup" style="--template-rows: auto 1fr;">
+        <div class="grid gap-padding h-full markup" style="grid-template-rows: 1.5rem 1fr;">
             <h1>Statistics</h1>
             <ul class="align-self-center">
                 <li>
-                    <span>★</span>
+                    <span v-html="emoji('✨')" />
                     <span class="font-medium text-accent">{{ formatNumber(githubStars) }}</span>
                 </li>
                 <li>
@@ -20,20 +20,42 @@
                     <span class="font-medium">{{ formatNumber(githubPullRequests) }}</span>
                 </li>
                 <li>
-                    <span>Total (PHP)</span>
-                    <span class="font-medium">{{ formatNumber(packagistTotal) }}</span>
+                    <div class="grid gap-0 w-full items-center" style="grid-template-columns: 3rem auto 1fr;">
+                        <span>
+                            PHP
+                        </span>
+                        <span class="text-dimmed text-xs">
+                            Total
+                        </span>
+                        <span class="font-medium justify-self-end">
+                            {{ formatNumber(packagistTotal) }}
+                        </span>
+                        <span class="text-dimmed text-xs" style="grid-column-start: 2">
+                            Monthly
+                        </span>
+                        <span class="font-medium justify-self-end">
+                            {{ formatNumber(packagistMonthly) }}
+                        </span>
+                    </div>
                 </li>
                 <li>
-                    <span>30 days (PHP)</span>
-                    <span class="font-medium">{{ formatNumber(packagistMonthly) }}</span>
-                </li>
-                <li>
-                    <span>Total (JS)</span>
-                    <span class="font-medium">{{ formatNumber(npmTotal) }}</span>
-                </li>
-                <li>
-                    <span>30 days (JS)</span>
-                    <span class="font-medium">{{ formatNumber(npmMonthly) }}</span>
+                    <div class="grid gap-0 w-full items-center" style="grid-template-columns: 3rem auto 1fr;">
+                        <span>
+                            JS
+                        </span>
+                        <span class="text-dimmed text-xs">
+                            Total
+                        </span>
+                        <span class="font-medium justify-self-end">
+                            {{ formatNumber(npmTotal) }}
+                        </span>
+                        <span class="text-dimmed text-xs" style="grid-column-start: 2">
+                            Monthly
+                        </span>
+                        <span class="font-medium justify-self-end">
+                            {{ formatNumber(npmMonthly) }}
+                        </span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -41,7 +63,7 @@
 </template>
 
 <script>
-import { formatNumber } from '../helpers';
+import { emoji, formatNumber } from '../helpers';
 import echo from '../mixins/echo';
 import Tile from './atoms/Tile';
 import saveState from 'vue-save-state';
@@ -71,6 +93,7 @@ export default {
     },
 
     methods: {
+        emoji,
         formatNumber,
 
         getEventHandlers() {

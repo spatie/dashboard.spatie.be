@@ -1,0 +1,4 @@
+.filter-grey {
+    object-fit: cover;
+    filter: contrast(75%) grayscale(1) brightness(150%);
+}

@@ -6,6 +6,11 @@
     @apply text-dimmed;
 }
 
+.markup h2 {
+    @apply font-medium;
+    @apply text-sm;
+}
+
 .markup li {
     @apply flex justify-between items-baseline;
     @apply border-b-2 border-screen;
@@ -14,4 +19,8 @@
 
 .markup li:first-child {
     @apply pt-0;
+}
+
+.markup li:last-child {
+    @apply border-0;
 }

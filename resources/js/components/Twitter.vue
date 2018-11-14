@@ -1,6 +1,6 @@
 <template>
     <tile class="rounded overflow-auto" :position="position" :transparent="true">
-        <div class="grid h-full" style="--auto-rows: auto;">
+        <div class="grid h-full" style="grid-auto-rows: auto;">
             <div class="overflow-hidden rounded bg-tile p-padding" v-for="tweet in onDisplay">
                 <div class="flex items-center w-full">
                     <avatar :src="tweet.authorAvatar" />
@@ -16,7 +16,7 @@
                         In reply to {{ tweet.quote.authorScreenName }}
                     </span>
                 </div>
-                <img v-if="tweet.image" class="mt-4 max-h-48 mx-auto" :src="tweet.image" />
+                <img v-if="tweet.image" class="filter-grey mt-4 max-h-48 mx-auto" :src="tweet.image" />
                 <div v-if="tweet.hasQuote" class="mt-4 py-2 pl-2 text-xs text-dimmed border-l-2 border-screen" v-html="tweet.hasQuote"></div>
             </div>
         </div>

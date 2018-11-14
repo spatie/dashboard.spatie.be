@@ -13,7 +13,7 @@
     --bg-error: rgb(234, 15, 65);
 
     --tile-spacing: .5rem;
-    --tile-padding: 1.5rem;
+    --tile-padding: 1.25rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -75,9 +75,4 @@ hr {
 img,
 svg {
     vertical-align: middle;
-}
-
-img:not(.emoji) {
-    object-fit: cover;
-    filter: contrast(75%) grayscale(1) brightness(150%);
 }
