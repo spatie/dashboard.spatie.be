@@ -19,7 +19,8 @@
     <tasks team-member="willem" position="d7:d9"></tasks>
     <music position="d10:d12"></music>
     <time-weather position="e1:e4" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
-    <calendar position="e5:e12"></calendar>
+    <calendar position="e5:e10"></calendar>
+    <velo position="e10:e12"></velo>
     <internet-connection></internet-connection>
 </dashboard>
 
