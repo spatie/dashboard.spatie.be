@@ -37,7 +37,7 @@ class FetchNpmTotals extends Command
         event(new NpmTotalsFetched($totals));
     }
 
-    private function getPackageList()
+    protected function getPackageList()
     {
         $packages = json_decode(file_get_contents('https://spatie.be/en/api/packages'));
 
