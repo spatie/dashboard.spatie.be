@@ -5,19 +5,19 @@
             <ul class="align-self-center">
                 <li>
                     <span>★</span>
-                    <span class="font-medium text-accent">{{ formatNumber(stars) }}</span>
+                    <span class="font-medium text-accent">{{ formatNumber(githubStars) }}</span>
                 </li>
                 <li>
-                    <span>Contributors</span>
-                    <span class="font-medium">{{ formatNumber(contributors) }}</span>
+                    <span>githubContributors</span>
+                    <span class="font-medium">{{ formatNumber(githubContributors) }}</span>
                 </li>
                 <li>
-                    <span>Issues</span>
-                    <span class="font-medium">{{ formatNumber(issues) }}</span>
+                    <span>githubIssues</span>
+                    <span class="font-medium">{{ formatNumber(githubIssues) }}</span>
                 </li>
                 <li>
                     <span>Pull Requests</span>
-                    <span class="font-medium">{{ formatNumber(pullRequests) }}</span>
+                    <span class="font-medium">{{ formatNumber(githubPullRequests) }}</span>
                 </li>
             </ul>
         </div>
@@ -41,10 +41,10 @@ export default {
 
     data() {
         return {
-            stars: 0,
-            issues: 0,
-            pullRequests: 0,
-            contributors: 0,
+            githubStars: 0,
+            githubIssues: 0,
+            githubPullRequests: 0,
+            githubContributors: 0,
         };
     },
 
@@ -53,18 +53,18 @@ export default {
 
         getEventHandlers() {
             return {
-                'GitHub.TotalsFetched': response => {
-                    this.stars = response.stars;
-                    this.issues = response.issues;
-                    this.pullRequests = response.pullRequests;
-                    this.contributors = response.contributors;
+                'Statistics.GitHubTotalsFetched': response => {
+                    this.githubStars = response.githubStars;
+                    this.githubIssues = response.githubIssues;
+                    this.githubPullRequests = response.githubPullRequests;
+                    this.githubContributors = response.githubContributors;
                 },
             };
         },
 
         getSaveStateConfig() {
             return {
-                cacheKey: 'github',
+                cacheKey: 'statistics',
             };
         },
     },
