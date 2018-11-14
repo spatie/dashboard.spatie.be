@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Console\Components\Packagist;
+namespace App\Console\Components\Statistics;
 
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Spatie\Packagist\Packagist;
-use App\Events\Packagist\TotalsFetched;
+use App\Events\Statistics\PackagistTotalsFetched;
 
-class FetchTotals extends Command
+class FetchPackagistTotals extends Command
 {
     protected $signature = 'dashboard:fetch-packagist-totals';
 
@@ -29,6 +29,6 @@ class FetchTotals extends Command
                     ];
                 });
 
-        event(new TotalsFetched($totals));
+        event(new PackagistTotalsFetched($totals));
     }
 }

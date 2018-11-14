@@ -9,11 +9,11 @@ class Kernel extends ConsoleKernel
 {
     protected $commands = [
         \App\Console\Components\Calendar\FetchCalendarEvents::class,
-        \App\Console\Components\GitHub\FetchTotals::class,
+        \App\Console\Components\Statistics\FetchGitHubTotals::class,
         \App\Console\Components\InternetConnection\SendHeartbeat::class,
-        \App\Console\Components\Npm\FetchTotals::class,
+        \App\Console\Components\Statistics\FetchNpmTotals::class,
         \App\Console\Components\Music\FetchCurrentTracks::class,
-        \App\Console\Components\Packagist\FetchTotals::class,
+        \App\Console\Components\Statistics\FetchPackagistTotals::class,
         \App\Console\Components\Tasks\FetchTasks::class,
         \App\Console\Components\Twitter\ListenForMentions::class,
         \App\Console\Components\Twitter\SendFakeTweet::class,

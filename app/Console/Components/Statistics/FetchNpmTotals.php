@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Console\Components\Npm;
+namespace App\Console\Components\Statistics;
 
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
-use App\Events\Npm\TotalsFetched;
+use App\Events\Statistics\NpmTotalsFetched;
 use Developmint\NpmStats\NpmStats;
 
-class FetchTotals extends Command
+class FetchNpmTotals extends Command
 {
     protected $signature = 'dashboard:fetch-npm-totals';
 
@@ -34,10 +34,10 @@ class FetchTotals extends Command
                 ];
             });
 
-        event(new TotalsFetched($totals));
+        event(new NpmTotalsFetched($totals));
     }
 
-    private function getPackageList()
+    protected function getPackageList()
     {
         $packages = json_decode(file_get_contents('https://spatie.be/en/api/packages'));
 
