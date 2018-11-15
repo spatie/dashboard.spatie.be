@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events\Tasks;
+namespace App\Events\TeamMember;
 
 use App\Events\DashboardEvent;
 

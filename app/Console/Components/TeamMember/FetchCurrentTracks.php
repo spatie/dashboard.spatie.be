@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Console\Components\Music;
+namespace App\Console\Components\TeamMember;
 
 use Illuminate\Console\Command;
 use Spatie\NowPlaying\NowPlaying;
-use App\Events\Music\TeamMemberPlayingNothing;
-use App\Events\Music\TeamMemberPlayingTrack;
+use App\Events\TeamMember\PlayingNothing;
+use App\Events\TeamMember\PlayingTrack;
 
 class FetchCurrentTracks extends Command
 {
@@ -32,8 +32,8 @@ class FetchCurrentTracks extends Command
                 $currentTrack = $lastFm->getTrackInfo($lastFmUserName);
 
                 $event = $currentTrack
-                    ? new TeamMemberPlayingTrack($teamMemberName, $currentTrack)
-                    : new TeamMemberPlayingNothing($teamMemberName);
+                    ? new PlayingTrack($teamMemberName, $currentTrack)
+                    : new PlayingNothing($teamMemberName);
 
                 event($event);
             });

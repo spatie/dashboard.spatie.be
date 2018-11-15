@@ -61,10 +61,11 @@ export default {
 
         getEventHandlers() {
             return {
-                'Tasks.TasksFetched': response => {
+                'TeamMember.TasksFetched': response => {
                     this.tasks = response.tasks[this.name];
                 },
-                'Music.TeamMemberPlayingTrack': response => {
+
+                'TeamMember.PlayingTrack': response => {
                     if (response.teamMemberName !== this.name) {
                         return;
                     }
@@ -72,12 +73,13 @@ export default {
                     this.currentTrack = response.trackInfo.artist;
                     this.artwork = response.trackInfo.artwork;
                 },
-                'Music.TeamMemberPlayingNothing': response => {
+                'TeamMember.PlayingNothing': response => {
                     if (response.teamMemberName !== this.name) {
                         return;
                     }
 
                     this.currentTrack = '';
+                    this.artwork = '';
                 },
             };
         },

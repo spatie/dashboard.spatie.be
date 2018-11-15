@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Console\Components\Tasks;
+namespace App\Console\Components\TeamMember;
 
 use Illuminate\Console\Command;
-use App\Events\Tasks\TasksFetched;
+use App\Events\TeamMember\TasksFetched;
 use App\Services\GitHub\GitHubApi;
 use Parsedown;
 
