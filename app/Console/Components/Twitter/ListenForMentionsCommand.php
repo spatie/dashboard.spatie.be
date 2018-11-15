@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use App\Events\Twitter\Mentioned;
 use Spatie\LaravelTwitterStreamingApi\TwitterStreamingApi;
 
-class ListenForMentions extends Command
+class ListenForMentionsCommand extends Command
 {
     protected $signature = 'dashboard:listen-twitter-mentions';
 

@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Command;
 
-class UpdateDashboard extends Command
+class UpdateDashboardCommand extends Command
 {
     protected $signature = 'dashboard:update';
 
@@ -17,7 +17,6 @@ class UpdateDashboard extends Command
         $this->call('dashboard:send-heartbeat');
         $this->call('dashboard:fetch-current-tracks');
         $this->call('dashboard:fetch-packagist-totals');
-        $this->call('dashboard:fetch-npm-totals');
         $this->call('dashboard:fetch-tasks');
         $this->call('dashboard:fetch-velo-stations');
     }

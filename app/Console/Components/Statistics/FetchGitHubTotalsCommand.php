@@ -7,7 +7,7 @@ use App\Services\GitHub\GitHubApi;
 use Illuminate\Support\Collection;
 use App\Events\Statistics\GitHubTotalsFetched;
 
-class FetchGitHubTotals extends Command
+class FetchGitHubTotalsCommand extends Command
 {
     protected $signature = 'dashboard:fetch-github-totals';
 

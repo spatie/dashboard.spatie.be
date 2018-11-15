@@ -6,7 +6,7 @@ use App\Events\Dashboard\UpdateAppearance;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
-class DetermineAppearance extends Command
+class DetermineAppearanceCommand extends Command
 {
     protected $signature = 'dashboard:determine-appearance';
 

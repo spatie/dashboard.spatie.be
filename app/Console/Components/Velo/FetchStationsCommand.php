@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use App\Events\Velo\StationsFetched;
 
-class FetchStations extends Command
+class FetchStationsCommand extends Command
 {
     protected $signature = 'dashboard:fetch-velo-stations';
 

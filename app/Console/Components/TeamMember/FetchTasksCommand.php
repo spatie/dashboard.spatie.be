@@ -7,7 +7,7 @@ use App\Events\TeamMember\TasksFetched;
 use App\Services\GitHub\GitHubApi;
 use Parsedown;
 
-class FetchTasks extends Command
+class FetchTasksCommand extends Command
 {
     protected $signature = 'dashboard:fetch-tasks';
 

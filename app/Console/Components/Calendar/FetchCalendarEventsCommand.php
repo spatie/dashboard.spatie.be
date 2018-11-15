@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Spatie\GoogleCalendar\Event;
 use App\Events\Calendar\EventsFetched;
 
-class FetchCalendarEvents extends Command
+class FetchCalendarEventsCommand extends Command
 {
     protected $signature = 'dashboard:fetch-calendar-events';
 

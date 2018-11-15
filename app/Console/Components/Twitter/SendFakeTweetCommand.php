@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use App\Events\Twitter\Mentioned;
 use Illuminate\Foundation\Inspiring;
 
-class SendFakeTweet extends Command
+class SendFakeTweetCommand extends Command
 {
     protected $signature = 'dashboard:send-fake-tweet {text?} {--Q|quote : Attach a quote to the tweet}';
 
