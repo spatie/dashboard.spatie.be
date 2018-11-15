@@ -173,6 +173,7 @@ return [
         App\Providers\CollectionServiceProvider::class,
         Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiServiceProvider::class,
         App\Services\GitHub\GitHubServiceProvider::class,
+        \App\Services\Slack\SlackServiceProvider::class,
     ],
 
     /*

@@ -2,8 +2,10 @@
 
 namespace App\Console\Components\TeamMember;
 
+use App\Events\TeamMember\UpdateStatus;
+use App\Services\Slack\Member;
+use App\Services\Slack\Slack;
 use Illuminate\Console\Command;
-use Parsedown;
 
 class FetchStatusCommand extends Command
 {
@@ -11,8 +13,24 @@ class FetchStatusCommand extends Command
 
     protected $description = 'Fetch team members statusses from Slack';
 
-    public function handle()
-    {
+    protected $slackMembers = [
+        'seb',
+        'adriaan',
+        'freek',
+        'willem',
+        'alex',
+        'ruben',
+        'brent',
+        'jef',
+        'wouter',
+    ];
 
+    public function handle(Slack $slack)
+    {
+        $slack
+            ->getMembers($this->slackMembers)
+            ->each(function(Member $member) {
+                event(new UpdateStatus(strtolower($member->name), $member->workingFromHome));
+            });
     }
 }
