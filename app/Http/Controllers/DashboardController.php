@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller;
 use App\Services\TweetHistory\TweetHistory;
 
-class DashboardController extends Controller
+class DashboardController
 {
     public function __invoke()
     {
