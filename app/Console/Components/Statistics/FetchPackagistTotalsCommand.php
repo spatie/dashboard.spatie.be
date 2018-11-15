@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use Spatie\Packagist\Packagist;
 use App\Events\Statistics\PackagistTotalsFetched;
 
-class FetchPackagistTotals extends Command
+class FetchPackagistTotalsCommand extends Command
 {
     protected $signature = 'dashboard:fetch-packagist-totals';
 

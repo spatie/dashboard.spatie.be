@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use App\Events\Statistics\NpmTotalsFetched;
 use Developmint\NpmStats\NpmStats;
 
-class FetchNpmTotals extends Command
+class FetchNpmTotalsCommand extends Command
 {
     protected $signature = 'dashboard:fetch-npm-totals';
 

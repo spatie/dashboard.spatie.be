@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Command;
 
-class UpdateDashboard extends Command
+class UpdateDashboardCommand extends Command
 {
     protected $signature = 'dashboard:update';
 

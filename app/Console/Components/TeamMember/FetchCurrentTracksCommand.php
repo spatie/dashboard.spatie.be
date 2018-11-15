@@ -7,7 +7,7 @@ use Spatie\NowPlaying\NowPlaying;
 use App\Events\TeamMember\PlayingNothing;
 use App\Events\TeamMember\PlayingTrack;
 
-class FetchCurrentTracks extends Command
+class FetchCurrentTracksCommand extends Command
 {
     protected $signature = 'dashboard:fetch-current-tracks';
 

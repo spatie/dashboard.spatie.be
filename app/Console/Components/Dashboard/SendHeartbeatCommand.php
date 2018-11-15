@@ -5,7 +5,7 @@ namespace App\Console\Components\Dashboard;
 use Illuminate\Console\Command;
 use App\Events\Dashboard\Heartbeat;
 
-class SendHeartbeat extends Command
+class SendHeartbeatCommand extends Command
 {
     protected $signature = 'dashboard:send-heartbeat';
 
