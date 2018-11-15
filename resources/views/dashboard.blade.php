@@ -3,7 +3,7 @@
 @section('content')
 
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
-
+<div id="dashboard">
     <dashboard>
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a12"></twitter>
         <uptime position="a1:a12"></uptime>
@@ -22,5 +22,6 @@
         <velo position="e10:e12"></velo>
         <internet-connection></internet-connection>
     </dashboard>
+</div>
 
 @endsection

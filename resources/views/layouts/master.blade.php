@@ -8,9 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
-    <div id="dashboard">
-        @yield('content')
-    </div>
+    @yield('content')
 
     @if(usingNodeServer())
         <script src="{{ config('app.url') }}:6001/socket.io/socket.io.js"></script>
