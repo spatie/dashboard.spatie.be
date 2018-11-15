@@ -7,21 +7,6 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    protected $commands = [
-        \App\Console\Components\Calendar\FetchCalendarEvents::class,
-        \App\Console\Components\Statistics\FetchGitHubTotals::class,
-        \App\Console\Components\Dashboard\SendHeartbeat::class,
-        \App\Console\Components\Statistics\FetchNpmTotals::class,
-        \App\Console\Components\Music\FetchCurrentTracks::class,
-        \App\Console\Components\Statistics\FetchPackagistTotals::class,
-        \App\Console\Components\Tasks\FetchTasks::class,
-        \App\Console\Components\Twitter\ListenForMentions::class,
-        \App\Console\Components\Twitter\SendFakeTweet::class,
-        \App\Console\Components\Velo\FetchStations::class,
-        \App\Console\Components\Dashboard\DetermineAppearance::class,
-        UpdateDashboard::class,
-    ];
-
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('dashboard:fetch-calendar-events')->everyMinute();
@@ -33,5 +18,15 @@ class Kernel extends ConsoleKernel
         $schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
         $schedule->command('dashboard:fetch-packagist-totals')->hourly();
         $schedule->command('dashboard:fetch-npm-totals')->hourly();
+    }
+
+    public function commands()
+    {
+        $commandDirectries = glob(app_path('Console/Components/*'), GLOB_ONLYDIR);
+        $commandDirectries[] = app_path('Console');
+
+        collect($commandDirectries)->each(function(string $commandDirectory) {
+            $this->load($commandDirectory);
+        });
     }
 }
