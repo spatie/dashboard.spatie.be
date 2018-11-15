@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events\Temperature;
+namespace App\Events\TimeWeather;
 
 use App\Events\DashboardEvent;
 

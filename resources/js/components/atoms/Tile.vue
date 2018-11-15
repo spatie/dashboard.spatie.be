@@ -9,15 +9,35 @@
 </template>
 
 <script>
-import { positionToGridAreaNotation } from '../../helpers';
+    export default {
+        props: ['position', 'transparent'],
 
-export default {
-    props: ['position', 'transparent'],
-
-    computed: {
-        tilePosition() {
-            return `grid-area: ${positionToGridAreaNotation(this.position)}`;
+        computed: {
+            tilePosition() {
+                return `grid-area: ${this.positionToGridAreaNotation(this.position)}`;
+            },
         },
-    },
-};
+
+        methods: {
+            positionToGridAreaNotation(position) {
+                const [from, to = null] = position.toLowerCase().split(':');
+
+                if (from.length < 2 || (to && to.length < 2)) {
+                    return;
+                }
+
+                const areaFrom = `${from.substring(1)} / ${this.indexInAlphabet(from[0])}`;
+                const area = to
+                    ? `${areaFrom} / ${Number(to.substring(1)) + 1} / ${this.indexInAlphabet(to[0]) + 1}`
+                    : areaFrom;
+
+                return area;
+            },
+
+            indexInAlphabet(character) {
+                const index = character.toLowerCase().charCodeAt(0) - 96;
+                return index < 1 ? 1 : index;
+            },
+        },
+    }
 </script>

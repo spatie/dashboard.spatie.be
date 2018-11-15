@@ -18,7 +18,7 @@ export default {
     methods: {
         getEventHandlers() {
             return {
-                'Temperature.TemperatureFetched': response => {
+                'TimeWeather.TemperatureFetched': response => {
                     this.temperature = response.temperature;
                 },
             };
