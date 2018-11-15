@@ -20,21 +20,18 @@
                     <span class="font-medium">{{ formatNumber(githubPullRequests) }}</span>
                 </li>
                 <li>
-                    <div
-                        class="grid gap-0 w-full items-center"
-                        style="grid-template-columns: 3rem auto 1fr;"
-                    >
-                        <span> PHP </span> <span class="text-dimmed text-xs"> Total </span>
-                        <span class="font-medium justify-self-end">
-                            {{ formatNumber(packagistTotal) }}
-                        </span>
-                        <span class="text-dimmed text-xs" style="grid-column-start: 2">
-                            Monthly
-                        </span>
-                        <span class="font-medium justify-self-end">
-                            {{ formatNumber(packagistMonthly) }}
-                        </span>
-                    </div>
+                    <span>
+                        <span class="mr-2">Downloads</span>
+                        <span class="text-dimmed">Total</span>
+                    </span>
+                    <span class="font-medium">{{ formatNumber(packagistTotal) }}</span>
+                </li>
+                <li>
+                    <span>
+                        <span class="opacity-0 mr-2">Downloads</span>
+                        <span class="text-dimmed">30 days</span>
+                    </span>
+                    <span class="font-medium">{{ formatNumber(packagistMonthly) }}</span>
                 </li>
             </ul>
         </div>

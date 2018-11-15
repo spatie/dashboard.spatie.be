@@ -14,11 +14,10 @@ import saveState from 'vue-save-state';
 export default {
     mixins: [echo, saveState],
 
-    props: {
-        mode: {
-            type: String,
-            default: 'light-mode',
-        },
+    data() {
+        return {
+            mode: 'light-mode',
+        }
     },
 
     methods: {

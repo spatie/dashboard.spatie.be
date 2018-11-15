@@ -23,7 +23,7 @@
                         <office-temperature />
                         <span class="text-sm uppercase text-dimmed">in</span>
                     </span>
-                    <span class="text-2xl -mt-2" v-html="weather.icon"></span>
+                    <span class="text-2xl" v-html="weather.icon"></span>
                 </div>
                 <div class="hidden">{{ weatherCity }}</div>
             </div>

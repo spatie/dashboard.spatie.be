@@ -52,18 +52,6 @@
     align-content: end;
 }
 
-.justify-items-start {
-    justify-items: start;
-}
-
-.justify-items-center {
-    justify-items: center;
-}
-
-.justify-items-end {
-    justify-items: end;
-}
-
 .justify-self-start {
     justify-self: start;
 }
@@ -74,4 +62,16 @@
 
 .justify-self-end {
     justify-self: end;
+}
+
+.justify-items-start {
+    justify-items: start;
+}
+
+.justify-items-center {
+    justify-items: center;
+}
+
+.justify-items-end {
+    justify-items: end;
 }
