@@ -7,9 +7,10 @@
             <div class="flex items-center w-full bg-tile z-10">
                 <div
                     v-if="artwork != ''"
-                    class="flex-none overflow-hidden w-8 h-8 rounded border-2 border-screen"
+                    class="flex-none overflow-hidden w-12 h-12 -my-6 -ml-3 rounded border-2 border-screen"
+                    style="transform: rotate(-3deg)"
                 >
-                    <img :src="artwork" class="w-8 h-8" />
+                    <img :src="artwork" class="w-12 h-12" />
                 </div>
                 <avatar v-else :src="avatar" />
                 <div class="flex-grow leading-tight ml-2">
