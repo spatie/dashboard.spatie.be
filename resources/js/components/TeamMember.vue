@@ -1,5 +1,5 @@
 <template>
-    <tile :position="position" :class="{ 'opacity-75': worksFromHome }">
+    <tile :position="position">
         <div
             class="grid gap-padding h-full markup"
             :style="tasks != '' ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
