@@ -9,36 +9,46 @@
 
     --bg-screen: rgb(240, 240, 240);
     --bg-tile: rgb(255, 255, 255);
-    --bg-warn: rgb(226, 205, 65);
+    --bg-warn: rgb(255, 172, 51);
     --bg-error: rgb(234, 15, 65);
+
+    --text-default-dark: rgba(255, 255, 255, 0.9);
+    --text-dimmed-dark: rgba(255, 255, 255, 0.6);
+    --text-invers-dark: rgba(0, 0, 0, 0.9);
+    --text-accent-dark: rgb(255, 172, 51);
+
+    --bg-screen-dark: rgb(31, 31, 31);
+    --bg-tile-dark: rgb(35, 35, 35);
+    --bg-warn-dark: rgb(143, 86, 0);
+    --bg-error-dark: rgb(234, 89, 114);
 
     --tile-spacing: 0.5rem;
     --tile-padding: 1.25rem;
 }
 
 .dark-mode {
-    --text-default: rgba(255, 255, 255, 0.9);
-    --text-dimmed: rgba(255, 255, 255, 0.6);
-    --text-invers: rgba(0, 0, 0, 0.9);
-    --text-accent: rgb(233, 213, 50);
+    --text-default: var(--text-default-dark);
+    --text-dimmed: var(--text-dimmed-dark);
+    --text-invers: var(--text-invers-dark);
+    --text-accent: var(--text-accent-dark);
 
-    --bg-screen: rgb(31, 31, 31);
-    --bg-tile: rgb(35, 35, 35);
-    --bg-warn: rgb(204, 177, 47);
-    --bg-error: rgb(234, 89, 114);
+    --bg-screen: var(--bg-screen-dark);
+    --bg-tile: var(--bg-tile-dark);
+    --bg-warn: var(--bg-warn-dark);
+    --bg-error: var(--bg-error-dark);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --text-default: rgba(255, 255, 255, 0.9);
-        --text-dimmed: rgba(255, 255, 255, 0.6);
-        --text-invers: rgba(0, 0, 0, 0.9);
-        --text-accent: rgb(233, 213, 50);
+        --text-default: var(--text-default-dark);
+        --text-dimmed: var(--text-dimmed-dark);
+        --text-invers: var(--text-invers-dark);
+        --text-accent: var(--text-accent-dark);
 
-        --bg-screen: rgb(31, 31, 31);
-        --bg-tile: rgb(35, 35, 35);
-        --bg-warn: rgb(204, 177, 47);
-        --bg-error: rgb(234, 89, 114);
+        --bg-screen: var(--bg-screen-dark);
+        --bg-tile: var(--bg-tile-dark);
+        --bg-warn: var(--bg-warn-dark);
+        --bg-error: var(--bg-error-dark);
     }
 }
 
