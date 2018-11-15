@@ -27,7 +27,8 @@
                     </div>
                     <img
                         v-if="tweet.image"
-                        class="filter-grey max-h-48 mx-auto"
+                        class="max-h-48 mx-auto"
+                        style="objection-fit: cover;"
                         :src="tweet.image"
                     />
                     <div

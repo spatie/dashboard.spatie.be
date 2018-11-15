@@ -13,11 +13,10 @@ import echo from '../mixins/echo';
 export default {
     mixins: [echo],
 
-    props: {
-        mode: {
-            type: String,
-            default: 'light-mode',
-        },
+    data() {
+        return {
+            mode: 'light-mode',
+        }
     },
 
     methods: {

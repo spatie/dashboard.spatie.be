@@ -1,5 +1,5 @@
 <template>
-    <tile :position="position" :class="{ 'opacity-50': worksFromHome }">
+    <tile :position="position">
         <div
             class="grid gap-padding h-full markup"
             :style="tasks != '' ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
@@ -13,7 +13,10 @@
                 </div>
                 <avatar v-else :src="avatar" class="mr-1" />
                 <div class="flex-grow leading-tight ml-2">
-                    <h2 class="truncate capitalize" v-html="name" />
+                    <h2 class="truncate capitalize">
+                        {{ name }}
+                        <span v-if="worksFromHome" class="text-xl align-baseline" v-html="emoji('⛺️')" />
+                    </h2>
                     <div v-if="currentTrack != ''" class="truncate text-xs text-dimmed">
                         <span v-html="emoji('🎵')" /> {{ currentTrack }}
                     </div>
