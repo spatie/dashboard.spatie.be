@@ -46,6 +46,7 @@ export default {
             tasks: '',
             currentTrack: '',
             artwork: '',
+            worksFromHome: false,
         };
     },
 
@@ -62,6 +63,14 @@ export default {
             return {
                 'TeamMember.TasksFetched': response => {
                     this.tasks = response.tasks[this.name];
+                },
+
+                'TeamMember.UpdateStatus': response => {
+                    if (response.teamMemberName !== this.name) {
+                        return;
+                    }
+
+                    this.worksFromHome = response.worksFromHome;
                 },
 
                 'TeamMember.PlayingTrack': response => {
