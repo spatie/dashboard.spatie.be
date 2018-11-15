@@ -1,5 +1,6 @@
 <template>
-    <div class="fixed pin grid gap-spacing w-screen h-screen p-spacing font-sans font-normal leading-normal text-default bg-screen"
+    <div
+        class="fixed pin grid gap-spacing w-screen h-screen p-spacing font-sans font-normal leading-normal text-default bg-screen"
         :class="mode"
     >
         <slot></slot>
@@ -23,11 +24,10 @@ export default {
         getEventHandlers() {
             return {
                 'Dashboard.UpdateAppearance': response => {
-                    this.mode = `{$response.name}-mode`;
-                }
-            }
-        }
+                    this.mode = response.mode;
+                },
+            };
+        },
     },
 };
-
 </script>
