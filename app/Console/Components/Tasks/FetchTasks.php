@@ -5,6 +5,7 @@ namespace App\Console\Components\Tasks;
 use Illuminate\Console\Command;
 use App\Events\Tasks\TasksFetched;
 use App\Services\GitHub\GitHubApi;
+use Parsedown;
 
 class FetchTasks extends Command
 {
@@ -25,7 +26,7 @@ class FetchTasks extends Command
                 return file_get_contents($fileInfo['download_url']);
             })
             ->map(function ($markdownContent) {
-                return markdownToHtml($markdownContent);
+                return $this->markdownToHtml($markdownContent);
             })
             ->map(function ($htmlContent) {
                 return $this->formatTasks($htmlContent);
@@ -33,6 +34,11 @@ class FetchTasks extends Command
             ->toArray();
 
         event(new TasksFetched($contentOfFiles));
+    }
+
+    protected function markdownToHtml(string $markdown): string
+    {
+        return (new Parsedown())->text($markdown);
     }
 
     protected function formatTasks(string $html): string
