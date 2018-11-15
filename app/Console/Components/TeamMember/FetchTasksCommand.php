@@ -47,7 +47,7 @@ class FetchTasksCommand extends Command
 
     protected function formatTasks(string $html): string
     {
-        $html = str_replace('(', '<span class="style-list-number">', $html);
+        $html = str_replace('(', '<span class="ml-2 font-bold">', $html);
         $html = str_replace(')', '</span>', $html);
 
         return $html;

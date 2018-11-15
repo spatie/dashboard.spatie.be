@@ -1,7 +1,7 @@
 <template>
     <tile :position="position">
         <div
-            class="grid gap-4 justify-items-center h-full"
+            class="grid gap-padding justify-items-center h-full"
             style="grid-template-rows: auto 1fr auto;"
         >
             <div class="markup">

@@ -7,14 +7,14 @@
 }
 
 .markup h2 {
-    @apply font-medium;
-    @apply text-sm;
+    @apply font-bold;
 }
 
 .markup li {
     @apply flex justify-between items-baseline;
+    @apply leading-tight;
     @apply border-b-2 border-screen;
-    @apply py-1;
+    padding: .35rem 0;
 }
 
 .markup li:first-child {

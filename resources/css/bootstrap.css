@@ -2,7 +2,7 @@
 
 :root {
     --text-default: rgba(0, 0, 0, 0.9);
-    --text-dimmed: rgba(0, 0, 0, 0.4);
+    --text-dimmed: rgba(0, 0, 0, 0.6);
     --text-invers: rgba(255, 255, 255, 0.9);
     --text-accent: rgba(23, 34, 155, 0.9);
     --text-danger: rgba(234, 15, 65, 0.9);
@@ -23,7 +23,7 @@
     --bg-error-dark: rgb(234, 89, 114);
 
     --tile-spacing: 0.5rem;
-    --tile-padding: 1.25rem;
+    --tile-padding: 1rem;
 }
 
 .dark-mode {
@@ -72,7 +72,7 @@
 
 html {
     box-sizing: border-box;
-    font-size: 1vw;
+    font-size: 1.2vw;
 }
 
 select:focus,

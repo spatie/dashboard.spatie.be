@@ -4,7 +4,7 @@
 
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 <div id="dashboard">
-    <dashboard>
+    <dashboard class="font-sans">
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a12"></twitter>
         <uptime position="a1:a12"></uptime>
         <team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" birthday="1995-10-22" position="b1:b4"></team-member>
@@ -20,7 +20,7 @@
         <time-weather position="e1:e3" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
         <calendar position="e4:e9"></calendar>
         <velo position="e10:e12"></velo>
-        <internet-connection></internet-connection>
+        <internet-connection position="e1:e3"></internet-connection>
     </dashboard>
 </div>
 

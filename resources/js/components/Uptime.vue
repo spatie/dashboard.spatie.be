@@ -2,8 +2,7 @@
     <tile
         v-if="hasFailingUrls"
         :position="position"
-        class="markup"
-        style="--bg-tile: var(--bg-warn)"
+        class="markup bg-warn"
     >
         <h1>Downtime</h1>
         <ul>
