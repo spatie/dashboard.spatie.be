@@ -4,7 +4,7 @@
 
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 <div id="dashboard">
-    <dashboard>
+    <dashboard class="font-sans">
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a12"></twitter>
         <uptime position="a1:a12"></uptime>
         <team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" birthday="1995-10-22" position="b1:b4"></team-member>

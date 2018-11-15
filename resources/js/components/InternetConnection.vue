@@ -1,6 +1,6 @@
 <template>
     <tile :position="position" class="z-10" style="--bg-tile: transparent">
-        <div v-if="!offline" class="flex">
+        <div v-if="offline" class="flex">
             <div class="px-4 py-2 mx-auto font-black text-invers bg-error rounded-full shadow-lg">
                 No connection
             </div>
