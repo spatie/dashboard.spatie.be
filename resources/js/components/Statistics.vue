@@ -22,16 +22,16 @@
                 <li>
                     <span>
                         <span class="mr-2">Downloads</span>
-                        <span class="text-dimmed">Total</span>
+                        <span class="text-dimmed">30 days</span>
                     </span>
-                    <span class="font-medium">{{ formatNumber(packagistTotal) }}</span>
+                    <span class="font-medium">{{ formatNumber(packagistMonthly) }}</span>
                 </li>
                 <li>
                     <span>
                         <span class="opacity-0 mr-2">Downloads</span>
-                        <span class="text-dimmed">30 days</span>
+                        <span class="text-dimmed">Total</span>
                     </span>
-                    <span class="font-medium">{{ formatNumber(packagistMonthly) }}</span>
+                    <span class="font-medium">{{ formatNumber(packagistTotal) }}</span>
                 </li>
             </ul>
         </div>
