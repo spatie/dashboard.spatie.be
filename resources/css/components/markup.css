@@ -7,7 +7,7 @@
 }
 
 .markup h2 {
-    @apply font-medium;
+    @apply font-bold;
 }
 
 .markup li {
