@@ -7,10 +7,10 @@ use App\Events\DashboardEvent;
 class UpdateAppearance extends DashboardEvent
 {
     /** @var string */
-    public $name;
+    public $mode;
 
-    public function __construct(string $name)
+    public function __construct(string $mode)
     {
-        $this->name = $name;
+        $this->mode = $mode;
     }
 }
