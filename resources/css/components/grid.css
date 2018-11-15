@@ -1,0 +1,77 @@
+.grid {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
+}
+
+.gap-spacing {
+    grid-gap: var(--tile-spacing);
+}
+
+.gap-padding {
+    grid-gap: var(--tile-padding);
+}
+
+.gap-0 {
+    grid-gap: 0;
+}
+
+.gap-1 {
+    grid-gap: config('padding.1');
+}
+
+.gap-2 {
+    grid-gap: config('padding.2');
+}
+
+.gap-4 {
+    grid-gap: config('padding.4');
+}
+
+.align-self-start {
+    align-self: end;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-self-end {
+    align-self: end;
+}
+
+.align-content-start {
+    align-content: start;
+}
+
+.align-content-center {
+    align-content: center;
+}
+
+.align-content-end {
+    align-content: end;
+}
+
+.justify-self-start {
+    justify-self: start;
+}
+
+.justify-self-center {
+    justify-self: center;
+}
+
+.justify-self-end {
+    justify-self: end;
+}
+
+.justify-items-start {
+    justify-items: start;
+}
+
+.justify-items-center {
+    justify-items: center;
+}
+
+.justify-items-end {
+    justify-items: end;
+}

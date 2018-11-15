@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Events\Temperature\TemperatureFetched;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Events\TimeWeather\TemperatureFetched;
 
 class UpdateTemperatureController
 {
-    use ValidatesRequests;
-
     public function __invoke(Request $request)
     {
-        $temperature = $this->validate($request, [
+        $temperature = $request->validate($request, [
             'temperature' => 'required|numeric',
         ]);
 

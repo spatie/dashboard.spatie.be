@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Artisan;
-use Illuminate\Routing\Controller;
 
-class GitHubWebhookController extends Controller
+class GitHubWebhookController
 {
     public function gitRepoReceivedPush()
     {

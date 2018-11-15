@@ -1,0 +1,3 @@
+.filter-grey {
+    filter: contrast(75%) grayscale(1) brightness(150%);
+}

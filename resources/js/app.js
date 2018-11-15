@@ -5,12 +5,9 @@ import Vue from 'vue';
 
 import Dashboard from './components/Dashboard';
 import Calendar from './components/Calendar';
-import Github from './components/Github';
+import Statistics from './components/Statistics';
 import InternetConnection from './components/InternetConnection';
-import Music from './components/Music';
-import Npm from './components/Npm';
-import Packagist from './components/Packagist';
-import Tasks from './components/Tasks';
+import TeamMember from './components/TeamMember';
 import TimeWeather from './components/TimeWeather';
 import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
@@ -22,12 +19,9 @@ new Vue({
     components: {
         Dashboard,
         Calendar,
-        Github,
+        Statistics,
         InternetConnection,
-        Music,
-        Npm,
-        Packagist,
-        Tasks,
+        TeamMember,
         TimeWeather,
         Twitter,
         Uptime,

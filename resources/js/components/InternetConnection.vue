@@ -1,15 +1,16 @@
 <template>
-    <section v-if="offline" class="internet-connection">
-        <div class="internet-connection__alert">
-            <span class="internet-connection__icon h-icon"></span>
-            <span class="internet-connection__text">Internet connection</span>
+    <div v-if="offline" class="fixed pin">
+        <div class="fixed pin bg-tile opacity-25"></div>
+        <div class="grid justify-items-center fixed pin-b pin-l pin-r">
+            <span class="px-4 py-2 mb-8 font-black text-invers bg-error rounded-full shadow-lg"
+                >No connection</span
+            >
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
 import echo from '../mixins/echo';
-import { addClassModifiers } from '../helpers';
 import moment from 'moment';
 
 export default {
@@ -27,8 +28,6 @@ export default {
     },
 
     methods: {
-        addClassModifiers,
-
         determineConnectionStatus() {
             const lastHeartBeatReceivedSecondsAgo = moment().diff(
                 this.lastHeartBeatReceivedAt,
