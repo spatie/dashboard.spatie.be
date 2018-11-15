@@ -53,8 +53,9 @@ export default {
 
     computed: {
         isBirthDay() {
-            let birthday = moment(this.birthDay);
+            let birthday = moment(this.birthday);
 
+console.log(birthday.format('MD'),moment().format('MD') );
             return birthday.format('MD') === moment().format('MD');
         }
     },
@@ -99,6 +100,7 @@ export default {
                     this.currentTrack = response.trackInfo.artist;
                     this.artwork = response.trackInfo.artwork;
                 },
+
                 'TeamMember.PlayingNothing': response => {
                     if (response.teamMemberName !== this.name) {
                         return;
