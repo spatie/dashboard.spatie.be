@@ -21,4 +21,8 @@ return [
     'velo' => [
         'stations' => explode(',', env('VELO_STATIONS')),
     ],
+
+    'slack' => [
+        'app_token' => env('SLACK_APP_TOKEN='),
+    ],
 ];

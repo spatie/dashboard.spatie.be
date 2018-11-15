@@ -9,9 +9,10 @@
 
 <script>
 import echo from '../mixins/echo';
+import saveState from 'vue-save-state';
 
 export default {
-    mixins: [echo],
+    mixins: [echo, saveState],
 
     data() {
         return {
