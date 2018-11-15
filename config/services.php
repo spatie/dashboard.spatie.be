@@ -23,6 +23,6 @@ return [
     ],
 
     'slack' => [
-        'app_token' => env('SLACK_APP_TOKEN='),
+        'app_token' => env('SLACK_APP_TOKEN'),
     ],
 ];
