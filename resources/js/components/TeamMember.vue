@@ -1,11 +1,15 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-padding h-full markup"
+        <div
+            class="grid gap-padding h-full markup"
             :style="tasks != '' ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
         >
             <div class="flex items-center w-full bg-tile z-10">
-                <div v-if="artwork != ''" class="flex-none overflow-hidden w-8 h-8 rounded border-2 border-screen">
-                    <img :src="artwork" class="w-8 h-8">
+                <div
+                    v-if="artwork != ''"
+                    class="flex-none overflow-hidden w-8 h-8 rounded border-2 border-screen"
+                >
+                    <img :src="artwork" class="w-8 h-8" />
                 </div>
                 <avatar v-else :src="avatar" />
                 <div class="flex-grow leading-tight ml-2">
@@ -49,7 +53,9 @@ export default {
         emoji,
 
         formatTasks() {
-            return this.tasks.replace(/\(/g, '<span class="ml-1 text-dimmed text-xs">').replace(/\)/g, '</span>')
+            return this.tasks
+                .replace(/\(/g, '<span class="ml-1 text-dimmed text-xs">')
+                .replace(/\)/g, '</span>');
         },
 
         getEventHandlers() {
@@ -62,7 +68,7 @@ export default {
                         return;
                     }
 
-                    this.currentTrack =  response.trackInfo.artist;
+                    this.currentTrack = response.trackInfo.artist;
                     this.artwork = response.trackInfo.artwork;
                 },
                 'Music.TeamMemberPlayingNothing': response => {
@@ -80,7 +86,6 @@ export default {
                 cacheKey: `tasks-${this.name}`,
             };
         },
-
     },
 };
 </script>

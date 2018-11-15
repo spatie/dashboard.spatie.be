@@ -1,7 +1,5 @@
 <template>
-    <div>
-        {{ relativeDateTime }}
-    </div>
+    <div>{{ relativeDateTime }}</div>
 </template>
 
 <script>

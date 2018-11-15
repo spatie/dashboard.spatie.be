@@ -1,14 +1,20 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-4 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
+        <div
+            class="grid gap-4 justify-items-center h-full"
+            style="grid-template-rows: auto 1fr auto;"
+        >
             <div class="markup">
-                    <h1>{{ date }}</h1>
+                <h1>{{ date }}</h1>
             </div>
             <div class="align-self-center font-bold text-5xl tracking-wide leading-none">
                 {{ time }}
             </div>
             <div class="uppercase">
-                <div class="grid gap-4 items-center" style="grid-template-columns: repeat(3, auto);">
+                <div
+                    class="grid gap-4 items-center"
+                    style="grid-template-columns: repeat(3, auto);"
+                >
                     <span>
                         {{ weather.temperature }}°
                         <span class="text-sm uppercase text-dimmed">out</span>
@@ -19,9 +25,7 @@
                     </span>
                     <span class="text-2xl -mt-2" v-html="weather.icon"></span>
                 </div>
-                <div class="hidden">
-                    {{ weatherCity }}
-                </div>
+                <div class="hidden">{{ weatherCity }}</div>
             </div>
         </div>
     </tile>
@@ -32,7 +36,7 @@ import { emoji } from '../helpers';
 import Tile from './atoms/Tile';
 import moment from 'moment-timezone';
 import weather from '../services/weather/Weather';
-import OfficeTemperature from "./atoms/OfficeTemperature";
+import OfficeTemperature from './atoms/OfficeTemperature';
 
 export default {
     components: {
@@ -176,7 +180,7 @@ export default {
             }
 
             this.weather.temperature = conditions.temp;
-            this.weather.icon = emoji(icon) ;
+            this.weather.icon = emoji(icon);
         },
     },
 };

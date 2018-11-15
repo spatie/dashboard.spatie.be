@@ -6,8 +6,14 @@
                     <div class="flex items-center w-full">
                         <avatar :src="tweet.authorAvatar" />
                         <div class="flex-grow leading-tight ml-2">
-                            <div class="font-medium text-sm truncate" v-html="tweet.authorName"></div>
-                            <div class="truncate text-xs text-dimmed" v-html="tweet.authorScreenName"></div>
+                            <div
+                                class="font-medium text-sm truncate"
+                                v-html="tweet.authorName"
+                            ></div>
+                            <div
+                                class="truncate text-xs text-dimmed"
+                                v-html="tweet.authorScreenName"
+                            ></div>
                         </div>
                     </div>
                     <div>
@@ -19,8 +25,16 @@
                             </span>
                         </div>
                     </div>
-                    <img v-if="tweet.image" class="filter-grey max-h-48 mx-auto" :src="tweet.image" />
-                    <div v-if="tweet.hasQuote" class="py-2 pl-2 text-xs text-dimmed border-l-2 border-screen" v-html="tweet.hasQuote"></div>
+                    <img
+                        v-if="tweet.image"
+                        class="filter-grey max-h-48 mx-auto"
+                        :src="tweet.image"
+                    />
+                    <div
+                        v-if="tweet.hasQuote"
+                        class="py-2 pl-2 text-xs text-dimmed border-l-2 border-screen"
+                        v-html="tweet.hasQuote"
+                    ></div>
                 </div>
             </div>
         </div>

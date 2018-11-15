@@ -20,13 +20,11 @@
                     <span class="font-medium">{{ formatNumber(githubPullRequests) }}</span>
                 </li>
                 <li>
-                    <div class="grid gap-0 w-full items-center" style="grid-template-columns: 3rem auto 1fr;">
-                        <span>
-                            PHP
-                        </span>
-                        <span class="text-dimmed text-xs">
-                            Total
-                        </span>
+                    <div
+                        class="grid gap-0 w-full items-center"
+                        style="grid-template-columns: 3rem auto 1fr;"
+                    >
+                        <span> PHP </span> <span class="text-dimmed text-xs"> Total </span>
                         <span class="font-medium justify-self-end">
                             {{ formatNumber(packagistTotal) }}
                         </span>
@@ -39,13 +37,11 @@
                     </div>
                 </li>
                 <li>
-                    <div class="grid gap-0 w-full items-center" style="grid-template-columns: 3rem auto 1fr;">
-                        <span>
-                            JS
-                        </span>
-                        <span class="text-dimmed text-xs">
-                            Total
-                        </span>
+                    <div
+                        class="grid gap-0 w-full items-center"
+                        style="grid-template-columns: 3rem auto 1fr;"
+                    >
+                        <span> JS </span> <span class="text-dimmed text-xs"> Total </span>
                         <span class="font-medium justify-self-end">
                             {{ formatNumber(npmTotal) }}
                         </span>

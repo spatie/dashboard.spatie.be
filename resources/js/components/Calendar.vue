@@ -5,7 +5,12 @@
             <ul class="grid gap-0 h-full">
                 <li v-for="event in events">
                     <div class="my-auto">
-                        <div class="font-medium" :class="withinWeek(event.date) ? 'text-accent' : ''">{{ event.name }}</div>
+                        <div
+                            class="font-medium"
+                            :class="withinWeek(event.date) ? 'text-accent' : ''"
+                        >
+                            {{ event.name }}
+                        </div>
                         <div class="text-sm text-dimmed">{{ relativeDate(event.date) }}</div>
                     </div>
                 </li>
