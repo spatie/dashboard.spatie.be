@@ -29,7 +29,7 @@
                             v-html="emoji(statusEmoji)"
                         />
                     </h2>
-                    <div v-if="currentTrack != ''" class="truncate text-xs text-dimmed">
+                    <div v-if="currentTrack != ''" class="truncate text-sm text-dimmed">
                         <span v-html="emoji('🎵')" /> {{ currentTrack }}
                     </div>
                 </div>

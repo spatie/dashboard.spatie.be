@@ -8,7 +8,6 @@
 
 .markup h2 {
     @apply font-medium;
-    @apply text-sm;
 }
 
 .markup li {
