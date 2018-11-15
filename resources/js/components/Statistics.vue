@@ -5,7 +5,7 @@
             <ul class="align-self-center">
                 <li>
                     <span v-html="emoji('✨')" />
-                    <span class="font-medium text-accent">{{ formatNumber(githubStars) }}</span>
+                    <span class="font-medium">{{ formatNumber(githubStars) }}</span>
                 </li>
                 <li>
                     <span>Contributors</span>

@@ -13,9 +13,9 @@
                 </div>
                 <div v-else>
                     <avatar :src="avatar" class="mr-1" />
-                    <div class="absolute flex items-center jsutify-center text-2xl"
+                    <div class="absolute flex items-center jsutify-center text-3xl"
                         v-html="emoji('👑')"
-                        style= "top: -.75rem; right: .25rem; transform:rotate(7deg);"
+                        style= "top: -1rem; right: .05rem; transform:rotate(7deg);"
                     />
                 </div>
                 <div class="flex-grow leading-tight ml-2">
