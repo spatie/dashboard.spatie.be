@@ -13,7 +13,7 @@
                     <span>
                         <span
                             :class="{ 'text-danger' : isStationNearEmpty(station) }"
-                            class="font-medium">
+                            class="font-bold">
                             {{ station.bikes }}
                         </span>
                     </span>

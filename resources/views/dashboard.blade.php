@@ -20,7 +20,7 @@
         <time-weather position="e1:e3" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
         <calendar position="e4:e9"></calendar>
         <velo position="e10:e12"></velo>
-        <internet-connection></internet-connection>
+        <internet-connection position="e1:e3"></internet-connection>
     </dashboard>
 </div>
 

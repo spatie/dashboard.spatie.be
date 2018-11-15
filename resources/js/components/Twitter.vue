@@ -1,7 +1,7 @@
 <template>
     <tile class="overflow-hidden" :position="position">
         <ul class="grid" style="grid-auto-rows: auto;">
-            <li class="overflow-hidden pb-4 mb-4 border-b-2 border-screen" v-for="tweet in onDisplay">
+            <li class="overflow-hidden pb-8 mb-8 border-b-2 border-screen" v-for="tweet in onDisplay">
                 <div class="grid gap-padding" style="grid-auto-rows: auto">
                     <div class="flex items-center w-full">
                         <avatar :src="tweet.authorAvatar" />

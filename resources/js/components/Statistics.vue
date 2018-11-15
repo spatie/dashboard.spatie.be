@@ -5,27 +5,27 @@
             <ul class="align-self-center">
                 <li>
                     <span v-html="emoji('✨')" />
-                    <span class="font-medium">{{ formatNumber(githubStars) }}</span>
+                    <span class="font-bold">{{ formatNumber(githubStars) }}</span>
                 </li>
                 <li>
                     <span>Contributors</span>
-                    <span class="font-medium">{{ formatNumber(githubContributors) }}</span>
+                    <span class="font-bold">{{ formatNumber(githubContributors) }}</span>
                 </li>
                 <li>
                     <span>Issues</span>
-                    <span class="font-medium">{{ formatNumber(githubIssues) }}</span>
+                    <span class="font-bold">{{ formatNumber(githubIssues) }}</span>
                 </li>
                 <li>
                     <span>Pull Requests</span>
-                    <span class="font-medium">{{ formatNumber(githubPullRequests) }}</span>
+                    <span class="font-bold">{{ formatNumber(githubPullRequests) }}</span>
                 </li>
                 <li>
                     <span>30 days</span>
-                    <span class="font-medium">{{ formatNumber(packagistMonthly) }}</span>
+                    <span class="font-bold">{{ formatNumber(packagistMonthly) }}</span>
                 </li>
                 <li>
                     <span>Total</span>
-                    <span class="font-medium">{{ formatNumber(packagistTotal) }}</span>
+                    <span class="font-bold">{{ formatNumber(packagistTotal) }}</span>
                 </li>
             </ul>
         </div>
