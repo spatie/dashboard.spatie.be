@@ -30,6 +30,7 @@ import echo from '../mixins/echo';
 import Avatar from './atoms/Avatar';
 import Tile from './atoms/Tile';
 import saveState from 'vue-save-state';
+import moment from 'moment';
 
 export default {
     components: {
@@ -39,7 +40,13 @@ export default {
 
     mixins: [echo, saveState],
 
-    props: ['name', 'avatar', 'position'],
+    props: ['name', 'avatar', 'position', 'birthDay'],
+
+    computed: {
+        isBirthDay() {
+            return moment(this.birthDay).isSame(date, 'd')
+        }
+    },
 
     data() {
         return {

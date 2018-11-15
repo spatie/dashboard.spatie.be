@@ -12,10 +12,12 @@ class UpdateStatus extends DashboardEvent
     /** @var string */
     public $statusEmoji;
 
-    public function __construct(string $teamMemberName, string $statusEmoji)
+    public function __construct(string $teamMemberName, string $statusEmoji, bool $isBirthDay)
     {
         $this->teamMemberName = $teamMemberName;
 
         $this->statusEmoji = $statusEmoji;
+
+        $this->isBirthDay = $isBirthDay;
     }
 }

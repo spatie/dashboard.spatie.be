@@ -11,7 +11,7 @@ class FetchStatusCommand extends Command
 {
     protected $signature = 'dashboard:fetch-team-member-status';
 
-    protected $description = 'Fetch team members statusses from Slack';
+    protected $description = 'Determine team user statuses';
 
     protected $slackMembers = [
         'seb',
