@@ -9,13 +9,13 @@ class UpdateStatus extends DashboardEvent
     /** @var string */
     public $teamMemberName;
 
-    /** @var bool */
-    public $worksFromHome;
+    /** @var string */
+    public $statusEmoji;
 
-    public function __construct(string $teamMemberName, bool $worksFromHome)
+    public function __construct(string $teamMemberName, string $statusEmoji)
     {
         $this->teamMemberName = $teamMemberName;
 
-        $this->worksFromHome = $worksFromHome;
+        $this->statusEmoji = $statusEmoji;
     }
 }

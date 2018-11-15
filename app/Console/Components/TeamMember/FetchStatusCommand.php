@@ -30,7 +30,7 @@ class FetchStatusCommand extends Command
         $slack
             ->getMembers($this->slackMembers)
             ->each(function(Member $member) {
-                event(new UpdateStatus(strtolower($member->name), $member->workingFromHome));
+                event(new UpdateStatus(strtolower($member->name), $member->statusEmoji));
             });
     }
 }
