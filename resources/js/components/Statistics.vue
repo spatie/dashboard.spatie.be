@@ -71,10 +71,10 @@ export default {
         getEventHandlers() {
             return {
                 'Statistics.GitHubTotalsFetched': response => {
-                    this.githubStars = response.githubStars;
-                    this.githubIssues = response.githubIssues;
-                    this.githubPullRequests = response.githubPullRequests;
-                    this.githubContributors = response.githubContributors;
+                    this.githubStars = response.stars;
+                    this.githubIssues = response.issues;
+                    this.githubPullRequests = response.pullRequests;
+                    this.githubContributors = response.contributors;
                 },
 
                 'Statistics.PackagistTotalsFetched': response => {
