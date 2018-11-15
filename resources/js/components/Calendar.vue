@@ -1,6 +1,6 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-padding h-full markup" style="--template-rows: auto 1fr;">
+        <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
             <h1>Upcoming</h1>
             <ul class="grid gap-0 h-full">
                 <li v-for="event in events">

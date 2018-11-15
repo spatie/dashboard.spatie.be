@@ -1,21 +1,27 @@
 <template>
     <tile :position="position">
-        <div class="grid h-full markup" style="--template-rows: auto 1fr; grid-gap: .75rem">
-            <div class="flex items-center w-full bg-tile z-10" style="top: -.2rem">
-                <avatar :src="avatar" />
+        <div class="grid gap-padding h-full markup"
+            :style="tasks != '' ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
+        >
+            <div class="flex items-center w-full bg-tile z-10">
+                <div v-if="artwork != ''" class="flex-none overflow-hidden w-8 h-8 rounded border-2 border-screen">
+                    <img :src="artwork" class="w-8 h-8">
+                </div>
+                <avatar v-else :src="avatar" />
                 <div class="flex-grow leading-tight ml-2">
-                    <div class="font-medium text-sm truncate capitalize" v-html="name" />
+                    <h2 class="truncate capitalize" v-html="name" />
                     <div v-if="currentTrack != ''" class="truncate text-xs text-dimmed">
-                        <span v-html="renderMusicIcon()"></span> {{ currentTrack }}</div>
+                        <span v-html="emoji('🎵')" /> {{ currentTrack }}
+                    </div>
                 </div>
             </div>
-            <div v-html="formatTasks()"></div>
+            <div v-if="tasks != ''" v-html="formatTasks()"></div>
         </div>
     </tile>
 </template>
 
 <script>
-import twemoji from 'twemoji';
+import { emoji } from '../helpers';
 import echo from '../mixins/echo';
 import Avatar from './atoms/Avatar';
 import Tile from './atoms/Tile';
@@ -35,10 +41,13 @@ export default {
         return {
             tasks: '',
             currentTrack: '',
+            artwork: '',
         };
     },
 
     methods: {
+        emoji,
+
         formatTasks() {
             return this.tasks.replace(/\(/g, '<span class="ml-1 text-dimmed text-xs">').replace(/\)/g, '</span>')
         },
@@ -53,7 +62,8 @@ export default {
                         return;
                     }
 
-                    this.currentTrack =  `${response.trackInfo.artist} - ${response.trackInfo.trackName}`;
+                    this.currentTrack =  response.trackInfo.artist;
+                    this.artwork = response.trackInfo.artwork;
                 },
                 'Music.TeamMemberPlayingNothing': response => {
                     if (response.teamMemberName !== this.name) {
@@ -71,9 +81,6 @@ export default {
             };
         },
 
-        renderMusicIcon() {
-            return twemoji.parse('🎧');
-        },
     },
 };
 </script>

@@ -1,23 +1,27 @@
 <template>
     <tile class="rounded overflow-auto" :position="position" :transparent="true">
-        <div class="grid h-full" style="--auto-rows: auto;">
+        <div class="grid h-full" style="grid-auto-rows: auto;">
             <div class="overflow-hidden rounded bg-tile p-padding" v-for="tweet in onDisplay">
-                <div class="flex items-center w-full">
-                    <avatar :src="tweet.authorAvatar" />
-                    <div class="flex-grow leading-tight ml-2">
-                        <div class="font-medium text-sm truncate" v-html="tweet.authorName"></div>
-                        <div class="truncate text-xs text-dimmed" v-html="tweet.authorScreenName"></div>
+                <div class="grid gap-padding" style="grid-auto-rows: auto">
+                    <div class="flex items-center w-full">
+                        <avatar :src="tweet.authorAvatar" />
+                        <div class="flex-grow leading-tight ml-2">
+                            <div class="font-medium text-sm truncate" v-html="tweet.authorName"></div>
+                            <div class="truncate text-xs text-dimmed" v-html="tweet.authorScreenName"></div>
+                        </div>
                     </div>
+                    <div>
+                        <div :class="tweet.displayClass" v-html="tweet.html"></div>
+                        <div class="mt-1 text-xs text-dimmed">
+                            <relative-date :moment="tweet.date"></relative-date>
+                            <span v-if="tweet.hasQuote">
+                                In reply to {{ tweet.quote.authorScreenName }}
+                            </span>
+                        </div>
+                    </div>
+                    <img v-if="tweet.image" class="filter-grey max-h-48 mx-auto" :src="tweet.image" />
+                    <div v-if="tweet.hasQuote" class="py-2 pl-2 text-xs text-dimmed border-l-2 border-screen" v-html="tweet.hasQuote"></div>
                 </div>
-                <div class="mt-4" :class="tweet.displayClass" v-html="tweet.html"></div>
-                <div class="mt-1 text-xs text-dimmed">
-                    <relative-date :moment="tweet.date"></relative-date>
-                    <span v-if="tweet.hasQuote">
-                        In reply to {{ tweet.quote.authorScreenName }}
-                    </span>
-                </div>
-                <img v-if="tweet.image" class="mt-4 max-h-48 mx-auto" :src="tweet.image" />
-                <div v-if="tweet.hasQuote" class="mt-4 py-2 pl-2 text-xs text-dimmed border-l-2 border-screen" v-html="tweet.hasQuote"></div>
             </div>
         </div>
     </tile>

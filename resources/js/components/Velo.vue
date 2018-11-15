@@ -1,11 +1,8 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-padding h-full markup" style="--template-rows: auto 1fr;">
-            <h1>
-                <span class="absolute text-3xl -mt-4" v-html="renderTitleIcon()"></span>
-                <span class="opacity-0">Velo</span>
-            </h1>
-            <ul>
+        <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
+            <div class="text-3xl -mt-4" v-html="emoji('🚲')" />
+            <ul class="align-self-center">
                 <li v-for="station in stations">
                     <span :class="station.bikes == 0 ? 'line-through' : ''">{{ station.name.substring(4) }}</span>
                     <span>
@@ -18,7 +15,7 @@
 </template>
 
 <script>
-import twemoji from 'twemoji';
+import { emoji } from '../helpers';
 import echo from '../mixins/echo';
 import Tile from './atoms/Tile';
 import saveState from 'vue-save-state';
@@ -39,6 +36,8 @@ export default {
     },
 
     methods: {
+        emoji,
+
         getEventHandlers() {
             return {
                 'Velo.StationsFetched': response => {
@@ -51,10 +50,6 @@ export default {
             return {
                 cacheKey: 'velo',
             };
-        },
-
-        renderTitleIcon() {
-            return twemoji.parse('🚲');
         },
 
     },

@@ -1,6 +1,6 @@
 <template>
     <tile :position="position">
-        <div class="grid justify-items-center h-full" style="--template-rows: auto 1fr auto; --gap: 1rem">
+        <div class="grid gap-4 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
             <div class="markup">
                     <h1>{{ date }}</h1>
             </div>
@@ -8,7 +8,7 @@
                 {{ time }}
             </div>
             <div class="uppercase">
-                <div class="grid items-center" style="--template-cols: repeat(3, auto); --gap: 1rem">
+                <div class="grid gap-4 items-center" style="grid-template-columns: repeat(3, auto);">
                     <span>
                         {{ weather.temperature }}°
                         <span class="text-sm uppercase text-dimmed">out</span>
@@ -17,7 +17,7 @@
                         <office-temperature />
                         <span class="text-sm uppercase text-dimmed">in</span>
                     </span>
-                    <span class="text-3xl -mt-2" v-html="weather.icon"></span>
+                    <span class="text-2xl -mt-2" v-html="weather.icon"></span>
                 </div>
                 <div class="hidden">
                     {{ weatherCity }}
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import twemoji from 'twemoji';
+import { emoji } from '../helpers';
 import Tile from './atoms/Tile';
 import moment from 'moment-timezone';
 import weather from '../services/weather/Weather';
@@ -80,6 +80,8 @@ export default {
     },
 
     methods: {
+        emoji,
+
         refreshTime() {
             this.date = moment()
                 .tz(this.timeZone)
@@ -174,7 +176,7 @@ export default {
             }
 
             this.weather.temperature = conditions.temp;
-            this.weather.icon = twemoji.parse(icon) ;
+            this.weather.icon = emoji(icon) ;
         },
     },
 };
