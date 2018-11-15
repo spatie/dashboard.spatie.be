@@ -21,7 +21,7 @@ class DetermineAppearanceCommand extends Command
     public function handle()
     {
         $appearance = $this->sunIsUp()
-            ? 'light-mode'
+            ? 'dark-mode'
             : 'dark-mode';
 
         event(new UpdateAppearance($appearance));

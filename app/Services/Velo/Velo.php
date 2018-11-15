@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Velo;
 
 use GuzzleHttp\Client;
 
@@ -16,7 +16,7 @@ class Velo
 
     public function getStations(array $stationIds = []): array
     {
-        $response = $this->client->get('https://www.velo-antwerpen.be/availability_map/getJsonObject');
+        $response = $this->client->get('/availability_map/getJsonObject');
 
         return collect(json_decode($response->getBody()))
             ->filter(function ($station) use ($stationIds) {
