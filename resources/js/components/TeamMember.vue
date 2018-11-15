@@ -55,7 +55,7 @@ export default {
             tasks: '',
             currentTrack: '',
             artwork: '',
-            worksFromHome: false,
+            statusEmoji: '',
         };
     },
 
@@ -79,7 +79,7 @@ export default {
                         return;
                     }
 
-                    this.worksFromHome = response.worksFromHome;
+                    this.statusEmoji = response.statusEmoji;
                 },
 
                 'TeamMember.PlayingTrack': response => {
