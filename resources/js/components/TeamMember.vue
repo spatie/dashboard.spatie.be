@@ -13,7 +13,7 @@
                 </div>
                 <div v-else>
                     <avatar :src="avatar" class="mr-1" />
-                    <div class="absolute flex items-center jsutify-center text-2xl"
+                    <div v-if="isBirthDay" class="absolute flex items-center jsutify-center text-2xl"
                         v-html="emoji('👑')"
                         style= "top: -.75rem; right: .25rem; transform:rotate(7deg);"
                     />
@@ -53,7 +53,9 @@ export default {
 
     computed: {
         isBirthDay() {
-            return moment(this.birthDay).isSame(date, 'd')
+            let birthday = moment(this.birthDay);
+
+            return birthday.format('MD') === moment().format('MD');
         }
     },
 
