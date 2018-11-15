@@ -1,5 +1,5 @@
 <template>
-    <tile :position="position">
+    <tile :position="position" :class="{ 'opacity-75': worksFromHome }">
         <div
             class="grid gap-padding h-full markup"
             :style="tasks != '' ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
@@ -11,7 +11,13 @@
                 >
                     <img :src="artwork" class="w-12 h-12" />
                 </div>
-                <avatar v-else :src="avatar" class="mr-1" />
+                <div v-else>
+                    <avatar :src="avatar" class="mr-1" />
+                    <div class="absolute flex items-center jsutify-center text-2xl"
+                        v-html="emoji('👑')"
+                        style= "top: -.75rem; right: .25rem; transform:rotate(10deg);"
+                    />
+                </div>
                 <div class="flex-grow leading-tight ml-2">
                     <h2 class="truncate capitalize">
                         {{ name }}
