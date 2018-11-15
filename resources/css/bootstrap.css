@@ -16,6 +16,18 @@
     --tile-padding: 1.25rem;
 }
 
+.dark-mode {
+    --text-default: rgba(255, 255, 255, 0.9);
+    --text-dimmed: rgba(255, 255, 255, 0.6);
+    --text-invers: rgba(0, 0, 0, 0.9);
+    --text-accent: rgb(233, 213, 50);
+
+    --bg-screen: rgb(31, 31, 31);
+    --bg-tile: rgb(35, 35, 35);
+    --bg-warn: rgb(204, 177, 47);
+    --bg-error: rgb(234, 89, 114);
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --text-default: rgba(255, 255, 255, 0.9);
