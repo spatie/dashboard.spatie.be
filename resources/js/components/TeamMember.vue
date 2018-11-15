@@ -8,11 +8,10 @@
                 <div
                     v-if="artwork != ''"
                     class="flex-none overflow-hidden w-12 h-12 -my-6 -ml-3 rounded border-2 border-screen"
-                    style="transform: rotate(-3deg)"
                 >
                     <img :src="artwork" class="w-12 h-12" />
                 </div>
-                <avatar v-else :src="avatar" />
+                <avatar v-else :src="avatar" class="mr-1" />
                 <div class="flex-grow leading-tight ml-2">
                     <h2 class="truncate capitalize" v-html="name" />
                     <div v-if="currentTrack != ''" class="truncate text-xs text-dimmed">
