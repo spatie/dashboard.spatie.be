@@ -20,11 +20,15 @@ class DetermineAppearanceCommand extends Command
 
     public function handle()
     {
+        $this->info('Determining dashboard appearance...');
+
         $appearance = $this->sunIsUp()
             ? 'light-mode'
             : 'dark-mode';
 
         event(new UpdateAppearance($appearance));
+
+        $this->info('All done!');
     }
 
     public function sunIsUp(): bool

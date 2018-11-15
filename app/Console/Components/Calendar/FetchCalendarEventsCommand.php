@@ -16,6 +16,8 @@ class FetchCalendarEventsCommand extends Command
 
     public function handle()
     {
+        $this->info('Fetching calendar events...');
+
         $events = collect(Event::get())
             ->map(function (Event $event) {
                 $sortDate = $event->getSortDate();
@@ -29,5 +31,7 @@ class FetchCalendarEventsCommand extends Command
             ->toArray();
 
         event(new EventsFetched($events));
+
+        $this->info('All done!');
     }
 }

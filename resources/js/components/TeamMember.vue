@@ -61,7 +61,6 @@ export default {
         isBirthDay() {
             let birthday = moment(this.birthday);
 
-            console.log(birthday.format('MD'), moment().format('MD'));
             return birthday.format('MD') === moment().format('MD');
         },
     },
