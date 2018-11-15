@@ -1,7 +1,7 @@
 <template>
-    <tile class="rounded overflow-auto" :position="position" :transparent="true">
-        <div class="grid h-full" style="grid-auto-rows: auto;">
-            <div class="overflow-hidden rounded bg-tile p-padding" v-for="tweet in onDisplay">
+    <tile class="overflow-hidden" :position="position">
+        <ul class="grid" style="grid-auto-rows: auto;">
+            <li class="overflow-hidden pb-4 mb-4 border-b-2 border-screen" v-for="tweet in onDisplay">
                 <div class="grid gap-padding" style="grid-auto-rows: auto">
                     <div class="flex items-center w-full">
                         <avatar :src="tweet.authorAvatar" />
@@ -37,8 +37,8 @@
                         v-html="tweet.hasQuote"
                     ></div>
                 </div>
-            </div>
-        </div>
+            </li>
+        </ul>
     </tile>
 </template>
 

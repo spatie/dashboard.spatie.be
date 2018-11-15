@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="tasks != ''" v-html="formatTasks()"></div>
+            <div v-if="tasks != ''" v-html="tasks"></div>
         </div>
     </tile>
 </template>
@@ -77,12 +77,6 @@ export default {
 
     methods: {
         emoji,
-
-        formatTasks() {
-            return this.tasks
-                .replace(/\(/g, '<span class="ml-2 text-dimmed text-xs">')
-                .replace(/\)/g, '</span>');
-        },
 
         getEventHandlers() {
             return {
