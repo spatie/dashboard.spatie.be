@@ -21,6 +21,7 @@ class FetchCurrentTracksCommand extends Command
         'AlexVanderbist' => 'alex',
         'wouterbrouwers' => 'wouter',
         'brendt_gd' => 'brent',
+        'adriaan' => 'AdriaanMrn',
     ];
 
     public function handle()
