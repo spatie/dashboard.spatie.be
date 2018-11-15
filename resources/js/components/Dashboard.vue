@@ -24,7 +24,7 @@ export default {
         getEventHandlers() {
             return {
                 'Dashboard.UpdateAppearance': response => {
-                    this.mode = `{$response.name}-mode`;
+                    this.mode = response.mode;
                 },
             };
         },
