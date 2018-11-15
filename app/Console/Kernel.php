@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('dashboard:fetch-velo-stations')->everyMinute();
         $schedule->command('dashboard:determine-appearance')->everyMinute();
         $schedule->command('dashboard:fetch-tasks')->everyFiveMinutes();
+        $schedule->command('dashboard:fetch-team-member-status')->everyFiveMinutes();
         $schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
         $schedule->command('dashboard:fetch-packagist-totals')->hourly();
         $schedule->command('dashboard:fetch-npm-totals')->hourly();
