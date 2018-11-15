@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Events\Temperature\TemperatureFetched;
+use App\Events\TimeWeather\TemperatureFetched;
 
 class UpdateTemperatureController
 {
