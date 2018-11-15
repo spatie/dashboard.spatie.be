@@ -21,8 +21,7 @@
                 </li>
                 <li>
                     <span>
-                        <span class="mr-2">Downloads</span>
-                        <span class="text-dimmed">30 days</span>
+                        <span class="mr-2">Downloads</span> <span class="text-dimmed">30 days</span>
                     </span>
                     <span class="font-medium">{{ formatNumber(packagistMonthly) }}</span>
                 </li>

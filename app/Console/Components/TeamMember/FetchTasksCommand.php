@@ -2,10 +2,10 @@
 
 namespace App\Console\Components\TeamMember;
 
-use Illuminate\Console\Command;
-use App\Events\TeamMember\TasksFetched;
-use App\Services\GitHub\GitHubApi;
 use Parsedown;
+use Illuminate\Console\Command;
+use App\Services\GitHub\GitHubApi;
+use App\Events\TeamMember\TasksFetched;
 
 class FetchTasksCommand extends Command
 {

@@ -13,15 +13,21 @@
                 </div>
                 <div v-else>
                     <avatar :src="avatar" class="mr-1" />
-                    <div v-if="isBirthDay" class="absolute flex items-center jsutify-center text-3xl"
+                    <div
+                        v-if="isBirthDay"
+                        class="absolute flex items-center jsutify-center text-3xl"
                         v-html="emoji('👑')"
-                        style= "top: -1rem; right: .05rem; transform:rotate(7deg);"
+                        style="top: -1rem; right: .05rem; transform:rotate(7deg);"
                     />
                 </div>
                 <div class="flex-grow leading-tight ml-2">
                     <h2 class="truncate capitalize">
                         {{ name }}
-                        <span v-if="statusEmoji != ''" class="text-xl" v-html="emoji(statusEmoji)" />
+                        <span
+                            v-if="statusEmoji != ''"
+                            class="text-xl"
+                            v-html="emoji(statusEmoji)"
+                        />
                     </h2>
                     <div v-if="currentTrack != ''" class="truncate text-xs text-dimmed">
                         <span v-html="emoji('🎵')" /> {{ currentTrack }}
@@ -55,9 +61,9 @@ export default {
         isBirthDay() {
             let birthday = moment(this.birthday);
 
-console.log(birthday.format('MD'),moment().format('MD') );
+            console.log(birthday.format('MD'), moment().format('MD'));
             return birthday.format('MD') === moment().format('MD');
-        }
+        },
     },
 
     data() {

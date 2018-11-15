@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
         $commandDirectries = glob(app_path('Console/Components/*'), GLOB_ONLYDIR);
         $commandDirectries[] = app_path('Console');
 
-        collect($commandDirectries)->each(function(string $commandDirectory) {
+        collect($commandDirectries)->each(function (string $commandDirectory) {
             $this->load($commandDirectory);
         });
     }

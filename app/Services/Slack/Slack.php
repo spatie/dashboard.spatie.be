@@ -25,7 +25,7 @@ class Slack
             ->filter(function (array $member) use ($memberNames) {
                 return in_array($member['name'], $memberNames);
             })
-            ->map(function(array $memberProperties) {
+            ->map(function (array $memberProperties) {
                 return new Member($memberProperties);
             });
     }

@@ -21,6 +21,5 @@ class UpdateDashboardCommand extends Command
         $this->call('dashboard:fetch-packagist-totals');
         $this->call('dashboard:fetch-tasks');
         $this->call('dashboard:fetch-velo-stations');
-
     }
 }
