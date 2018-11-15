@@ -28,10 +28,18 @@ class FetchTasks extends Command
                 return markdownToHtml($markdownContent);
             })
             ->map(function ($htmlContent) {
-                return formatTasks($htmlContent);
+                return $this->formatTasks($htmlContent);
             })
             ->toArray();
 
         event(new TasksFetched($contentOfFiles));
+    }
+
+    protected function formatTasks(string $html): string
+    {
+        $html = str_replace('(', '<span class="style-list-number">', $html);
+        $html = str_replace(')', '</span>', $html);
+
+        return $html;
     }
 }
