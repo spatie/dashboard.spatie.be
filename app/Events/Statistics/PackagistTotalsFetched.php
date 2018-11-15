@@ -7,9 +7,6 @@ use App\Events\DashboardEvent;
 class PackagistTotalsFetched extends DashboardEvent
 {
     /** @var int */
-    public $daily;
-
-    /** @var int */
     public $monthly;
 
     /** @var int */

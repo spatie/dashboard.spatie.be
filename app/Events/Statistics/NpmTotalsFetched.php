@@ -7,9 +7,6 @@ use App\Events\DashboardEvent;
 class NpmTotalsFetched extends DashboardEvent
 {
     /** @var int */
-    public $daily;
-
-    /** @var int */
     public $monthly;
 
     /** @var int */

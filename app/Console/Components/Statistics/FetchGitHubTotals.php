@@ -29,7 +29,6 @@ class FetchGitHubTotals extends Command
                     'contributors' => $repos->sum(function ($repo) use ($gitHub, $userName) {
                         return count($gitHub->fetchContributors($userName, $repo['name']));
                     }),
-                    'numberOfRepos' => $repos->count(),
                 ];
             });
 

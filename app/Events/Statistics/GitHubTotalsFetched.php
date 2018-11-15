@@ -18,13 +18,10 @@ class GitHubTotalsFetched extends DashboardEvent
     /** @var int */
     public $contributors;
 
-    /** @var int */
-    public $numberOfRepos;
-
     public function __construct(array $totals)
     {
-        foreach ($totals as $sumName => $total) {
-            $this->$sumName = $total;
+        foreach ($totals as $statisticName => $total) {
+            $this->$statisticName = $total;
         }
     }
 }

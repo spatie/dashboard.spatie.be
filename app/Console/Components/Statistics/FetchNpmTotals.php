@@ -22,13 +22,11 @@ class FetchNpmTotals extends Command
         $totals = $this->getPackageList()
             ->map(function ($packageName) use ($npmStats) {
                 return [
-                    'daily' => $npmStats->getStats($packageName)['downloads'],
                     'monthly' => $npmStats->getStats($packageName, NpmStats::LAST_MONTH)['downloads'],
                     'total' => $npmStats->getStats($packageName, NpmStats::TOTAL)['downloads'],
                 ];
             })->pipe(function ($packageProperties) {
                 return [
-                    'daily' => $packageProperties->sum('daily'),
                     'monthly' => $packageProperties->sum('monthly'),
                     'total' => $packageProperties->sum('total'),
                 ];
