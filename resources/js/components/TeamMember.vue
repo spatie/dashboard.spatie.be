@@ -15,13 +15,13 @@
                     <avatar :src="avatar" class="mr-1" />
                     <div class="absolute flex items-center jsutify-center text-2xl"
                         v-html="emoji('👑')"
-                        style= "top: -.75rem; right: .25rem; transform:rotate(10deg);"
+                        style= "top: -.75rem; right: .25rem; transform:rotate(7deg);"
                     />
                 </div>
                 <div class="flex-grow leading-tight ml-2">
                     <h2 class="truncate capitalize">
                         {{ name }}
-                        <span v-if="worksFromHome" class="text-xl align-baseline" v-html="emoji('⛺️')" />
+                        <span v-if="statusEmoji != ''" class="text-xl" v-html="emoji(statusEmoji)" />
                     </h2>
                     <div v-if="currentTrack != ''" class="truncate text-xs text-dimmed">
                         <span v-html="emoji('🎵')" /> {{ currentTrack }}
@@ -64,7 +64,7 @@ export default {
 
         formatTasks() {
             return this.tasks
-                .replace(/\(/g, '<span class="ml-1 text-dimmed text-xs">')
+                .replace(/\(/g, '<span class="ml-2 text-dimmed text-xs">')
                 .replace(/\)/g, '</span>');
         },
 
