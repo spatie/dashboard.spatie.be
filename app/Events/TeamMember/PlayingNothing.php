@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Events\Music;
+namespace App\Events\TeamMember;
 
 use App\Events\DashboardEvent;
 
-class TeamMemberPlayingNothing extends DashboardEvent
+class PlayingNothing extends DashboardEvent
 {
     /** @var string */
     public $teamMemberName;
