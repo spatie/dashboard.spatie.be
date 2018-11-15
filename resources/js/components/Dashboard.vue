@@ -28,6 +28,12 @@ export default {
                 },
             };
         },
+
+        getSaveStateConfig() {
+            return {
+                cacheKey: `dashboard`,
+            };
+        },
     },
 };
 </script>
