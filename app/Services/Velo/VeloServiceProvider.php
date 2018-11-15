@@ -9,9 +9,7 @@ class VeloServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $appToken = config('services.slack.app_token');
-
-        $this->app->singleton(Velo::class, function () use ($appToken) {
+        $this->app->singleton(Velo::class, function () {
             $client = new Client([
                 'base_uri' => 'https://www.velo-antwerpen.be',
             ]);
