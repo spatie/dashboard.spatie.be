@@ -3,15 +3,15 @@
         <ul class="grid" style="grid-auto-rows: auto;">
             <li class="overflow-hidden pb-8 mb-8 border-b-2 border-screen" v-for="tweet in onDisplay">
                 <div class="markup grid gap-padding" style="grid-auto-rows: auto">
-                    <div class="flex items-center w-full">
+                    <div class="grid gap-2 items-center w-full"  style="grid-template-columns: auto 1fr">
                         <avatar :src="tweet.authorAvatar" />
-                        <div class="flex-grow leading-tight ml-2">
+                        <div class="leading-tight min-w-0">
                             <h2
                                 class="truncate"
                                 v-html="tweet.authorName"
                             ></h2>
                             <div
-                                class="truncate text-sm text-dimmed"
+                                class="truncate text-sm"
                                 v-html="tweet.authorScreenName"
                             ></div>
                         </div>

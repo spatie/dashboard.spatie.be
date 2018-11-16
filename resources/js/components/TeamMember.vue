@@ -4,10 +4,10 @@
             class="grid gap-padding h-full markup"
             :style="tasks ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
         >
-            <div class="flex items-center w-full bg-tile z-10">
+            <div class="grid gap-2 items-center w-full bg-tile z-10" style="grid-template-columns: auto 1fr">
                 <div
                     v-if="artwork != ''"
-                    class="flex-none overflow-hidden w-10 h-10 rounded border border-screen"
+                    class="overflow-hidden w-10 h-10 rounded border border-screen"
                 >
                     <img :src="artwork" class="w-10 h-10" />
                 </div>
@@ -20,7 +20,7 @@
                         style="top: -1rem; right: .05rem; transform:rotate(7deg);"
                     />
                 </div>
-                <div class="flex-grow leading-tight ml-2">
+                <div class="leading-tight min-w-0">
                     <h2 class="truncate capitalize">
                         {{ name }}
                         <span
@@ -29,7 +29,7 @@
                             v-html="emoji(statusEmoji)"
                         />
                     </h2>
-                    <div v-if="currentTrack != ''" class="truncate text-sm text-dimmed">
+                    <div v-if="currentTrack != ''" class="truncate text-sm">
                         <span v-html="emoji('🎵')" /> {{ currentTrack }}
                     </div>
                 </div>
