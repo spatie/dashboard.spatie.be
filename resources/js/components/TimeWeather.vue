@@ -1,13 +1,13 @@
 <template>
     <tile :position="position">
         <div
-            class="grid gap-padding justify-items-center h-full"
+            class="grid gap-2 justify-items-center h-full"
             style="grid-template-rows: auto 1fr auto;"
         >
             <div class="markup">
                 <h1>{{ date }}</h1>
             </div>
-            <div class="align-self-center font-bold text-5xl tracking-wide leading-none">
+            <div class="align-self-center font-bold text-4xl tracking-wide leading-none">
                 {{ time }}
             </div>
             <div class="uppercase">

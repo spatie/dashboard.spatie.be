@@ -17,10 +17,10 @@
         <team-member name="jef" avatar="{{ gravatar('jef@spatie.be') }}" birthday="1975-03-28" position="d11:d13"></team-member>
         <team-member name="wouter" avatar="{{ gravatar('wouter@spatie.be') }}" birthday="1991-03-15" position="d14:d16"></team-member>
         <team-member name="willem" avatar="{{ gravatar('willem@spatie.be') }}" birthday="1975-09-04" position="d17:d24"></team-member>
-        <time-weather position="e1:e6" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
-        <internet-connection position="e1:e6"></internet-connection>
-        <calendar position="e7:e18"></calendar>
-        <velo position="e19:e24"></velo>
+        <time-weather position="e1:e5" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
+        <internet-connection position="e1:e5"></internet-connection>
+        <calendar position="e6:e16"></calendar>
+        <velo position="e17:e24"></velo>
     </dashboard>
 </div>
 
