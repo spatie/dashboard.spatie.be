@@ -1,7 +1,6 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-padding h-full markup" style="grid-template-rows: 1.5rem 1fr;">
-            <h1>Packages</h1>
+        <div class="grid gap-padding h-full markup">
             <ul class="align-self-center">
                 <li>
                     <span v-html="emoji('✨')" />

@@ -2,17 +2,17 @@
     <tile :position="position">
         <div
             class="grid gap-padding h-full markup"
-            :style="tasks != '' ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
+            :style="tasks ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
         >
             <div class="flex items-center w-full bg-tile z-10">
                 <div
                     v-if="artwork != ''"
-                    class="flex-none overflow-hidden w-12 h-12 -my-6 -ml-3 rounded border-2 border-screen"
+                    class="flex-none overflow-hidden w-10 h-10 rounded border border-screen"
                 >
-                    <img :src="artwork" class="w-12 h-12" />
+                    <img :src="artwork" class="w-10 h-10" />
                 </div>
                 <div v-else>
-                    <avatar :src="avatar" class="mr-1" />
+                    <avatar :src="avatar" />
                     <div
                         v-if="isBirthDay"
                         class="absolute flex items-center jsutify-center text-3xl"
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="tasks != ''" v-html="tasks"></div>
+            <div class="align-self-center" v-if="tasks" v-html="tasks"></div>
         </div>
     </tile>
 </template>
@@ -81,6 +81,7 @@ export default {
             return {
                 'TeamMember.TasksFetched': response => {
                     this.tasks = response.tasks[this.name];
+                    console.log(this.teamMemberName + ' ' + this.tasks + '-end');
                 },
 
                 'TeamMember.UpdateStatus': response => {

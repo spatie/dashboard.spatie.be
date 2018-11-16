@@ -1,13 +1,11 @@
 <template>
     <tile :position="position">
-        <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
-            <h1>Upcoming</h1>
-            <ul class="grid gap-0 h-full">
+        <div class="grid gap-padding h-full markup">
+            <ul class="align-self-center">
                 <li v-for="event in events">
-                    <div class="my-auto">
+                    <div class="my-2">
                         <div
-                            class="font-medium"
-                            :class="withinWeek(event.date) ? 'text-accent' : ''"
+                            :class="{ 'font-bold' : withinWeek(event.date) }"
                         >
                             {{ event.name }}
                         </div>

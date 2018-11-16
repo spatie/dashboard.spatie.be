@@ -4,7 +4,7 @@
     --text-default: rgba(0, 0, 0, 0.9);
     --text-dimmed: rgba(0, 0, 0, 0.6);
     --text-invers: rgba(255, 255, 255, 0.9);
-    --text-accent: rgba(23, 34, 155, 0.9);
+    --text-accent: rgba(25, 71, 147, 0.9);
     --text-danger: rgba(234, 15, 65, 0.9);
 
     --bg-screen: rgb(240, 240, 240);
@@ -17,7 +17,7 @@
     --text-invers-dark: rgba(0, 0, 0, 0.9);
     --text-accent-dark: rgb(255, 172, 51);
 
-    --bg-screen-dark: rgb(31, 31, 31);
+    --bg-screen-dark: rgb(27, 27, 27);
     --bg-tile-dark: rgb(35, 35, 35);
     --bg-warn-dark: rgb(143, 86, 0);
     --bg-error-dark: rgb(234, 89, 114);
