@@ -23,7 +23,7 @@ class DetermineAppearanceCommand extends Command
         $this->info('Determining dashboard appearance...');
 
         $appearance = $this->sunIsUp()
-            ? 'light-mode'
+            ? 'dark-mode'
             : 'dark-mode';
 
         event(new UpdateAppearance($appearance));
