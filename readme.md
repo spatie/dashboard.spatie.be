@@ -4,7 +4,7 @@ This repo contains the source code of our dashboard.
 
 ## Example
 
-<img style="max-width:100%; height: auto" src="http://spatie.github.io/dashboard.spatie.be/images/screenshot20170620.jpg">
+<img style="max-width:100%; height: auto" src="http://spatie.github.io/dashboard.spatie.be/images/screenshot20181118.jpg">
 
 Our configured dashboard has following tiles:
 
