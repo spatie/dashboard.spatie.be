@@ -11,7 +11,7 @@ export default {
 
     data() {
         return {
-            temperature: 21,
+            temperature: null,
         };
     },
 

@@ -35,7 +35,7 @@ class FetchCurrentTracksCommand extends Command
                 $currentTrack = $lastFm->getTrackInfo($lastFmUserName);
 
                 $event = $currentTrack
-                    ? new PlayingNothing($teamMemberName, $currentTrack)
+                    ? new PlayingTrack($teamMemberName, $currentTrack)
                     : new PlayingNothing($teamMemberName);
 
                 event($event);
