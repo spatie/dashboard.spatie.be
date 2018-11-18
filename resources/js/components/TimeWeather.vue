@@ -180,7 +180,7 @@ export default {
             }
 
             this.weather.temperature = conditions.temp;
-            this.weather.icon = emoji(icon);
+            //this.weather.icon = emoji(icon);
         },
     },
 };
