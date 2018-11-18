@@ -12,13 +12,10 @@ class PackagistTotalsFetched extends DashboardEvent
     /** @var int */
     public $total;
 
-    /** @var int */
-    public $stars;
-
     public function __construct(array $totals)
     {
-        foreach ($totals as $sumName => $total) {
-            $this->$sumName = $total;
-        }
+        $this->monthly = $totals['monthly'];
+
+        $this->total = $totals['total'];
     }
 }
