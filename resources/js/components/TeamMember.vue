@@ -97,6 +97,8 @@ export default {
                         return;
                     }
 
+                    console.log(response.trackInfo);
+
                     this.currentTrack = response.trackInfo.artist;
                     this.artwork = response.trackInfo.artwork;
                 },
