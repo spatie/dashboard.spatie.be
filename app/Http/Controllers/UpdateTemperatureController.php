@@ -6,7 +6,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use App\Events\TimeWeather\TemperatureFetched;
 
-class UpdateTemperatureController extends Controller
+class UpdateTemperatureController
 {
     use ValidatesRequests;
 
