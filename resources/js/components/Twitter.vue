@@ -34,7 +34,7 @@
                     <div
                         v-if="tweet.hasQuote"
                         class="py-2 pl-2 text-xs text-dimmed border-l-2 border-screen"
-                        v-html="tweet.hasQuote"
+                        v-html="tweet.quote.html"
                     ></div>
                 </div>
             </li>
