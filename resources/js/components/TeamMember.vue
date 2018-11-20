@@ -9,7 +9,13 @@
                     v-if="artwork != ''"
                     class="overflow-hidden w-10 h-10 rounded border border-screen"
                 >
-                    <img :src="artwork" class="w-10 h-10" />
+                    <component
+                        :is="trackUrl ? 'a' : 'span'"
+                        :href="trackUrl || ''"
+                        target="_blank"
+                    >
+                        <img :src="artwork" class="w-10 h-10" />
+                    </component>
                 </div>
                 <div v-else>
                     <avatar :src="avatar" />
@@ -29,9 +35,15 @@
                             v-html="emoji(statusEmoji)"
                         />
                     </h2>
-                    <div v-if="currentTrack != ''" class="truncate text-sm">
+                    <component
+                        v-if="currentTrack != ''"
+                        class="truncate text-sm"
+                        :is="trackUrl ? 'a' : 'span'"
+                        :href="trackUrl || ''"
+                        target="_blank"
+                    >
                         <span v-html="emoji('🎵')" /> {{ currentTrack }}
-                    </div>
+                    </component>
                 </div>
             </div>
             <div class="align-self-center" v-if="tasks" v-html="tasks"></div>
@@ -70,6 +82,7 @@ export default {
             tasks: '',
             currentTrack: '',
             artwork: '',
+            trackUrl: '',
             statusEmoji: '',
         };
     },
@@ -97,10 +110,9 @@ export default {
                         return;
                     }
 
-                    console.log(response.trackInfo);
-
                     this.currentTrack = response.trackInfo.artist;
                     this.artwork = response.trackInfo.artwork;
+                    this.trackUrl = response.trackInfo.url;
                 },
 
                 'TeamMember.PlayingNothing': response => {
@@ -110,6 +122,7 @@ export default {
 
                     this.currentTrack = '';
                     this.artwork = '';
+                    this.trackUrl = '';
                 },
             };
         },
