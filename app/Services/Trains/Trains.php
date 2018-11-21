@@ -23,8 +23,8 @@ class Trains
         return [
             'name' => $liveboard->stationinfo->name,
             'departures' => collect($liveboard->departures->departure)
-                ->filter(function ($departure) {
-                    return ! in_array($departure->station, config('services.trains.excluded'));
+                ->reject(function ($departure) {
+                    return in_array($departure->station, config('services.trains.excluded'));
                 })->map(function ($departure) {
                     return [
                         'station' => $departure->station,
