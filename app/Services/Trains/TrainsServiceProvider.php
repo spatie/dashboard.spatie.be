@@ -17,5 +17,4 @@ class TrainsServiceProvider extends ServiceProvider
             return new Trains($client);
         });
     }
-
 }

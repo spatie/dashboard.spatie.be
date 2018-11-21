@@ -13,5 +13,4 @@ class TrainsFetched extends DashboardEvent
     {
         $this->liveboard = $liveboard;
     }
-
 }

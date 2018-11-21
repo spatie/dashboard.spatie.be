@@ -22,5 +22,4 @@ class FetchTrainsInfoCommand extends Command
 
         $this->info('All done!');
     }
-
 }
