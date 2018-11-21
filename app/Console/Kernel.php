@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('dashboard:fetch-team-member-status')->everyFiveMinutes();
         $schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
         $schedule->command('dashboard:fetch-packagist-totals')->hourly();
+        $schedule->command('dashboard:fetch-trains-info')->everyMinute();
     }
 
     public function commands()

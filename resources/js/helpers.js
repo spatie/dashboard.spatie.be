@@ -86,3 +86,7 @@ export function relativeDateTime(value) {
 export function diffInSeconds(otherMoment) {
     return moment().diff(otherMoment, 'seconds');
 }
+
+export function formatTime(value) {
+    return moment(value, 'X').format('HHumm');
+}

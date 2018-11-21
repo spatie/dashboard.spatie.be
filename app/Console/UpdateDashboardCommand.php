@@ -21,5 +21,6 @@ class UpdateDashboardCommand extends Command
         $this->call('dashboard:fetch-calendar-events');
         $this->call('dashboard:fetch-github-totals');
         $this->call('dashboard:fetch-packagist-totals');
+        $this->call('dashboard:fetch-trains-info');
     }
 }
