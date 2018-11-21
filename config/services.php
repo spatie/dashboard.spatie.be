@@ -25,4 +25,9 @@ return [
     'slack' => [
         'app_token' => env('SLACK_APP_TOKEN'),
     ],
+
+    'trains' => [
+        'station' => env('TRAIN_STATION'),
+        'excluded' => explode(',', env('TRAIN_EXCLUDED')),
+    ],
 ];

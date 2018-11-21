@@ -9,6 +9,7 @@ import Statistics from './components/Statistics';
 import InternetConnection from './components/InternetConnection';
 import TeamMember from './components/TeamMember';
 import TimeWeather from './components/TimeWeather';
+import Trains from './components/Trains';
 import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
 import Velo from './components/Velo';
@@ -23,6 +24,7 @@ new Vue({
         InternetConnection,
         TeamMember,
         TimeWeather,
+        Trains,
         Twitter,
         Uptime,
         Velo,
