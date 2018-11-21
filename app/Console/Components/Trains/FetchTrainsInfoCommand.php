@@ -2,9 +2,9 @@
 
 namespace App\Console\Components\Trains;
 
-use App\Events\Trains\TrainsFetched;
 use App\Services\Trains\Trains;
 use Illuminate\Console\Command;
+use App\Events\Trains\TrainsFetched;
 
 class FetchTrainsInfoCommand extends Command
 {
@@ -22,4 +22,5 @@ class FetchTrainsInfoCommand extends Command
 
         $this->info('All done!');
     }
+
 }
