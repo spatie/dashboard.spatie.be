@@ -5,21 +5,21 @@
                 <div class="grid place-center w-10 h-10 rounded-full" style="background-color: rgba(255, 255, 255, .9)">
                     <div class="text-3xl leading-none -mt-2" v-html="emoji('🚆')" />
                 </div>
-                <h1 class="ml-2">{{ liveboard.name }}</h1>
+                <h1 class="ml-2">{{ trains.name }}</h1>
             </div>
             <ul class="align-self-center">
-                <li v-for="departure in liveboard.departures">
+                <li v-for="train in trains">
                     <span :class="{
-                        'line-through' : departure.canceled,
-                        'text-danger' : departure.canceled,
+                        'line-through' : train.canceled,
+                        'text-danger' : train.canceled,
                     }">
-                        {{ departure.station }}
+                        {{ train.station }}
                     </span>
-                    <span v-if="!departure.canceled">
+                    <span v-if="!train.canceled">
                         <span
-                                :class="{ 'text-danger' : departure.delay > 0 }"
+                                :class="{ 'text-danger' : train.delay > 0 }"
                                 class="font-bold">
-                            <span v-if="departure.delay > 0 ">+{{ departure.delay }}</span>&nbsp;{{ formatTime(departure.time) }}
+                            <span v-if="train.delay > 0 ">+{{ train.delay }}</span>&nbsp;{{ formatTime(train.time) }}
                         </span>
                     </span>
                 </li>
@@ -45,7 +45,7 @@
 
         data() {
             return {
-                liveboard: [],
+                trains: [],
             };
         },
 
@@ -56,7 +56,7 @@
             getEventHandlers() {
                 return {
                     'Trains.TrainsFetched': response => {
-                        this.liveboard = response.liveboard;
+                        this.trains = response.trains;
                     },
                 };
             },

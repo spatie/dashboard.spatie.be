@@ -9,6 +9,7 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('dashboard:fetch-trains')->everyMinute();
         $schedule->command('dashboard:fetch-calendar-events')->everyMinute();
         $schedule->command('dashboard:fetch-current-tracks')->everyMinute();
         $schedule->command('dashboard:send-heartbeat')->everyMinute();
@@ -18,7 +19,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('dashboard:fetch-team-member-status')->everyFiveMinutes();
         $schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
         $schedule->command('dashboard:fetch-packagist-totals')->hourly();
-        $schedule->command('dashboard:fetch-trains-info')->everyMinute();
+
     }
 
     public function commands()

@@ -7,10 +7,10 @@ use App\Events\DashboardEvent;
 class TrainsFetched extends DashboardEvent
 {
     /** @var array */
-    public $liveboard;
+    public $trains;
 
-    public function __construct(array $liveboard)
+    public function __construct(array $trains)
     {
-        $this->liveboard = $liveboard;
+        $this->trains = $trains;
     }
 }

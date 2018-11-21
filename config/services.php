@@ -27,7 +27,6 @@ return [
     ],
 
     'trains' => [
-        'station' => env('TRAIN_STATION'),
-        'excluded' => explode(',', env('TRAIN_EXCLUDED')),
+        ['Antwerpen-Centraal', 'Gent-Dampoort'],
     ],
 ];
