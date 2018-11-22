@@ -88,5 +88,5 @@ export function diffInSeconds(otherMoment) {
 }
 
 export function formatTime(value) {
-    return moment(value, 'X').format('HHumm');
+    return moment(value, 'X').format('HH:mm');
 }
