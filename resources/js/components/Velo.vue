@@ -15,7 +15,8 @@
                     <span>
                         <span
                             :class="{ 'text-danger' : isStationNearEmpty(station) }"
-                            class="font-bold">
+                            class="font-bold"
+                        >
                             {{ station.bikes }}
                         </span>
                     </span>
