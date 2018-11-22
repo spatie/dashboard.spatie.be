@@ -3,6 +3,7 @@
 namespace App\Console\Components\Trains;
 
 use App\Services\Trains\IRail;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use App\Events\Trains\TrainsFetched;
 
@@ -22,7 +23,11 @@ class FetchTrainsCommand extends Command
             })
             ->flatten(1)
             ->sort('time')
-            ->values()
+            ->map(function(array $train) {
+                $train['time'] = Carbon::createFromTimestamp($train['time'])->format('H:i');
+
+                return $train;
+            })
             ->toArray();
 
         event(new TrainsFetched($trains));
