@@ -19,7 +19,7 @@
                         <span
                                 :class="{ 'text-danger' : train.delay > 0 }"
                                 class="font-bold">
-                            <span v-if="train.delay > 0 ">+{{ train.delay }}</span>&nbsp;{{ formatTime(train.time) }}
+                            <span v-if="train.delay > 0 ">+{{ train.delay }}m</span>&nbsp;{{ formatTime(train.time) }}
                         </span>
                     </span>
                 </li>
