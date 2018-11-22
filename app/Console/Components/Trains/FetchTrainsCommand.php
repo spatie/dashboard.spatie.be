@@ -22,9 +22,8 @@ class FetchTrainsCommand extends Command
                 return $iRail->getConnections($departure, $destination);
             })
             ->flatten(1)
-            ->sort(function(array $train) {
-                return (int)$train['time'];
-            })
+            ->sortBy('time')
+            ->values()
             ->toArray();
 
         event(new TrainsFetched($trains));
