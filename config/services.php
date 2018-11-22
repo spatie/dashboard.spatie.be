@@ -28,5 +28,7 @@ return [
 
     'trains' => [
         ['Antwerpen-Centraal', 'Gent-Dampoort'],
+        ['Antwerpen-Centraal', 'Overpelt'],
+        ['Antwerpen-Centraal', 'Mechelen'],
     ],
 ];

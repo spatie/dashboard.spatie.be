@@ -14,7 +14,7 @@ class FetchTrainsCommand extends Command
 
     public function handle(IRail $iRail)
     {
-        $this->info('Fetching Trains information...');
+        $this->info('Fetching trains from iRail...');
 
         $trains = collect(config('services.trains'))
             ->mapSpread(function (string $departure, string $destination) use ($iRail) {
@@ -22,6 +22,7 @@ class FetchTrainsCommand extends Command
             })
             ->flatten(1)
             ->sort('time')
+            ->values()
             ->toArray();
 
         event(new TrainsFetched($trains));
