@@ -22,7 +22,7 @@
                         :class="{ 'text-danger' : train.delay > 0 }"
                         class="flex font-bold"
                     >
-                        <span v-if="!train.delay > 0" class="mr-1">+{{ train.delay }}m</span>
+                        <span v-if="train.delay > 0" class="mr-1">+{{ train.delay }}m</span>
                         <span>{{ formatTime(train.time) }}</span>
                     </span>
                 </li>
