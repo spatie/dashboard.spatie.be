@@ -23,11 +23,6 @@ class FetchTrainsCommand extends Command
             })
             ->flatten(1)
             ->sort('time')
-            ->map(function(array $train) {
-                $train['time'] = Carbon::createFromTimestamp($train['time'])->format('H:i');
-
-                return $train;
-            })
             ->toArray();
 
         event(new TrainsFetched($trains));
