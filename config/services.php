@@ -26,9 +26,21 @@ return [
         'app_token' => env('SLACK_APP_TOKEN'),
     ],
 
-    'trains' => [
-        ['Antwerpen-Centraal', 'Gent-Dampoort'],
-        ['Antwerpen-Centraal', 'Overpelt'],
-        ['Antwerpen-Centraal', 'Mechelen'],
+    'train_connections' => [
+        [
+            'departure' => 'Antwerpen-Centraal',
+            'destination' => 'Gent-Dampoort',
+            'label' => 'Gent'
+        ],
+        [
+            'departure' => 'Antwerpen-Centraal',
+            'destination' => 'Overpelt',
+            'label' => 'Overpelt',
+        ],
+        [
+            'departure' => 'Antwerpen-Centraal',
+            'destination' => 'Mechelen',
+            'label' => 'Mechelen',
+        ],
     ],
 ];

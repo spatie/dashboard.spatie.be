@@ -13,7 +13,7 @@ class UpdateDashboardCommand extends Command
     public function handle()
     {
         $this->call('dashboard:determine-appearance');
-        $this->call('dashboard:fetch-trains');
+        $this->call('dashboard:fetch-train-connections');
         $this->call('dashboard:send-heartbeat');
         $this->call('dashboard:fetch-current-tracks');
         $this->call('dashboard:fetch-velo-stations');

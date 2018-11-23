@@ -5,14 +5,14 @@
                 <div class="grid place-center w-10 h-10 rounded-full" style="background-color: rgba(255, 255, 255, .9)">
                     <div class="text-3xl leading-none -mt-1" v-html="emoji('🚃')" />
                 </div>
-                <h1 class="ml-2">{{ trains.name }}</h1>
+                <h1 class="ml-2">{{ trainConnections.name }}</h1>
             </div>
             <div class="align-self-center grid gap-8" style="grid-auto-rows: auto;">
                 <div>
                     <h2 class="uppercase">Antwerpen</h2>
                     <ul class="mt-padding">
                         <li
-                            v-for="train in trains.slice(0,3)"
+                            v-for="train in trainConnections.slice(0,3)"
                             :class="{
                                 'line-through' : train.canceled,
                                 'text-danger' : train.canceled,
@@ -38,7 +38,7 @@
                     <h2 class="uppercase">Gent</h2>
                     <ul class="mt-padding">
                         <li
-                            v-for="train in trains.slice(0,3)"
+                            v-for="train in trainConnections.slice(0,3)"
                             :class="{
                                 'line-through' : train.canceled,
                                 'text-danger' : train.canceled,
@@ -82,7 +82,7 @@
 
         data() {
             return {
-                trains: [],
+                trainConnections: [],
             };
         },
 
@@ -92,8 +92,9 @@
 
             getEventHandlers() {
                 return {
-                    'Trains.TrainsFetched': response => {
-                        this.trains = response.trains;
+                    'Trains.TrainsConnectionsFetched': response => {
+                        console.log(response);
+                        this.trainConnections = response.trainConnections;
                     },
                 };
             },
