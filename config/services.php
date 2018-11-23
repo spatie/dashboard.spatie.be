@@ -34,13 +34,13 @@ return [
         ],
         [
             'departure' => 'Antwerpen-Centraal',
-            'destination' => 'Overpelt',
-            'label' => 'Overpelt',
+            'destination' => 'Mechelen',
+            'label' => 'Mechelen',
         ],
         [
             'departure' => 'Antwerpen-Centraal',
-            'destination' => 'Mechelen',
-            'label' => 'Mechelen',
+            'destination' => 'Overpelt',
+            'label' => 'Overpelt',
         ],
     ],
 ];
