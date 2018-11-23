@@ -1,19 +1,19 @@
 <template>
     <tile class="overflow-hidden" :position="position">
         <ul class="grid" style="grid-auto-rows: auto;">
-            <li class="overflow-hidden pb-4 mb-4 border-b-2 border-screen" v-for="tweet in onDisplay">
+            <li
+                class="overflow-hidden pb-4 mb-4 border-b-2 border-screen"
+                v-for="tweet in onDisplay"
+            >
                 <div class="markup grid gap-padding" style="grid-auto-rows: auto">
-                    <div class="grid gap-2 items-center w-full"  style="grid-template-columns: auto 1fr">
+                    <div
+                        class="grid gap-2 items-center w-full"
+                        style="grid-template-columns: auto 1fr"
+                    >
                         <avatar :src="tweet.authorAvatar" />
                         <div class="leading-tight min-w-0">
-                            <h2
-                                class="truncate"
-                                v-html="tweet.authorName"
-                            ></h2>
-                            <div
-                                class="truncate text-sm"
-                                v-html="tweet.authorScreenName"
-                            ></div>
+                            <h2 class="truncate" v-html="tweet.authorName"></h2>
+                            <div class="truncate text-sm" v-html="tweet.authorScreenName"></div>
                         </div>
                     </div>
                     <div>

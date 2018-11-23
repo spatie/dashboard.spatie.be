@@ -4,16 +4,15 @@
             class="grid gap-padding h-full markup"
             :style="tasks ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
         >
-            <div class="grid gap-2 items-center w-full bg-tile z-10" style="grid-template-columns: auto 1fr">
+            <div
+                class="grid gap-2 items-center w-full bg-tile z-10"
+                style="grid-template-columns: auto 1fr"
+            >
                 <div
                     v-if="artwork != ''"
                     class="overflow-hidden w-10 h-10 rounded border border-screen"
                 >
-                    <component
-                        :is="trackUrl ? 'a' : 'span'"
-                        :href="trackUrl || ''"
-                        target="_blank"
-                    >
+                    <component :is="trackUrl ? 'a' : 'span'" :href="trackUrl || ''" target="_blank">
                         <img :src="artwork" class="w-10 h-10" />
                     </component>
                 </div>

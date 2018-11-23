@@ -4,11 +4,7 @@
             <ul class="align-self-center">
                 <li v-for="event in events">
                     <div class="my-2">
-                        <div
-                            :class="{ 'font-bold' : withinWeek(event.date) }"
-                        >
-                            {{ event.name }}
-                        </div>
+                        <div :class="{ 'font-bold': withinWeek(event.date) }">{{ event.name }}</div>
                         <div class="text-sm text-dimmed">{{ relativeDate(event.date) }}</div>
                     </div>
                 </li>

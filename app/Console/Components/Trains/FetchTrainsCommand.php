@@ -3,7 +3,6 @@
 namespace App\Console\Components\Trains;
 
 use App\Services\Trains\IRail;
-use Carbon\Carbon;
 use Illuminate\Console\Command;
 use App\Events\Trains\TrainConnectionsFetched;
 

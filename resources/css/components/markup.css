@@ -14,7 +14,7 @@
     @apply flex justify-between items-baseline;
     @apply leading-tight;
     @apply border-b-2 border-screen;
-    padding: .35rem 0;
+    padding: 0.35rem 0;
 }
 
 .markup li:first-child {

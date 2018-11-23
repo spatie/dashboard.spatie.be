@@ -1,8 +1,6 @@
 <template>
     <div :style="tilePosition" class="grid overflow-hidden rounded bg-tile">
-        <div class="absolute pin overflow-hidden p-padding">
-            <slot></slot>
-        </div>
+        <div class="absolute pin overflow-hidden p-padding"><slot></slot></div>
     </div>
 </template>
 

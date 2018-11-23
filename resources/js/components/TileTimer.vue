@@ -1,14 +1,11 @@
 <template>
-    <div v-if="visibility" style="display:contents">
-        <slot></slot>
-    </div>
+    <div v-if="visibility" style="display:contents"><slot></slot></div>
 </template>
 
 <script>
 import moment from 'moment-timezone';
 
 export default {
-
     props: {
         on: {
             type: String,
@@ -18,8 +15,8 @@ export default {
         },
         timeFormat: {
             type: String,
-            default: 'HH:mm'
-        }
+            default: 'HH:mm',
+        },
     },
 
     data() {
@@ -41,5 +38,4 @@ export default {
         },
     },
 };
-
 </script>

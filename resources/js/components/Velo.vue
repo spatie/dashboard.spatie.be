@@ -1,20 +1,25 @@
 <template>
     <tile :position="position">
         <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
-            <div class="grid place-center w-10 h-10 rounded-full" style="background-color: rgba(255, 255, 255, .9)">
+            <div
+                class="grid place-center w-10 h-10 rounded-full"
+                style="background-color: rgba(255, 255, 255, .9)"
+            >
                 <div class="text-3xl leading-none -mt-2" v-html="emoji('🚲')" />
             </div>
             <ul class="align-self-center">
                 <li v-for="station in stations">
-                    <span :class="{
-                        'line-through' : isStationEmpty(station),
-                        'text-danger' : isStationNearEmpty(station)
-                    }">
+                    <span
+                        :class="{
+                            'line-through': isStationEmpty(station),
+                            'text-danger': isStationNearEmpty(station),
+                        }"
+                    >
                         {{ station.name.substring(4) }}
                     </span>
                     <span>
                         <span
-                            :class="{ 'text-danger' : isStationNearEmpty(station) }"
+                            :class="{ 'text-danger': isStationNearEmpty(station) }"
                             class="font-bold"
                         >
                             {{ station.bikes }}
