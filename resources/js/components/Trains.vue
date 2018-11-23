@@ -7,26 +7,60 @@
                 </div>
                 <h1 class="ml-2">{{ trains.name }}</h1>
             </div>
-            <ul class="align-self-center">
-                <li
-                    v-for="train in trains"
-                >
-                    <span :class="{
-                        'line-through' : train.canceled,
-                        'text-danger' : train.canceled,
-                    }">
-                        {{ train.station }}
-                    </span>
-                    <span
-                        v-if="!train.canceled"
-                        :class="{ 'text-danger' : train.delay > 0 }"
-                        class="flex font-bold"
-                    >
-                        <span v-if="train.delay > 0" class="mr-1">+{{ train.delay }}m</span>
-                        <span>{{ formatTime(train.time) }}</span>
-                    </span>
-                </li>
-            </ul>
+            <div class="align-self-center grid gap-8" style="grid-auto-rows: auto;">
+                <div>
+                    <h2 class="uppercase">Antwerpen</h2>
+                    <ul class="mt-padding">
+                        <li
+                            v-for="train in trains.slice(0,3)"
+                            :class="{
+                                'line-through' : train.canceled,
+                                'text-danger' : train.canceled,
+                            }"
+                        >
+                            <span class="mr-2">
+                                {{ train.station }}
+                            </span>
+                            <span
+                                v-if="!train.canceled && train.delay > 0"
+                                class="ml-auto font-bold"
+                                :class="{ 'text-danger' : train.delay > 0 }"
+                            >
+                                +{{ train.delay }}m
+                            </span>
+                            <span class="flex-none w-12 font-bold text-right">
+                                {{ formatTime(train.time) }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="uppercase">Gent</h2>
+                    <ul class="mt-padding">
+                        <li
+                            v-for="train in trains.slice(0,3)"
+                            :class="{
+                                'line-through' : train.canceled,
+                                'text-danger' : train.canceled,
+                            }"
+                        >
+                            <span class="mr-2">
+                                {{ train.station }}
+                            </span>
+                            <span
+                                v-if="!train.canceled && train.delay > 0"
+                                class="ml-auto font-bold"
+                                :class="{ 'text-danger' : train.delay > 0 }"
+                            >
+                                +{{ train.delay }}m
+                            </span>
+                            <span class="flex-none w-12 font-bold text-right">
+                                {{ formatTime(train.time) }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </tile>
 </template>

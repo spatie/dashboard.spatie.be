@@ -28,6 +28,10 @@
     grid-gap: config('padding.4');
 }
 
+.gap-8 {
+    grid-gap: config('padding.8');
+}
+
 .align-self-start {
     align-self: end;
 }
