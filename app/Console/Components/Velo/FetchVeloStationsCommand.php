@@ -6,7 +6,7 @@ use App\Services\Velo\Velo;
 use Illuminate\Console\Command;
 use App\Events\Velo\StationsFetched;
 
-class FetchStationsCommand extends Command
+class FetchVeloStationsCommand extends Command
 {
     protected $signature = 'dashboard:fetch-velo-stations';
 
