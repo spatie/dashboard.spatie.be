@@ -8,37 +8,12 @@
                 <h1 class="ml-2">{{ trainConnections.name }}</h1>
             </div>
             <div class="align-self-center grid gap-8" style="grid-auto-rows: auto;">
-                <div>
-                    <h2 class="uppercase">Antwerpen</h2>
+                <div v-for="trainConnection in trainConnections">
+
+                    <h2 class="uppercase">{{ trainConnection.label }}</h2>
                     <ul class="mt-padding">
                         <li
-                            v-for="train in trainConnections.slice(0,3)"
-                            :class="{
-                                'line-through' : train.canceled,
-                                'text-danger' : train.canceled,
-                            }"
-                        >
-                            <span class="mr-2">
-                                {{ train.station }}
-                            </span>
-                            <span
-                                v-if="!train.canceled && train.delay > 0"
-                                class="ml-auto font-bold"
-                                :class="{ 'text-danger' : train.delay > 0 }"
-                            >
-                                +{{ train.delay }}m
-                            </span>
-                            <span class="flex-none w-12 font-bold text-right">
-                                {{ formatTime(train.time) }}
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="uppercase">Gent</h2>
-                    <ul class="mt-padding">
-                        <li
-                            v-for="train in trainConnections.slice(0,3)"
+                            v-for="train in trainConnection.trains"
                             :class="{
                                 'line-through' : train.canceled,
                                 'text-danger' : train.canceled,
@@ -92,7 +67,7 @@
 
             getEventHandlers() {
                 return {
-                    'Trains.TrainsConnectionsFetched': response => {
+                    'Trains.TrainConnectionsFetched': response => {
                         console.log(response);
                         this.trainConnections = response.trainConnections;
                     },

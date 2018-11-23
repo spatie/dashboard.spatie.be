@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -20,6 +21,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // in order to user private channels a user needs to be logged in
+        auth()->login(User::first());
+
         $this->registerPolicies();
     }
 }

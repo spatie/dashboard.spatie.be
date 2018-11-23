@@ -18,15 +18,12 @@ class FetchTrainsCommand extends Command
         $this->info('Fetching trainConnections from iRail...');
 
         $trainConnections = collect(config('services.train_connections'))
-            ->mapWithKeys(function (array $connection) use ($iRail) {
+            ->map(function (array $connection) use ($iRail) {
                 $trains = $iRail->getConnections($connection['departure'], $connection['destination']);
 
-                return [$connection['label'] => $trains];
+                return ['label' => $connection['label'], 'trains' => $trains];
             })
-            //->flatten(1)
             ->toArray();
-
-        dd($trainConnections);
 
         event(new TrainConnectionsFetched($trainConnections));
 
