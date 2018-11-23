@@ -94,7 +94,6 @@ export default {
             return {
                 'TeamMember.TasksFetched': response => {
                     this.tasks = response.tasks[this.name];
-                    console.log(this.teamMemberName + ' ' + this.tasks + '-end');
                 },
 
                 'TeamMember.UpdateStatus': response => {

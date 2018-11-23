@@ -13,6 +13,7 @@ import Trains from './components/Trains';
 import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
 import Velo from './components/Velo';
+import TileTimer from './components/TileTimer';
 
 new Vue({
     el: '#dashboard',
@@ -28,6 +29,7 @@ new Vue({
         Twitter,
         Uptime,
         Velo,
+        TileTimer,
     },
 
     created() {

@@ -6,7 +6,9 @@
 <div id="dashboard">
     <dashboard class="font-sans">
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a16"></twitter>
-        <trains position="a1:a24"></trains>
+        <tile-timer on="16:00" off="21:00">
+            <trains position="a1:a24"></trains>
+        </tile-timer>
         <uptime position="a1:a24"></uptime>
         <team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" birthday="1995-10-22" position="b1:b8"></team-member>
         <team-member name="alex" avatar="{{ gravatar('alex@spatie.be') }}" birthday="1996-02-05" position="c1:c8"></team-member>
