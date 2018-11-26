@@ -5,7 +5,7 @@
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 <div id="dashboard">
     <dashboard class="font-sans">
-        <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a16"></twitter>
+        <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a24"></twitter>
         <tile-timer on="16:00" off="19:00">
             <trains position="a1:a24"></trains>
         </tile-timer>
