@@ -1,7 +1,3 @@
-<template>
-    <div v-if="visibility" style="display:contents"><slot></slot></div>
-</template>
-
 <script>
 import moment from 'moment-timezone';
 
@@ -26,16 +22,21 @@ export default {
     },
 
     created() {
-        this.checkStatus();
-        setInterval(this.checkStatus, 10000);
+        this.checkVisibility();
+        setInterval(this.checkVisibility, 60000);
     },
 
     methods: {
-        checkStatus() {
-            const beforeTime = moment(this.on, this.timeFormat);
-            const afterTime = moment(this.off, this.timeFormat);
-            this.visibility = moment().isBetween(beforeTime, afterTime);
+        checkVisibility() {
+            this.visibility = moment().isBetween(
+                moment(this.on, this.timeFormat),
+                moment(this.off, this.timeFormat)
+            );
         },
+    },
+
+    render() {
+        return this.visibility ? this.$slots.default[0] : null;
     },
 };
 </script>

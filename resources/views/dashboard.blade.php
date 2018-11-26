@@ -6,7 +6,7 @@
 <div id="dashboard">
     <dashboard class="font-sans">
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a16"></twitter>
-        <tile-timer on="16:00" off="21:00">
+        <tile-timer on="16:00" off="19:00">
             <trains position="a1:a24"></trains>
         </tile-timer>
         <uptime position="a1:a24"></uptime>
