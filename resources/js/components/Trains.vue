@@ -15,7 +15,7 @@
                     <h2 class="uppercase">{{ trainConnection.label }}</h2>
                     <ul class="mt-padding">
                         <li
-                            v-for="train in trainConnection.trains"
+                            v-for="train in trainConnection.trains.slice(0, maxTrains)"
                             :class="{
                                 'line-through': train.canceled,
                                 'text-danger': train.canceled,
@@ -53,7 +53,15 @@ export default {
 
     mixins: [echo, saveState],
 
-    props: ['position'],
+    props: {
+        position: {
+            type: String,
+        },
+        maxTrains: {
+            type: Number,
+            default: 5
+        },
+    },
 
     data() {
         return {
