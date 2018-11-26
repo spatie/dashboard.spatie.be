@@ -5,7 +5,7 @@
                 class="grid place-center w-10 h-10 rounded-full"
                 style="background-color: rgba(255, 255, 255, .9)"
             >
-                <div class="text-3xl leading-none -mt-2" v-html="emoji('🚲')" />
+                <div class="text-3xl leading-none -mt-1" v-html="emoji('🚲')" />
             </div>
             <ul class="align-self-center">
                 <li v-for="station in stations">
@@ -20,7 +20,7 @@
                     <span>
                         <span
                             :class="{ 'text-danger': isStationNearEmpty(station) }"
-                            class="font-bold"
+                            class="font-bold variant-tabular"
                         >
                             {{ station.bikes }}
                         </span>

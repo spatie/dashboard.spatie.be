@@ -24,12 +24,12 @@
                             <span class="mr-2"> {{ train.station }} </span>
                             <span
                                 v-if="!train.canceled && train.delay > 0"
-                                class="ml-auto font-bold"
+                                class="ml-auto font-bold variant-tabular"
                                 :class="{ 'text-danger': train.delay > 0 }"
                             >
                                 +{{ train.delay }}m
                             </span>
-                            <span class="flex-none w-12 font-bold text-right">
+                            <span class="flex-none w-12 font-bold text-right variant-tabular">
                                 {{ formatTime(train.time) }}
                             </span>
                         </li>
