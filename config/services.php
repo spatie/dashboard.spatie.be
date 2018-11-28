@@ -22,6 +22,11 @@ return [
         'stations' => explode(',', env('VELO_STATIONS')),
     ],
 
+    'buienradar' => [
+        'latitude' => env('BUIENRADAR_LATITUDE'),
+        'longitude' => env('BUIENRADAR_LONGITUDE'),
+    ],
+
     'slack' => [
         'app_token' => env('SLACK_APP_TOKEN'),
     ],
