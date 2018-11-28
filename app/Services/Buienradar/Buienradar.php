@@ -16,7 +16,7 @@ class Buienradar
 
     public function getForecasts(string $latitude, string $longitude): array
     {
-        $response = $this->client->get("forecast/json/?lat={$latitude}&lon={$longitude}&btc=201811281130");
+        $response = $this->client->get("forecast/json/?lat={$latitude}&lon={$longitude}");
 
         return collect(json_decode($response->getBody())->forecasts)
             ->map(function ($forecast) {
