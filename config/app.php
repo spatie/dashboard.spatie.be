@@ -178,6 +178,7 @@ return [
         App\Services\Slack\SlackServiceProvider::class,
         App\Services\Velo\VeloServiceProvider::class,
         App\Services\Trains\IRailServiceProvider::class,
+        App\Services\Buienradar\BuienradarServiceProvider::class,
     ],
 
     /*

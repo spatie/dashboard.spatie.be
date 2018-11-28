@@ -28,11 +28,26 @@
                 <div class="hidden">{{ weatherCity }}</div>
             </div>
         </div>
+        <div
+            class="absolute pin-b pin-l w-full grid items-end"
+            style="
+                height: calc(1.25 * var(--tile-padding));
+                grid-gap: 1px;
+                grid-template-columns: repeat(12, 1fr);
+                opacity: .15"
+        >
+            <div
+                v-for="rainForecast in rainForecasts"
+                class="rounded-sm bg-accent"
+                :style="`height:${rainForecast.rain * 100}%`"
+            />
+        </div>
     </tile>
 </template>
 
 <script>
 import { emoji } from '../helpers';
+import echo from '../mixins/echo';
 import Tile from './atoms/Tile';
 import moment from 'moment-timezone';
 import weather from '../services/weather/Weather';
@@ -43,6 +58,8 @@ export default {
         OfficeTemperature,
         Tile,
     },
+
+    mixins: [echo],
 
     props: {
         weatherCity: {
@@ -72,6 +89,7 @@ export default {
                 temperature: '',
                 iconClass: '',
             },
+            rainForecasts: []
         };
     },
 
@@ -93,6 +111,14 @@ export default {
             this.time = moment()
                 .tz(this.timeZone)
                 .format(this.timeFormat);
+        },
+
+        getEventHandlers() {
+            return {
+                'Buienradar.ForecastsFetched': response => {
+                    this.rainForecasts = response.forecasts;
+                },
+            };
         },
 
         async fetchWeather() {
