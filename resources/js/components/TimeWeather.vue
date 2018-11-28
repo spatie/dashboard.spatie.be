@@ -28,6 +28,20 @@
                 <div class="hidden">{{ weatherCity }}</div>
             </div>
         </div>
+        <div
+            class="absolute pin-b pin-l w-full grid items-end"
+            style="
+                height: calc(1.25 * var(--tile-padding));
+                grid-gap: 1px;
+                grid-template-columns: repeat(12, 1fr);
+                opacity: .15"
+        >
+            <div
+                v-for="index in 12"
+                class="rounded-sm bg-accent"
+                :style="`height:${Math.random() * 100}%`"
+            />
+        </div>
     </tile>
 </template>
 
