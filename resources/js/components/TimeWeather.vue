@@ -37,9 +37,9 @@
                 opacity: .15"
         >
             <div
-                v-for="index in 12"
+                v-for="rainForecast in rainForecasts"
                 class="rounded-sm bg-accent"
-                :style="`height:${Math.random() * 100}%`"
+                :style="`height:${rainForecast.rain * 100}%`"
             />
         </div>
     </tile>
@@ -47,6 +47,7 @@
 
 <script>
 import { emoji } from '../helpers';
+import echo from '../mixins/echo';
 import Tile from './atoms/Tile';
 import moment from 'moment-timezone';
 import weather from '../services/weather/Weather';
@@ -57,6 +58,8 @@ export default {
         OfficeTemperature,
         Tile,
     },
+
+    mixins: [echo],
 
     props: {
         weatherCity: {
@@ -86,6 +89,7 @@ export default {
                 temperature: '',
                 iconClass: '',
             },
+            rainForecasts: []
         };
     },
 
@@ -107,6 +111,14 @@ export default {
             this.time = moment()
                 .tz(this.timeZone)
                 .format(this.timeFormat);
+        },
+
+        getEventHandlers() {
+            return {
+                'Buienradar.ForecastsFetched': response => {
+                    this.rainForecasts = response.forecasts;
+                },
+            };
         },
 
         async fetchWeather() {
