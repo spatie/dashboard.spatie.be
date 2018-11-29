@@ -22,7 +22,9 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         // in order to user private channels a user needs to be logged in
-        auth()->login(User::first());
+        if ($user = User::first()) {
+            auth()->login($user);
+        }
 
         $this->registerPolicies();
     }
