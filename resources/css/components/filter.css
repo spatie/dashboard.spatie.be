@@ -1,3 +1,11 @@
 .filter-grey {
     filter: contrast(75%) grayscale(1) brightness(150%);
 }
+
+.filter-fade-tile {
+    mask-image: linear-gradient(
+        black,
+        black calc(100% - var(--tile-padding)),
+        transparent
+    );
+}

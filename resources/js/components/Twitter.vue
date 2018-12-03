@@ -1,5 +1,5 @@
 <template>
-    <tile class="overflow-hidden" :position="position">
+    <tile :position="position">
         <ul class="grid" style="grid-auto-rows: auto;">
             <li
                 class="overflow-hidden pb-4 mb-4 border-b-2 border-screen"

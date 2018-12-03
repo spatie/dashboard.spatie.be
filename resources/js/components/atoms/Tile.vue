@@ -1,12 +1,20 @@
 <template>
-    <div :style="tilePosition" class="grid overflow-hidden rounded bg-tile">
-        <div class="absolute pin overflow-hidden p-padding"><slot></slot></div>
+    <div :style="tilePosition" class="grid overflow-hidden bg-tile rounded">
+        <div class="absolute pin overflow-hidden p-padding" :class="{ 'filter-fade-tile' : !noFade }"><slot></slot></div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['position', 'transparent'],
+    props: {
+        position: {
+            type: String,
+        },
+        noFade: {
+            type: Boolean,
+            default: false,
+        },
+    },
 
     computed: {
         tilePosition() {
