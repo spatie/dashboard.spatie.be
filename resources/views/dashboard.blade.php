@@ -9,7 +9,6 @@
         <tile-timer on="16:00" off="19:00">
             <trains position="a1:a24"></trains>
         </tile-timer>
-        <uptime position="a1:a24"></uptime>
         <team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" birthday="1995-10-22" position="b1:b8"></team-member>
         <team-member name="alex" avatar="{{ gravatar('alex@spatie.be') }}" birthday="1996-02-05" position="c1:c8"></team-member>
         <team-member name="brent" avatar="{{ gravatar('brent@spatie.be') }}" birthday="1994-07-30" position="b9:b16"></team-member>
@@ -22,6 +21,7 @@
         <time-weather position="e1:e6" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
         <internet-connection position="e1:e6"></internet-connection>
         <statistics position="d1:d10"></statistics>
+        <uptime position="d1:d10"></uptime>
         <calendar position="e7:e16"></calendar>
         <velo position="e17:e24"></velo>
     </dashboard>

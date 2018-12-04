@@ -1,11 +1,16 @@
 <template>
-    <tile v-if="hasFailingUrls" :position="position" class="markup bg-warn">
-        <h1>Downtime</h1>
-        <ul>
-            <li v-for="failing in failingUrls">
-                <div class="truncate">{{ failing.url }}</div>
-            </li>
-        </ul>
+    <tile v-if="!hasFailingUrls" :position="position" class="markup bg-warn">
+        <div
+                class="grid gap-padding h-full markup"
+                style="grid-template-rows: auto 1fr"
+            >
+            <h1>Downtime</h1>
+            <ul class="align-self-center">
+                <li v-for="failing in failingUrls">
+                    <div class="font-bold truncate">{{ failing.url }}</div>
+                </li>
+            </ul>
+        </div>
     </tile>
 </template>
 
