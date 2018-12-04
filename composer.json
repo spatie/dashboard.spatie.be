@@ -10,6 +10,7 @@
     "require": {
         "php": ">=7.1.3",
         "barryvdh/laravel-ide-helper": "^2.1",
+        "beyondcode/laravel-websockets": "^1.0",
         "developmint/npm-stats-api": "^1.0",
         "erusev/parsedown": "^1.6",
         "fennb/phirehose": "^1.0",
@@ -67,7 +68,6 @@
         "post-create-project-cmd": [
             "php artisan key:generate"
         ],
-        "laravel-echo-server": "laravel-echo-server start",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
