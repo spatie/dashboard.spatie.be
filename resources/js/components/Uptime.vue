@@ -1,5 +1,5 @@
 <template>
-    <tile v-if="!hasFailingUrls" :position="position" class="markup bg-warn">
+    <tile v-if="hasFailingUrls" :position="position" class="markup bg-warn">
         <div
                 class="grid gap-padding h-full markup"
                 style="grid-template-rows: auto 1fr"
