@@ -33,19 +33,12 @@ new Vue({
     },
 
     created() {
-        let options = {
+        this.echo = new Echo({
             broadcaster: 'pusher',
             key: window.dashboard.pusherKey,
-            cluster: window.dashboard.pusherCluster,
-        };
-
-        if (window.dashboard.usingNodeServer) {
-            options = {
-                broadcaster: 'socket.io',
-                host: 'http://dashboard.spatie.be:6001',
-            };
-        }
-
-        this.echo = new Echo(options);
+            wsHost: window.location.hostname,
+            wsPort: 6001,
+            disableStats: true,
+        });
     },
 });
