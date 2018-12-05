@@ -10,6 +10,7 @@ class DashboardController
     {
         return view('dashboard')->with([
             'pusherKey' => config('broadcasting.connections.pusher.key'),
+            'clientConnetionPath' => config('websockets.client_connection_path'),
             'initialTweets' => TweetHistory::all(),
         ]);
     }

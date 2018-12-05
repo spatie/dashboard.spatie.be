@@ -38,7 +38,7 @@ new Vue({
             key: window.dashboard.pusherKey,
             wsHost: window.location.hostname,
             wsPort: 6001,
-            wsPath: '/websockets',
+            wsPath: window.dashboard.clientConnectionPath,
             disableStats: true,
         });
     },

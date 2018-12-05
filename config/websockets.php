@@ -2,6 +2,8 @@
 
 return [
 
+    'client_connection_path' => env('WEBSOCKETS_CLIENT_CONNECTION_PATH', ''),
+
     /*
      * This package comes with multi tenancy out of the box. Here you can
      * configure the different apps that can use the webSockets server.
