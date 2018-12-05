@@ -37,7 +37,6 @@ new Vue({
             broadcaster: 'pusher',
             key: window.dashboard.pusherKey,
             wsHost: window.location.hostname,
-            wsPort: 6001,
             wsPath: window.dashboard.clientConnectionPath,
             disableStats: true,
         });
