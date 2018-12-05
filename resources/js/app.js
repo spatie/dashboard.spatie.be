@@ -38,6 +38,7 @@ new Vue({
             key: window.dashboard.pusherKey,
             wsHost: window.location.hostname,
             wsPort: 6001,
+            wsPath: '/websockets',
             disableStats: true,
         });
     },
