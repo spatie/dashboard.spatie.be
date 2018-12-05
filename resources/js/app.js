@@ -33,12 +33,19 @@ new Vue({
     },
 
     created() {
-        this.echo = new Echo({
+        let config = {
             broadcaster: 'pusher',
             key: window.dashboard.pusherKey,
             wsHost: window.location.hostname,
             wsPath: window.dashboard.clientConnectionPath,
+            wsPort: window.dashboard.wsPort,
             disableStats: true,
-        });
+        }
+
+        if (window.dashboard.environment === 'local') {
+            config.wsPort = 6001;
+        }
+
+        this.echo = new Echo(config);
     },
 });
