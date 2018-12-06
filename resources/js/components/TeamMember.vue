@@ -36,7 +36,7 @@
                     </h2>
                     <component
                         v-if="currentTrack != ''"
-                        class="truncate text-sm"
+                        class="truncate text-sm block"
                         :is="trackUrl ? 'a' : 'span'"
                         :href="trackUrl || ''"
                         target="_blank"
