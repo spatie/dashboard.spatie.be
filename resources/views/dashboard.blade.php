@@ -23,7 +23,8 @@
         <statistics position="d1:d10"></statistics>
         <uptime position="d1:d10"></uptime>
         <calendar position="e7:e16"></calendar>
-        <velo position="e17:e24"></velo>
+        {{-- <velo position="e17:e24"></velo> --}}
+        <party position="e17:e24"></party>
     </dashboard>
 </div>
 

@@ -13,6 +13,7 @@ import Trains from './components/Trains';
 import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
 import Velo from './components/Velo';
+import Party from './components/Party';
 import TileTimer from './components/TileTimer';
 
 new Vue({
@@ -30,6 +31,7 @@ new Vue({
         Uptime,
         Velo,
         TileTimer,
+        Party,
     },
 
     created() {
