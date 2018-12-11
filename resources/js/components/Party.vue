@@ -1,53 +1,43 @@
 <template>
     <tile :position="position">
-        <div 
-            class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;"
-            v-if="scenario === userCases.EMPTY"
-            >
-            <title-text/>
-            <div><empty-event-list /></div>
-        </div>
-        <div
-            class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;" 
-            v-else-if="scenario === userCases.NEW"
-            >
-            <scr-new-event />
-        </div>
+        <scr-empty-event v-if="screen === routes.EMPTY" />
+        <scr-new-event v-else-if="screen === routes.NEW" />
     </tile>
 </template>
 
 <script>
-
 import { emoji } from '../helpers';
 import Tile from './atoms/Tile';
-import TitleText from './party/TitleText';
-import EmptyEventList from './party/EmptyEventList';
-import ScrNewEvent from './party/ScrNewEvent';
-
-let USER_CASES = {
-    EMPTY: 'NO_UPCOMING_EVENT',
-    NEW: 'CREATE_NEW_EVENT',
-};
+import routes from './party/services/route';
+import EventBus from './party/services/event-bus';
+import ScrEmptyEvent from './party/EmptyEvent';
+import ScrNewEvent from './party/NewEvent';
 
 export default {
     components: {
         Tile,
-        TitleText,
-        EmptyEventList,
+        ScrEmptyEvent,
         ScrNewEvent,
     },
 
     props: ['position'],
 
     methods: {
-      emoji,
+        emoji,
     },
 
     data () {
         return {
-          userCases: USER_CASES,
-          scenario:  USER_CASES.NEW,
+            routes: routes,
+            screen: routes.NEW,
         }
-      }
+    },
+
+    created() {
+        let self = this;
+        EventBus.$on('party:navigate', function(nextScreen){
+            self.screen = nextScreen;
+        })
+    }
 };
 </script>

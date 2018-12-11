@@ -2,7 +2,7 @@
     <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
         <div class="grid" style="grid-template-columns: auto 1fr;">
             <button class="btn-mn29 mr-2">
-                <div v-html="emoji('🔙')" ></div>
+                <div v-html="emoji('🔙')" v-on:click="$emit('close')"></div>
             </button>
             <slot name="header"></slot>
         </div>
@@ -23,7 +23,7 @@
 </style>
 
 <script>
-import { emoji } from '../../helpers';
+import { emoji } from '../../../helpers';
 
 export default {
     components: {

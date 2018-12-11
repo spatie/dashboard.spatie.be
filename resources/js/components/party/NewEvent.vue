@@ -1,5 +1,5 @@
 <template>
-    <modal>
+    <screen v-on:close="onClose">
         <div slot="header" class="grid" style="grid-template-columns: 1fr auto ;">
             <input type="text" name="event_name" placeholder="Event name" 
                 id="input_98fu" />
@@ -10,7 +10,7 @@
         <div>
             <add-people />
         </div>
-    </modal>
+    </screen>
 </template>
 
 <style>
@@ -27,17 +27,22 @@
 
 <script>
 import {emoji} from '../../helpers';
-import Modal from './Modal';
-import AddPeople from './AddPeople';
+import routes from './services/route';
+import EventBus from './services/event-bus';
+import Screen from './parts/Screen';
+import AddPeople from './parts/AddPeople';
 
 export default {
     components: {
-        Modal,
+        Screen,
         AddPeople,
     },
 
     methods: {
         emoji,
+        onClose() {
+            EventBus.$emit('party:navigate', routes.EMPTY);
+        }
     },
 }
 </script>

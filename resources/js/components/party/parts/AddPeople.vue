@@ -19,7 +19,7 @@
 </style>
 
 <script>
-import {emoji} from '../../helpers';
+import {emoji} from '../../../helpers';
 
 export default {
     methods: {

@@ -1,7 +1,5 @@
 <template>
-    <button
-        class="ux-3rtx"
-        >
+    <button class="ux-3rtx" v-on:click="openNew">
         <div class="text-3xl leading-none -mt-1" v-html="emoji('➕')" />
     </button>
 </template>
@@ -16,11 +14,16 @@
 </style>
 
 <script>
-import { emoji } from '../../helpers';
+import { emoji } from '../../../helpers';
+import EventBus from '../services/event-bus';
+import routes from '../services/route';
 
 export default {
     methods: {
       emoji,
+      openNew() {
+          EventBus.$emit('party:navigate', routes.NEW)
+      },
     },
 }
 </script>
