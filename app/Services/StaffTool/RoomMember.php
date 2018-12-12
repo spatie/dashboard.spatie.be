@@ -62,6 +62,9 @@ class RoomMember
     }
 
     private function parse() {
+        return $this->getDumb();
+
+        //production
         $client = new Client();
         $res = $client->request(
             'GET', 
@@ -107,5 +110,16 @@ class RoomMember
         }
 
         return $members;
+    }
+
+    private function getDumb(){
+        return [
+            ['trac'=>'liembt','name'=>'Bùi Liêm','gender'=>'male'],
+            ['trac'=>'kimhong','name'=>'Kim Hồng','gender'=>'female'],
+            ['trac'=>'thuhta','name'=>'Anh Thư','gender'=>'female'],
+            ['trac'=>'phuongdm','name'=>'Minh Phương','gender'=>'male'],
+            ['trac'=>'trungkien','name'=>'Trung Kiên','gender'=>'male'],
+            ['trac'=>'duy.maianh','name'=>'Anh Duy','gender'=>'male'],
+        ];
     }
 }

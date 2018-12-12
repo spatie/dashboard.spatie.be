@@ -13,8 +13,8 @@ class StaffController
     {
         $roomMember = new RoomMember($this->adRoomId);
 
-        $roomMember->resync();
-        $roomMember->archive('jadephung');
+        // $roomMember->resync();
+        // $roomMember->archive('jadephung');
 
         return view('staff')->with([
             'pusherKey' => config('broadcasting.connections.pusher.key'),

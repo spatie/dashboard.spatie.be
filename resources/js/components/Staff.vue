@@ -3,10 +3,13 @@
         class="fixed pin grid gap-spacing w-screen h-screen p-spacing font-normal leading-normal text-default bg-screen"
         :class="mode"
     >
-        <tile :position="'a1:c2'">
+        <tile :position="'a1:a2'">
+            <a href="/" class="text-xs underline">⇦ Go back</a>
+        </tile>
+        <tile :position="'b1:h2'">
             <h3>Members</h3>
         </tile>
-        <tile :position="'a3:b12'">
+        <tile :position="'b3:f24'">
             <div class="block-x37t">
                 <table class="table-auto w-full">
                     <tr>
@@ -19,7 +22,7 @@
                         <td class="py-4 px-6 border-b border-screen text-center">{{ mem.trac }}</td>
                         <td class="py-4 px-6 border-b border-screen text-center">{{ mem.name }}</td>
                         <td class="py-4 px-6 border-b border-screen text-center">
-                            <name-avatar :name="mem.trac" :gender="mem.gender" />
+                            <name-avatar :name="mem.trac" :gender="mem.gender" :hint="mem.name" />
                         </td>
                         <td class="py-4 px-6 border-b border-screen text-center">
                             <button>Remove</button>
@@ -28,12 +31,11 @@
                 </table>
             </div>
         </tile>
-        <tile :position="'c3:c12'">
-            <div>
-                <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">ReSync</button>
-                <span>from Staff Tool</span>
-            </div>
-
+        <tile :position="'g3:h5'">
+            <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">ReSync</button>
+            <span>from Staff Tool</span>
+        </tile>
+        <tile :position="'g6:h24'">
             <p>Archived list</p>
             <table class="table-auto w-full">
                 <tbody v-for="mem in archived" class="hover:bg-screen">

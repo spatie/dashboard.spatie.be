@@ -1,8 +1,30 @@
 <template>
-    <i>
-        <img :src="avatar" width="24" height="24" class="rounded-full" />
+    <i class="ico_dc4f">
+        <img :src="avatar" width="24" height="24" class="rounded-full" :alt="name" />
+        <span>{{ hint }}</span>
     </i>
 </template>
+
+<style>
+.ico_dc4f {
+    position: relative;
+}
+.ico_dc4f span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -115%);
+    display: none;
+    white-space: nowrap;
+    padding: 2px 4px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    font-size: 10px;
+}
+.ico_dc4f:hover span {
+    display: block;
+}
+</style>
 
 <script>
 const getAvatar = function(name, gender) {
@@ -17,7 +39,7 @@ const getAvatar = function(name, gender) {
 }
 
 export default {
-    props: ['name', 'gender'],
+    props: ['name', 'gender', 'hint'],
 
     data() {
         return {
