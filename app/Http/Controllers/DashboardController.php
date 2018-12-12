@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\TweetHistory\TweetHistory;
+use App\Services\StaffTool\RoomMember;
 
 class DashboardController
 {
@@ -12,6 +13,7 @@ class DashboardController
             'pusherKey' => config('broadcasting.connections.pusher.key'),
             'clientConnectionPath' => config('websockets.client_connection_path'),
             'initialTweets' => TweetHistory::all(),
+            'members' => RoomMember::all(),
         ]);
     }
 }

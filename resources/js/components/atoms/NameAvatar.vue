@@ -8,6 +8,7 @@
 <style>
 .ico_dc4f {
     position: relative;
+    display: inline-block;
 }
 .ico_dc4f span {
     position: absolute;

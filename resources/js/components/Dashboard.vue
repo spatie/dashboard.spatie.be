@@ -10,8 +10,11 @@
 <script>
 import echo from '../mixins/echo';
 import saveState from 'vue-save-state';
+import MemberService from '../services/member';
 
 export default {
+    props: ['members'],
+
     mixins: [echo, saveState],
 
     data() {
@@ -34,6 +37,10 @@ export default {
                 cacheKey: `dashboard`,
             };
         },
+    },
+
+    created() {
+        MemberService.store(this.members);
     },
 };
 </script>

@@ -13,13 +13,14 @@ class RoomMember
 {
     private const KEY_MEMBERS = 'members';
     private const KEY_ARCHIVED = 'archived_members';
+    private const ROOM_1502 = 28;
 
     /** @var \Spatie\Valuestore\Valuestore */
     protected $valuestore;
     /** @var int */
     protected $roomId;
 
-    public function __construct(int $roomId)
+    public function __construct(int $roomId = self::ROOM_1502)
     {
         $this->valuestore = Valuestore::make(storage_path("app/room_member_$roomId.json"));
         $this->roomId = $roomId;
@@ -59,6 +60,11 @@ class RoomMember
     public function getArchived(): array
     {
         return $this->valuestore->get(self::KEY_ARCHIVED, []);
+    }
+
+    public static function all(): array
+    {
+        return (new static())->getMembers();
     }
 
     private function parse() {

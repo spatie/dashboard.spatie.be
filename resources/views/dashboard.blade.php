@@ -4,7 +4,7 @@
 
 @javascript(compact('pusherKey', 'clientConnectionPath'))
 <div id="dashboard">
-    <dashboard class="font-sans">
+    <dashboard class="font-sans" :members="{{ json_encode($members) }}">
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a24"></twitter>
         <tile-timer on="16:00" off="19:00">
             <trains position="a1:a24"></trains>

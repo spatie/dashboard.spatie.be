@@ -6,12 +6,9 @@ use App\Services\StaffTool\RoomMember;
 
 class StaffController
 {
-    /** @var int */
-    private $adRoomId = 28;
-
     public function __invoke()
     {
-        $roomMember = new RoomMember($this->adRoomId);
+        $roomMember = new RoomMember();
 
         // $roomMember->resync();
         // $roomMember->archive('jadephung');

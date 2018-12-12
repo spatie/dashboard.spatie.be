@@ -6,9 +6,7 @@
                 <div v-html="emoji('🗒️')"></div>
             </button>
         </div>
-        <div>
-            <add-people />
-        </div>
+        <people-picker />
     </screen>
 </template>
 
@@ -27,14 +25,14 @@
 <script>
 import {emoji} from '../../helpers';
 import routes from './services/route';
-import EventBus from './services/event-bus';
+import EventBus from '../../services/event-bus';
 import Screen from './parts/Screen';
-import AddPeople from './parts/AddPeople';
+import PeoplePicker from '../atoms/PeoplePicker';
 
 export default {
     components: {
         Screen,
-        AddPeople,
+        PeoplePicker,
     },
 
     methods: {

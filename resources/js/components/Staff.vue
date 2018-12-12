@@ -22,7 +22,7 @@
                         <td class="py-4 px-6 border-b border-screen text-center">{{ mem.trac }}</td>
                         <td class="py-4 px-6 border-b border-screen text-center">{{ mem.name }}</td>
                         <td class="py-4 px-6 border-b border-screen text-center">
-                            <name-avatar :name="mem.trac" :gender="mem.gender" :hint="mem.name" />
+                            <member-avatar :member="mem" />
                         </td>
                         <td class="py-4 px-6 border-b border-screen text-center">
                             <button>Remove</button>
@@ -41,7 +41,7 @@
                 <tbody v-for="mem in archived" class="hover:bg-screen">
                     <tr>
                         <td class="py-4 px-6">
-                            <name-avatar :name="mem.trac" :gender="mem.gender" /> 
+                            <member-avatar :member="mem" />
                             {{ mem.trac }}
                         </td>
                     </tr>
@@ -69,14 +69,14 @@ import echo from '../mixins/echo';
 import saveState from 'vue-save-state';
 import {emoji} from '../helpers';
 import Tile from './atoms/Tile';
-import NameAvatar from './atoms/NameAvatar';
+import MemberAvatar from './atoms/MemberAvatar';
 
 export default {
     mixins: [echo, saveState],
 
     components: {
         Tile,
-        NameAvatar,
+        MemberAvatar,
     },
 
     props: ['members', 'archived'],

@@ -90,3 +90,14 @@ export function diffInSeconds(otherMoment) {
 export function formatTime(value) {
     return moment(value, 'X').format('HH:mm');
 }
+
+export function uuid(length) {
+    var uuid = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  
+    for (var i = 0; i < length; i++) {
+        uuid += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+  
+    return uuid;
+}

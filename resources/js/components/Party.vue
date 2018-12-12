@@ -9,7 +9,7 @@
 import { emoji } from '../helpers';
 import Tile from './atoms/Tile';
 import routes from './party/services/route';
-import EventBus from './party/services/event-bus';
+import EventBus from '../services/event-bus';
 import ScrEmptyEvent from './party/EmptyEvent';
 import ScrNewEvent from './party/NewEvent';
 

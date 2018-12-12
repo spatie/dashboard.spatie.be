@@ -15,7 +15,7 @@
 
 <script>
 import { emoji } from '../../../helpers';
-import EventBus from '../services/event-bus';
+import EventBus from '../../../services/event-bus';
 import routes from '../services/route';
 
 export default {
