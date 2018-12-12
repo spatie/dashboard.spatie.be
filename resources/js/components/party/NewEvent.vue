@@ -1,8 +1,7 @@
 <template>
     <screen v-on:close="onClose">
         <div slot="header" class="grid" style="grid-template-columns: 1fr auto ;">
-            <input type="text" name="event_name" placeholder="Event name" 
-                id="input_98fu" />
+            <input type="text" name="event_name" placeholder="Event name" id="input_98fu" />
             <button title="Pick template" class="btn_24hy">
                 <div v-html="emoji('🗒️')"></div>
             </button>

@@ -4,6 +4,7 @@ import Echo from 'laravel-echo';
 import Vue from 'vue';
 
 import Dashboard from './components/Dashboard';
+import Staff from './components/Staff';
 import Calendar from './components/Calendar';
 import Statistics from './components/Statistics';
 import InternetConnection from './components/InternetConnection';
@@ -32,6 +33,7 @@ new Vue({
         Velo,
         TileTimer,
         Party,
+        Staff,
     },
 
     created() {

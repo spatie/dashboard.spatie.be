@@ -20,10 +20,15 @@
 
 <script>
 import {emoji} from '../../../helpers';
+import NameAvatar from '../../atoms/NameAvatar';
 
 export default {
+    components: {
+        NameAvatar,
+    },
+
     methods: {
         emoji,
-    }
+    },
 }
 </script>
