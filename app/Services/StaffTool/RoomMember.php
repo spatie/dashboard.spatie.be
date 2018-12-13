@@ -36,15 +36,21 @@ class RoomMember
     }
 
     public function archive(string $trac) {
-        $members = $this->getMembers();
-        $archived = $this->getArchived();
+        $members = array_values($this->getMembers());
+        $archived = array_values($this->getArchived());
 
         $i = array_search($trac, array_column($members, 'trac'));
+        if ($i === FALSE) {
+            return;
+        }
+
         $member = $members[$i];
         unset($members[$i]);
 
         $k = array_search($trac, array_column($archived, 'trac'));
-        unset($archived[$k]);
+        if ($k !== FALSE) {
+            unset($archived[$k]);
+        }
 
         $archived[] = $member;
 
@@ -68,7 +74,7 @@ class RoomMember
     }
 
     private function parse() {
-        return $this->getDumb();
+        // return $this->getDumb();
 
         //production
         $client = new Client();

@@ -13,7 +13,7 @@
             <div class="block-x37t">
                 <table class="table-auto w-full">
                     <tr>
-                        <th class="py-4 px-6 uppercase text-sm text-invers bg-warn"
+                        <th class="py-4 px-6 uppercase text-sm text-invers bg-dimmed"
                             v-for="heading in headings" >
                             {{ heading }}
                         </th>
@@ -32,27 +32,31 @@
             </div>
         </tile>
         <tile :position="'g3:h5'">
-            <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">ReSync</button>
+            <button class="bg-screen text-default hover:bg-warn hover:text-invers font-bold py-2 px-4 rounded">ReSync</button>
             <span>from Staff Tool</span>
         </tile>
         <tile :position="'g6:h24'">
             <p>Archived list</p>
-            <table class="table-auto w-full">
-                <tbody v-for="mem in archived" class="hover:bg-screen">
-                    <tr>
-                        <td class="py-4 px-6">
-                            <member-avatar :member="mem" />
-                            {{ mem.trac }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6 border-b border-screen">
-                            {{ mem.name }}
-                            <button>Remove</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="overflow-y-auto h-full pb-5">
+                <table class="table-auto w-full">
+                    <tbody v-for="mem in archived" class="hover:bg-screen">
+                        <tr>
+                            <td class="pb-1 pt-3 px-1">
+                                <member-avatar :member="mem" />
+                                {{ mem.trac }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 px-1 border-b border-screen">
+                                <div class="grid" style="grid-template-columns: 1fr auto;">
+                                    <span>{{ mem.name }}</span>
+                                    <button>Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </tile>
     </div>
 </template>

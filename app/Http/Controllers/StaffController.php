@@ -11,7 +11,13 @@ class StaffController
         $roomMember = new RoomMember();
 
         // $roomMember->resync();
+        // $roomMember->archive('phonglh');
         // $roomMember->archive('jadephung');
+        // $roomMember->archive('binh.nguyen');
+        // $roomMember->archive('minhthucdao');
+        // $roomMember->archive('thanhcong.vu');
+        // $roomMember->archive('vlk');
+        // $roomMember->archive('sam');
 
         return view('staff')->with([
             'pusherKey' => config('broadcasting.connections.pusher.key'),
