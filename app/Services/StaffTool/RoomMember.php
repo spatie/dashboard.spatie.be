@@ -36,8 +36,8 @@ class RoomMember
     }
 
     public function archive(string $trac) {
-        $members = array_values($this->getMembers());
-        $archived = array_values($this->getArchived());
+        $members = $this->getMembers();
+        $archived = $this->getArchived();
 
         $i = array_search($trac, array_column($members, 'trac'));
         if ($i === FALSE) {
@@ -54,8 +54,8 @@ class RoomMember
 
         $archived[] = $member;
 
-        $this->valuestore->put(self::KEY_MEMBERS, $members);
-        $this->valuestore->put(self::KEY_ARCHIVED, $archived);
+        $this->valuestore->put(self::KEY_MEMBERS, array_values($members));
+        $this->valuestore->put(self::KEY_ARCHIVED, array_values($archived));
     }
 
     public function getMembers(): array
