@@ -1,14 +1,15 @@
 <template>
     <div>
+        <p>
+            <button v-on:click="openPicker">
+                <i v-html="emoji('➕')" /> 
+                <span>Add people ({{ people.list.length }})</span>
+            </button>
+        </p>
         <ul class="list_4czb">
-            <li v-for="member in people">
+            <li v-for="member in people.list">
                 <member-avatar :member="member" />
                 <i class="_del bg-warn" v-html="emoji('✖️')" v-on:click="eject(member)"/>
-            </li>
-            <li>
-                <button v-on:click="openPicker">
-                    <i v-html="emoji('➕')" /> Add people
-                </button>
             </li>
         </ul>
 
@@ -58,24 +59,28 @@ export default {
         PopoverPicker,
     },
 
+    props: ['people'],
+
     methods: {
         emoji,
         openPicker() {
-            this.pickerData = MemberService.toPickerData(MemberService.exclude(this.people)); 
+            this.pickerData = MemberService.toPickerData(MemberService.exclude(this.people.list)); 
             this.pickerStatus.visible = true;
         },
         picked(result) {
             let selected = MemberService.fromPickerResult(result);
-            this.people = this.people.concat(selected);
+            this.people.list = this.people.list.concat(selected);
+
+            this.$emit('updated');
         },
         eject(member) {
-            this.people = MemberService.exclude([member], this.people);
+            this.people.list = MemberService.exclude([member], this.people.list);
         },
     },
 
     data() {
         return {
-            people: [MemberService.one('phuongdm')],
+            // people: [MemberService.one('quypv1')],
             pickerStatus: {visible: false}, //send object to modify in child comp
             pickerData: [],
         }

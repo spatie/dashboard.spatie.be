@@ -21,6 +21,7 @@
     "stringz": "^0.2.1",
     "tailwindcss": "^0.6.6",
     "twemoji": "^11.2",
+    "v-money": "^0.8.1",
     "vue": "^2.0.1",
     "vue-save-state": "^1.1.0"
   },

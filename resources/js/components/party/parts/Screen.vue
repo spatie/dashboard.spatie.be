@@ -1,6 +1,6 @@
 <template>
-    <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
-        <div class="grid" style="grid-template-columns: auto 1fr;">
+    <div>
+        <div class="flex flex-start mb-5">
             <button class="btn-mn29 mr-2">
                 <div v-html="emoji('🔙')" v-on:click="$emit('close')"></div>
             </button>

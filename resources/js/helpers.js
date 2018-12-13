@@ -101,3 +101,7 @@ export function uuid(length) {
   
     return uuid;
 }
+
+export function strToNumber(str) {
+    return str.match(/\d/g).join("");
+}
