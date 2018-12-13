@@ -1,5 +1,5 @@
 <template>
-    <tile :position="position">
+    <tile :position="position" :noFade="true">
         <scr-empty-event v-if="screen === routes.EMPTY" />
         <scr-new-event v-else-if="screen === routes.NEW" />
     </tile>

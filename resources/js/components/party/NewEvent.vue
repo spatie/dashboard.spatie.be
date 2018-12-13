@@ -1,12 +1,12 @@
 <template>
-    <screen v-on:close="onClose">
+    <screen v-on:close="close">
         <div slot="header" class="flex flex-start">
-            <input type="text" name="event_name" placeholder="Event name" id="input_98fu" />
+            <input type="text" placeholder="Event name" id="input_98fu" v-model="eventName" />
             <button title="Pick template" class="btn_24hy">
                 <div v-html="emoji('🗒️')"></div>
             </button>
         </div>
-        <people-picker :people="peopleData" v-on:updated="calculateMoney" />
+        <people-picker :people="peopleData" v-on:updated="prepareForm" />
 
         <div class="border-t border-dashed border-screen mt-3 pt-4">
             <div class="flex flex-between">
@@ -26,12 +26,21 @@
                     <span class="text-xs" v-show="!inputIsPax">?</span>
                 </div>
             </div>
-            <p class="text-right text-xs" v-if="fee > 0">
+            <p class="text-left text-xs" v-if="fee > 0">
                 <span v-if="inputIsPax">(Total: </span>
                 <span v-if="!inputIsPax">(Each: </span>
-                <input class="text-right" type="text" readonly size="11" v-model.lazy="feeSumary" v-money="vnd" />
+                <input class="text-right" type="text" readonly size="11" v-model.lazy="feeSumaryMasked" v-money="vnd" />
                 <span>)</span>
             </p>
+        </div>
+
+        <div slot="footer" class="footer_znwb">
+            <button class="w-full py-2 text-xs" 
+                :class="!formReady ? 'bg-screen cursor-not-allowed' : 'bg-warn text-invers'"
+                :disabled="!formReady" 
+                v-on:click="submit">
+                SAVE
+            </button>
         </div>
     </screen>
 </template>
@@ -60,11 +69,12 @@
 </style>
 
 <script>
+import axios from 'axios';
 import {VMoney} from 'v-money';
 import {emoji, strToNumber} from '../../helpers';
 import routes from './services/route';
 import EventBus from '../../services/event-bus';
-import Screen from './parts/Screen';
+import Screen from '../atoms/Screen';
 import PeoplePicker from '../atoms/PeoplePicker';
 
 export default {
@@ -76,21 +86,61 @@ export default {
     methods: {
         emoji,
         strToNumber,
-        onClose() {
+        close() {
             EventBus.$emit('party:navigate', routes.EMPTY);
         },
-        calculateMoney() {
-            this.feeSumary = this.inputIsPax 
-                ? this.fee * this.peopleData.list.length
-                : this.fee / this.peopleData.list.length;
-        }
+        prepareForm() {
+            let count = this.peopleData.list.length;
+
+            if (this.inputIsPax) {
+                this.feeSumary = parseInt(this.fee * count);
+            }
+            else {
+                this.feeSumary = count ? parseInt(this.fee / count) : 0;
+            }
+
+            this.feeSumaryMasked = this.feeSumary;
+            this.formReady = !!(this.fee && this.eventName);
+        },
+        submit : async function() {
+            const api_url = '/party';
+            const self = this;
+
+            let payload = {
+                name: this.eventName,
+                admin: 'quypv1',
+            };
+
+            if (this.inputIsPax) {
+                payload.pax = this.fee;
+                payload.total = this.feeSumary;
+            }
+            else {
+                payload.pax = this.feeSumary;
+                payload.total = this.fee;
+            }
+
+            return await axios.post(api_url, payload)
+                .then(res => {
+                    self.close();
+                })
+                .catch(error => {
+                    console.log(error);
+            });
+        },
     },
 
     data() {
         return {
+            peopleData: {
+                list: [],
+            },
+            formReady: false,
+            feeSumary: 0,
+            feeSumaryMasked: 0,
             fee: 0,
             feeMasked: '',
-            feeSumary: 0,
+            eventName: '',
             vnd: {
                 thousands: '.',
                 suffix: ' Đ',
@@ -98,21 +148,15 @@ export default {
                 masked: false
             },
             inputIsPax: false,
-            peopleData: {
-                list: [],
-            }
         }
     },
 
     directives: {money: VMoney},
 
     watch: {
-        fee() {
-            this.calculateMoney();
-        },
-        inputIsPax() {
-            this.calculateMoney();
-        }
+        fee() { this.prepareForm() },
+        inputIsPax() { this.prepareForm() },
+        eventName() { this.prepareForm() },
     },
 }
 </script>

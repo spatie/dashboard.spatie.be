@@ -75,12 +75,13 @@ export default {
         },
         eject(member) {
             this.people.list = MemberService.exclude([member], this.people.list);
+
+            this.$emit('updated');
         },
     },
 
     data() {
         return {
-            // people: [MemberService.one('quypv1')],
             pickerStatus: {visible: false}, //send object to modify in child comp
             pickerData: [],
         }

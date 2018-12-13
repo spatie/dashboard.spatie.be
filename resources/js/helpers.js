@@ -103,5 +103,5 @@ export function uuid(length) {
 }
 
 export function strToNumber(str) {
-    return str.match(/\d/g).join("");
+    return parseInt(str.match(/\d/g).join(""));
 }
