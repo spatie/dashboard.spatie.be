@@ -75,9 +75,10 @@ class RoomMember
     }
 
     private function parse() {
-        // return $this->getDumb();
+        //external network
+        return $this->getDumb();
 
-        //production
+        //internal network
         $client = new Client();
         $res = $client->request(
             'GET', 
@@ -128,12 +129,23 @@ class RoomMember
 
     private function getDumb(){
         return [
-            ['trac'=>'liembt','name'=>'Bùi Liêm','gender'=>'male'],
-            ['trac'=>'kimhong','name'=>'Kim Hồng','gender'=>'female'],
-            ['trac'=>'thuhta','name'=>'Anh Thư','gender'=>'female'],
-            ['trac'=>'phuongdm','name'=>'Minh Phương','gender'=>'male'],
-            ['trac'=>'trungkien','name'=>'Trung Kiên','gender'=>'male'],
-            ['trac'=>'duy.maianh','name'=>'Anh Duy','gender'=>'male'],
+            ['trac'=>'liembt','name'=>'Bùi Thanh Liêm','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'sondt','name'=>'Đào Thanh Sơn','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'kimhong','name'=>'Trần Thị Kim Hồng','gender'=>'female', 'isDev'=>1],
+            ['trac'=>'thuhta','name'=>'Hoàng Thị Anh Thư','gender'=>'female', 'isDev'=>1],
+            ['trac'=>'phuongdm','name'=>'Dương Minh Phương','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'trungkien','name'=>'Nguyễn Trung Kiên','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'duy.maianh','name'=>'Mai Anh Duy','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'dunghv','name'=>'Hoàng Việt Dũng','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'sonvq','name'=>'Vũ Quang Sơn','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'anh','name'=>'Nguyễn Thị Vân Anh','gender'=>'female', 'isDev'=>0],
+            ['trac'=>'quypv1','name'=>'Phạm Văn Quý','gender'=>'male', 'isDev'=>1],
+            // ['trac'=>'sonvq','name'=>'Vũ Quang Sơn','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'ductrinh','name'=>'Trịnh Minh Đức','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'tanustark','name'=>'Nguyễn Minh Tuấn','gender'=>'male', 'isDev'=>0],
+            ['trac'=>'cuongnh','name'=>'Nguyễn Huy Cương','gender'=>'male', 'isDev'=>1],
+            ['trac'=>'vunguyen','name'=>'Nguyễn Hải Vũ','gender'=>'male', 'isDev'=>0],
+            ['trac'=>'vanquyet','name'=>'Trần Văn Quyết','gender'=>'male', 'isDev'=>1],
         ];
     }
 }

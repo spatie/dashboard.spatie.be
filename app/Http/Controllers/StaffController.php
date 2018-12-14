@@ -10,7 +10,7 @@ class StaffController
     {
         $roomMember = new RoomMember();
 
-        // $roomMember->resync();
+        $roomMember->resync();
         // $roomMember->archive('phonglh');
         // $roomMember->archive('jadephung');
         // $roomMember->archive('binh.nguyen');
