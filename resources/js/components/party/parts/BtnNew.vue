@@ -1,6 +1,6 @@
 <template>
     <button class="ux-3rtx" v-on:click="openNew">
-        <div class="text-3xl leading-none -mt-1" v-html="emoji('➕')" />
+        <i class="text-2xl leading-none" v-html="emoji('➕')" />
     </button>
 </template>
 

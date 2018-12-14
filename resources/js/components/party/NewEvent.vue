@@ -87,7 +87,7 @@ export default {
         emoji,
         strToNumber,
         close() {
-            EventBus.$emit('party:navigate', routes.EMPTY);
+            EventBus.$emit('party:navigate', routes.LIST);
         },
         prepareForm() {
             let count = this.peopleData.list.length;

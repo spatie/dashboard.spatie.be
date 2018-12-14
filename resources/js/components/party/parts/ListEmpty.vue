@@ -1,10 +1,6 @@
 <template>
-    <div>
-        <title-text>No upcoming event</title-text>
-        <div 
-            class="grid p-3 rounded-full border-accent border-2 border-dashed mt-3" 
-            style="grid-template-columns: 1fr auto; margin-right: 12px;" 
-            >
+    <div class="p-3 rounded-full border-accent border-2 border-dashed mt-3" style="margin-right: 12px;">
+        <div class="flex justify-between">
             <span class="text-accent">Host a new one!</span>
             <span class="-ml-2">
                 <img 
@@ -17,15 +13,11 @@
 </template>
 
 <script>
-import TitleText from './parts/TitleText';
-import routes from './services/route';
+import { emoji } from '../../../helpers';
 
 export default {
-    components: {
-        TitleText,
-    },
-
     methods: {
+      emoji,
     },
-}    
+}
 </script>

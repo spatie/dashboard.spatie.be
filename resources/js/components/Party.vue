@@ -1,6 +1,6 @@
 <template>
     <tile :position="position" :noFade="true">
-        <scr-empty-event v-if="screen === routes.EMPTY" />
+        <scr-list v-if="screen === routes.LIST" />
         <scr-new-event v-else-if="screen === routes.NEW" />
     </tile>
 </template>
@@ -10,13 +10,13 @@ import { emoji } from '../helpers';
 import Tile from './atoms/Tile';
 import routes from './party/services/route';
 import EventBus from '../services/event-bus';
-import ScrEmptyEvent from './party/EmptyEvent';
+import ScrList from './party/List';
 import ScrNewEvent from './party/NewEvent';
 
 export default {
     components: {
         Tile,
-        ScrEmptyEvent,
+        ScrList,
         ScrNewEvent,
     },
 
@@ -29,7 +29,7 @@ export default {
     data () {
         return {
             routes: routes,
-            screen: routes.NEW,
+            screen: routes.LIST,
         }
     },
 
