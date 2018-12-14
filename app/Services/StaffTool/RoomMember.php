@@ -19,6 +19,7 @@ class RoomMember
     protected $valuestore;
     /** @var int */
     protected $roomId;
+    private $devs = ['liembt', 'sondt', 'kimhong', 'thuhta', 'phuongdm', 'trungkien', 'duy.maianh', 'dunghv', 'sonvq', 'quypv1', 'ductrinh', 'cuongnh', 'vanquyet'];
 
     public function __construct(int $roomId = self::ROOM_1502)
     {
@@ -118,6 +119,7 @@ class RoomMember
                 'trac' => $trac,
                 'name' => $name,
                 'gender' => $isMale ? 'male' : 'female',
+                'isDev' => in_array($trac, $this->devs)
             ];
         }
 

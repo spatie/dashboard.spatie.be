@@ -17,7 +17,7 @@
                     </component>
                 </div>
                 <div v-else>
-                    <avatar :src="avatar" />
+                    <member-avatar :member="info" />
                     <div
                         v-if="isBirthDay"
                         class="absolute flex items-center jsutify-center text-3xl"
@@ -27,7 +27,7 @@
                 </div>
                 <div class="leading-tight min-w-0">
                     <h2 class="truncate capitalize">
-                        {{ name }}
+                        {{ firstName }}
                         <span
                             v-if="statusEmoji != ''"
                             class="text-xl"
@@ -57,22 +57,29 @@ import Avatar from './atoms/Avatar';
 import Tile from './atoms/Tile';
 import saveState from 'vue-save-state';
 import moment from 'moment';
+import MemberAvatar from './atoms/MemberAvatar';
 
 export default {
     components: {
         Avatar,
         Tile,
+        MemberAvatar,
     },
 
     mixins: [echo, saveState],
 
-    props: ['name', 'avatar', 'position', 'birthday'],
+    props: ['info', 'position'],
 
     computed: {
-        isBirthDay() {
-            let birthday = moment(this.birthday);
+        firstName() {
+            return this.info.name.split(' ').pop();
+        },
 
-            return birthday.format('MD') === moment().format('MD');
+        isBirthDay() {
+        //     let birthday = moment(this.birthday);
+
+        //     return birthday.format('MD') === moment().format('MD');
+            return false;
         },
     },
 
