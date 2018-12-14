@@ -16,6 +16,7 @@ import Uptime from './components/Uptime';
 import Velo from './components/Velo';
 import Party from './components/Party';
 import TileTimer from './components/TileTimer';
+import Announcement from './components/Announcement';
 
 new Vue({
     el: '#dashboard',
@@ -34,6 +35,7 @@ new Vue({
         TileTimer,
         Party,
         Staff,
+        Announcement,
     },
 
     created() {
