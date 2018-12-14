@@ -17,7 +17,8 @@
                     </component>
                 </div>
                 <div v-else>
-                    <member-avatar :member="info" />
+                    <!-- <member-avatar :member="info" /> -->
+                    <avatar :src="jira.avatar" />
                     <div
                         v-if="isBirthDay"
                         class="absolute flex items-center jsutify-center text-3xl"
@@ -46,6 +47,12 @@
                 </div>
             </div>
             <div class="align-self-center" v-if="tasks" v-html="tasks"></div>
+
+            <div v-if="jira && jira.issues.length">
+                <span v-for="ticket in jira.issues.slice(0, 3)">
+                    <jira-ticket :jkey="ticket.key" :hint="ticket.label" />
+                </span>
+            </div>
         </div>
     </tile>
 </template>
@@ -58,17 +65,19 @@ import Tile from './atoms/Tile';
 import saveState from 'vue-save-state';
 import moment from 'moment';
 import MemberAvatar from './atoms/MemberAvatar';
+import JiraTicket from './atoms/JiraTicket';
 
 export default {
     components: {
         Avatar,
         Tile,
         MemberAvatar,
+        JiraTicket,
     },
 
     mixins: [echo, saveState],
 
-    props: ['info', 'position'],
+    props: ['info', 'position', 'jira'],
 
     computed: {
         firstName() {

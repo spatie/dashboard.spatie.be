@@ -12,13 +12,17 @@
         @foreach($members as $k => $mem)
             @php  
                 $col = $cols[$k%4];
-                $size = $mem['isDev'] ? 5 : 4;
+                $size = $mem['isDev'] ? 5 : 3;
                 $rowStart = $flags[$col];
                 $rowEnd = $rowStart + $size - 1;
                 $flags[$col] = $flags[$col] + $size;
             @endphp
             
-            <team-member :info="{{ json_encode($mem) }}" :position="'{{$col.$rowStart}}:{{$col.$rowEnd}}'"></team-member>
+            <team-member 
+                :info="{{ json_encode($mem) }}" 
+                :position="'{{$col.$rowStart}}:{{$col.$rowEnd}}'"
+                :jira="{{ json_encode($jira[$mem['trac']]) }}"
+            ></team-member>
         @endforeach
 
         <time-weather position="e1:e6" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>

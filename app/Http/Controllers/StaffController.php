@@ -18,6 +18,7 @@ class StaffController
         // $roomMember->archive('thanhcong.vu');
         // $roomMember->archive('vlk');
         // $roomMember->archive('sam');
+        // $roomMember->archive('deivas');
 
         return view('staff')->with([
             'pusherKey' => config('broadcasting.connections.pusher.key'),
