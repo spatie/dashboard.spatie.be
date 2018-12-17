@@ -15,6 +15,7 @@ use App\Console\Components\Statistics\FetchGitHubTotalsCommand;
 use App\Console\Components\Dashboard\DetermineAppearanceCommand;
 use App\Console\Components\TeamMember\FetchCurrentTracksCommand;
 use App\Console\Components\Statistics\FetchPackagistTotalsCommand;
+use App\Console\Components\Jira\FetchJiraUsersCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -31,6 +32,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(FetchStatusCommand::class)->everyFiveMinutes();
         $schedule->command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
         $schedule->command(FetchPackagistTotalsCommand::class)->hourly();
+        $schedule->command(FetchJiraUsersCommand::class)->everyFiveMinutes();
         $schedule->command('websockets:clean')->daily();
 
     }

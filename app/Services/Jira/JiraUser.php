@@ -24,10 +24,10 @@ class JiraUser {
      * @param string $trac
      * @return array
      */
-    public function fetch($trac)
+    public function fetch($trac, $nocache = false)
     {
         try {
-            if ($cache = $this->fromCache($trac)) {
+            if (!$nocache && $cache = $this->fromCache($trac)) {
                 return $cache;
             }
 
@@ -51,12 +51,12 @@ class JiraUser {
     /**
      * @return 
      */
-    public function fetchMany(array $tracs)
+    public function fetchMany(array $tracs, $nocache = false)
     {
         $arr = [];
 
         foreach($tracs as $trac) {
-            $arr[$trac] = $this->fetch($trac);
+            $arr[$trac] = $this->fetch($trac, $nocache);
         }
 
         return $arr;
