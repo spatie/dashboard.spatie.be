@@ -36,7 +36,7 @@ class LeaveRequest
         $arr = [];
 
         foreach($users as $trac => $name) {
-            $arr = array_merge_recursive(
+            $arr = array_merge(
                 $arr, 
                 $this->fetch($name, $trac, $nocache)
             );
@@ -74,6 +74,11 @@ class LeaveRequest
 
             //date
             $nextLine = readline($body);
+            $half = null;
+
+            if (strpos($nextLine, 'morning')) $half = 'AM';
+            if (strpos($nextLine, 'afternoon')) $half = 'PM';
+
             $date = trim(str_replace(
                 ['&nbsp;', 'from', 'to', '(all day)', '(afternoon)', '(morning)'],
                 '',
@@ -81,38 +86,41 @@ class LeaveRequest
             ));
 
             if ($date >= $now) {
-                $requests[] = $date;
+                $requests = array_merge($requests, $this->parseDate($date, $half));
             }
 
             if (count($requests) >= $max) break;
         }
 
-        return $this->arrangeByDate($requests, $trac); 
+        return [
+            $trac => $requests
+        ]; 
     }
 
     /**
      * @return array
      */
-    private function arrangeByDate(array $leaveDates, string $trac)
+    private function parseDate(string $strDate, string $half = null)
     {
         $arr = [];
 
-        foreach($leaveDates as $period) {
-            $range = explode('  ', $period);
-            $start = $range[0];
-            $end = $range[1] ?? null;
+        $range = explode('  ', $strDate);
+        $start = $range[0];
+        $end = $range[1] ?? null;
 
-            if ($end) {
-                $range = new \DatePeriod(
-                    new \DateTime($start),
-                    new \DateInterval('P1D'),
-                    new \DateTime($end . ' 23:59:59')
-               );
+        if ($end) {
+            $range = new \DatePeriod(
+                new \DateTime($start),
+                new \DateInterval('P1D'),
+                new \DateTime($end . ' 23:59:59')
+            );
 
-               foreach($range as $date) {
-                   $arr[$date->format('Y-m-d')] = [$trac];
-               }
+            foreach($range as $date) {
+                $arr[] = $date->format('Y-m-d');
             }
+        }
+        else {
+            $arr[] = $strDate . ($half ? " $half" : "");
         }
 
         return $arr;
