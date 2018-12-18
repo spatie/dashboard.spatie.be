@@ -12,7 +12,7 @@
         @foreach($members as $k => $mem)
             @php  
                 $col = $cols[$k%4];
-                $size = $mem['isDev'] ? 5 : 4;
+                $size = $mem['isDev'] ? 5 : 5;
                 $rowStart = $flags[$col];
                 $rowEnd = $rowStart + $size - 1;
                 $flags[$col] = $flags[$col] + $size;
