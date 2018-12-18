@@ -12,18 +12,19 @@
         @foreach($members as $k => $mem)
             @php  
                 $col = $cols[$k%4];
-                $size = $mem['isDev'] ? 5 : 5;
+                $size = 5;
                 $rowStart = $flags[$col];
                 $rowEnd = $rowStart + $size - 1;
                 $flags[$col] = $flags[$col] + $size;
 
                 $leaveInfo = $leaveRequests[$mem['trac']] ?? [];
+                $jiraInfo = $jira[$mem['trac']] ?? [];
             @endphp
             
             <team-member 
-                :info="{{ json_encode($mem) }}" 
+                :info="{{ json_encode($mem, JSON_FORCE_OBJECT) }}" 
                 :position="'{{$col.$rowStart}}:{{$col.$rowEnd}}'"
-                :jira="{{ json_encode($jira[$mem['trac']]) }}"
+                :jira="{{ json_encode($jiraInfo, JSON_FORCE_OBJECT) }}"
                 :leave="{{ json_encode($leaveInfo) }}"
             ></team-member>
         @endforeach

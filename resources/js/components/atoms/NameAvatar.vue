@@ -1,6 +1,6 @@
 <template>
-    <i class="ico_dc4f">
-        <img :src="avatar" width="24" height="24" class="rounded-full" :alt="name" />
+    <i class="ico_dc4f mr-3">
+        <img :src="avatar" width="28" height="28" class="rounded-full" :alt="name" />
         <span>{{ hint }}</span>
     </i>
 </template>

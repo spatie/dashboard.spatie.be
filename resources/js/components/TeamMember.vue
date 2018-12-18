@@ -3,11 +3,16 @@
         <div class="h-full markup flex flex-col justify-between py-4">
             <div class="w-full bg-tile z-10 mb-3">
                 <div class="flex flex-row items-center">
-                    <avatar :src="jira.avatar" :darkmode="leaveToDay !== false" />
+                    <avatar 
+                        v-if="jira.avatar"
+                        :src="jira.avatar" :darkmode="leaveToDay !== false" />
+                    <member-avatar 
+                        v-else
+                        :member="info" />
                     <h2 class="truncate capitalize leading-tight min-w-0">{{ firstName }}</h2>
                 </div>
             </div>
-            <div v-if="jira && jira.issues.length">
+            <div v-if="jira.issues && jira.issues.length">
                 <span v-for="ticket in jira.issues.slice(0, 3)">
                     <jira-ticket :jkey="ticket.key" :hint="ticket.label" />
                 </span>
@@ -63,7 +68,6 @@ export default {
 
         isBirthDay() {
         //     let birthday = moment(this.birthday);
-
         //     return birthday.format('MD') === moment().format('MD');
             return false;
         },
