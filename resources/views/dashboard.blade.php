@@ -22,11 +22,12 @@
                 :info="{{ json_encode($mem) }}" 
                 :position="'{{$col.$rowStart}}:{{$col.$rowEnd}}'"
                 :jira="{{ json_encode($jira[$mem['trac']]) }}"
+                :leave="{{ json_encode($leaveRequests[$mem['trac']]) }}"
             ></team-member>
         @endforeach
 
-        <time-weather position="e1:e6" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
-        <internet-connection position="e1:e6"></internet-connection>
+        <time-weather position="e1:e6" date-format="ddd DD/MM" time-zone="Asia/Ho_Chi_Minh" weather-city="Ha noi"></time-weather>
+        {{-- <internet-connection position="e1:e6"></internet-connection> --}}
         <uptime position="d1:d10"></uptime>
         <announcement position="e7:e16"></announcement>
         <party position="e17:e24"></party>

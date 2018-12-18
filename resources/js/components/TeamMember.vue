@@ -1,61 +1,35 @@
 <template>
     <tile :position="position">
-        <div
-            class="grid gap-padding h-full markup"
-            :style="tasks ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr'"
-        >
-            <div
-                class="grid gap-2 items-center w-full bg-tile z-10"
-                style="grid-template-columns: auto 1fr"
-            >
-                <div
-                    v-if="artwork != ''"
-                    class="overflow-hidden w-10 h-10 rounded border border-screen"
-                >
-                    <component :is="trackUrl ? 'a' : 'span'" :href="trackUrl || ''" target="_blank">
-                        <img :src="artwork" class="w-10 h-10" />
-                    </component>
-                </div>
-                <div v-else>
-                    <!-- <member-avatar :member="info" /> -->
-                    <avatar :src="jira.avatar" />
-                    <div
-                        v-if="isBirthDay"
-                        class="absolute flex items-center jsutify-center text-3xl"
-                        v-html="emoji('👑')"
-                        style="top: -1rem; right: .05rem; transform:rotate(7deg);"
-                    />
-                </div>
-                <div class="leading-tight min-w-0">
-                    <h2 class="truncate capitalize">
-                        {{ firstName }}
-                        <span
-                            v-if="statusEmoji != ''"
-                            class="text-xl"
-                            v-html="emoji(statusEmoji)"
-                        />
-                    </h2>
-                    <component
-                        v-if="currentTrack != ''"
-                        class="truncate text-sm"
-                        :is="trackUrl ? 'a' : 'span'"
-                        :href="trackUrl || ''"
-                        target="_blank"
-                    >
-                        <span v-html="emoji('🎵')" /> {{ currentTrack }}
-                    </component>
+        <div class="h-full markup flex flex-col justify-between py-4">
+            <div class="w-full bg-tile z-10 mb-3">
+                <div class="flex flex-row items-center">
+                    <avatar :src="jira.avatar" :darkmode="leaveToDay !== false" />
+                    <h2 class="truncate capitalize leading-tight min-w-0">{{ firstName }}</h2>
                 </div>
             </div>
-            <div class="align-self-center" v-if="tasks" v-html="tasks"></div>
-
             <div v-if="jira && jira.issues.length">
                 <span v-for="ticket in jira.issues.slice(0, 3)">
                     <jira-ticket :jkey="ticket.key" :hint="ticket.label" />
                 </span>
             </div>
+            <div></div>
+        </div>
+        <div class="abs_xws text-xs" v-if="leaveToDay !== false">
+            <span>Leave <leave-status :status="leaveToDay" /></span>
+            <span v-if="leaveTomorrow !== false">& <leave-status :status="leaveTomorrow" :label="'tomorrow'" /></span>
         </div>
     </tile>
 </template>
+
+<style>
+.abs_xws {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.5rem;
+    text-align: right;
+    color: var(--text-dimmed);
+}
+</style>
 
 <script>
 import { emoji } from '../helpers';
@@ -66,6 +40,8 @@ import saveState from 'vue-save-state';
 import moment from 'moment';
 import MemberAvatar from './atoms/MemberAvatar';
 import JiraTicket from './atoms/JiraTicket';
+import LeaveHelper from '../services/leave';
+import LeaveStatus from './atoms/LeaveStatus';
 
 export default {
     components: {
@@ -73,11 +49,12 @@ export default {
         Tile,
         MemberAvatar,
         JiraTicket,
+        LeaveStatus,
     },
 
     mixins: [echo, saveState],
 
-    props: ['info', 'position', 'jira'],
+    props: ['info', 'position', 'jira', 'leave'],
 
     computed: {
         firstName() {
@@ -89,6 +66,12 @@ export default {
 
         //     return birthday.format('MD') === moment().format('MD');
             return false;
+        },
+        leaveToDay() {
+            return LeaveHelper.leaveStatusToday(this.leave);
+        },
+        leaveTomorrow() {
+            return LeaveHelper.leaveStatusTomorrow(this.leave);
         },
     },
 
