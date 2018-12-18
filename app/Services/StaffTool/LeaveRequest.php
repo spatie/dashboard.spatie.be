@@ -29,8 +29,8 @@ class LeaveRequest
      */
     public function fetchMany(array $users = [], $nocache = false)
     {
-        if (!$nocache && $cache = $this->fromCache()) {
-            return $cache;
+        if (!$nocache) {
+            return $this->fromCache();
         }
 
         $arr = [];
