@@ -62,7 +62,7 @@ class JiraIssue {
      */
     public function fetchByUser($trac, $limit = 0) 
     {
-        $jql = 'project not in (TEST)  and assignee = "'.$trac.'" and status in ("In Progress", "Ready for Dev", "Waiting for review") order by updated DESC';
+        $jql = 'project not in (TEST)  and assignee = "'.$trac.'" and status in ("Ready for Dev", "In Progress", "Waiting for review", "Ready for testing", "Testing") order by updated DESC';
 
         try {
             $result = $this->issueService->search($jql);
