@@ -1,6 +1,7 @@
 _ide_helper*.php
 .env
 .php_cs.cache
+*.log
 /node_modules
 /npm-debug.log
 /public/build

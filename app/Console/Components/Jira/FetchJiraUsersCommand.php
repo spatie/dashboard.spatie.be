@@ -18,6 +18,11 @@ class FetchJiraUsersCommand extends Command
     {
         $this->info('Fetching Jira user-issues');
 
+        if (!env('JIRA_USER') || !env('JIRA_HOST') || !env('JIRA_PASS')) {
+            $this->error('Failed: JIRA_ env variables are not fully filled.');
+            return;
+        }
+
         $members = RoomMember::all();
         $nocache = true;
         $result = $jiraService->fetchMany(array_column($members, 'trac'), $nocache);
