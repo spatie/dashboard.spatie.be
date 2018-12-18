@@ -22,9 +22,9 @@
             @endphp
             
             <team-member 
-                :info="{{ json_encode($mem, JSON_FORCE_OBJECT) }}" 
+                :info="{{ json_encode($mem) }}" 
                 :position="'{{$col.$rowStart}}:{{$col.$rowEnd}}'"
-                :jira="{{ json_encode($jiraInfo, JSON_FORCE_OBJECT) }}"
+                :jira="{{ json_encode($jiraInfo) }}"
                 :leave="{{ json_encode($leaveInfo) }}"
             ></team-member>
         @endforeach
