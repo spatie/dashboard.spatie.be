@@ -5,20 +5,16 @@ namespace App\Services\Jira;
 use JiraRestApi\JiraException;
 use JiraRestApi\Issue\IssueService;
 use JiraRestApi\Issue\Issue;
-use Spatie\Valuestore\Valuestore;
 
 class JiraIssue {
-    private const ROOM_1502 = 28;
-    private const SUFFIX_USER = '_issue';
     private $cached = [];
     private $issueService;
 
     /**
      * Constructor
      */
-    public function __construct(int $roomId = self::ROOM_1502)
+    public function __construct()
     {
-        $this->valuestore = Valuestore::make(storage_path("app/jira_$roomId.json"));
         $this->issueService = new IssueService();
     }
 

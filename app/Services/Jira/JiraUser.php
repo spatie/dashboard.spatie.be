@@ -8,7 +8,6 @@ use Spatie\Valuestore\Valuestore;
 
 class JiraUser {
     private const ROOM_1502 = 28;
-    private const SUFFIX_USER = '_user';
     private $jiraIssue;
 
     /**
@@ -26,11 +25,11 @@ class JiraUser {
      */
     public function fetch($trac, $nocache = false)
     {
-        try {
-            if (!$nocache && $cache = $this->fromCache($trac)) {
-                return $cache;
-            }
+        if (!$nocache) {
+            return $this->fromCache($trac);
+        }
 
+        try {
             $us = new UserService();
             $user = $us->get(['username' => $trac]);
 
@@ -38,7 +37,7 @@ class JiraUser {
             $user->issues = $issues;
 
             $user = $this->transform($user);
-            $this->valuestore->put($trac.self::SUFFIX_USER, $user);
+            $this->valuestore->put($trac, $user);
 
             return $user;
         } catch (JiraException $e) {
@@ -64,13 +63,11 @@ class JiraUser {
 
     /**
      * @param string $trac
-     * @return string|null
+     * @return array
      */
     private function fromCache($trac)
     {
-        $user = $this->valuestore->get($trac.self::SUFFIX_USER);
-
-        return $user ?? null;
+        return $this->valuestore->get($trac, []);
     }
 
     /**

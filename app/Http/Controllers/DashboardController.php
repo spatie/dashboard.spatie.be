@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\TweetHistory\TweetHistory;
 use App\Services\StaffTool\RoomMember;
 use App\Services\StaffTool\LeaveRequest;
 use App\Services\Jira\JiraUser;
@@ -18,7 +17,6 @@ class DashboardController
         return view('dashboard')->with([
             'pusherKey' => config('broadcasting.connections.pusher.key'),
             'clientConnectionPath' => config('websockets.client_connection_path'),
-            'initialTweets' => TweetHistory::all(),
             'members' => $members,
             'jira' => $users,
             'leaveRequests' => LeaveRequest::all(),

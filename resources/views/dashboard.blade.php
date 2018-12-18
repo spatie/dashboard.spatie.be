@@ -29,10 +29,11 @@
         @endforeach
 
         <time-weather position="e1:e6" date-format="ddd DD/MM" time-zone="Asia/Ho_Chi_Minh" weather-city="Ha noi"></time-weather>
-        {{-- <internet-connection position="e1:e6"></internet-connection> --}}
-        <uptime position="d1:d10"></uptime>
         <announcement position="e7:e16"></announcement>
         <party position="e17:e24"></party>
+        
+        {{-- <uptime position="d1:d10"></uptime> --}}
+        {{-- <internet-connection position="e1:e6"></internet-connection> --}}
         {{-- <calendar position="e7:e16"></calendar> --}}
         {{-- <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a24"></twitter> --}}
         {{-- <tile-timer on="16:00" off="19:00">

@@ -27,6 +27,18 @@ class RoomMember
         $this->roomId = $roomId;
     }
 
+    /**
+     * @return array
+     */
+    public static function all(): array
+    {
+        //return (new static())->getMembers();
+        return (new static())->getDumb();
+    }
+
+    /**
+     * @return void
+     */
     public function resync()
     {
         // $members = $this->valuestore->get('members', []);
@@ -36,6 +48,10 @@ class RoomMember
         $this->valuestore->put(self::KEY_ARCHIVED, $archived);
     }
 
+    /**
+     * Exclude a person from member list
+     * @param string $trac
+     */
     public function archive(string $trac) {
         $members = $this->getMembers();
         $archived = $this->getArchived();
@@ -59,21 +75,25 @@ class RoomMember
         $this->valuestore->put(self::KEY_ARCHIVED, array_values($archived));
     }
 
+    /**
+     * @return array
+     */
     public function getMembers(): array
     {
         return $this->valuestore->get(self::KEY_MEMBERS, []);
     }
 
+    /**
+     * @return array
+     */
     public function getArchived(): array
     {
         return $this->valuestore->get(self::KEY_ARCHIVED, []);
     }
 
-    public static function all(): array
-    {
-        return (new static())->getMembers();
-    }
-
+    /**
+     * Crawl members from staff tool
+     */
     private function parse() {
         //external network
         return $this->getDumb();
@@ -127,7 +147,10 @@ class RoomMember
         return $members;
     }
 
-    private function getDumb(){
+    /**
+     * Static data for temporary use
+     */
+    public function getDumb(){
         return [
             ['trac'=>'liembt','name'=>'Bùi Thanh Liêm','gender'=>'male', 'isDev'=>1],
             ['trac'=>'sondt','name'=>'Đào Thanh Sơn','gender'=>'male', 'isDev'=>1],
@@ -140,7 +163,6 @@ class RoomMember
             ['trac'=>'sonvq','name'=>'Vũ Quang Sơn','gender'=>'male', 'isDev'=>1],
             ['trac'=>'anh','name'=>'Nguyễn Thị Vân Anh','gender'=>'female', 'isDev'=>0],
             ['trac'=>'quypv1','name'=>'Phạm Văn Quý','gender'=>'male', 'isDev'=>1],
-            // ['trac'=>'sonvq','name'=>'Vũ Quang Sơn','gender'=>'male', 'isDev'=>1],
             ['trac'=>'ductrinh','name'=>'Trịnh Minh Đức','gender'=>'male', 'isDev'=>1],
             ['trac'=>'tanustark','name'=>'Nguyễn Minh Tuấn','gender'=>'male', 'isDev'=>0],
             ['trac'=>'cuongnh','name'=>'Nguyễn Huy Cương','gender'=>'male', 'isDev'=>1],

@@ -12,7 +12,7 @@
                     class="py-1 mx-2 border-b border-screen grid"
                     style="grid-template-columns: 1fr auto;">
                     <span>{{item.label}}</span>
-                    <span v-if="item.checked"><i v-html="emoji('✅')" /></span>
+                    <span v-show="item.checked"><i v-html="emoji('✅')" /></span>
                 </li>
             </ul>
         </section>
