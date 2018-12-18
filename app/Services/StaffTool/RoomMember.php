@@ -2,7 +2,6 @@
 
 namespace App\Services\StaffTool;
 
-// use App\Events\Twitter\Mentioned;
 use Spatie\Valuestore\Valuestore;
 use GuzzleHttp\Client;
 use Guzzle;
@@ -15,11 +14,8 @@ class RoomMember
     private const KEY_ARCHIVED = 'archived_members';
     private const ROOM_1502 = 28;
 
-    /** @var \Spatie\Valuestore\Valuestore */
     protected $valuestore;
-    /** @var int */
     protected $roomId;
-    private $devs = ['liembt', 'sondt', 'kimhong', 'thuhta', 'phuongdm', 'trungkien', 'duy.maianh', 'dunghv', 'sonvq', 'quypv1', 'ductrinh', 'cuongnh', 'vanquyet'];
 
     public function __construct(int $roomId = self::ROOM_1502)
     {
