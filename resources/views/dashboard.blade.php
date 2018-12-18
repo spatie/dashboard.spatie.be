@@ -16,13 +16,15 @@
                 $rowStart = $flags[$col];
                 $rowEnd = $rowStart + $size - 1;
                 $flags[$col] = $flags[$col] + $size;
+
+                $leaveInfo = $leaveRequests[$mem['trac']] ?? [];
             @endphp
             
             <team-member 
                 :info="{{ json_encode($mem) }}" 
                 :position="'{{$col.$rowStart}}:{{$col.$rowEnd}}'"
                 :jira="{{ json_encode($jira[$mem['trac']]) }}"
-                :leave="{{ json_encode($leaveRequests[$mem['trac']]) }}"
+                :leave="{{ json_encode($leaveInfo) }}"
             ></team-member>
         @endforeach
 
