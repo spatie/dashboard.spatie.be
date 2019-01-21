@@ -1,18 +1,58 @@
 import axios from 'axios';
 
 class Weather {
-    async conditions(city) {
-        const query = `select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='${city}') and u='c'`;
+    async forCity(city) {
+        const key = window.dashboard.openWeatherMapKey;
 
-        const response = await this.performQuery(query);
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`);
 
-        return response.data.query.results.channel.item.condition;
+        return response.data;
     }
 
-    async performQuery(query) {
-        const endpoint = `https://query.yahooapis.com/v1/public/yql?q=${query}&format=json`;
+    getEmoji(weatherId, isNight) {
+        const group = parseInt(weatherId.toString().charAt(0));
 
-        return await axios.get(endpoint);
+        if (group === 2) {
+            return '⛈';
+        }
+
+        if (group === 3) {
+            return '☔';
+        }
+
+        if (group === 5) {
+            return '☔';
+        }
+
+        if (group === 6) {
+            return '🌨☃';
+        }
+
+        if (weatherId >= 700 && weatherId <= 762) {
+            return '🌫';
+        }
+
+        if (weatherId === 781) {
+            return '🌪';
+        }
+
+        if (weatherId === 771) {
+            return '💨';
+        }
+
+        if (weatherId === 800) {
+            return isNight ? '🌌' : '☀';
+        }
+
+        if (weatherId === 801) {
+            return '⛅';
+        }
+
+        if (group === 8) {
+            return '☁';
+        }
+
+        return '🧐';
     }
 }
 

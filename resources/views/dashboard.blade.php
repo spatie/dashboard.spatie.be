@@ -2,7 +2,7 @@
 
 @section('content')
 
-@javascript(compact('pusherKey', 'clientConnectionPath', 'environment'))
+@javascript(compact('pusherKey', 'clientConnectionPath', 'environment', 'openWeatherMapKey'))
 <div id="dashboard">
     <dashboard class="font-sans">
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a24"></twitter>

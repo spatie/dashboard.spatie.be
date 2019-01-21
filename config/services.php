@@ -27,6 +27,10 @@ return [
         'longitude' => env('BUIENRADAR_LONGITUDE'),
     ],
 
+    'open_weather_map' => [
+        'key' => env('OPEN_WEATHER_MAP_KEY'),
+    ],
+
     'slack' => [
         'app_token' => env('SLACK_APP_TOKEN'),
     ],
