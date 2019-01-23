@@ -25,7 +25,7 @@ class Weather {
         }
 
         if (group === 6) {
-            return '🌨☃';
+            return '☃';
         }
 
         if (weatherId >= 700 && weatherId <= 762) {
