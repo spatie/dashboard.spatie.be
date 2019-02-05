@@ -20,7 +20,7 @@ class Member
     protected function convertToRealEmoji(string $statusEmoji): string
     {
         if ($statusEmoji === ':house_with_garden:') {
-            return '⛺️';
+            return '🏠';
         }
 
         if ($statusEmoji === ':knife_fork_plate:') {
