@@ -125,16 +125,16 @@ export default {
             const condition = await weather.forCity(this.weatherCity);
 
             let icons = [];
-            
-            console.log(condition);
 
-            condition.weather.forEach(weatherCondition => {
-                const isNight = weatherCondition.icon.includes('n');
+            condition.weather
+                .slice(0, 1) // There's not enough room for > 1 emoji -> only display the first weather condition
+                .forEach(weatherCondition => {
+                    const isNight = weatherCondition.icon.includes('n');
 
-                const icon = weather.getEmoji(weatherCondition.id, isNight);
+                    const icon = weather.getEmoji(weatherCondition.id, isNight);
 
-                icons.push(emoji(icon));
-            });
+                    icons.push(emoji(icon));
+                });
 
             this.weather.temperature = condition.main.temp.toFixed(1);
             this.weather.icons = icons;
