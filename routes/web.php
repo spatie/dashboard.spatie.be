@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UpdateIndoorAirQualityController;
 use App\Http\Middleware\AccessToken;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GitHubWebhookController;
