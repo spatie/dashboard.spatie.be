@@ -93,4 +93,8 @@ return [
          */
         'passphrase' => null,
     ],
+
+    'allowed_dashboard_ips' => [
+        '94.227.59.167', // spatie
+    ],
 ];
