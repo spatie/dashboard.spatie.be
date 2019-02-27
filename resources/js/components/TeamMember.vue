@@ -51,7 +51,7 @@
                 </ul>
                 <div v-if="smallTasks.length" class="text-xs text-dimmed border-t-2 border-screen pt-1">
                     <p v-for="task in smallTasks" :key="task.id" class="truncate">
-                        {{ task.project }}<span v-if="task.name"> / {{ task.name }}</span><br />
+                        {{ task.project }} <span v-if="task.name">– {{ task.name }}</span><br />
                     </p>
                 </div>
             </div>
