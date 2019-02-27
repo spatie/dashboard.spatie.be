@@ -2,10 +2,7 @@
     <tile :position="position">
         <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
             <div class="flex">
-                <div
-                    class="grid place-center w-10 h-10 rounded-full"
-                    style="background-color: rgba(255, 255, 255, .9)"
-                >
+                <div class="grid place-center w-10 h-10 rounded-full" style="background-color: rgba(255, 255, 255, .9)">
                     <div class="text-3xl leading-none -mt-1" v-html="emoji('🚃')" />
                 </div>
                 <h1 class="ml-2">{{ trainConnections.name }}</h1>
@@ -59,7 +56,7 @@ export default {
         },
         maxTrains: {
             type: Number,
-            default: 5
+            default: 5,
         },
     },
 

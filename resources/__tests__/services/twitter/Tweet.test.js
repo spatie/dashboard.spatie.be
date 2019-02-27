@@ -36,10 +36,7 @@ describe('Mention', () => {
     });
 
     it('can get the avatar of the author', () => {
-        assert.equal(
-            tweet.authorAvatar,
-            'https://pbs.twimg.com/profile_images/613846262383652864/3UKkvJFq_normal.jpg'
-        );
+        assert.equal(tweet.authorAvatar, 'https://pbs.twimg.com/profile_images/613846262383652864/3UKkvJFq_normal.jpg');
     });
 
     it('can get the image of the tweet', () => {

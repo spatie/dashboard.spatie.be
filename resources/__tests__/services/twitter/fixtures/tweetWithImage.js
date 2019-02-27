@@ -4,8 +4,7 @@ export default {
     id_str: '821093087715987456',
     text: '@jarenduren tweet with image https://t.co/YDzJA2e9vu',
     display_text_range: [0, 28],
-    source:
-        '<a href="http://tapbots.com/software/tweetbot/mac" rel="nofollow">Tweetbot for Mac</a>',
+    source: '<a href="http://tapbots.com/software/tweetbot/mac" rel="nofollow">Tweetbot for Mac</a>',
     truncated: false,
     in_reply_to_status_id: null,
     in_reply_to_status_id_str: null,
@@ -36,8 +35,7 @@ export default {
         contributors_enabled: false,
         is_translator: false,
         profile_background_color: 'FFFFFF',
-        profile_background_image_url:
-            'http://pbs.twimg.com/profile_background_images/435349478783320064/EvvoYi0J.jpeg',
+        profile_background_image_url: 'http://pbs.twimg.com/profile_background_images/435349478783320064/EvvoYi0J.jpeg',
         profile_background_image_url_https:
             'https://pbs.twimg.com/profile_background_images/435349478783320064/EvvoYi0J.jpeg',
         profile_background_tile: false,
@@ -46,10 +44,8 @@ export default {
         profile_sidebar_fill_color: 'FFFFFF',
         profile_text_color: '2C2C2C',
         profile_use_background_image: false,
-        profile_image_url:
-            'http://pbs.twimg.com/profile_images/613846262383652864/3UKkvJFq_normal.jpg',
-        profile_image_url_https:
-            'https://pbs.twimg.com/profile_images/613846262383652864/3UKkvJFq_normal.jpg',
+        profile_image_url: 'http://pbs.twimg.com/profile_images/613846262383652864/3UKkvJFq_normal.jpg',
+        profile_image_url_https: 'https://pbs.twimg.com/profile_images/613846262383652864/3UKkvJFq_normal.jpg',
         profile_banner_url: 'https://pbs.twimg.com/profile_banners/97178022/1435187942',
         default_profile: false,
         default_profile_image: false,
@@ -69,14 +65,7 @@ export default {
         country: 'Belgium',
         bounding_box: {
             type: 'Polygon',
-            coordinates: [
-                [
-                    [4.218084, 51.143464],
-                    [4.218084, 51.377649],
-                    [4.498296, 51.377649],
-                    [4.498296, 51.143464],
-                ],
-            ],
+            coordinates: [[[4.218084, 51.143464], [4.218084, 51.377649], [4.498296, 51.377649], [4.498296, 51.143464]]],
         },
         attributes: [],
     },

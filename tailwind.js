@@ -651,8 +651,7 @@ module.exports = {
 
     shadows: {
         default: '0 2px 4px 0 rgba(0,0,0,0.10)',
-        'tile-inner':
-            'inset 0 0 2rem var(--bg-tile), inset 0 0 1rem var(--bg-tile), inset 0 0 3px var(--bg-tile)',
+        'tile-inner': 'inset 0 0 2rem var(--bg-tile), inset 0 0 1rem var(--bg-tile), inset 0 0 3px var(--bg-tile)',
         none: 'none',
     },
 

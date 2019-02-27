@@ -35,7 +35,7 @@ class Task extends DataTransferObject
     {
         $startDate = Carbon::parse($attributes['start_date']);
         $endDate = Carbon::parse($attributes['end_date']);
-        $project = $project === 'Time Off' ? 'Verlof' : $project;
+        $project = self::projectName($project);
         $hours = self::getHours($startDate, $endDate, $attributes['allocation'] ?? 0, $project);
         $formattedTime = self::formatTime($hours);
 
@@ -49,6 +49,15 @@ class Task extends DataTransferObject
             'formatted_time' => $formattedTime,
             'project' => $project,
         ]);
+    }
+
+    protected static function projectName(string $project): string
+    {
+        if ($project === 'Time Off') {
+            return 'Verlof';
+        }
+
+        return str_replace('Open source', 'OSS', $project);
     }
 
     protected static function getHours(

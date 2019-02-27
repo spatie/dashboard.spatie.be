@@ -1,9 +1,7 @@
 <template>
     <tile :position="position" class="z-10" style="--bg-tile: transparent" no-fade>
         <div v-if="offline" class="flex">
-            <div class="px-2 mx-auto font-black text-invers bg-error rounded-full shadow-lg">
-                No connection
-            </div>
+            <div class="px-2 mx-auto font-black text-invers bg-error rounded-full shadow-lg">No connection</div>
         </div>
     </tile>
 </template>
@@ -35,10 +33,7 @@ export default {
 
     methods: {
         determineConnectionStatus() {
-            const lastHeartBeatReceivedSecondsAgo = moment().diff(
-                this.lastHeartBeatReceivedAt,
-                'seconds'
-            );
+            const lastHeartBeatReceivedSecondsAgo = moment().diff(this.lastHeartBeatReceivedAt, 'seconds');
 
             this.offline = lastHeartBeatReceivedSecondsAgo > 125;
         },

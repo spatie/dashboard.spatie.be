@@ -63,11 +63,11 @@
     font-size: inherit;
     font-family: inherit;
     line-height: inherit;
+}
 
-    &:after,
-    &:before {
-        box-sizing: inherit;
-    }
+*:after,
+*:before {
+    box-sizing: inherit;
 }
 
 html {

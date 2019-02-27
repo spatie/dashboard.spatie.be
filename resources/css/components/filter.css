@@ -3,9 +3,5 @@
 }
 
 .filter-fade-tile {
-    mask-image: linear-gradient(
-        black,
-        black calc(100% - (2 * var(--tile-padding))),
-        transparent
-    )
+    mask-image: linear-gradient(black, black calc(100% - (2 * var(--tile-padding))), transparent);
 }

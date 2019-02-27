@@ -28,10 +28,7 @@ export default {
 
     methods: {
         checkVisibility() {
-            this.visibility = moment().isBetween(
-                moment(this.on, this.timeFormat),
-                moment(this.off, this.timeFormat)
-            );
+            this.visibility = moment().isBetween(moment(this.on, this.timeFormat), moment(this.off, this.timeFormat));
         },
     },
 

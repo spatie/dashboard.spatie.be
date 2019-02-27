@@ -11,8 +11,7 @@
                     <span class="font-bold variant-tabular">{{ formatNumber(githubContributors) }}</span>
                 </li>
                 <li>
-                    <span>Issues</span>
-                    <span class="font-bold variant-tabular">{{ formatNumber(githubIssues) }}</span>
+                    <span>Issues</span> <span class="font-bold variant-tabular">{{ formatNumber(githubIssues) }}</span>
                 </li>
                 <li>
                     <span>Pull Requests</span>
@@ -23,8 +22,7 @@
                     <span class="font-bold variant-tabular">{{ formatNumber(packagistMonthly) }}</span>
                 </li>
                 <li>
-                    <span>Total</span>
-                    <span class="font-bold variant-tabular">{{ formatNumber(packagistTotal) }}</span>
+                    <span>Total</span> <span class="font-bold variant-tabular">{{ formatNumber(packagistTotal) }}</span>
                 </li>
             </ul>
         </div>

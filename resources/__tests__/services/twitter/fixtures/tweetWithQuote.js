@@ -50,10 +50,8 @@ export default {
         profile_background_image_url: 'http://abs.twimg.com/images/themes/theme7/bg.gif',
         profile_background_image_url_https: 'https://abs.twimg.com/images/themes/theme7/bg.gif',
         profile_background_tile: false,
-        profile_image_url:
-            'http://pbs.twimg.com/profile_images/744852765525028864/g2MphyFz_normal.jpg',
-        profile_image_url_https:
-            'https://pbs.twimg.com/profile_images/744852765525028864/g2MphyFz_normal.jpg',
+        profile_image_url: 'http://pbs.twimg.com/profile_images/744852765525028864/g2MphyFz_normal.jpg',
+        profile_image_url_https: 'https://pbs.twimg.com/profile_images/744852765525028864/g2MphyFz_normal.jpg',
         profile_banner_url: 'https://pbs.twimg.com/profile_banners/50056622/1466421788',
         profile_link_color: 'D62B4E',
         profile_sidebar_border_color: 'DFDFDF',
@@ -126,13 +124,10 @@ export default {
             is_translation_enabled: false,
             profile_background_color: '007698',
             profile_background_image_url: 'http://abs.twimg.com/images/themes/theme14/bg.gif',
-            profile_background_image_url_https:
-                'https://abs.twimg.com/images/themes/theme14/bg.gif',
+            profile_background_image_url_https: 'https://abs.twimg.com/images/themes/theme14/bg.gif',
             profile_background_tile: false,
-            profile_image_url:
-                'http://pbs.twimg.com/profile_images/758257719656742912/VFt0XpKH_normal.jpg',
-            profile_image_url_https:
-                'https://pbs.twimg.com/profile_images/758257719656742912/VFt0XpKH_normal.jpg',
+            profile_image_url: 'http://pbs.twimg.com/profile_images/758257719656742912/VFt0XpKH_normal.jpg',
+            profile_image_url_https: 'https://pbs.twimg.com/profile_images/758257719656742912/VFt0XpKH_normal.jpg',
             profile_banner_url: 'https://pbs.twimg.com/profile_banners/92947501/1469617720',
             profile_link_color: '0D58DB',
             profile_sidebar_border_color: 'FFFFFF',
