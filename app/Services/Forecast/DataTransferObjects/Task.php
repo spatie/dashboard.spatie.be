@@ -58,23 +58,23 @@ class Task extends DataTransferObject
             return 'Verlof';
         }
 
-        // if (strtolower($project) === 'open source / eigen werk') {
-        //     return $name;
-        // }
+        if ($project === 'Open source / Eigen werk' && !empty($name)) {
+            return $name;
+        }
 
         return $project;
     }
 
     protected static function getName(string $name, string $project): string
     {
+        $projectSafeForRegex = str_replace('/', '\/', $project);
+        $name = trim(preg_replace("/^{$projectSafeForRegex}\s+/", '', $name));
+
         if ($project === $name) {
-            return $project;
+            return '';
         }
 
-        $projectSafeForRegex = str_replace('/', '\/', $project);
-        $name = preg_replace("/^{$projectSafeForRegex}\s+/", '', $name);
-
-        return ucfirst(trim($name));
+        return $name;
     }
 
     protected static function getHours(

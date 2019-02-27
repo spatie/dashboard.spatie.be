@@ -44,7 +44,7 @@
                                 {{ task.project }}
                             </p>
                             <p v-if="task.name" class="flex-1 truncate text-xs text-dimmed">
-                                {{ task.name }}
+                                {{ upperFirst(task.name) }}
                             </p>
                         </div>
                         <p class="ml-2 font-bold variant-tabular">{{ task.formatted_time }}</p>
@@ -53,7 +53,7 @@
                 <ul class="text-xs border-t-2 border-screen pt-1">
                     <li v-for="task in smallTasks" :key="task.id">
                         <p class="truncate" :data-id="task.id">
-                            {{ task.project }} <span v-if="task.name" class="text-dimmed">{{ task.name }}</span>
+                            {{ task.project }} <span v-if="task.name" class="text-dimmed">{{ lowerFirst(task.name) }}</span>
                         </p>
                     </li>
                 </ul>
@@ -69,6 +69,7 @@ import Avatar from './atoms/Avatar';
 import Tile from './atoms/Tile';
 import saveState from 'vue-save-state';
 import moment from 'moment';
+import { upperFirst, lowerFirst } from 'lodash';
 
 export default {
     components: {
@@ -117,6 +118,8 @@ export default {
     },
 
     methods: {
+        lowerFirst,
+        upperFirst,
         emoji,
 
         getEventHandlers() {
