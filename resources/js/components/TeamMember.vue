@@ -48,13 +48,10 @@
             <div class="align-self-center" v-if="tasks.length">
                 <ul>
                     <li v-for="task in tasks" :key="task.id">
-                        <p v-if="task.name">
-                            {{ task.name }} <br>
-                            <span class="text-xs text-dimmed">{{ task.project }}</span>
-                        </p>
-                        <p v-else>
-                            {{ task.project }}
-                        </p>
+                        {{ task.project }}
+                        <span v-if="task.name" class="text-xs text-dimmed">
+                            <br>{{ task.name }}
+                        </span>
                         <span class="ml-2 font-bold variant-tabular">{{ task.formatted_time }}</span>
                     </li>
                 </ul>
