@@ -14,6 +14,4 @@ Route::group(['middleware' => AccessToken::class], function () {
     Route::post('indoor-air-quality', UpdateIndoorAirQualityController::class);
 });
 
-Route::post('/webhook/github', [GitHubWebhookController::class, 'gitRepoReceivedPush']);
-
 Route::ohDearWebhooks('/oh-dear-webhooks');
