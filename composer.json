@@ -75,6 +75,9 @@
         ]
     },
     "config": {
+        "platform": {
+            "php": "7.1.5"
+        },
         "preferred-install": "dist",
         "sort-packages": true
     },
