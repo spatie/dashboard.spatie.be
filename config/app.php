@@ -179,6 +179,7 @@ return [
         App\Services\Velo\VeloServiceProvider::class,
         App\Services\Trains\IRailServiceProvider::class,
         App\Services\Buienradar\BuienradarServiceProvider::class,
+        App\Services\Forecast\ForecastServiceProvider::class,
     ],
 
     /*

@@ -1,10 +1,19 @@
 <?php
 
 return [
+    'buienradar' => [
+        'latitude' => env('BUIENRADAR_LATITUDE'),
+        'longitude' => env('BUIENRADAR_LONGITUDE'),
+    ],
+
+    'forecast' => [
+        'account_id' => env('FORECAST_ACCOUNT_ID'),
+        'token' => env('FORECAST_TOKEN'),
+        'people' => env('FORECAST_PEOPLE'),
+    ],
 
     'github' => [
         'token' => env('GITHUB_TOKEN'),
-        'files' => env('GITHUB_FILES'),
         'hook_secret' => env('GITHUB_HOOK_SECRET'),
         'username' => env('GITHUB_USERNAME'),
     ],
@@ -14,21 +23,12 @@ return [
         'users' => explode(',', env('LAST_FM_USERS')),
     ],
 
-    'packagist' => [
-        'vendor' => env('PACKAGIST_VENDOR'),
-    ],
-
-    'velo' => [
-        'stations' => explode(',', env('VELO_STATIONS')),
-    ],
-
-    'buienradar' => [
-        'latitude' => env('BUIENRADAR_LATITUDE'),
-        'longitude' => env('BUIENRADAR_LONGITUDE'),
-    ],
-
     'open_weather_map' => [
         'key' => env('OPEN_WEATHER_MAP_KEY'),
+    ],
+
+    'packagist' => [
+        'vendor' => env('PACKAGIST_VENDOR'),
     ],
 
     'slack' => [
@@ -51,5 +51,9 @@ return [
             'destination' => 'Overpelt',
             'label' => 'Overpelt',
         ],
+    ],
+
+    'velo' => [
+        'stations' => explode(',', env('VELO_STATIONS')),
     ],
 ];
