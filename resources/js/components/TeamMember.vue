@@ -104,7 +104,7 @@ export default {
                     return false;
                 }
 
-                if (task.project === 'OSS / Eigen werk' && task.name === '') {
+                if (task.project === 'Open source / Eigen werk' && task.name === '') {
                     return false;
                 }
 

@@ -57,7 +57,7 @@ class Task extends DataTransferObject
             return 'Verlof';
         }
 
-        return str_replace('Open source', 'OSS', $project);
+        return $project;
     }
 
     protected static function getHours(
