@@ -27,7 +27,7 @@
                 </div>
                 <div class="leading-tight min-w-0">
                     <h2 class="truncate capitalize">
-                        {{ name }}
+                        {{ displayName || name }}
                         <span
                             v-if="statusEmoji != ''"
                             class="text-xl"
@@ -45,7 +45,20 @@
                     </component>
                 </div>
             </div>
-            <div class="align-self-center" v-if="tasks" v-html="tasks"></div>
+            <div class="align-self-center" v-if="tasks.length">
+                <ul>
+                    <li v-for="task in tasks" :key="task.id">
+                        <p v-if="task.name">
+                            {{ task.name }} <br>
+                            <span class="text-xs text-dimmed">{{ task.project }}</span>
+                        </p>
+                        <p v-else>
+                            {{ task.project }}
+                        </p>
+                        <span class="ml-2 font-bold variant-tabular">{{ task.formatted_time }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </tile>
 </template>
@@ -66,7 +79,7 @@ export default {
 
     mixins: [echo, saveState],
 
-    props: ['name', 'avatar', 'position', 'birthday'],
+    props: ['name', 'displayName', 'avatar', 'position', 'birthday'],
 
     computed: {
         isBirthDay() {
@@ -78,7 +91,7 @@ export default {
 
     data() {
         return {
-            tasks: '',
+            tasks: [],
             currentTrack: '',
             artwork: '',
             trackUrl: '',
@@ -92,7 +105,7 @@ export default {
         getEventHandlers() {
             return {
                 'TeamMember.TasksFetched': response => {
-                    this.tasks = response.tasks[this.name];
+                    this.tasks = response.tasks[this.name] || [];
                 },
 
                 'TeamMember.UpdateStatus': response => {

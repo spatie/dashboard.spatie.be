@@ -32,23 +32,6 @@ class GitHubApi
         return collect($this->fetchAllResults('pull_request', 'all', [$userName, $repoName]));
     }
 
-    public function fetchFileContent($userName, $repoName, $fileName, $branchName): array
-    {
-        return $this->client->repo()->contents()->show(
-            $userName,
-            $repoName,
-            $fileName,
-            $branchName
-        );
-    }
-
-    /**
-     * @param string $interfaceName
-     * @param string $method
-     * @param array $parameters
-     *
-     * @return array|string
-     */
     protected function fetchAllResults(string $interfaceName, string $method, array $parameters)
     {
         return (new ResultPager($this->client))->fetchAll(
