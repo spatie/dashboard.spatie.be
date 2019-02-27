@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "632caa2e4626c969ddd765411891e8fc",
@@ -192,16 +192,16 @@
         },
         {
             "name": "beyondcode/laravel-websockets",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beyondcode/laravel-websockets.git",
-                "reference": "f26f89236e206ed5aa3ab23e4aeeb1c83ca48e6d"
+                "reference": "1c2b89b54d8d9d1c796b8391e41207da2a2f2423"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beyondcode/laravel-websockets/zipball/f26f89236e206ed5aa3ab23e4aeeb1c83ca48e6d",
-                "reference": "f26f89236e206ed5aa3ab23e4aeeb1c83ca48e6d",
+                "url": "https://api.github.com/repos/beyondcode/laravel-websockets/zipball/1c2b89b54d8d9d1c796b8391e41207da2a2f2423",
+                "reference": "1c2b89b54d8d9d1c796b8391e41207da2a2f2423",
                 "shasum": ""
             },
             "require": {
@@ -264,7 +264,7 @@
                 "beyondcode",
                 "laravel-websockets"
             ],
-            "time": "2019-02-27T14:28:09+00:00"
+            "time": "2019-02-27T14:44:42+00:00"
         },
         {
             "name": "cboden/ratchet",
@@ -2407,7 +2407,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -6262,25 +6262,25 @@
         },
         {
             "name": "spatie/laravel-blade-javascript",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-blade-javascript.git",
-                "reference": "45d5c8cd0953e54df9ec37a7bd6eb8cb3f93ed43"
+                "reference": "829885da4381a4eed3a4beddd6b6cac43b7e974f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-blade-javascript/zipball/45d5c8cd0953e54df9ec37a7bd6eb8cb3f93ed43",
-                "reference": "45d5c8cd0953e54df9ec37a7bd6eb8cb3f93ed43",
+                "url": "https://api.github.com/repos/spatie/laravel-blade-javascript/zipball/829885da4381a4eed3a4beddd6b6cac43b7e974f",
+                "reference": "829885da4381a4eed3a4beddd6b6cac43b7e974f",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "~5.5.0|~5.6.0|~5.7.0",
-                "illuminate/support": "~5.5.0|~5.6.0|~5.7.0",
-                "php": "^7.0"
+                "illuminate/contracts": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+                "php": "^7.1"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0",
+                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0|~3.8.0",
                 "phpunit/phpunit": "^6.3|^7.0"
             },
             "type": "library",
@@ -6324,7 +6324,7 @@
                 "laravel-blade-javascript",
                 "spatie"
             ],
-            "time": "2018-09-04T08:38:19+00:00"
+            "time": "2019-02-27T15:30:22+00:00"
         },
         {
             "name": "spatie/laravel-google-calendar",
