@@ -35,13 +35,14 @@ class Task extends DataTransferObject
     {
         $startDate = Carbon::parse($attributes['start_date']);
         $endDate = Carbon::parse($attributes['end_date']);
-        $project = self::projectName($project);
+        $project = self::getProjectName($project, $attributes['notes'] ?? '');
+        $name = self::getName($attributes['notes'] ?? '', $project);
         $hours = self::getHours($startDate, $endDate, $attributes['allocation'] ?? 0, $project);
         $formattedTime = self::formatTime($hours);
 
         return new Task([
             'id' => $attributes['id'],
-            'name' => $attributes['notes'] ?? '',
+            'name' => $name,
             'person_id' => $attributes['person_id'],
             'start_date' => $startDate,
             'end_date' => $endDate,
@@ -51,13 +52,29 @@ class Task extends DataTransferObject
         ]);
     }
 
-    protected static function projectName(string $project): string
+    protected static function getProjectName(string $project, string $name): string
     {
         if ($project === 'Time Off') {
             return 'Verlof';
         }
 
+        // if (strtolower($project) === 'open source / eigen werk') {
+        //     return $name;
+        // }
+
         return $project;
+    }
+
+    protected static function getName(string $name, string $project): string
+    {
+        if ($project === $name) {
+            return $project;
+        }
+
+        $projectSafeForRegex = str_replace('/', '\/', $project);
+        $name = preg_replace("/^{$projectSafeForRegex}\s+/", '', $name);
+
+        return ucfirst(trim($name));
     }
 
     protected static function getHours(

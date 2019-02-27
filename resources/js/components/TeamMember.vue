@@ -39,21 +39,24 @@
             <div class="align-self-center" v-if="tasks.length">
                 <ul>
                     <li v-for="task in largeTasks" :key="task.id">
-                        <p class="truncate">
-                            {{ task.project }}
-                            <span v-if="task.name" class="text-xs text-dimmed">
-                                <br />
+                        <div class="truncate">
+                            <p class="truncate">
+                                {{ task.project }}
+                            </p>
+                            <p v-if="task.name" class="flex-1 truncate text-xs text-dimmed">
                                 {{ task.name }}
-                            </span>
-                        </p>
-                        <span class="ml-2 font-bold variant-tabular">{{ task.formatted_time }}</span>
+                            </p>
+                        </div>
+                        <p class="ml-2 font-bold variant-tabular">{{ task.formatted_time }}</p>
                     </li>
                 </ul>
-                <div v-if="smallTasks.length" class="text-xs text-dimmed border-t-2 border-screen pt-1">
-                    <p v-for="task in smallTasks" :key="task.id" class="truncate">
-                        {{ task.project }} <span v-if="task.name">– {{ task.name }}</span><br />
-                    </p>
-                </div>
+                <ul class="text-xs border-t-2 border-screen pt-1">
+                    <li v-for="task in smallTasks" :key="task.id">
+                        <p class="truncate" :data-id="task.id">
+                            {{ task.project }} <span v-if="task.name" class="text-dimmed">{{ task.name }}</span>
+                        </p>
+                    </li>
+                </ul>
             </div>
         </div>
     </tile>
