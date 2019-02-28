@@ -55,7 +55,7 @@ php artisan up
 @endtask
 
 @task('reload php', ['on' => 'web'])
-sudo service php7.1-fpm restart
+sudo service php7.3-fpm restart
 sudo supervisorctl restart all
 @endtask
 
