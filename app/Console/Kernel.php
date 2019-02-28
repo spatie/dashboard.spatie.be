@@ -32,7 +32,6 @@ class Kernel extends ConsoleKernel
         $schedule->command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
         $schedule->command(FetchPackagistTotalsCommand::class)->hourly();
         $schedule->command('websockets:clean')->daily();
-
     }
 
     public function commands()
