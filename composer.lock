@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "194b3413d9d75a8858ffe65266f1c3e5",
+    "content-hash": "5b28c1d74b039c0ad2d3c673b6774758",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1134,16 +1134,16 @@
         },
         {
             "name": "fennb/phirehose",
-            "version": "v1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fennb/phirehose.git",
-                "reference": "63d638473bf8e9e70f0bfc7785a6b557594d17c8"
+                "reference": "405d125db9baa771ac0cd861f0b2b2032434d40c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fennb/phirehose/zipball/63d638473bf8e9e70f0bfc7785a6b557594d17c8",
-                "reference": "63d638473bf8e9e70f0bfc7785a6b557594d17c8",
+                "url": "https://api.github.com/repos/fennb/phirehose/zipball/405d125db9baa771ac0cd861f0b2b2032434d40c",
+                "reference": "405d125db9baa771ac0cd861f0b2b2032434d40c",
                 "shasum": ""
             },
             "require": {
@@ -1174,7 +1174,7 @@
                 "streaming",
                 "twitter"
             ],
-            "time": "2014-09-30T23:30:52+00:00"
+            "time": "2018-03-15T14:09:46+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -4844,20 +4844,20 @@
         },
         {
             "name": "spatie/twitter-streaming-api",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/twitter-streaming-api.git",
-                "reference": "7c1a0703ca81b21a9f62221be03fe00e83791ea8"
+                "reference": "7addd59727e98f92c134fab9f6f02258d5e3943d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/twitter-streaming-api/zipball/7c1a0703ca81b21a9f62221be03fe00e83791ea8",
-                "reference": "7c1a0703ca81b21a9f62221be03fe00e83791ea8",
+                "url": "https://api.github.com/repos/spatie/twitter-streaming-api/zipball/7addd59727e98f92c134fab9f6f02258d5e3943d",
+                "reference": "7addd59727e98f92c134fab9f6f02258d5e3943d",
                 "shasum": ""
             },
             "require": {
-                "fennb/phirehose": "^1.0",
+                "fennb/phirehose": "dev-master#405d125db9baa771ac0cd861f0b2b2032434d40c",
                 "php": "^7.0"
             },
             "require-dev": {
@@ -4887,7 +4887,7 @@
                 "spatie",
                 "twitter-streaming-api"
             ],
-            "time": "2018-01-20T15:57:42+00:00"
+            "time": "2018-04-04T11:39:57+00:00"
         },
         {
             "name": "spatie/valuestore",
@@ -8112,9 +8112,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.2"
