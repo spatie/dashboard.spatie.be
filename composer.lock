@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "568be59f5df71c0a218ed4e42219d27d",
+    "content-hash": "5b28c1d74b039c0ad2d3c673b6774758",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1134,16 +1134,16 @@
         },
         {
             "name": "fennb/phirehose",
-            "version": "v1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fennb/phirehose.git",
-                "reference": "63d638473bf8e9e70f0bfc7785a6b557594d17c8"
+                "reference": "405d125db9baa771ac0cd861f0b2b2032434d40c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fennb/phirehose/zipball/63d638473bf8e9e70f0bfc7785a6b557594d17c8",
-                "reference": "63d638473bf8e9e70f0bfc7785a6b557594d17c8",
+                "url": "https://api.github.com/repos/fennb/phirehose/zipball/405d125db9baa771ac0cd861f0b2b2032434d40c",
+                "reference": "405d125db9baa771ac0cd861f0b2b2032434d40c",
                 "shasum": ""
             },
             "require": {
@@ -1174,7 +1174,7 @@
                 "streaming",
                 "twitter"
             ],
-            "time": "2014-09-30T23:30:52+00:00"
+            "time": "2018-03-15T14:09:46+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -2258,28 +2258,30 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.36.2",
+            "version": "2.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "cd324b98bc30290f233dd0e75e6ce49f7ab2a6c9"
+                "reference": "dd16fedc022180ea4292a03aabe95e9895677911"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/cd324b98bc30290f233dd0e75e6ce49f7ab2a6c9",
-                "reference": "cd324b98bc30290f233dd0e75e6ce49f7ab2a6c9",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/dd16fedc022180ea4292a03aabe95e9895677911",
+                "reference": "dd16fedc022180ea4292a03aabe95e9895677911",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/translation": "~2.6 || ~3.0 || ~4.0"
+                "ext-json": "*",
+                "php": "^7.1.8 || ^8.0",
+                "symfony/translation": "^3.4 || ^4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7"
-            },
-            "suggest": {
-                "friendsofphp/php-cs-fixer": "Needed for the `composer phpcs` command. Allow to automatically fix code style.",
-                "phpstan/phpstan": "Needed for the `composer phpstan` command. Allow to detect potential errors."
+                "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
+                "kylekatarnls/multi-tester": "^0.1",
+                "phpmd/phpmd": "^2.6",
+                "phpstan/phpstan": "^0.10.8",
+                "phpunit/phpunit": "^7.5 || ^8.0",
+                "squizlabs/php_codesniffer": "^3.4"
             },
             "type": "library",
             "extra": {
@@ -2291,7 +2293,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "": "src/"
+                    "Carbon\\": "src/Carbon/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2312,7 +2314,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-12-28T10:07:33+00:00"
+            "time": "2019-03-12T09:31:40+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2431,27 +2433,27 @@
         },
         {
             "name": "ohdearapp/laravel-ohdear-webhooks",
-            "version": "1.0.5",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ohdearapp/laravel-ohdear-webhooks.git",
-                "reference": "c715460ed267cdad07f8aaeef49687fad4b1ebe5"
+                "reference": "a69321b3342bb48bfb2aa3856d1c137c56e624e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ohdearapp/laravel-ohdear-webhooks/zipball/c715460ed267cdad07f8aaeef49687fad4b1ebe5",
-                "reference": "c715460ed267cdad07f8aaeef49687fad4b1ebe5",
+                "url": "https://api.github.com/repos/ohdearapp/laravel-ohdear-webhooks/zipball/a69321b3342bb48bfb2aa3856d1c137c56e624e8",
+                "reference": "a69321b3342bb48bfb2aa3856d1c137c56e624e8",
                 "shasum": ""
             },
             "require": {
-                "illuminate/http": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
-                "illuminate/routing": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
-                "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
-                "php": "^7.0"
+                "illuminate/http": "~5.8.0",
+                "illuminate/routing": "~5.8.0",
+                "illuminate/support": "~5.8.0",
+                "php": "^7.2"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0|~3.8.0",
-                "phpunit/phpunit": "^6.0|^7.0|^8.0"
+                "orchestra/testbench": "~3.8.0",
+                "phpunit/phpunit": "^8.0"
             },
             "type": "library",
             "extra": {
@@ -2486,7 +2488,7 @@
                 "ohdear",
                 "uptime"
             ],
-            "time": "2019-02-27T19:51:13+00:00"
+            "time": "2019-02-27T19:53:07+00:00"
         },
         {
             "name": "opis/closure",
@@ -4495,26 +4497,26 @@
         },
         {
             "name": "spatie/laravel-blade-javascript",
-            "version": "2.2.2",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-blade-javascript.git",
-                "reference": "829885da4381a4eed3a4beddd6b6cac43b7e974f"
+                "reference": "328e5f062beabc6d38723a1d90420b440e895ea2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-blade-javascript/zipball/829885da4381a4eed3a4beddd6b6cac43b7e974f",
-                "reference": "829885da4381a4eed3a4beddd6b6cac43b7e974f",
+                "url": "https://api.github.com/repos/spatie/laravel-blade-javascript/zipball/328e5f062beabc6d38723a1d90420b440e895ea2",
+                "reference": "328e5f062beabc6d38723a1d90420b440e895ea2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
-                "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
-                "php": "^7.1"
+                "illuminate/contracts": "~5.8.0",
+                "illuminate/support": "~5.8.0",
+                "php": "^7.2"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0|~3.8.0",
-                "phpunit/phpunit": "^6.3|^7.0"
+                "orchestra/testbench": "~3.8.0",
+                "phpunit/phpunit": "^8.0"
             },
             "type": "library",
             "extra": {
@@ -4557,7 +4559,7 @@
                 "laravel-blade-javascript",
                 "spatie"
             ],
-            "time": "2019-02-27T15:30:22+00:00"
+            "time": "2019-02-27T15:32:18+00:00"
         },
         {
             "name": "spatie/laravel-google-calendar",
@@ -4842,20 +4844,20 @@
         },
         {
             "name": "spatie/twitter-streaming-api",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/twitter-streaming-api.git",
-                "reference": "7c1a0703ca81b21a9f62221be03fe00e83791ea8"
+                "reference": "7addd59727e98f92c134fab9f6f02258d5e3943d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/twitter-streaming-api/zipball/7c1a0703ca81b21a9f62221be03fe00e83791ea8",
-                "reference": "7c1a0703ca81b21a9f62221be03fe00e83791ea8",
+                "url": "https://api.github.com/repos/spatie/twitter-streaming-api/zipball/7addd59727e98f92c134fab9f6f02258d5e3943d",
+                "reference": "7addd59727e98f92c134fab9f6f02258d5e3943d",
                 "shasum": ""
             },
             "require": {
-                "fennb/phirehose": "^1.0",
+                "fennb/phirehose": "dev-master#405d125db9baa771ac0cd861f0b2b2032434d40c",
                 "php": "^7.0"
             },
             "require-dev": {
@@ -4885,27 +4887,27 @@
                 "spatie",
                 "twitter-streaming-api"
             ],
-            "time": "2018-01-20T15:57:42+00:00"
+            "time": "2018-04-04T11:39:57+00:00"
         },
         {
             "name": "spatie/valuestore",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/valuestore.git",
-                "reference": "f1f4ca04bc269d8ca353308f107bc99acf584666"
+                "reference": "798897f7d571aa0a62786ae531d573d3c6af55d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/valuestore/zipball/f1f4ca04bc269d8ca353308f107bc99acf584666",
-                "reference": "f1f4ca04bc269d8ca353308f107bc99acf584666",
+                "url": "https://api.github.com/repos/spatie/valuestore/zipball/798897f7d571aa0a62786ae531d573d3c6af55d0",
+                "reference": "798897f7d571aa0a62786ae531d573d3c6af55d0",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.4"
+                "phpunit/phpunit": "^8.0"
             },
             "type": "library",
             "autoload": {
@@ -4938,7 +4940,7 @@
                 "spatie",
                 "valuestore"
             ],
-            "time": "2018-05-15T07:46:16+00:00"
+            "time": "2019-02-15T10:56:05+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8238,15 +8240,15 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.2"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.1.5"
+        "php": "7.3.0"
     }
 }
