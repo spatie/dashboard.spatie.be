@@ -13,15 +13,12 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $addHttpCookie = true;
 
-    /**
-     * The URIs that should be excluded from CSRF verification.
-     *
-     * @var array
-     */
     protected $except = [
         '/temperature',
         '/webhook/github',
         '/pusher/authenticate',
         '/oh-dear-webhooks',
+        '/broadcasting/auth',
+        '/laravel-websockets/auth',
     ];
 }
