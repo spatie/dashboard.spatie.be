@@ -36,10 +36,10 @@ class Kernel extends ConsoleKernel
 
     public function commands()
     {
-        $commandDirectries = glob(app_path('Console/Components/*'), GLOB_ONLYDIR);
-        $commandDirectries[] = app_path('Console');
+        $commandDirectories = glob(app_path('Console/Components/*'), GLOB_ONLYDIR);
+        $commandDirectories[] = app_path('Console');
 
-        collect($commandDirectries)->each(function (string $commandDirectory) {
+        collect($commandDirectories)->each(function (string $commandDirectory) {
             $this->load($commandDirectory);
         });
     }
