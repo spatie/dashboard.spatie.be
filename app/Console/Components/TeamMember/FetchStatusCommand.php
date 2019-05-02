@@ -20,6 +20,7 @@ class FetchStatusCommand extends Command
         'willem',
         'alex',
         'ruben',
+        'rias',
         'brent',
         'jef',
         'wouter',
