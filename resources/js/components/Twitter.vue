@@ -103,10 +103,12 @@ export default {
 
     computed: {
         onDisplay() {
-            return uniqBy(this.tweets.filter(tweet => {
+            let filteredTweets = this.tweets.filter(tweet => {
                 return tweet.authorScreenName !== this.ownScreenName && !tweet.isRetweet;
-            }), tweet => {
-                return tweet.id;
+            });
+
+            return uniqBy(filteredTweets, (tweet) => {
+                return tweet.tweetProperties.id;
             });
         },
     },
