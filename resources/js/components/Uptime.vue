@@ -53,6 +53,9 @@ export default {
                 'Uptime.UptimeCheckSucceeded': response => {
                     this.remove(response.url);
                 },
+                'Uptime.UptimeCheckClear': () => {
+                    this.clear();
+                },
             };
         },
 
@@ -65,6 +68,10 @@ export default {
         remove(url) {
             this.failingUrls = this.failingUrls.filter(failingUrl => url !== failingUrl.url);
         },
+
+        clear(){
+            this.failingUrls = []
+        }
     },
 };
 </script>

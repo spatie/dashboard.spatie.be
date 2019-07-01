@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\TimeWeather\IndoorAirQualityFetched;
 use Illuminate\Http\Request;
+use App\Events\TimeWeather\IndoorAirQualityFetched;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class UpdateIndoorAirQualityController

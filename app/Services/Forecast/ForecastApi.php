@@ -2,12 +2,12 @@
 
 namespace App\Services\Forecast;
 
-use App\Services\Forecast\DataTransferObjects\Task;
-use App\Services\Forecast\DataTransferObjects\Person;
-use function GuzzleHttp\json_decode;
 use GuzzleHttp\Client;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use function GuzzleHttp\json_decode;
+use App\Services\Forecast\DataTransferObjects\Task;
+use App\Services\Forecast\DataTransferObjects\Person;
 
 class ForecastApi
 {
