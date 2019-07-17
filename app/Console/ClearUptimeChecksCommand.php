@@ -5,9 +5,9 @@ namespace App\Console;
 use Illuminate\Console\Command;
 use App\Events\Uptime\UptimeCheckClear;
 
-class UptimeChecksClearCommand extends Command
+class ClearUptimeChecksCommand extends Command
 {
-    protected $signature = 'dashboard:uptime-checks-clear';
+    protected $signature = 'dashboard:clear-uptime-checks';
 
     protected $description = 'Clears all uptime checks from the dashboard';
 
