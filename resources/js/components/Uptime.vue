@@ -53,7 +53,7 @@ export default {
                 'Uptime.UptimeCheckSucceeded': response => {
                     this.remove(response.url);
                 },
-                'Uptime.UptimeCheckClear': () => {
+                'Uptime.ClearingUptimeChecks': () => {
                     this.clear();
                 },
             };

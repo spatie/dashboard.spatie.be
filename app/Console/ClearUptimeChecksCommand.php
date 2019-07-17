@@ -3,7 +3,7 @@
 namespace App\Console;
 
 use Illuminate\Console\Command;
-use App\Events\Uptime\UptimeCheckClear;
+use App\Events\Uptime\ClearingUptimeChecks;
 
 class ClearUptimeChecksCommand extends Command
 {
@@ -15,7 +15,7 @@ class ClearUptimeChecksCommand extends Command
     {
         $this->info('Clearing uptime checks...');
 
-        event(new UptimeCheckClear());
+        event(new ClearingUptimeChecks());
 
         $this->info('All done!');
     }
