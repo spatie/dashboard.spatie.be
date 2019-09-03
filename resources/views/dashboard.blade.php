@@ -15,7 +15,7 @@
         <team-member name="sebastian" display-name="seb" avatar="{{ gravatar('sebastian@spatie.be') }}" birthday="1992-02-01" position="c17:c24"></team-member>
         <team-member name="jef" avatar="{{ gravatar('jef@spatie.be') }}" birthday="1975-03-28" position="d11:d13"></team-member>
         <team-member name="wouter" avatar="{{ gravatar('wouter@spatie.be') }}" birthday="1991-03-15" position="d14:d16"></team-member>
-        <team-member name="willem" avatar="{{ gravatar('willem@spatie.be') }}" birthday="1975-09-04" position="d17:d24"></team-member>
+        <team-member name="willem" avatar="{{ gravatar('willem@spatie.be') }}" birthday="1975-09-03" position="d17:d24"></team-member>
         <tile-timer on="16:00" off="19:00">
             <trains position="a1:a24"></trains>
         </tile-timer>
