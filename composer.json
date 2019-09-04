@@ -18,7 +18,7 @@
         "knplabs/github-api": "^2.4",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
-        "nunomaduro/collision": "~2.0",
+        "nunomaduro/collision": "~3.0",
         "ohdearapp/laravel-ohdear-webhooks": "^1.0",
         "pda/pheanstalk": "^3.1",
         "php-http/guzzle6-adapter": "^1.1",
