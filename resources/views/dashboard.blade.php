@@ -17,7 +17,7 @@
         <team-member name="wouter" avatar="{{ gravatar('wouter@spatie.be') }}" birthday="1991-03-15" position="d14:d16"></team-member>
         <team-member name="willem" avatar="{{ gravatar('willem@spatie.be') }}" birthday="1975-09-03" position="d17:d24"></team-member>
         <tile-timer on="16:00" off="19:00">
-            <trains position="a1:a24"></trains>
+            <trains position="a1:a24" max-trains="3"></trains>
         </tile-timer>
         <time-weather position="e1:e6" date-format="ddd DD/MM" time-zone="Europe/Brussels" weather-city="Antwerp"></time-weather>
         <internet-connection position="e1:e6"></internet-connection>
