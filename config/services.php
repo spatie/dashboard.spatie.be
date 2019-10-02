@@ -77,6 +77,11 @@ return [
             'destination' => 'Overpelt',
             'label' => 'Overpelt',
         ],
+        [
+            'departure' => 'Antwerpen-Luchtbal',
+            'destination' => 'Kapellen',
+            'label' => 'Kapellen',
+        ],
     ],
     'velo' => [
         'stations' => explode(',', env('VELO_STATIONS')),
