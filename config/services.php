@@ -78,7 +78,7 @@ return [
             'label' => 'Overpelt',
         ],
         [
-            'departure' => 'Antwerpen-Luchtbal',
+            'departure' => 'Antwerpen-Centraal',
             'destination' => 'Kapellen',
             'label' => 'Kapellen',
         ],
