@@ -2,8 +2,8 @@
 
 namespace App\Console\Components\Twitter;
 
-use Illuminate\Console\Command;
 use App\Events\Twitter\Mentioned;
+use Illuminate\Console\Command;
 use Spatie\LaravelTwitterStreamingApi\TwitterStreamingApi;
 
 class ListenForMentionsCommand extends Command

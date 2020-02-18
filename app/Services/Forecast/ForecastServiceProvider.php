@@ -15,7 +15,7 @@ class ForecastServiceProvider extends ServiceProvider
                     'base_uri' => 'https://api.forecastapp.com/',
                     'headers' => [
                         'Forecast-Account-ID' => config('services.forecast.account_id'),
-                        'Authorization' => 'Bearer ' . config('services.forecast.token'),
+                        'Authorization' => 'Bearer '.config('services.forecast.token'),
                     ],
                 ])
             );

@@ -12,9 +12,9 @@ class Person extends DataTransferObject
     /** @var string */
     public $name;
 
-    public static function fromForecastAttributes(array $attributes): Person
+    public static function fromForecastAttributes(array $attributes): self
     {
-        return new Person([
+        return new self([
             'id' => $attributes['id'],
             'name' => strtolower($attributes['first_name']),
         ]);

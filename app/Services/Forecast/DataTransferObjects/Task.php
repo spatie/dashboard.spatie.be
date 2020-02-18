@@ -31,7 +31,7 @@ class Task extends DataTransferObject
     /** @var string */
     public $formatted_time;
 
-    public static function fromForecastAttributes(array $attributes, string $project): Task
+    public static function fromForecastAttributes(array $attributes, string $project): self
     {
         $startDate = Carbon::parse($attributes['start_date']);
         $endDate = Carbon::parse($attributes['end_date']);
@@ -40,7 +40,7 @@ class Task extends DataTransferObject
         $hours = self::getHours($startDate, $endDate, $attributes['allocation'] ?? 0, $project);
         $formattedTime = self::formatTime($hours);
 
-        return new Task([
+        return new self([
             'id' => $attributes['id'],
             'name' => $name,
             'person_id' => $attributes['person_id'],
@@ -58,11 +58,11 @@ class Task extends DataTransferObject
             return 'Verlof';
         }
 
-        if ($project === 'Open source / Eigen werk' && !empty($name)) {
+        if ($project === 'Open source / Eigen werk' && ! empty($name)) {
             return $name;
         }
 
-        if ($project === 'Spatie Overhead' && !empty($name)) {
+        if ($project === 'Spatie Overhead' && ! empty($name)) {
             return $name;
         }
 
