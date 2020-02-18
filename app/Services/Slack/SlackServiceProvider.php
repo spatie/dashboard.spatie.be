@@ -15,8 +15,8 @@ class SlackServiceProvider extends ServiceProvider
             $client = new Client([
                 'base_uri' => 'https://slack.com/api',
                 'headers' => [
-                    'Authorization' => "Bearer {$appToken}"
-                ]
+                    'Authorization' => "Bearer {$appToken}",
+                ],
             ]);
 
             return new Slack($client);

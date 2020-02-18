@@ -2,10 +2,10 @@
 
 namespace App\Console\Components\TeamMember;
 
-use App\Services\Slack\Slack;
-use App\Services\Slack\Member;
-use Illuminate\Console\Command;
 use App\Events\TeamMember\UpdateStatus;
+use App\Services\Slack\Member;
+use App\Services\Slack\Slack;
+use Illuminate\Console\Command;
 
 class FetchStatusCommand extends Command
 {

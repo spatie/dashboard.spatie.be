@@ -2,12 +2,12 @@
 
 namespace App\Services\Forecast;
 
+use App\Services\Forecast\DataTransferObjects\Person;
+use App\Services\Forecast\DataTransferObjects\Task;
 use GuzzleHttp\Client;
+use function GuzzleHttp\json_decode;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
-use function GuzzleHttp\json_decode;
-use App\Services\Forecast\DataTransferObjects\Task;
-use App\Services\Forecast\DataTransferObjects\Person;
 
 class ForecastApi
 {
@@ -34,11 +34,11 @@ class ForecastApi
                     $person->name => $tasks
                         ->where('person_id', $person->id)
                         ->sort(function (Task $a, Task $b) {
-                            if ($a->project === "Verlof") {
+                            if ($a->project === 'Verlof') {
                                 return 1;
                             }
 
-                            if ($a->project === "Open source / Eigen werk" && empty($a->name)) {
+                            if ($a->project === 'Open source / Eigen werk' && empty($a->name)) {
                                 return 1;
                             }
 

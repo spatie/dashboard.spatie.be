@@ -2,10 +2,10 @@
 
 namespace App\Console\Components\TeamMember;
 
+use App\Events\TeamMember\PlayingNothing;
+use App\Events\TeamMember\PlayingTrack;
 use Illuminate\Console\Command;
 use Spatie\NowPlaying\NowPlaying;
-use App\Events\TeamMember\PlayingTrack;
-use App\Events\TeamMember\PlayingNothing;
 
 class FetchCurrentTracksCommand extends Command
 {

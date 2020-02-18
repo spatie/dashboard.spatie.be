@@ -65,7 +65,7 @@ return [
         [
             'departure' => 'Antwerpen-Centraal',
             'destination' => 'Gent-Dampoort',
-            'label' => 'Gent'
+            'label' => 'Gent',
         ],
         [
             'departure' => 'Antwerpen-Centraal',

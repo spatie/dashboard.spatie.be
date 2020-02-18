@@ -2,9 +2,9 @@
 
 namespace App\Console\Components\Dashboard;
 
+use App\Events\Dashboard\UpdateAppearance;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use App\Events\Dashboard\UpdateAppearance;
 
 class DetermineAppearanceCommand extends Command
 {

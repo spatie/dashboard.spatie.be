@@ -19,7 +19,7 @@ class Slack
     {
         $response = $this->client->get('/api/users.list');
 
-        $response = json_decode((string)$response->getBody(), true);
+        $response = json_decode((string) $response->getBody(), true);
 
         return collect($response['members'])
             ->filter(function (array $member) use ($memberNames) {
