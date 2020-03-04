@@ -8,15 +8,15 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.2",
+        "php": "^7.2.5",
         "barryvdh/laravel-ide-helper": "^2.1",
         "beyondcode/laravel-dump-server": "~1.0",
-        "beyondcode/laravel-websockets": "^1.0",
+        "beyondcode/laravel-websockets": "^1.3",
         "developmint/npm-stats-api": "^1.0",
-        "fideloper/proxy": "^4.0",
-        "guzzlehttp/guzzle": "^6.2",
+        "fideloper/proxy": "^4.2",
+        "guzzlehttp/guzzle": "^6.3",
         "knplabs/github-api": "^2.4",
-        "laravel/framework": "^6.0",
+        "laravel/framework": "^7.0",
         "laravel/tinker": "^1.0",
         "nunomaduro/collision": "~3.0",
         "ohdearapp/laravel-ohdear-webhooks": "^1.0",
@@ -24,21 +24,22 @@
         "php-http/guzzle6-adapter": "^1.1",
         "pusher/pusher-php-server": "^3.0",
         "spatie/data-transfer-object": "^1.7",
-        "spatie/laravel-blade-javascript": "^2.0",
-        "spatie/laravel-google-calendar": "^2.0",
-        "spatie/laravel-tail": "^3.0",
-        "spatie/laravel-twitter-streaming-api": "^1.1",
+        "spatie/laravel-blade-javascript": "^2.5",
+        "spatie/laravel-google-calendar": "^2.5",
+        "spatie/laravel-tail": "^4.2",
+        "spatie/laravel-twitter-streaming-api": "^1.3",
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/packagist-api": "^1.0.1",
-        "spatie/valuestore": "^1.1"
+        "spatie/valuestore": "^1.1",
+        "fruitcake/laravel-cors": "^1.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.10",
         "fzaninotto/faker": "^1.4",
-        "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "^8.0",
-        "nunomaduro/collision": "^3.0",
-        "facade/ignition": "^1.4"
+        "mockery/mockery": "^1.3.1",
+        "phpunit/phpunit": "^8.5",
+        "nunomaduro/collision": "^4.1",
+        "facade/ignition": "^2.0"
     },
     "autoload": {
         "classmap": [
