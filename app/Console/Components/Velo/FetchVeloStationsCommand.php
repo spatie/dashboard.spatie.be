@@ -2,9 +2,9 @@
 
 namespace App\Console\Components\Velo;
 
-use App\Events\Velo\StationsFetched;
 use App\Services\Velo\Velo;
 use Illuminate\Console\Command;
+use App\Events\Velo\StationsFetched;
 
 class FetchVeloStationsCommand extends Command
 {

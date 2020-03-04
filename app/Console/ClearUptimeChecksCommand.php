@@ -2,8 +2,8 @@
 
 namespace App\Console;
 
-use App\Events\Uptime\ClearingUptimeChecks;
 use Illuminate\Console\Command;
+use App\Events\Uptime\ClearingUptimeChecks;
 
 class ClearUptimeChecksCommand extends Command
 {
