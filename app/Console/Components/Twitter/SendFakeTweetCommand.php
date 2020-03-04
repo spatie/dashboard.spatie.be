@@ -2,9 +2,9 @@
 
 namespace App\Console\Components\Twitter;
 
-use App\Events\Twitter\Mentioned;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use App\Events\Twitter\Mentioned;
 use Illuminate\Foundation\Inspiring;
 
 class SendFakeTweetCommand extends Command

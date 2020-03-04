@@ -2,11 +2,11 @@
 
 namespace App\Console\Components\Calendar;
 
-use App\Events\Calendar\EventsFetched;
-use Carbon\Carbon;
 use DateTime;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Spatie\GoogleCalendar\Event;
+use App\Events\Calendar\EventsFetched;
 
 class FetchCalendarEventsCommand extends Command
 {

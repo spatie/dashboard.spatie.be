@@ -2,9 +2,9 @@
 
 namespace App\Services\OhDearWebhooks;
 
+use Illuminate\Events\Dispatcher;
 use App\Events\Uptime\UptimeCheckFailed;
 use App\Events\Uptime\UptimeCheckRecovered;
-use Illuminate\Events\Dispatcher;
 use OhDear\LaravelWebhooks\OhDearWebhookCall;
 
 class EventSubscriber

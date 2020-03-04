@@ -2,8 +2,8 @@
 
 namespace App\Console\Components\Dashboard;
 
-use App\Events\Dashboard\Heartbeat;
 use Illuminate\Console\Command;
+use App\Events\Dashboard\Heartbeat;
 
 class SendHeartbeatCommand extends Command
 {

@@ -2,9 +2,9 @@
 
 namespace App\Console\Components\Buienradar;
 
-use App\Events\Buienradar\ForecastsFetched;
-use App\Services\Buienradar\Buienradar;
 use Illuminate\Console\Command;
+use App\Services\Buienradar\Buienradar;
+use App\Events\Buienradar\ForecastsFetched;
 
 class FetchBuienradarForecastsCommand extends Command
 {

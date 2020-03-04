@@ -2,9 +2,9 @@
 
 namespace App\Console\Components\TeamMember;
 
-use App\Events\TeamMember\TasksFetched;
-use App\Services\Forecast\ForecastApi;
 use Illuminate\Console\Command;
+use App\Services\Forecast\ForecastApi;
+use App\Events\TeamMember\TasksFetched;
 
 class FetchTasksCommand extends Command
 {

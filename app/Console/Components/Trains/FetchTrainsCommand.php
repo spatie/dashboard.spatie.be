@@ -2,9 +2,9 @@
 
 namespace App\Console\Components\Trains;
 
-use App\Events\Trains\TrainConnectionsFetched;
 use App\Services\Trains\IRail;
 use Illuminate\Console\Command;
+use App\Events\Trains\TrainConnectionsFetched;
 
 class FetchTrainsCommand extends Command
 {

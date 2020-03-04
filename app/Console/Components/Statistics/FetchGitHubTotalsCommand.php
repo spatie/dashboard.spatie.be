@@ -2,10 +2,10 @@
 
 namespace App\Console\Components\Statistics;
 
-use App\Events\Statistics\GitHubTotalsFetched;
-use App\Services\GitHub\GitHubApi;
 use Illuminate\Console\Command;
+use App\Services\GitHub\GitHubApi;
 use Illuminate\Support\Collection;
+use App\Events\Statistics\GitHubTotalsFetched;
 
 class FetchGitHubTotalsCommand extends Command
 {
