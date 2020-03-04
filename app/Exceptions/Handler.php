@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Throwable;
 use Exception;
 use Illuminate\Http\Response;
 use Illuminate\Auth\AuthenticationException;
@@ -31,7 +32,7 @@ class Handler extends ExceptionHandler
      *
      * @param \Exception $e
      */
-    public function report(Exception $e)
+    public function report(Throwable $e)
     {
         parent::report($e);
     }
@@ -44,7 +45,7 @@ class Handler extends ExceptionHandler
      *
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $e)
+    public function render($request, Throwable $e)
     {
         if ($e instanceof UnauthorizedHttpException) {
             return new Response('Invalid credentials.', 401, ['WWW-Authenticate' => 'Basic']);
