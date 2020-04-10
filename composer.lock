@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "533240fd22eeddb2860f5d6eff0dd519",
+    "content-hash": "837d587fc886d7abb244106606ce82d1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1973,6 +1973,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -2019,6 +2020,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -2526,6 +2528,62 @@
                 "storage"
             ],
             "time": "2020-02-05T18:14:17+00:00"
+        },
+        {
+            "name": "markwalet/laravel-packagist",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markwalet/laravel-packagist.git",
+                "reference": "7a4b6093e5182cea5fe3a9f47a5fe7b2a828c26f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markwalet/laravel-packagist/zipball/7a4b6093e5182cea5fe3a9f47a5fe7b2a828c26f",
+                "reference": "7a4b6093e5182cea5fe3a9f47a5fe7b2a828c26f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/contracts": "6.*|7.*",
+                "illuminate/support": "6.*|7.*",
+                "php": "^7.2",
+                "spatie/packagist-api": "^2.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "4.*|5.*",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MarkWalet\\Packagist\\PackagistServiceProvider"
+                    ],
+                    "aliases": {
+                        "Packagist": "MarkWalet\\Packagist\\Facades\\Packagist"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MarkWalet\\Packagist\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Walet",
+                    "email": "mark.walet@gmail.com",
+                    "homepage": "https://markwalet.me",
+                    "role": "Owner"
+                }
+            ],
+            "description": "A Laravel wrapper for the `spatie/packagist-api` package.",
+            "time": "2020-04-08T10:52:55+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5149,24 +5207,26 @@
         },
         {
             "name": "spatie/packagist-api",
-            "version": "1.2.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/packagist-api.git",
-                "reference": "e5db57c48afef1920eba6ceb0b7b9a785b875967"
+                "reference": "278a07e38121f4185c3e4a85008354d51ceb61f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/packagist-api/zipball/e5db57c48afef1920eba6ceb0b7b9a785b875967",
-                "reference": "e5db57c48afef1920eba6ceb0b7b9a785b875967",
+                "url": "https://api.github.com/repos/spatie/packagist-api/zipball/278a07e38121f4185c3e4a85008354d51ceb61f6",
+                "reference": "278a07e38121f4185c3e4a85008354d51ceb61f6",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^6.2.3",
-                "php": "^5.5|^7.0"
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.5",
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.36"
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "phpunit/phpunit": "^8.5|^9.0"
             },
             "type": "library",
             "autoload": {
@@ -5190,6 +5250,11 @@
                     "email": "jolita@spatie.be",
                     "homepage": "https://spatie.be",
                     "role": "Developer"
+                },
+                {
+                    "name": "Mark Walet",
+                    "homepage": "https://markwalet.me",
+                    "role": "Developer"
                 }
             ],
             "description": "Fetch package info from Packagist",
@@ -5199,7 +5264,7 @@
                 "packagist",
                 "spatie"
             ],
-            "time": "2019-04-10T15:00:42+00:00"
+            "time": "2020-04-08T08:11:46+00:00"
         },
         {
             "name": "spatie/ssh",
