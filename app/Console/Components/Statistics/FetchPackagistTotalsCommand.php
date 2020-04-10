@@ -5,7 +5,7 @@ namespace App\Console\Components\Statistics;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Spatie\Packagist\Packagist;
+use MarkWalet\Packagist\Facades\Packagist;
 use App\Events\Statistics\PackagistTotalsFetched;
 
 class FetchPackagistTotalsCommand extends Command
@@ -18,10 +18,9 @@ class FetchPackagistTotalsCommand extends Command
     {
         $this->info('Fetching packagist totals...');
 
-        $packagist = new Packagist(new Client());
-        $totals = collect($packagist->getPackagesByVendor(config('services.packagist.vendor'))['packageNames'])
-                ->map(function ($packageName) use ($packagist) {
-                    return $packagist->findPackageByName($packageName)['package'];
+        $totals = collect(Packagist::getPackagesNamesByVendor(config('services.packagist.vendor'))['packageNames'])
+                ->map(function (string $packageName) {
+                    return Packagist::getPackage($packageName)['package'];
                 })
                 ->pipe(function (Collection $packageProperties) {
                     return [
@@ -29,7 +28,7 @@ class FetchPackagistTotalsCommand extends Command
                         'total' => $packageProperties->sum('downloads.total'),
                     ];
                 });
-        dd($totals);
+
         event(new PackagistTotalsFetched($totals));
 
         $this->info('All done!');
