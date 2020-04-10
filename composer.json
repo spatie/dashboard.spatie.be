@@ -13,10 +13,12 @@
         "beyondcode/laravel-websockets": "^1.4",
         "developmint/npm-stats-api": "^1.0",
         "fideloper/proxy": "^4.2",
+        "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "knplabs/github-api": "^2.4",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
+        "markwalet/laravel-packagist": "^1.0",
         "ohdearapp/laravel-ohdear-webhooks": "^1.0",
         "pda/pheanstalk": "^3.1",
         "php-http/guzzle6-adapter": "^1.1",
@@ -27,9 +29,7 @@
         "spatie/laravel-tail": "^4.2",
         "spatie/laravel-twitter-streaming-api": "^1.3",
         "spatie/last-fm-now-playing": "^1.0",
-        "spatie/packagist-api": "^1.0.1",
-        "spatie/valuestore": "^1.1",
-        "fruitcake/laravel-cors": "^1.0"
+        "spatie/valuestore": "^1.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.10",
