@@ -2,7 +2,6 @@
 
 namespace App\Console\Components\Statistics;
 
-use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use MarkWalet\Packagist\Facades\Packagist;
