@@ -2,10 +2,10 @@
 
 namespace App\Console\Components\Statistics;
 
+use App\Events\Statistics\PackagistTotalsFetched;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use MarkWalet\Packagist\Facades\Packagist;
-use App\Events\Statistics\PackagistTotalsFetched;
 
 class FetchPackagistTotalsCommand extends Command
 {
