@@ -2,10 +2,13 @@
 
 @section('content')
 
-@javascript(compact('pusherKey', 'clientConnectionPath', 'environment', 'openWeatherMapKey'))
-<div id="dashboard">
-    <dashboard class="font-sans">
+<x-dashboard>
+    <livewire:team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" birthday="1995-10-22" position="b1:b8" />
+
+        {{--
         <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a16"></twitter>
+        --}}
+        {{--
         <team-member name="adriaan" avatar="{{ gravatar('adriaan@spatie.be') }}" birthday="1995-10-22" position="b1:b8"></team-member>
         <team-member name="alex" avatar="{{ gravatar('alex@spatie.be') }}" birthday="1996-02-05" position="c1:c8"></team-member>
         <team-member name="brent" avatar="{{ gravatar('brent@spatie.be') }}" birthday="1994-07-30" position="b9:b16"></team-member>
@@ -25,7 +28,7 @@
         <uptime position="d1:d10"></uptime>
         <calendar position="e7:e16"></calendar>
         <velo position="e17:e24"></velo>
-    </dashboard>
-</div>
+        --}}
+    </x-dashboard>
 
 @endsection
