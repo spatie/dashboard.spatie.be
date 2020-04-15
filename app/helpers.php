@@ -6,3 +6,8 @@ function gravatar(string $name): string
 
     return 'https://gravatar.com/avatar/'.$gravatarId.'?s=240';
 }
+
+function formatNaturalNumber(int $number): string
+{
+    return number_format($number, 0, '.', ' ');
+}

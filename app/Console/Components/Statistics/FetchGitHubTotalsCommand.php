@@ -2,10 +2,10 @@
 
 namespace App\Console\Components\Statistics;
 
+use App\Support\StatisticsStore;
 use Illuminate\Console\Command;
 use App\Support\GitHub\GitHubApi;
 use Illuminate\Support\Collection;
-use App\Events\Statistics\GitHubTotalsFetched;
 
 class FetchGitHubTotalsCommand extends Command
 {
@@ -34,7 +34,7 @@ class FetchGitHubTotalsCommand extends Command
                 ];
             });
 
-        event(new GitHubTotalsFetched($totals));
+        StatisticsStore::make()->setGitHubTotals($totals);
 
         $this->info('All done!');
     }

@@ -65,6 +65,8 @@
         />
         <livewire:calendar position="e7:e16" />
 
+        <livewire:statistics position="d1:d10" />
+
     </x-dashboard>
 
 @endsection

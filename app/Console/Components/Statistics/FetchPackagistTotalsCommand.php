@@ -3,6 +3,7 @@
 namespace App\Console\Components\Statistics;
 
 use App\Events\Statistics\PackagistTotalsFetched;
+use App\Support\StatisticsStore;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use MarkWalet\Packagist\Facades\Packagist;
@@ -28,7 +29,7 @@ class FetchPackagistTotalsCommand extends Command
                     ];
                 });
 
-        event(new PackagistTotalsFetched($totals));
+        StatisticsStore::make()->setPackagistTotals($totals);
 
         $this->info('All done!');
     }
