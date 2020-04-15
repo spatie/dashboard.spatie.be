@@ -1,3 +1,3 @@
 <div>
-    {{-- Stop trying to control. --}}
+    This is my name: {{ $name }}
 </div>

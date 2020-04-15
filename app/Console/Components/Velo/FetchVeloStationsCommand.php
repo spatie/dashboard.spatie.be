@@ -2,7 +2,7 @@
 
 namespace App\Console\Components\Velo;
 
-use App\Services\Velo\Velo;
+use App\Support\Velo\Velo;
 use Illuminate\Console\Command;
 use App\Events\Velo\StationsFetched;
 

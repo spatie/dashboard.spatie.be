@@ -2,7 +2,7 @@
 
 namespace App\Console\Components\Trains;
 
-use App\Services\Trains\IRail;
+use App\Support\Trains\IRail;
 use Illuminate\Console\Command;
 use App\Events\Trains\TrainConnectionsFetched;
 

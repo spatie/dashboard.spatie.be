@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Support\TeamMemberStore;
 use Carbon\Carbon;
 use Livewire\Component;
+use Spatie\Valuestore\Valuestore;
 
 class TeamMemberComponent extends Component
 {
@@ -17,9 +19,9 @@ class TeamMemberComponent extends Component
     public $avatar;
 
     /** @var bool */
-    public $isToday;
+    public $isBirthday;
 
-    public function mounted(string $name, string $avatar, string $birthDay, string $position)
+    public function mount(string $position, string $name, string $avatar, string $birthday)
     {
         $this->name = $name;
 
@@ -27,11 +29,18 @@ class TeamMemberComponent extends Component
 
         $this->position = $position;
 
-        $this->isBirthday = Carbon::createFromFormat('Y-m-d', $birthDay)->isToday();
+        $this->isBirthday = Carbon::createFromFormat('Y-m-d', $birthday)->isToday();
     }
 
     public function render()
     {
-        return view('components.livewire.teamMember');
+        $teamMember = TeamMemberStore::find($this->name);
+
+        return view('components.livewire.teamMember', [
+            'tasks' => $teamMember->tasks(),
+            'statusEmoji' => $teamMember->statusEmoji(),
+            'artwork' => $teamMember->nowPlaying()['artwork'] ?? null,
+            'currentTrack' => $teamMember->nowPlaying()['trackName'] ?? null,
+        ]);
     }
 }

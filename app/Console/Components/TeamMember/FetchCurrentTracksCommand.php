@@ -2,6 +2,7 @@
 
 namespace App\Console\Components\TeamMember;
 
+use App\Support\TeamMemberStore;
 use Illuminate\Console\Command;
 use Spatie\NowPlaying\NowPlaying;
 use App\Events\TeamMember\PlayingTrack;
@@ -35,11 +36,7 @@ class FetchCurrentTracksCommand extends Command
             ->each(function (string $teamMemberName, string $lastFmUserName) use ($lastFm) {
                 $currentTrack = $lastFm->getTrackInfo($lastFmUserName);
 
-                $event = $currentTrack
-                    ? new PlayingTrack($teamMemberName, $currentTrack)
-                    : new PlayingNothing($teamMemberName);
-
-                event($event);
+                TeamMemberStore::find($teamMemberName)->setNowPlaying($currentTrack);
             });
 
         $this->info('All done!');

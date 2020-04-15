@@ -2,9 +2,10 @@
 
 namespace App\Console\Components\TeamMember;
 
+use App\Support\TeamMemberStore;
 use Illuminate\Console\Command;
-use App\Services\Forecast\ForecastApi;
-use App\Events\TeamMember\TasksFetched;
+use Illuminate\Support\Collection;
+use App\Support\Forecast\ForecastApi;
 
 class FetchTasksCommand extends Command
 {
@@ -16,11 +17,13 @@ class FetchTasksCommand extends Command
     {
         $this->info('Fetching tasks from Forecast...');
 
-        $tasks = $forecast->getThisWeeksTasksFor(
-            explode(',', config('services.forecast.people'))
-        );
-
-        event(new TasksFetched($tasks->toArray()));
+        $forecast
+            ->getThisWeeksTasksFor(
+                explode(',', config('services.forecast.people'))
+            )
+            ->each(function (Collection $tasks, string $personName) {
+                TeamMemberStore::find($personName)->setTasks($tasks->toArray());
+            });
 
         $this->info('All done!');
     }

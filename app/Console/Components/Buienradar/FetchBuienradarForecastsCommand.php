@@ -3,7 +3,7 @@
 namespace App\Console\Components\Buienradar;
 
 use Illuminate\Console\Command;
-use App\Services\Buienradar\Buienradar;
+use App\Support\Buienradar\Buienradar;
 use App\Events\Buienradar\ForecastsFetched;
 
 class FetchBuienradarForecastsCommand extends Command
@@ -16,7 +16,10 @@ class FetchBuienradarForecastsCommand extends Command
     {
         $this->info('Fetching Buienradar forecasts...');
 
-        $forecasts = $buienradar->getForecasts(config('services.buienradar.latitude'), config('services.buienradar.longitude'));
+        $forecasts = $buienradar->getForecasts(
+            config('services.buienradar.latitude'),
+            config('services.buienradar.longitude')
+        );
 
         event(new ForecastsFetched($forecasts));
 

@@ -13,12 +13,12 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         \App\Events\Twitter\Mentioned::class => [
-            \App\Services\TweetHistory\TweetHistory::class,
+            \App\Support\TweetHistory\TweetHistory::class,
         ],
     ];
 
     protected $subscribe = [
-        \App\Services\OhDearWebhooks\EventSubscriber::class,
+        \App\Support\OhDearWebhooks\EventSubscriber::class,
     ];
 
     /**

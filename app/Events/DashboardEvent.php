@@ -5,10 +5,7 @@ namespace App\Events;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-abstract class DashboardEvent implements ShouldBroadcast
+abstract class DashboardEvent
 {
-    public function broadcastOn()
-    {
-        return new PrivateChannel('dashboard');
-    }
+
 }

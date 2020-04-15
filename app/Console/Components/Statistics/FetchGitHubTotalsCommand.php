@@ -3,7 +3,7 @@
 namespace App\Console\Components\Statistics;
 
 use Illuminate\Console\Command;
-use App\Services\GitHub\GitHubApi;
+use App\Support\GitHub\GitHubApi;
 use Illuminate\Support\Collection;
 use App\Events\Statistics\GitHubTotalsFetched;
 

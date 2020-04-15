@@ -2,8 +2,9 @@
 
 namespace App\Console\Components\TeamMember;
 
-use App\Services\Slack\Slack;
-use App\Services\Slack\Member;
+use App\Support\Slack\Slack;
+use App\Support\Slack\Member;
+use App\Support\TeamMemberStore;
 use Illuminate\Console\Command;
 use App\Events\TeamMember\UpdateStatus;
 
@@ -33,7 +34,7 @@ class FetchStatusCommand extends Command
         $slack
             ->getMembers($this->slackMembers)
             ->each(function (Member $member) {
-                event(new UpdateStatus(strtolower($member->name), $member->statusEmoji));
+                TeamMemberStore::find(strtolower($member->name))->setStatusEmoji($member->statusEmoji);
             });
 
         $this->info('All done!');

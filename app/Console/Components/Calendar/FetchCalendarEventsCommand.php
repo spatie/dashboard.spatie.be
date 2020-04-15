@@ -2,11 +2,11 @@
 
 namespace App\Console\Components\Calendar;
 
+use App\Support\CalendarStore;
 use DateTime;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Spatie\GoogleCalendar\Event;
-use App\Events\Calendar\EventsFetched;
 
 class FetchCalendarEventsCommand extends Command
 {
@@ -30,7 +30,7 @@ class FetchCalendarEventsCommand extends Command
             ->unique('name')
             ->toArray();
 
-        event(new EventsFetched($events));
+        CalendarStore::make()->setEvents($events);
 
         $this->info('All done!');
     }
