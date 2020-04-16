@@ -29,13 +29,14 @@ class TileComponent extends Component
             return '';
         }
 
-        $areaFrom = "{$from[1]} / {$this->indexInAlphabet($from[0])}";
+        $fromColumnNumber = substr($from, 1);
+        $areaFrom = "{$fromColumnNumber} / {$this->indexInAlphabet($from[0])}";
 
         if (! $to) {
             return $areaFrom;
         }
 
-        $toStart = ((int)$to[1]) + 1;
+        $toStart = ((int)substr($to, 1)) + 1;
 
         $toEnd = ((int)$this->indexInAlphabet($to[0])) + 1;
 
