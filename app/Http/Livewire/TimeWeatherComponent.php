@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Support\WeatherStore;
 use Livewire\Component;
 
 class TimeWeatherComponent extends Component
@@ -16,6 +17,14 @@ class TimeWeatherComponent extends Component
 
     public function render()
     {
-        return view('components.livewire.timeWeather');
+        $weatherStore = WeatherStore::make();
+
+        return view('components.livewire.timeWeather', [
+            'city' => $weatherStore->getCity(),
+            'forecasts' => $weatherStore->forecasts(),
+            'outsideTemperature'  => $weatherStore->outsideTemperature(),
+            'insideTemperature' => $weatherStore->insideTemperateture(),
+            'emoji' => $weatherStore->getEmoji(),
+        ]);
     }
 }

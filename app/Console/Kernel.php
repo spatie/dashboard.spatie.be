@@ -14,7 +14,7 @@ use App\Console\Components\Statistics\FetchGitHubTotalsCommand;
 use App\Console\Components\Dashboard\DetermineAppearanceCommand;
 use App\Console\Components\TeamMember\FetchCurrentTracksCommand;
 use App\Console\Components\Statistics\FetchPackagistTotalsCommand;
-use App\Console\Components\Buienradar\FetchBuienradarForecastsCommand;
+use App\Console\Components\Weather\FetchBuienradarForecastsCommand;
 
 class Kernel extends ConsoleKernel
 {

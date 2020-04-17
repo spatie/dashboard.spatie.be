@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\WeatherStore;
 use Illuminate\Http\Request;
-use App\Events\TimeWeather\TemperatureFetched;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class UpdateTemperatureController
@@ -18,7 +18,7 @@ class UpdateTemperatureController
 
         $temperature = round($temperature['temperature'], 1);
 
-        event(new TemperatureFetched($temperature));
+        WeatherStore::make()->setInsideTemperature($temperature);
 
         return 'ok';
     }

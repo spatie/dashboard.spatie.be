@@ -15,16 +15,17 @@
             </div>
             <div class="uppercase">
                 <div class="grid gap-4 items-center" style="grid-template-columns: repeat(3, auto);">
-                    <span> TEMPERATURE° <span class="text-sm uppercase text-dimmed">out</span> </span>
+                    <span> {{ $outsideTemperature }}° <span class="text-sm uppercase text-dimmed">out</span> </span>
                     <span>
-                        <office-temperature/>
+                        @if($insideTemperature)
+                            <span>{{ $insideTemperature }}°</span>
+                        @endif
                         <span class="text-sm uppercase text-dimmed">in</span>
                     </span>
-                    @foreach($weatherIcons ?? [] as $icon)
-                        <span class="text-2xl">{{ $icon }}</span>
-                    @endforeach
+
+                    <span class="text-2xl">{{ $emoji }}</span>
                 </div>
-                <div class="hidden">WEATHER CITY</div>
+                <div class="hidden">{{ $city }}</div>
             </div>
         </div>
         <div
@@ -36,10 +37,10 @@
                 opacity: .15"
         >
 
-            @foreach($rainForecasts ?? [] as $rainForecast)
+            @foreach($forecasts as $forecast)
                 <div
                     class="rounded-sm bg-accent"
-                    style="height:{{ $rainForecast['rain'] * 100 }}%"
+                    style="height:{{ $forecast['rain'] * 100 }}%"
                 />
             @endforeach
         </div>
@@ -57,14 +58,20 @@
                     }, 1000);
                 },
                 date: function () {
-                    const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(this.dateInstance)
-                    const month = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(this.dateInstance)
-                    const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(this.dateInstance)
+                    const day = new Intl.DateTimeFormat('en', {day: '2-digit'}).format(this.dateInstance)
+                    const month = new Intl.DateTimeFormat('en', {month: 'numeric'}).format(this.dateInstance)
+                    const year = new Intl.DateTimeFormat('en', {year: 'numeric'}).format(this.dateInstance)
 
                     return `${day}.${month}.${year}`
                 },
                 time: function () {
-                    return `${this.dateInstance.getHours()}:${this.dateInstance.getMinutes()}:${this.dateInstance.getSeconds()}`
+                    const hours = new Intl.DateTimeFormat('en-US', {
+                        hour: '2-digit',
+                        hour12: false
+                    }).format(this.dateInstance)
+                    const minutes = new Intl.DateTimeFormat('en-US', {minute: '2-digit'}).format(this.dateInstance)
+
+                    return `${hours}:${minutes}`
                 }
             }
         }

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Console\Components\Buienradar;
+namespace App\Console\Components\Weather;
 
+use App\Support\WeatherStore;
 use Illuminate\Console\Command;
 use App\Support\Buienradar\Buienradar;
 use App\Events\Buienradar\ForecastsFetched;
@@ -21,7 +22,7 @@ class FetchBuienradarForecastsCommand extends Command
             config('services.buienradar.longitude')
         );
 
-        event(new ForecastsFetched($forecasts));
+        WeatherStore::make()->setForecasts($forecasts);
 
         $this->info('All done!');
     }
