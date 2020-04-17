@@ -72,10 +72,9 @@
 
         <livewire:statistics position="d1:d10" />
 
+        <livewire:uptime position="d1:d10" />
+
         <livewire:time-weather position="e1:e6" />
-
-
-
     </x-dashboard>
 
 @endsection

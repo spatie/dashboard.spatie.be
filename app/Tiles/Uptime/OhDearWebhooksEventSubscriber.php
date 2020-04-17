@@ -1,26 +1,33 @@
 <?php
 
-namespace App\Services\OhDearWebhooks;
+namespace App\Tiles\Uptime;
 
 use Illuminate\Events\Dispatcher;
 use App\Events\Uptime\UptimeCheckFailed;
 use App\Events\Uptime\UptimeCheckRecovered;
 use OhDear\LaravelWebhooks\OhDearWebhookCall;
 
-class EventSubscriber
+class OhDearWebhooksEventSubscriber
 {
+    private UptimeStore $uptimeStore;
+
+    public function __construct(UptimeStore $uptimeStore)
+    {
+        $this->uptimeStore = $uptimeStore;
+    }
+
     public function onUptimeCheckFailed(OhDearWebhookCall $ohDearWebhookCall)
     {
         $site = $ohDearWebhookCall->site();
 
-        event(new UptimeCheckFailed($site['id'], $site['url']));
+        $this->uptimeStore->markSiteAsUp($site['url']);
     }
 
     public function onUptimeCheckRecovered(OhDearWebhookCall $ohDearWebhookCall)
     {
         $site = $ohDearWebhookCall->site();
 
-        event(new UptimeCheckRecovered($site['id'], $site['url']));
+        $this->uptimeStore->markSiteAsUp($site['url']);
     }
 
     public function subscribe(Dispatcher $events)

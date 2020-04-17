@@ -18,7 +18,7 @@ class EventServiceProvider extends ServiceProvider
     ];
 
     protected $subscribe = [
-        \App\Services\OhDearWebhooks\EventSubscriber::class,
+        \App\Tiles\Uptime\OhDearWebhooksEventSubscriber::class,
     ];
 
     /**
