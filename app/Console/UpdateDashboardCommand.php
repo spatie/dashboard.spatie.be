@@ -2,8 +2,8 @@
 
 namespace App\Console;
 
-use App\Console\Components\Dashboard\DetermineAppearanceCommand;
-use App\Console\Components\Dashboard\SendHeartbeatCommand;
+use App\Console\DetermineAppearanceCommand;
+use App\Console\SendHeartbeatCommand;
 use App\Tiles\TrainConnections\FetchTrainConnectionsCommand;
 use App\Tiles\Calendar\FetchCalendarEventsCommand;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;

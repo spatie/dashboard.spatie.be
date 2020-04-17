@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Console\Components\Dashboard;
+namespace App\Console;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use App\Events\Dashboard\UpdateAppearance;
+use App\Events\UpdateAppearance;
 
 class DetermineAppearanceCommand extends Command
 {

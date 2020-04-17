@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Events\Dashboard;
+namespace App\Events;
 
 use App\Events\DashboardEvent;
 
-class UpdateAppearance extends DashboardEvent
+class UpdateAppearance
 {
     /** @var string */
     public $mode;

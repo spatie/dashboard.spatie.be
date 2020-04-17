@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Console\Components\Dashboard;
+namespace App\Console;
 
 use Illuminate\Console\Command;
-use App\Events\Dashboard\Heartbeat;
+use App\Events\Heartbeat;
 
 class SendHeartbeatCommand extends Command
 {
