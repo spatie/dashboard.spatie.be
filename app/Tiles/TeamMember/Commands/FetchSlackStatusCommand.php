@@ -8,7 +8,7 @@ use App\Tiles\TeamMember\TeamMemberStore;
 use Illuminate\Console\Command;
 use App\Events\TeamMember\UpdateStatus;
 
-class FetchStatusCommand extends Command
+class FetchSlackStatusCommand extends Command
 {
     protected $signature = 'dashboard:fetch-team-member-status';
 

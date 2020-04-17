@@ -2,10 +2,11 @@
 
 namespace App\Console;
 
+use App\Tiles\Weather\Commands\FetchOpenWeatherDataCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use App\Console\Components\Trains\FetchTrainsCommand;
 use App\Tiles\TeamMember\Commands\FetchTasksCommand;
-use App\Tiles\TeamMember\Commands\FetchStatusCommand;
+use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
 use App\Tiles\Velo\FetchVeloStationsCommand;
 use App\Console\Components\Dashboard\SendHeartbeatCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -27,16 +28,16 @@ class Kernel extends ConsoleKernel
         $schedule->command(FetchVeloStationsCommand::class)->everyMinute();
         $schedule->command(DetermineAppearanceCommand::class)->everyMinute();
         $schedule->command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
+        $schedule->command(FetchOpenWeatherDataCommand::class)->everyFiveMinutes();
         $schedule->command(FetchTasksCommand::class)->everyFiveMinutes();
-        $schedule->command(FetchStatusCommand::class)->everyFiveMinutes();
+        $schedule->command(FetchSlackStatusCommand::class)->everyFiveMinutes();
         $schedule->command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
         $schedule->command(FetchPackagistTotalsCommand::class)->hourly();
-        $schedule->command('websockets:clean')->daily();
     }
 
     public function commands()
     {
-        $commandDirectories = glob(app_path('Console/Components/*'), GLOB_ONLYDIR);
+        $commandDirectories = glob(app_path('Tiles/*'), GLOB_ONLYDIR);
         $commandDirectories[] = app_path('Console');
 
         collect($commandDirectories)->each(function (string $commandDirectory) {
