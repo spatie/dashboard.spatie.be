@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\TweetHistory\TweetHistory;
+use App\Services\TweetHistory\TweetHistory;
 
 class DashboardController
 {

@@ -4,17 +4,17 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use App\Console\Components\Trains\FetchTrainsCommand;
-use App\Console\Components\TeamMember\FetchTasksCommand;
-use App\Console\Components\TeamMember\FetchStatusCommand;
-use App\Console\Components\Velo\FetchVeloStationsCommand;
+use App\Tiles\TeamMember\Commands\FetchTasksCommand;
+use App\Tiles\TeamMember\Commands\FetchStatusCommand;
+use App\Tiles\Velo\FetchVeloStationsCommand;
 use App\Console\Components\Dashboard\SendHeartbeatCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Console\Components\Calendar\FetchCalendarEventsCommand;
-use App\Console\Components\Statistics\FetchGitHubTotalsCommand;
+use App\Tiles\Calendar\FetchCalendarEventsCommand;
+use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
 use App\Console\Components\Dashboard\DetermineAppearanceCommand;
-use App\Console\Components\TeamMember\FetchCurrentTracksCommand;
-use App\Console\Components\Statistics\FetchPackagistTotalsCommand;
-use App\Console\Components\Weather\FetchBuienradarForecastsCommand;
+use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
+use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
+use App\Tiles\Weather\Commands\FetchBuienradarForecastsCommand;
 
 class Kernel extends ConsoleKernel
 {

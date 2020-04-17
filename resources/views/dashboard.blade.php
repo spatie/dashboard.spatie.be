@@ -2,7 +2,7 @@
 
 @section('content')
     <x-dashboard>
-        <livewire:tweets position="a1:a16" />
+        <livewire:twitter position="a1:a16" />
 
         <livewire:team-member
             position="b1:b8"

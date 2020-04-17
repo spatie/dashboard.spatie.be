@@ -1,11 +1,5 @@
 <x-tile :position="$position" no-fade>
     <div class="grid gap-2 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
-        {{--
-        <div class="markup">
-            <h1 x-data="currentTime()" x-init="() => { updateTime() }" x-text="time()"></h1>
-        </div>
---}}
-
         <div class="grid gap-2 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
             <div x-data="currentTime()" x-init="() => { updateTime() }">
                 <div class="markup">

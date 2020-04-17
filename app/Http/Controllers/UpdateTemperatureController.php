@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\WeatherStore;
+use App\Tiles\Weather\WeatherStore;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
