@@ -1,8 +1,9 @@
 @extends('layouts/master')
 
 @section('content')
-    This is the dashboard
     <x-dashboard>
+        <livewire:tweets position="a1:a16" />
+
         <livewire:team-member
             position="b1:b8"
             name="sebastian"

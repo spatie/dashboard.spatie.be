@@ -2,6 +2,7 @@
 
 namespace App\Console\Components\Twitter;
 
+use App\Support\TweetStore;
 use Illuminate\Console\Command;
 use App\Events\Twitter\Mentioned;
 use Spatie\LaravelTwitterStreamingApi\TwitterStreamingApi;
@@ -23,7 +24,7 @@ class ListenForMentionsCommand extends Command
                 '@spatie_be',
                 'github.com/spatie',
             ], function (array $tweetProperties) {
-                event(new Mentioned($tweetProperties));
+                TweetStore::make()->addTweet($tweetProperties);
             })
             ->startListening();
     }

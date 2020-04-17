@@ -2,6 +2,7 @@
 
 namespace App\Console\Components\Twitter;
 
+use App\Support\TweetStore;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use App\Events\Twitter\Mentioned;
@@ -23,7 +24,9 @@ class SendFakeTweetCommand extends Command
             ? Inspiring::quote()
             : '';
 
-        event(new Mentioned($this->getFakeTweetProperties($text, $quote)));
+        $tweetProperties = $this->getFakeTweetProperties($text, $quote);
+
+        TweetStore::make()->addTweet($tweetProperties);
 
         $this->info('All done!');
     }
