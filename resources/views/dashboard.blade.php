@@ -6,7 +6,7 @@
 
         <livewire:team-member
             position="b1:b8"
-            name="sebastian"
+            name="adriaan"
             :avatar="gravatar('adriaan@spatie.be')"
             birthday="1995-10-22"
         />
@@ -67,6 +67,8 @@
         <livewire:calendar position="e7:e16" />
 
         <livewire:statistics position="d1:d10" />
+
+        <livewire:time-weather position="e1:e6" />
 
     </x-dashboard>
 
