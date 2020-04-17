@@ -7,6 +7,7 @@ use App\Http\Livewire\StatisticsComponent;
 use App\Http\Livewire\TeamMemberComponent;
 use App\Http\Livewire\TimeWeatherComponent;
 use App\Http\Livewire\TweetsComponent;
+use App\Http\Livewire\VeloComponent;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -19,5 +20,6 @@ class LivewireComponentsServiceProvider extends ServiceProvider
         Livewire::component('statistics', StatisticsComponent::class);
         Livewire::component('tweets', TweetsComponent::class);
         Livewire::component('time-weather', TimeWeatherComponent::class);
+        Livewire::component('velo', VeloComponent::class);
     }
 }

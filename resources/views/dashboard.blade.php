@@ -45,6 +45,7 @@
             display-name="seb"
             :avatar="gravatar('sebastian@spatie.be')"
             birthday="1992-02-01" position="c17:c24"
+            nickName="seb"
         />
         <livewire:team-member
             name="jef"
@@ -64,11 +65,16 @@
             birthday="1975-09-03"
             position="d17:d24"
         />
+
         <livewire:calendar position="e7:e16" />
+
+        <livewire:velo position="e17:e24" />
 
         <livewire:statistics position="d1:d10" />
 
         <livewire:time-weather position="e1:e6" />
+
+
 
     </x-dashboard>
 

@@ -3,6 +3,7 @@
 namespace App\Console\Components\Velo;
 
 use App\Support\Velo\Velo;
+use App\Support\VeloStore;
 use Illuminate\Console\Command;
 use App\Events\Velo\StationsFetched;
 
@@ -18,7 +19,7 @@ class FetchVeloStationsCommand extends Command
 
         $stations = $velo->getStations(config('services.velo.stations'));
 
-        event(new StationsFetched($stations));
+        VeloStore::make()->setStations($stations);
 
         $this->info('All done!');
     }

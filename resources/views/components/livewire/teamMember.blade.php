@@ -1,5 +1,5 @@
 <x-tile :position="$position">
-    {{ $name }}
+    {{ ucfirst($nickName ?? $name) }}
     <div
         class="grid gap-padding h-full markup"
         style="grid-template-columns: 100%"

@@ -21,7 +21,10 @@ class TeamMemberComponent extends Component
     /** @var bool */
     public $isBirthday;
 
-    public function mount(string $position, string $name, string $avatar, string $birthday)
+    /** @var string */
+    public $nickName;
+
+    public function mount(string $position, string $name, string $avatar, string $birthday, string $nickName = null)
     {
         $this->name = $name;
 
@@ -30,6 +33,8 @@ class TeamMemberComponent extends Component
         $this->position = $position;
 
         $this->isBirthday = Carbon::createFromFormat('Y-m-d', $birthday)->isToday();
+
+        $this->nickName = $nickName;
     }
 
     public function render()
