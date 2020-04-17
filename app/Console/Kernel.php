@@ -4,7 +4,7 @@ namespace App\Console;
 
 use App\Tiles\Weather\Commands\FetchOpenWeatherDataCommand;
 use Illuminate\Console\Scheduling\Schedule;
-use App\Console\Components\Trains\FetchTrainsCommand;
+use App\Tiles\TrainConnections\FetchTrainConnectionsCommand;
 use App\Tiles\TeamMember\Commands\FetchTasksCommand;
 use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
 use App\Tiles\Velo\FetchVeloStationsCommand;
@@ -21,7 +21,7 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(FetchTrainsCommand::class)->everyMinute();
+        $schedule->command(FetchTrainConnectionsCommand::class)->everyMinute();
         $schedule->command(FetchCalendarEventsCommand::class)->everyMinute();
         $schedule->command(FetchCurrentTracksCommand::class)->everyMinute();
         $schedule->command(SendHeartbeatCommand::class)->everyMinute();

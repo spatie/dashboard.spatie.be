@@ -4,7 +4,7 @@ namespace App\Console;
 
 use App\Console\Components\Dashboard\DetermineAppearanceCommand;
 use App\Console\Components\Dashboard\SendHeartbeatCommand;
-use App\Console\Components\Trains\FetchTrainsCommand;
+use App\Tiles\TrainConnections\FetchTrainConnectionsCommand;
 use App\Tiles\Calendar\FetchCalendarEventsCommand;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
@@ -24,7 +24,7 @@ class UpdateDashboardCommand extends Command
     public function handle()
     {
         $this->call(DetermineAppearanceCommand::class);
-        $this->call(FetchTrainsCommand::class);
+        $this->call(FetchTrainConnectionsCommand::class);
         $this->call(SendHeartbeatCommand::class);
         $this->call(FetchCurrentTracksCommand::class);
         $this->call(FetchVeloStationsCommand::class);

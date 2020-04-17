@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Tiles\Calendar\CalendarComponent;
 use App\Tiles\Statistics\StatisticsComponent;
 use App\Tiles\TeamMember\TeamMemberComponent;
+use App\Tiles\TrainConnections\TrainConnectionsComponent;
 use App\Tiles\Uptime\UptimeComponent;
 use App\Tiles\Weather\TimeWeatherComponent;
 use App\Tiles\Twitter\TwitterComponent;
@@ -23,5 +24,6 @@ class LivewireComponentsServiceProvider extends ServiceProvider
         Livewire::component('time-weather', TimeWeatherComponent::class);
         Livewire::component('velo', VeloComponent::class);
         Livewire::component('uptime', UptimeComponent::class);
+        Livewire::component('train-connections', TrainConnectionsComponent::class);
     }
 }

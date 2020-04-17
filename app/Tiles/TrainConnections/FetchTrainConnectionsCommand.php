@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Console\Components\Trains;
+namespace App\Tiles\TrainConnections;
 
 use App\Services\Trains\IRail;
 use Illuminate\Console\Command;
 use App\Events\Trains\TrainConnectionsFetched;
 
-class FetchTrainsCommand extends Command
+class FetchTrainConnectionsCommand extends Command
 {
     protected $signature = 'dashboard:fetch-train-connections';
 
@@ -24,7 +24,7 @@ class FetchTrainsCommand extends Command
             })
             ->toArray();
 
-        event(new TrainConnectionsFetched($trainConnections));
+        TrainConnectionsStore::make()->setTrainConnections($trainConnections);
 
         $this->info('All done!');
     }
