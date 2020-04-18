@@ -25,16 +25,16 @@ class CalendarStore
         $this->valuestore = Valuestore::make("{$path}/calendar.json");
     }
 
-    public function setEvents(array $events): self
+    public function setEventsForCalendarId(array $events, string $calendarId): self
     {
-        $this->valuestore->put('events', $events);
+        $this->valuestore->put('events_' . $calendarId, $events);
 
         return $this;
     }
 
-    public function events(): Collection
+    public function eventsForCalendarId(string $calendarId): Collection
     {
-        return collect($this->valuestore->get('events') ?? [])
+        return collect($this->valuestore->get('events_' . $calendarId) ?? [])
             ->map(function (array $event) {
                 $event['date'] = Carbon::createFromTimeString($event['date']);
                 $event['withinWeek'] = $event['date']->diffInDays() < 7;

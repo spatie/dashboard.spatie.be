@@ -18,7 +18,7 @@ class FetchCalendarEventsCommand extends Command
     {
         $this->info('Fetching calendar events...');
 
-        $events = collect(Event::get())
+        $events = collect(Event::get(null, null, [], config('google-calendar.calendar_id')))
             ->map(function (Event $event) {
                 $sortDate = $event->getSortDate();
 
@@ -30,7 +30,7 @@ class FetchCalendarEventsCommand extends Command
             ->unique('name')
             ->toArray();
 
-        CalendarStore::make()->setEvents($events);
+        CalendarStore::make()->setEventsForCalendarId($events, config('google-calendar.calendar_id'));
 
         $this->info('All done!');
     }
