@@ -5,7 +5,7 @@ namespace App\Tiles\Weather;
 use App\Tiles\Weather\WeatherStore;
 use Livewire\Component;
 
-class TimeWeatherComponent extends Component
+class TimeWeatherTileComponent extends Component
 {
     /** @var string */
     public $position;

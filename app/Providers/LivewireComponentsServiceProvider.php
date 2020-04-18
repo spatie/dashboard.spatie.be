@@ -2,14 +2,14 @@
 
 namespace App\Providers;
 
-use App\Tiles\Calendar\CalendarComponent;
-use App\Tiles\Statistics\StatisticsComponent;
-use App\Tiles\TeamMember\TeamMemberComponent;
-use App\Tiles\TrainConnections\TrainConnectionsComponent;
-use App\Tiles\Uptime\UptimeComponent;
-use App\Tiles\Weather\TimeWeatherComponent;
-use App\Tiles\Twitter\TwitterComponent;
-use App\Tiles\Velo\VeloComponent;
+use App\Tiles\Calendar\CalendarTileComponent;
+use App\Tiles\Statistics\StatisticsTileComponent;
+use App\Tiles\TeamMember\TeamMemberTileComponent;
+use App\Tiles\TrainConnections\TrainConnectionsTileComponent;
+use App\Tiles\Uptime\UptimeTileComponent;
+use App\Tiles\Weather\TimeWeatherTileComponent;
+use App\Tiles\Twitter\TwitterTileComponent;
+use App\Tiles\Velo\VeloTileComponent;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -17,13 +17,13 @@ class LivewireComponentsServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        Livewire::component('team-member', TeamMemberComponent::class);
-        Livewire::component('calendar', CalendarComponent::class);
-        Livewire::component('statistics', StatisticsComponent::class);
-        Livewire::component('twitter', TwitterComponent::class);
-        Livewire::component('time-weather', TimeWeatherComponent::class);
-        Livewire::component('velo', VeloComponent::class);
-        Livewire::component('uptime', UptimeComponent::class);
-        Livewire::component('train-connections', TrainConnectionsComponent::class);
+        Livewire::component('team-member', TeamMemberTileComponent::class);
+        Livewire::component('calendar', CalendarTileComponent::class);
+        Livewire::component('statistics', StatisticsTileComponent::class);
+        Livewire::component('twitter', TwitterTileComponent::class);
+        Livewire::component('time-weather', TimeWeatherTileComponent::class);
+        Livewire::component('velo', VeloTileComponent::class);
+        Livewire::component('uptime', UptimeTileComponent::class);
+        Livewire::component('train-connections', TrainConnectionsTileComponent::class);
     }
 }

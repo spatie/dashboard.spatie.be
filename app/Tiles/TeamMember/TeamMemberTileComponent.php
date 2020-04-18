@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Spatie\Valuestore\Valuestore;
 
-class TeamMemberComponent extends Component
+class TeamMemberTileComponent extends Component
 {
     /** @var string */
     public $position;

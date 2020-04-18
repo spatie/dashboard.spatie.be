@@ -5,7 +5,7 @@ namespace App\Tiles\TrainConnections;
 use App\Tiles\Calendar\CalendarStore;
 use Livewire\Component;
 
-class TrainConnectionsComponent extends Component
+class TrainConnectionsTileComponent extends Component
 {
     /** @var string */
     public $position;

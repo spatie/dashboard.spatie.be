@@ -5,7 +5,7 @@ namespace App\Tiles\Statistics;
 use App\Tiles\Statistics\StatisticsStore;
 use Livewire\Component;
 
-class StatisticsComponent extends Component
+class StatisticsTileComponent extends Component
 {
     /** @var string */
     public $position;

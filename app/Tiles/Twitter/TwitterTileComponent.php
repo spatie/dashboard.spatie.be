@@ -5,7 +5,7 @@ namespace App\Tiles\Twitter;
 use App\Tiles\Twitter\TwitterStore;
 use Livewire\Component;
 
-class TwitterComponent extends Component
+class TwitterTileComponent extends Component
 {
     /** @var string */
     public $position;

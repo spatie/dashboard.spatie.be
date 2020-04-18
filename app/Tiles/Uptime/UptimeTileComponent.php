@@ -4,7 +4,7 @@ namespace App\Tiles\Uptime;
 
 use Livewire\Component;
 
-class UptimeComponent extends Component
+class UptimeTileComponent extends Component
 {
     /** @var string */
     public $position;

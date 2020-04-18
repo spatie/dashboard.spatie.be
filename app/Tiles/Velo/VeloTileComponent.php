@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Tiles\Calendar;
+namespace App\Tiles\Velo;
 
-use App\Tiles\Calendar\CalendarStore;
 use Livewire\Component;
 
-class CalendarComponent extends Component
+class VeloTileComponent extends Component
 {
     /** @var string */
     public $position;
@@ -17,8 +16,8 @@ class CalendarComponent extends Component
 
     public function render()
     {
-        return view('components.tiles.calendar', [
-            'events' => CalendarStore::make()->events(),
+        return view('components.tiles.velo', [
+            'stations' => VeloStore::make()->stations(),
         ]);
     }
 }
