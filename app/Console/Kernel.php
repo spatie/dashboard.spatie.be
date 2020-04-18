@@ -8,14 +8,12 @@ use App\Tiles\TrainConnections\FetchTrainConnectionsCommand;
 use App\Tiles\TeamMember\Commands\FetchTasksCommand;
 use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
 use App\Tiles\Velo\FetchVeloStationsCommand;
-use App\Console\SendHeartbeatCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Tiles\Calendar\FetchCalendarEventsCommand;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
-use App\Console\DetermineAppearanceCommand;
 use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
 use App\Tiles\Weather\Commands\FetchBuienradarForecastsCommand;
+use Spatie\CalendarTile\FetchCalendarEventsCommand;
 
 class Kernel extends ConsoleKernel
 {

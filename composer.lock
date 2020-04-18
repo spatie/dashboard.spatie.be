@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f365523d0335b22b2de667f9367e90ab",
+    "content-hash": "ea3c43340378c74574f579c5a8328796",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4182,7 +4182,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard",
-                "reference": "ecbf1a12a10598a1005018ed7c531140619a50c4"
+                "reference": "dad34feef688b9f846c2015fc33b464d951e565d"
             },
             "require": {
                 "illuminate/database": "^7.6",
@@ -4243,17 +4243,80 @@
             ]
         },
         {
+            "name": "spatie/laravel-dashboard-calendar-tile",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../laravel-dashboard-calendar-tile",
+                "reference": "12ab409ae39a04b2e22f91159b78dddc097b93a7"
+            },
+            "require": {
+                "php": "^7.4",
+                "spatie/laravel-dashboard": "dev-master",
+                "spatie/laravel-google-calendar": "^2.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\CalendarTile\\CalendarTileServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CalendarTile\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spatie\\CalendarTile\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ],
+                "format": [
+                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A calendar tile for Laravel Dashboard",
+            "homepage": "https://github.com/spatie/laravel-dashboard-calendar-tile",
+            "keywords": [
+                "laravel-dashboard-calendar-tile",
+                "spatie"
+            ]
+        },
+        {
             "name": "spatie/laravel-google-calendar",
-            "version": "2.5.2",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-google-calendar.git",
-                "reference": "9e6d0ff10d93adb58ef7792fdad28ca980a3fc03"
+                "reference": "77310009107e847f1ca055221ba5428b731cc848"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-google-calendar/zipball/9e6d0ff10d93adb58ef7792fdad28ca980a3fc03",
-                "reference": "9e6d0ff10d93adb58ef7792fdad28ca980a3fc03",
+                "url": "https://api.github.com/repos/spatie/laravel-google-calendar/zipball/77310009107e847f1ca055221ba5428b731cc848",
+                "reference": "77310009107e847f1ca055221ba5428b731cc848",
                 "shasum": ""
             },
             "require": {
@@ -4305,7 +4368,7 @@
                 "schedule",
                 "spatie"
             ],
-            "time": "2020-04-14T11:57:44+00:00"
+            "time": "2020-03-03T13:00:08+00:00"
         },
         {
             "name": "spatie/laravel-tail",
@@ -8645,7 +8708,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "spatie/laravel-dashboard": 20
+        "spatie/laravel-dashboard": 20,
+        "spatie/laravel-dashboard-calendar-tile": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
