@@ -9,7 +9,7 @@ class Tile extends Model
     public $guarded = [];
 
     public $casts = [
-        'data' => 'array'
+        'data' => 'array',
     ];
 
     public static function firstOrCreateForName(string $name): self
