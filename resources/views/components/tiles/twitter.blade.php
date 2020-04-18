@@ -1,4 +1,4 @@
-<x-tile :position="$position">
+<x-dashboard-tile :position="$position">
     <ul wire:poll.5s class="grid" style="grid-auto-rows: auto;">
         @foreach($tweets as $tweet)
             <li class="overflow-hidden pb-4 mb-4 border-b-2 border-screen">
@@ -40,4 +40,4 @@
             </li>
         @endforeach
     </ul>
-</x-tile>
+</x-dashboard-tile>

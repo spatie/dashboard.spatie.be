@@ -2,9 +2,9 @@
 
 namespace App\Tiles\Calendar;
 
-use App\Models\Tile;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Spatie\Dashboard\Models\Tile;
 
 class CalendarStore
 {

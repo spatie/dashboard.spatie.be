@@ -180,7 +180,6 @@ return [
         App\Services\Trains\IRailServiceProvider::class,
         App\Services\Buienradar\BuienradarServiceProvider::class,
         App\Services\Forecast\ForecastServiceProvider::class,
-        \App\Providers\BladeComponentsServiceProvider::class,
         \App\Providers\LivewireComponentsServiceProvider::class,
     ],
 

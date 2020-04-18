@@ -1,6 +1,6 @@
 <div wire:poll.5s>
     @if ($showTrains)
-        <x-tile :position="$position">
+        <x-dashboard-tile :position="$position">
             <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">
                 <div class="flex">
                     <div class="grid place-center w-10 h-10 rounded-full"
@@ -34,6 +34,6 @@
                     @endforeach
                 </div>
             </div>
-        </x-tile>
+        </x-dashboard-tile>
     @endif
 </div>

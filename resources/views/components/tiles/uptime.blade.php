@@ -1,6 +1,6 @@
 <div wire:poll.5s>
     @if(count($downSites))
-        <x-tile :position="$position">
+        <x-dashboard-tile :position="$position">
             <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr" class="markup bg-warn">
                 <h1>Downtime</h1>
                 <ul class="align-self-center">
@@ -9,7 +9,7 @@
                     @endforeach
                 </ul>
             </div>
-        </x-tile>
+        </x-dashboard-tile>
     @endif
 </div>
 

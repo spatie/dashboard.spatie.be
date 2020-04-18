@@ -1,4 +1,4 @@
-<x-tile :position="$position" no-fade>
+<x-dashboard-tile :position="$position">
     <div class="grid gap-2 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
         <div class="grid gap-2 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
             <div x-data="currentTime()" x-init="() => { updateTime() }">
@@ -71,4 +71,4 @@
         }
     </script>
 
-</x-tile>
+</x-dashboard-tile>

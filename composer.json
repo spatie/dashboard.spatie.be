@@ -25,6 +25,7 @@
         "pusher/pusher-php-server": "^3.0",
         "spatie/data-transfer-object": "^1.7",
         "spatie/laravel-google-calendar": "^2.5",
+        "spatie/laravel-dashboard": "dev-master",
         "spatie/laravel-tail": "^4.2",
         "spatie/laravel-twitter-streaming-api": "^1.3",
         "spatie/last-fm-now-playing": "^1.0",
@@ -85,5 +86,11 @@
         "laravel": {
             "dont-discover": []
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../laravel-dashboard"
+        }
+    ]
 }

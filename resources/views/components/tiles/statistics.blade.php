@@ -1,4 +1,4 @@
-<x-tile :position="$position">
+<x-dashboard-tile :position="$position">
     <div wire:poll.5s class="grid gap-padding h-full markup">
         <ul class="align-self-center">
             <li>
@@ -25,4 +25,4 @@
             </li>
         </ul>
     </div>
-</x-tile>
+</x-dashboard-tile>

@@ -1,4 +1,4 @@
-<x-tile :position="$position">
+<x-dashboard-tile :position="$position">
     <div wire:poll.{{ $refreshInSeconds }}s class="grid gap-padding h-full markup">
         <ul class="align-self-center">
             @foreach($events as $event)
@@ -11,4 +11,4 @@
             @endforeach
         </ul>
     </div>
-</x-tile>
+</x-dashboard-tile>

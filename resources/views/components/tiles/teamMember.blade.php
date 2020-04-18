@@ -1,4 +1,4 @@
-<x-tile :position="$position">
+<x-dashboard-tile :position="$position">
     {{ ucfirst($nickName ?? $name) }}
     <div wire:poll.5s
         class="grid gap-padding h-full markup"
@@ -78,4 +78,4 @@
 
     </div>
 
-</x-tile>
+</x-dashboard-tile>
