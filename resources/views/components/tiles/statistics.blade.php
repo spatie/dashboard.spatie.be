@@ -1,5 +1,5 @@
 <x-tile :position="$position">
-    <div wire:poll.60s class="grid gap-padding h-full markup">
+    <div wire:poll.5s class="grid gap-padding h-full markup">
         <ul class="align-self-center">
             <li>
                 <span>✨</span>

@@ -1,4 +1,4 @@
-<div wire:poll.60s>
+<div wire:poll.5s>
     @if ($showTrains)
         <x-tile :position="$position">
             <div class="grid gap-padding h-full markup" style="grid-template-rows: auto 1fr;">

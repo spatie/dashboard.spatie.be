@@ -7,7 +7,7 @@
                 </div>
                 <div class="align-self-center font-bold text-4xl tracking-wide leading-none" x-text="date()"></div>
             </div>
-            <div class="uppercase" wire:poll.60s>
+            <div class="uppercase" wire:poll.5s>
                 <div class="grid gap-4 items-center" style="grid-template-columns: repeat(3, auto);">
                     <span> {{ $outsideTemperature }}° <span class="text-sm uppercase text-dimmed">out</span> </span>
                     <span>
@@ -22,7 +22,7 @@
                 <div class="hidden">{{ $city }}</div>
             </div>
         </div>
-        <div wire:poll.60s
+        <div wire:poll.5s
             class="absolute pin-b pin-l w-full grid items-end"
             style="
                 height: calc(1.25 * var(--tile-padding));

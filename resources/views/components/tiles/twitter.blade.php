@@ -1,5 +1,5 @@
 <x-tile :position="$position">
-    <ul wire:poll.60s class="grid" style="grid-auto-rows: auto;">
+    <ul wire:poll.5s class="grid" style="grid-auto-rows: auto;">
         @foreach($tweets as $tweet)
             <li class="overflow-hidden pb-4 mb-4 border-b-2 border-screen">
                 <div class="markup grid gap-padding" style="grid-auto-rows: auto">
