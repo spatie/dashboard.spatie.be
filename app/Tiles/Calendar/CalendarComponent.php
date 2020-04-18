@@ -17,7 +17,7 @@ class CalendarComponent extends Component
 
     public function render()
     {
-        return view('components.livewire.calendar', [
+        return view('components.tiles.calendar', [
             'events' => CalendarStore::make()->events(),
         ]);
     }

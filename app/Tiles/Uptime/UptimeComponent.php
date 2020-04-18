@@ -16,7 +16,7 @@ class UptimeComponent extends Component
 
     public function render()
     {
-        return view('components.livewire.uptime', [
+        return view('components.tiles.uptime', [
             'downSites' => UptimeStore::make()->downSites(),
         ]);
     }

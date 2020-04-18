@@ -1,6 +1,6 @@
 <x-tile :position="$position">
     {{ ucfirst($nickName ?? $name) }}
-    <div
+    <div wire:poll.60s
         class="grid gap-padding h-full markup"
         style="grid-template-columns: 100%"
         style="{{ count($tasks) ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr' }}"

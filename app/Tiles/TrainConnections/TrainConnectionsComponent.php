@@ -17,7 +17,7 @@ class TrainConnectionsComponent extends Component
 
     public function render()
     {
-        return view('components.livewire.trainConnections', [
+        return view('components.tiles.trainConnections', [
             'showTrains' => (now()->hour >= 16) && (now()->hour <= 20),
             'trainConnections' => TrainConnectionsStore::make()->trainConnections(),
         ]);

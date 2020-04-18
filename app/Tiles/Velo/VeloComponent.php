@@ -2,7 +2,6 @@
 
 namespace App\Tiles\Velo;
 
-use App\Tiles\Velo\VeloStore;
 use Livewire\Component;
 
 class VeloComponent extends Component
@@ -17,7 +16,7 @@ class VeloComponent extends Component
 
     public function render()
     {
-        return view('components.livewire.velo', [
+        return view('components.tiles.velo', [
             'stations' => VeloStore::make()->stations(),
         ]);
     }

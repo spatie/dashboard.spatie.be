@@ -17,7 +17,7 @@ class TwitterComponent extends Component
 
     public function render()
     {
-        return view('components.livewire.twitter', [
+        return view('components.tiles.twitter', [
             'tweets' => TwitterStore::make()->tweets(),
         ]);
     }

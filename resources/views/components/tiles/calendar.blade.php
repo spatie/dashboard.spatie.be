@@ -1,5 +1,5 @@
 <x-tile :position="$position">
-    <div class="grid gap-padding h-full markup">
+    <div wire:poll.60s class="grid gap-padding h-full markup">
         <ul class="align-self-center">
             @foreach($events as $event)
                 <li>

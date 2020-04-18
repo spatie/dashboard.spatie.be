@@ -19,7 +19,7 @@ class StatisticsComponent extends Component
     {
         $statisticsStore = StatisticsStore::make();
 
-        return view('components.livewire.statistics', [
+        return view('components.tiles.statistics', [
             'gitHubStars' => $statisticsStore->gitHubStars(),
             'gitHubContributors' => $statisticsStore->gitHubContributors(),
             'gitHubIssues' => $statisticsStore->gitHubIssues(),

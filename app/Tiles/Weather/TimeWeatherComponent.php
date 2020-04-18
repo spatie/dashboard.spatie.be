@@ -19,7 +19,7 @@ class TimeWeatherComponent extends Component
     {
         $weatherStore = WeatherStore::make();
 
-        return view('components.livewire.timeWeather', [
+        return view('components.tiles.timeWeather', [
             'city' => $weatherStore->getCity(),
             'forecasts' => $weatherStore->forecasts(),
             'outsideTemperature'  => $weatherStore->outsideTemperature(),

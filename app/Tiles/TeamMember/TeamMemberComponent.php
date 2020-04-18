@@ -10,10 +10,10 @@ use Spatie\Valuestore\Valuestore;
 class TeamMemberComponent extends Component
 {
     /** @var string */
-    public $name;
+    public $position;
 
     /** @var string */
-    public $position;
+    public $name;
 
     /** @var string */
     public $avatar;
@@ -26,11 +26,11 @@ class TeamMemberComponent extends Component
 
     public function mount(string $position, string $name, string $avatar, string $birthday, string $nickName = null)
     {
+        $this->position = $position;
+
         $this->name = $name;
 
         $this->avatar = $avatar;
-
-        $this->position = $position;
 
         $this->isBirthday = Carbon::createFromFormat('Y-m-d', $birthday)->isToday();
 
@@ -41,7 +41,7 @@ class TeamMemberComponent extends Component
     {
         $teamMember = TeamMemberStore::find($this->name);
 
-        return view('components.livewire.teamMember', [
+        return view('components.tiles.teamMember', [
             'tasks' => $teamMember->tasks(),
             'statusEmoji' => $teamMember->statusEmoji(),
             'artwork' => $teamMember->nowPlaying()['artwork'] ?? null,
