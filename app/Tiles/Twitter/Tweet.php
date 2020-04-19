@@ -2,6 +2,7 @@
 
 namespace App\Tiles\Twitter;
 
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 
 class Tweet
@@ -39,9 +40,15 @@ class Tweet
         return Arr::get($this->tweetProperties, 'extended_entities.media.0.media_url_https', '');
     }
 
-    public function date(): string
+    public function date(): ?Carbon
     {
-        return $this->tweetProperties['created_at'];
+        $timestamp = strtotime($this->tweetProperties['created_at']);
+
+        if (! $timestamp) {
+            return null;
+        }
+
+        return Carbon::createFromTimestamp($timestamp);
     }
 
     public function isRetweet(): bool

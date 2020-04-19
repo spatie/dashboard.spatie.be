@@ -18,8 +18,9 @@
                     <div>
                         <div class="{{ $tweet->displayClass() }}">{{ $tweet->html() }}</div>
                         <div class="mt-1 text-xs text-dimmed">
-                            <relative-date :moment="tweet.date"></relative-date>
-                            {{ $tweet->date() }}
+                            @if ($tweet->date())
+                            {{ $tweet->date()->diffForHumans() }}
+                            @endif
                             @if ($tweet->hasQuote())
                                 <span> In reply to {{ $tweet->quote()->authorScreenName() }} </span>
                             @endif
