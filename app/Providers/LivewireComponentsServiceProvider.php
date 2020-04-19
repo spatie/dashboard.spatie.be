@@ -19,7 +19,6 @@ class LivewireComponentsServiceProvider extends ServiceProvider
     {
         Livewire::component('team-member', TeamMemberTileComponent::class);
         Livewire::component('statistics', StatisticsTileComponent::class);
-        Livewire::component('twitter', TwitterTileComponent::class);
         Livewire::component('time-weather', TimeWeatherTileComponent::class);
         Livewire::component('velo', VeloTileComponent::class);
         Livewire::component('uptime', UptimeTileComponent::class);

@@ -3,7 +3,7 @@
 @section('content')
     <x-dashboard>
 
-        <livewire:twitter position="a1:a16" />
+        <livewire:twitter-tile position="a1:a16" />
 
         <livewire:team-member
             position="b1:b8"
@@ -67,7 +67,7 @@
             position="d17:d24"
         />
 
-        <livewire:dashboard-calendar position="e7:e16" :calendar-id="config('google-calendar.calendar_id')" />
+        <livewire:calendar-tile position="e7:e16" :calendar-id="config('google-calendar.calendar_id')" />
 
         <livewire:velo position="e17:e24" />
 

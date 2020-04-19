@@ -24,11 +24,11 @@
         "php-http/guzzle6-adapter": "^1.1",
         "pusher/pusher-php-server": "^3.0",
         "spatie/data-transfer-object": "^1.7",
-        "spatie/laravel-google-calendar": "2.5",
         "spatie/laravel-dashboard": "dev-master",
         "spatie/laravel-dashboard-calendar-tile": "dev-master",
+        "spatie/laravel-dashboard-twitter-tile": "dev-master",
+        "spatie/laravel-google-calendar": "2.5",
         "spatie/laravel-tail": "^4.2",
-        "spatie/laravel-twitter-streaming-api": "^1.3",
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/valuestore": "^1.1"
     },
@@ -96,6 +96,10 @@
         {
             "type": "path",
             "url": "../laravel-dashboard-calendar-tile"
+        },
+        {
+            "type": "path",
+            "url": "../laravel-dashboard-twitter-tile"
         }
     ]
 }
