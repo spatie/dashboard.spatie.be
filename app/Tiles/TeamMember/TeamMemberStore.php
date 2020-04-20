@@ -63,6 +63,12 @@ class TeamMemberStore
         return $this;
     }
 
+    public function setNothingPlaying()
+    {
+        $this->valuestore->put('nowPlaying', []);
+
+    }
+
     public function nowPlaying(): array
     {
         return $this->valuestore->get('nowPlaying') ?? [];

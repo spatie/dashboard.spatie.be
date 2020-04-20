@@ -34,9 +34,13 @@ class FetchCurrentTracksCommand extends Command
 
         collect($this->lastFmUsers)
             ->each(function (string $teamMemberName, string $lastFmUserName) use ($lastFm) {
+                $teamMemberStore = TeamMemberStore::find($teamMemberName);
+
                 $currentTrack = $lastFm->getTrackInfo($lastFmUserName);
 
-                TeamMemberStore::find($teamMemberName)->setNowPlaying($currentTrack);
+                $currentTrack
+                    ? $teamMemberStore->setNowPlaying($currentTrack)
+                    : $teamMemberStore->setNothingPlaying();
             });
 
         $this->info('All done!');

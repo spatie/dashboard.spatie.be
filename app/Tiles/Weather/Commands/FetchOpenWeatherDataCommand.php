@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 
 class FetchOpenWeatherDataCommand extends Command
 {
-    protected $signature = 'dashboard:fetch-openweather-date';
+    protected $signature = 'dashboard:fetch-openweather-data';
 
     protected $description = 'Fetch Openweather data';
 
