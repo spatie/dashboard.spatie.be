@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "775482cb94f1f5087a2a3c1fd91ca0a2",
+    "content-hash": "fed7666e5761ec32c317fc279f9275c2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4373,7 +4373,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard-oh-dear-uptime-tile",
-                "reference": "479bbdf431f1ce8e6b8d54fb2db3accb416987b8"
+                "reference": "73a49aa32dd8f1e2c12ad5643ab49df5271b0791"
             },
             "require": {
                 "ohdearapp/laravel-ohdear-webhooks": "^1.3",
@@ -4387,7 +4387,7 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "OhDearUptimeTileServiceProvider"
+                        "\\Spatie\\OhDearUptimeTile\\OhDearUptimeTileServiceProvider"
                     ]
                 }
             },
