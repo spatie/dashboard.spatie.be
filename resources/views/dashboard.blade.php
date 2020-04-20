@@ -2,7 +2,6 @@
 
 @section('content')
     <x-dashboard>
-
         <livewire:twitter-tile position="a1:a16" />
 
         <livewire:team-member
@@ -75,7 +74,7 @@
 
         <livewire:uptime position="d1:d10" />
 
-        <livewire:train-connections position="a1:a24" />
+        <livewire:belgian-trains-tile position="a1:a24" />
 
         <livewire:time-weather position="e1:e6" />
     </x-dashboard>

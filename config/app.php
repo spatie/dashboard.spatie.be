@@ -177,7 +177,6 @@ return [
         App\Services\GitHub\GitHubServiceProvider::class,
         App\Services\Slack\SlackServiceProvider::class,
         App\Services\Velo\VeloServiceProvider::class,
-        App\Services\Trains\IRailServiceProvider::class,
         App\Services\Buienradar\BuienradarServiceProvider::class,
         App\Services\Forecast\ForecastServiceProvider::class,
         \App\Providers\LivewireComponentsServiceProvider::class,

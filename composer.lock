@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43316e957e91fd191bfd60858a955f7f",
+    "content-hash": "c6564d7ed2cec60083d4a235c31f1f3e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2055,16 +2055,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "517cbe1c6faf90afeb38a0e917c73acc6d3051ce"
+                "reference": "c995966d35424bae20f76f8b31248099487a3f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/517cbe1c6faf90afeb38a0e917c73acc6d3051ce",
-                "reference": "517cbe1c6faf90afeb38a0e917c73acc6d3051ce",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c995966d35424bae20f76f8b31248099487a3f57",
+                "reference": "c995966d35424bae20f76f8b31248099487a3f57",
                 "shasum": ""
             },
             "require": {
@@ -2125,7 +2125,7 @@
                 "md",
                 "parser"
             ],
-            "time": "2020-04-18T20:46:13+00:00"
+            "time": "2020-04-20T13:36:51+00:00"
         },
         {
             "name": "league/flysystem",
@@ -4243,12 +4243,74 @@
             ]
         },
         {
+            "name": "spatie/laravel-dashboard-belgian-trains-tile",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../laravel-dashboard-belgian-trains-tile",
+                "reference": "d21866501eaee6d691774d9c101e105a1a9e8b7e"
+            },
+            "require": {
+                "php": "^7.4",
+                "spatie/laravel-dashboard": "dev-master"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\BelgianTrainsTile\\BelgianTrainsTileServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\BelgianTrainsTile\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spatie\\BelgianTrainsTile\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ],
+                "format": [
+                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A tile for Laravel Dashboard that display Belgian train connections",
+            "homepage": "https://github.com/spatie/laravel-dashboard-belgian-trails-tile",
+            "keywords": [
+                "laravel-dashboard-calendar-tile",
+                "spatie"
+            ]
+        },
+        {
             "name": "spatie/laravel-dashboard-calendar-tile",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard-calendar-tile",
-                "reference": "2d3479e5a5fd514db2acf2f65e4b7fa598f26883"
+                "reference": "f66a952871b06acd04d4edf196630dd33e36d7d5"
             },
             "require": {
                 "php": "^7.4",
@@ -4375,7 +4437,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard-velo-tile",
-                "reference": "bb2b6f9212ab550c9def07d40b3080383fe23d4e"
+                "reference": "c633fbda97963005bd2ae36ff98136ac31f7fce5"
             },
             "require": {
                 "php": "^7.4",
@@ -8837,7 +8899,8 @@
         "spatie/laravel-dashboard": 20,
         "spatie/laravel-dashboard-calendar-tile": 20,
         "spatie/laravel-dashboard-twitter-tile": 20,
-        "spatie/laravel-dashboard-velo-tile": 20
+        "spatie/laravel-dashboard-velo-tile": 20,
+        "spatie/laravel-dashboard-belgian-trains-tile": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

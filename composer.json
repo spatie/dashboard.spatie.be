@@ -28,7 +28,7 @@
         "spatie/laravel-dashboard-calendar-tile": "dev-master",
         "spatie/laravel-dashboard-twitter-tile": "dev-master",
         "spatie/laravel-dashboard-velo-tile": "dev-master",
-
+        "spatie/laravel-dashboard-belgian-trains-tile": "dev-master",
         "spatie/laravel-google-calendar": "2.5",
         "spatie/laravel-tail": "^4.2",
         "spatie/last-fm-now-playing": "^1.0",
@@ -106,6 +106,10 @@
         {
             "type": "path",
             "url": "../laravel-dashboard-velo-tile"
+        },
+        {
+            "type": "path",
+            "url": "../laravel-dashboard-belgian-trains-tile"
         }
     ]
 }
