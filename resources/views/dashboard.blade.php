@@ -69,7 +69,7 @@
 
         <livewire:calendar-tile position="e7:e16" :calendar-id="config('google-calendar.calendar_id')" />
 
-        <livewire:velo position="e17:e24" />
+        <livewire:velo-tile position="e17:e24" />
 
         <livewire:statistics position="d1:d10" />
 

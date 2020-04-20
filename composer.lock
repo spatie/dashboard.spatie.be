@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d977eca2a22d91b42c0b03259b13b6a",
+    "content-hash": "43316e957e91fd191bfd60858a955f7f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1429,16 +1429,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.130",
+            "version": "v0.131",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "a33503317f78f396b58bc184e4d760f1be47d228"
+                "reference": "c7085d771c635933baff9714732af2d5042f5dd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/a33503317f78f396b58bc184e4d760f1be47d228",
-                "reference": "a33503317f78f396b58bc184e4d760f1be47d228",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/c7085d771c635933baff9714732af2d5042f5dd6",
+                "reference": "c7085d771c635933baff9714732af2d5042f5dd6",
                 "shasum": ""
             },
             "require": {
@@ -1462,7 +1462,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-04-13T00:24:55+00:00"
+            "time": "2020-04-20T00:24:47+00:00"
         },
         {
             "name": "google/auth",
@@ -4182,7 +4182,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard",
-                "reference": "dad34feef688b9f846c2015fc33b464d951e565d"
+                "reference": "90a6d24716ba382a9e58ad267480921fc265bd01"
             },
             "require": {
                 "illuminate/database": "^7.6",
@@ -4248,7 +4248,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard-calendar-tile",
-                "reference": "12ab409ae39a04b2e22f91159b78dddc097b93a7"
+                "reference": "2d3479e5a5fd514db2acf2f65e4b7fa598f26883"
             },
             "require": {
                 "php": "^7.4",
@@ -4311,7 +4311,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard-twitter-tile",
-                "reference": "0d9c97b308d103f4b758e7e24abc14aaf53844d7"
+                "reference": "b2fb7a9bcda1165b04e16efeeb4c14700972475b"
             },
             "require": {
                 "ext-json": "*",
@@ -4366,6 +4366,68 @@
             "homepage": "https://github.com/spatie/laravel-dashboard-twitter-tile",
             "keywords": [
                 "laravel-dashboard-twitter-tile",
+                "spatie"
+            ]
+        },
+        {
+            "name": "spatie/laravel-dashboard-velo-tile",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../laravel-dashboard-velo-tile",
+                "reference": "bb2b6f9212ab550c9def07d40b3080383fe23d4e"
+            },
+            "require": {
+                "php": "^7.4",
+                "spatie/laravel-dashboard": "dev-master"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\VeloTile\\VeloTileServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\VeloTile\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spatie\\VeloTile\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ],
+                "format": [
+                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A velo tile for Laravel Dashboard",
+            "homepage": "https://github.com/spatie/laravel-dashboard-velo-tile",
+            "keywords": [
+                "laravel-dashboard-velo-tile",
                 "spatie"
             ]
         },
@@ -6460,16 +6522,16 @@
     "packages-dev": [
         {
             "name": "doctrine/annotations",
-            "version": "1.10.1",
+            "version": "1.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "5eb79f3dbdffed6544e1fc287572c0f462bd29bb"
+                "reference": "b9d758e831c70751155c698c2f7df4665314a1cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/5eb79f3dbdffed6544e1fc287572c0f462bd29bb",
-                "reference": "5eb79f3dbdffed6544e1fc287572c0f462bd29bb",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/b9d758e831c70751155c698c2f7df4665314a1cb",
+                "reference": "b9d758e831c70751155c698c2f7df4665314a1cb",
                 "shasum": ""
             },
             "require": {
@@ -6525,7 +6587,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2020-04-02T12:33:25+00:00"
+            "time": "2020-04-20T09:18:32+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -8774,7 +8836,8 @@
     "stability-flags": {
         "spatie/laravel-dashboard": 20,
         "spatie/laravel-dashboard-calendar-tile": 20,
-        "spatie/laravel-dashboard-twitter-tile": 20
+        "spatie/laravel-dashboard-twitter-tile": 20,
+        "spatie/laravel-dashboard-velo-tile": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
