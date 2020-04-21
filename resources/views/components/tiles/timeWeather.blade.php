@@ -43,26 +43,26 @@
     <script>
         function clock() {
             return {
-                now: new Date(),
+                dateTime: new Date(),
 
                 tick() {
                     setInterval(() => {
-                        this.now = new Date();
+                        this.dateTime = new Date();
                     }, 1000);
                 },
 
                 get date() {
                     return [
-                        this.now.getDate(),
-                        this.now.getMonth() + 1,
-                    ].map(this.padNumber).join(':');
+                        this.dateTime.getDate(),
+                        this.dateTime.getMonth() + 1,
+                    ].map(this.padNumber).join('/');
                 },
 
                 get time() {
                     return [
-                        this.now.getHours(),
-                        this.now.getMinutes(),
-                        this.now.getSeconds(),
+                        this.dateTime.getHours(),
+                        this.dateTime.getMinutes(),
+                        this.dateTime.getSeconds(),
                     ].map(this.padNumber).join(':');
                 },
 
