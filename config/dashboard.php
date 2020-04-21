@@ -15,7 +15,7 @@ return [
                     'access_token_secret' => env('TWITTER_ACCESS_TOKEN_SECRET'),
                     'consumer_key' => env('TWITTER_CONSUMER_KEY'),
                     'consumer_secret' => env('TWITTER_CONSUMER_SECRET'),
-                    'listenFor' => [
+                    'listen_for' => [
                         'spatie.be',
                         '@spatie_be',
                         'github.com/spatie',
