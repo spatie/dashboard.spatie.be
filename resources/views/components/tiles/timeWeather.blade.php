@@ -1,11 +1,11 @@
 <x-dashboard-tile :position="$position">
     <div class="grid gap-2 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
         <div class="grid gap-2 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
-            <div x-data="currentTime()" x-init="() => { updateTime() }">
+            <div x-data="clock()" x-init="tick">
                 <div class="markup">
-                    <h1 x-text="time()"></h1>
+                    <h1 x-text="time"></h1>
                 </div>
-                <div class="align-self-center font-bold text-4xl tracking-wide leading-none" x-text="date()"></div>
+                <div class="align-self-center font-bold text-4xl tracking-wide leading-none" x-text="date"></div>
             </div>
             <div class="uppercase" wire:poll.5s>
                 <div class="grid gap-4 items-center" style="grid-template-columns: repeat(3, auto);">
@@ -41,31 +41,33 @@
     </div>
 
     <script>
-        function currentTime() {
+        function clock() {
             return {
-                dateInstance: new Date,
-                updateTime: function () {
-                    let self = this;
+                now: new Date(),
 
+                tick() {
                     setInterval(() => {
-                        self.dateInstance = new Date;
+                        this.now = new Date();
                     }, 1000);
                 },
-                date: function () {
-                    const day = new Intl.DateTimeFormat('en', {day: '2-digit'}).format(this.dateInstance)
-                    const month = new Intl.DateTimeFormat('en', {month: 'numeric'}).format(this.dateInstance)
-                    const year = new Intl.DateTimeFormat('en', {year: 'numeric'}).format(this.dateInstance)
 
-                    return `${day}.${month}.${year}`
+                get date() {
+                    return [
+                        this.now.getDate(),
+                        this.now.getMonth() + 1,
+                    ].map(this.padNumber).join(':');
                 },
-                time: function () {
-                    const hours = new Intl.DateTimeFormat('en-US', {
-                        hour: '2-digit',
-                        hour12: false
-                    }).format(this.dateInstance)
-                    const minutes = new Intl.DateTimeFormat('en-US', {minute: '2-digit'}).format(this.dateInstance)
 
-                    return `${hours}:${minutes}`
+                get time() {
+                    return [
+                        this.now.getHours(),
+                        this.now.getMinutes(),
+                        this.now.getSeconds(),
+                    ].map(this.padNumber).join(':');
+                },
+
+                padNumber(number) {
+                    return String(number).padStart(2, '0');
                 }
             }
         }
