@@ -26,6 +26,29 @@ return [
 
         'velo' => [
             'stations' => explode(',', env('VELO_STATIONS')),
-        ]
+        ],
+
+        'belgian_trains' => [
+            [
+                'departure' => 'Antwerpen-Centraal',
+                'destination' => 'Gent-Dampoort',
+                'label' => 'Gent',
+            ],
+            [
+                'departure' => 'Antwerpen-Centraal',
+                'destination' => 'Mechelen',
+                'label' => 'Mechelen',
+            ],
+            [
+                'departure' => 'Antwerpen-Centraal',
+                'destination' => 'Overpelt',
+                'label' => 'Overpelt',
+            ],
+            [
+                'departure' => 'Antwerpen-Centraal',
+                'destination' => 'Kapellen',
+                'label' => 'Kapellen',
+            ],
+        ],
     ],
 ];
