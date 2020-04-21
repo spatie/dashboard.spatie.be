@@ -12,8 +12,8 @@ class LivewireComponentsServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        Livewire::component('team-member', TeamMemberTileComponent::class);
-        Livewire::component('statistics', StatisticsTileComponent::class);
-        Livewire::component('clock-tile', TimeWeatherTileComponent::class);
+        Livewire::component('team-member-tile', TeamMemberTileComponent::class);
+        Livewire::component('statistics-tile', StatisticsTileComponent::class);
+        Livewire::component('time-weather-tile', TimeWeatherTileComponent::class);
     }
 }

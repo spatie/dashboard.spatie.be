@@ -3,20 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Spatie\OhDearUptimeTile\OhDearUptimeTileComponent;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     */
     public function boot()
     {
-    }
-
-    /**
-     * Register any application services.
-     */
-    public function register()
-    {
+        OhDearUptimeTileComponent::showTile(fn (array $downSites) => count($downSites) > 0);
     }
 }
