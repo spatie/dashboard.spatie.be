@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'theme' => 'dark',
+
+    'auto_theme_location' => [
+        'lat' => 51.260197,
+        'lng' => 4.402771,
+    ],
+
     'tiles' => [
         'calendar' => [
             'ids' => [
