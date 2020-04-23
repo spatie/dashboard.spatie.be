@@ -58,6 +58,7 @@ php artisan up
 sudo service php7.4-fpm restart
 sudo supervisorctl restart all
 
+cd '{{ $pathOnServer }}'
 php artisan cache:clear
 php artisan view:clear
 php artisan config:clear
