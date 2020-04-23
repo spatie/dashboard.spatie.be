@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d7a94ae32247fcec3b7902bce206cf3",
+    "content-hash": "cb7c9882ab26e3fae203569f17d93079",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4185,11 +4185,11 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard",
-                "reference": "977065cdadd455cfb4029ead9fca06c969b88e0c"
+                "reference": "58118aeef1403505d2468c37505596ee1ff60a91"
             },
             "require": {
-                "illuminate/database": "^7.6",
-                "illuminate/view": "^7.6",
+                "illuminate/database": "^7.5",
+                "illuminate/view": "^7.5",
                 "livewire/livewire": "^1.0.13",
                 "php": "^7.4",
                 "spatie/sun": "^1.0"
@@ -4444,7 +4444,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard-twitter-tile",
-                "reference": "a67c6365027963b80150937c34c9a420188a3352"
+                "reference": "6cb2d4bb6c7d72ce2d4081f5bba220be1ee16a84"
             },
             "require": {
                 "ext-json": "*",
@@ -9018,11 +9018,11 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spatie/laravel-dashboard": 20,
-        "spatie/laravel-dashboard-calendar-tile": 20,
-        "spatie/laravel-dashboard-twitter-tile": 20,
-        "spatie/laravel-dashboard-velo-tile": 20,
         "spatie/laravel-dashboard-belgian-trains-tile": 20,
-        "spatie/laravel-dashboard-oh-dear-uptime-tile": 20
+        "spatie/laravel-dashboard-calendar-tile": 20,
+        "spatie/laravel-dashboard-oh-dear-uptime-tile": 20,
+        "spatie/laravel-dashboard-twitter-tile": 20,
+        "spatie/laravel-dashboard-velo-tile": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
