@@ -1,6 +1,6 @@
 <x-dashboard-tile :position="$position">
-    <div wire:poll.5s class="grid grid-rows-auto-1 gap-2 h-full">
-        <div class="self-start | grid grid-cols-auto-1 gap-2 items-center | bg-tile">
+    <div wire:poll.5s class="grid {{ $hasTasks ? 'grid-rows-auto-1' : 'grid-rows-1' }} gap-2 h-full">
+        <div class="grid grid-cols-auto-1 gap-2 items-center | bg-tile">
             @if($artwork)
                 <div class="overflow-hidden w-10 h-10 rounded border">
                     <img alt="artwork" src="{{ $artwork }}" class="w-10 h-10"/>
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        @if(count($tasks))
+        @if($hasTasks)
             <div class="self-center">
                 <ul>
                     @foreach($tasks['long'] as $task)
