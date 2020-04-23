@@ -34,9 +34,9 @@ class TeamMemberStore
     {
         $tasks = $this->valuestore->get('tasks') ?? [];
 
-        [$longTasks, $shortTasks] = collect($tasks)->partition(function (array $task) {
-            return $task['hours'] > 8;
-        });
+        [$longTasks, $shortTasks] = collect($tasks)
+            ->reject(fn (array $task) => $task['project'] === 'Open source / Eigen werk')
+            ->partition(fn (array $task) => $task['hours'] >= 8);
 
         return [
             'long' => $longTasks,

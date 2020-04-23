@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'theme' => 'light',
+    'theme' => 'auto',
 
     'auto_theme_location' => [
         'lat' => 51.260197,

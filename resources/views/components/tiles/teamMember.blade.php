@@ -1,51 +1,58 @@
 <x-dashboard-tile :position="$position">
-    {{ ucfirst($nickName ?? $name) }}
-    <div wire:poll.5s
-        class="grid gap-padding h-full markup"
+    <div
+        wire:poll.5s
+        class="grid gap-2 h-full"
         style="grid-template-columns: 100%"
         style="{{ count($tasks) ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr' }}"
     >
-
-        <div class="grid gap-2 items-center w-full bg-tile z-10" style="grid-template-columns: auto 1fr">
+        <div class="self-start grid gap-2 items-center w-full bg-tile z-10" style="grid-template-columns: auto 1fr">
             @if($artwork)
-                <div class="overflow-hidden w-10 h-10 rounded border border-screen">
+                <div class="overflow-hidden w-10 h-10 rounded border border-canvas">
                     <span>
                         <img alt="artwork" src="{{ $artwork }}" class="w-10 h-10"/>
                     </span>
                 </div>
             @else
-                <div class="flex-none overflow-hidden w-10 h-10 rounded-full">
-                    <img class="filter-grey block w-10 h-10" src="{{ $avatar }}" style="object-fit: cover;"/>
-                    <div class="absolute pin bg-accent opacity-25"></div>
+                <div class="relative">
+                    <div class="flex-none overflow-hidden w-10 h-10 rounded-full relative">
+                        <img
+                            src="{{ $avatar }}"
+                            class="filter-gray block w-10 h-10"
+                            style="object-fit: cover; filter: contrast(75%) grayscale(1) brightness(150%);"
+                        />
+                        <div class="absolute inset-0 bg-accent opacity-25"></div>
+                    </div>
+                    @if($isBirthday)
+                        <div
+                            class="absolute flex items-center justify-center text-xl"
+                            style="top: -1.1rem; right: .05rem; transform:rotate(10deg);"
+                        >👑</div>
+                    @endif
                 </div>
-                @if($isBirthday)
-                    <div
-                        class="absolute flex items-center justify-center text-3xl"
-                        style="top: -1rem; right: .05rem; transform:rotate(7deg);"
-                    />👑
-                @endif
             @endif
-        </div>
 
-        <div class="leading-tight min-w-0">
-            <h2 class="truncate capitalize">
-                @if($statusEmoji)
-                    <span class="text-xl">{{ $statusEmoji }}</span>
+            <div class="leading-tight min-w-0">
+                <h2 class="truncate font-semibold capitalize">
+                    {{ $name }}
+
+                    @if($statusEmoji)
+                        <span class="text-xl">{{ $statusEmoji }}</span>
+                    @endif
+                </h2>
+                @if($currentTrack)
+                    <span class="truncate text-sm block">
+                    <span>🎵</span>
+                    {{ $currentTrack }}
+                </span>
                 @endif
-            </h2>
-            @if($currentTrack)
-                <span class="truncate text-sm block">
-                <span>🎵</span>
-                {{ $currentTrack }}
-            </span>
-            @endif($currentTrack)
+            </div>
         </div>
 
         @if(count($tasks))
             <div class="align-self-center">
                 <ul>
                     @foreach($tasks['long'] as $task)
-                        <li>
+                        <li class="flex justify-between border-b-2 border-canvas py-1 leading-tight">
                             <div class="truncate">
                                 <p class="truncate">
                                     {{ $task['project'] }}
@@ -56,13 +63,15 @@
                                     </p>
                                 @endif
                             </div>
-                            <p class="ml-2 font-bold variant-tabular">{{ $task['formatted_time'] }}</p>
+                            <p class="ml-2 font-semibold tabular-nums">
+                                {{ $task['formatted_time'] }}
+                            </p>
                         </li>
                     @endforeach
                 </ul>
-                <ul class="text-xs border-t-2 border-screen pt-1">
+                <ul class="text-xs pt-1">
                     @foreach($tasks['short'] as $task)
-                        <li>
+                        <li class="flex justify-between">
                             <p class="truncate">
                                 {{ $task['project'] }}
 

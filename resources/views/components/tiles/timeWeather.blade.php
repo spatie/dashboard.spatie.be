@@ -1,28 +1,31 @@
 <x-dashboard-tile :position="$position">
-    <div class="grid gap-2 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
-        <div class="grid gap-2 justify-items-center h-full" style="grid-template-rows: auto 1fr auto;">
-            <div x-data="clock()" x-init="tick">
-                <div class="markup">
-                    <h1 x-text="time"></h1>
-                </div>
-                <div class="align-self-center font-bold text-4xl tracking-wide leading-none" x-text="date"></div>
-            </div>
-            <div class="uppercase" wire:poll.5s>
-                <div class="grid gap-4 items-center" style="grid-template-columns: repeat(3, auto);">
-                    <span> {{ $outsideTemperature }}° <span class="text-sm uppercase text-dimmed">out</span> </span>
-                    <span>
-                        @if($insideTemperature)
-                            <span>{{ $insideTemperature }}°</span>
-                        @endif
-                        <span class="text-sm uppercase text-dimmed">in</span>
-                    </span>
+    <div
+        class="grid gap-2 justify-items-center h-full text-center"
+        style="grid-template-rows: auto 1fr auto;"
+        x-data="clock()"
+        x-init="tick"
+    >
+        <h1 class="font-medium text-dimmed text-sm uppercase tracking-wide tabular-nums" x-text="date"></h1>
 
-                    <span class="text-2xl">{{ $emoji }}</span>
-                </div>
-                <div class="hidden">{{ $city }}</div>
+        <div class="self-center font-semibold text-4xl tracking-wide leading-none" x-text="time"></div>
+
+        <div wire:poll.5s class="uppercase">
+            <div class="grid gap-4 items-center" style="grid-template-columns: repeat(3, auto);">
+                <span> {{ $outsideTemperature }}° <span class="text-sm uppercase text-dimmed">out</span> </span>
+                <span>
+                    @if($insideTemperature)
+                        <span>{{ $insideTemperature }}°</span>
+                    @endif
+                    <span class="text-sm uppercase text-dimmed">in</span>
+                </span>
+
+                <span class="text-2xl">{{ $emoji }}</span>
             </div>
+            <div class="hidden">{{ $city }}</div>
         </div>
-        <div wire:poll.5s
+
+        <div
+            wire:poll.5s
             class="absolute pin-b pin-l w-full grid items-end"
             style="
                 height: calc(1.25 * var(--tile-padding));
@@ -30,7 +33,6 @@
                 grid-template-columns: repeat(12, 1fr);
                 opacity: .15"
         >
-
             @foreach($forecasts as $forecast)
                 <div
                     class="rounded-sm bg-accent"
@@ -52,17 +54,22 @@
                 },
 
                 get date() {
-                    return [
+                    const day = this.dateTime
+                        .toLocaleDateString('en-US', { weekday: 'long' })
+                        .substr(0, 3);
+
+                    const date = [
                         this.dateTime.getDate(),
                         this.dateTime.getMonth() + 1,
                     ].map(this.padNumber).join('/');
+
+                    return `${day} ${date}`;
                 },
 
                 get time() {
                     return [
                         this.dateTime.getHours(),
                         this.dateTime.getMinutes(),
-                        this.dateTime.getSeconds(),
                     ].map(this.padNumber).join(':');
                 },
 
