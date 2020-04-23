@@ -79,7 +79,7 @@
 
     <livewire:statistics-tile position="d1:d10"/>
 
-    <livewire:oh-dear-uptime-tile position="d1:d10"/>
+    {{-- <livewire:oh-dear-uptime-tile position="d1:d10"/> --}}
 
     {{-- <livewire:belgian-trains-tile position="a1:a24"/> --}}
 
