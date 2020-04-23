@@ -2,7 +2,6 @@
 
 namespace App\Tiles\Weather;
 
-use App\Tiles\Weather\WeatherStore;
 use Livewire\Component;
 
 class TimeWeatherTileComponent extends Component

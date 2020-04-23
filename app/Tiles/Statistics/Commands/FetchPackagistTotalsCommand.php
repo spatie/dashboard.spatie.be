@@ -2,10 +2,9 @@
 
 namespace App\Tiles\Statistics\Commands;
 
-use App\Events\Statistics\PackagistTotalsFetched;
-use App\Tiles\Statistics\StatisticsStore;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
+use App\Tiles\Statistics\StatisticsStore;
 use MarkWalet\Packagist\Facades\Packagist;
 
 class FetchPackagistTotalsCommand extends Command

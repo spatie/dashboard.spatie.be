@@ -2,10 +2,10 @@
 
 namespace App\Tiles\Statistics\Commands;
 
-use App\Tiles\Statistics\StatisticsStore;
 use Illuminate\Console\Command;
 use App\Services\GitHub\GitHubApi;
 use Illuminate\Support\Collection;
+use App\Tiles\Statistics\StatisticsStore;
 
 class FetchGitHubTotalsCommand extends Command
 {

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Tiles\Weather\WeatherStore;
 use Illuminate\Http\Request;
+use App\Tiles\Weather\WeatherStore;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class UpdateTemperatureController

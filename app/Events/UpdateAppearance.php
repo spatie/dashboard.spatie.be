@@ -2,8 +2,6 @@
 
 namespace App\Events;
 
-use App\Events\DashboardEvent;
-
 class UpdateAppearance
 {
     /** @var string */

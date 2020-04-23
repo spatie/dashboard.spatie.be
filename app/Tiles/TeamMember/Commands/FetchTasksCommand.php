@@ -2,10 +2,10 @@
 
 namespace App\Tiles\TeamMember\Commands;
 
-use App\Tiles\TeamMember\TeamMemberStore;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use App\Services\Forecast\ForecastApi;
+use App\Tiles\TeamMember\TeamMemberStore;
 
 class FetchTasksCommand extends Command
 {

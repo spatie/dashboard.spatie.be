@@ -2,10 +2,9 @@
 
 namespace App\Tiles\Weather\Commands;
 
-use App\Tiles\Weather\WeatherStore;
 use Illuminate\Console\Command;
+use App\Tiles\Weather\WeatherStore;
 use App\Services\Buienradar\Buienradar;
-use App\Events\Buienradar\ForecastsFetched;
 
 class FetchBuienradarForecastsCommand extends Command
 {

@@ -2,18 +2,16 @@
 
 namespace App\Console;
 
-use App\Console\DetermineAppearanceCommand;
-use App\Console\SendHeartbeatCommand;
-use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
-use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
-use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
-use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
-use App\Tiles\TeamMember\Commands\FetchTasksCommand;
-use App\Tiles\Weather\Commands\FetchOpenWeatherDataCommand;
 use Illuminate\Console\Command;
-use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
-use Spatie\CalendarTile\FetchCalendarEventsCommand;
 use Spatie\VeloTile\FetchVeloStationsCommand;
+use Spatie\CalendarTile\FetchCalendarEventsCommand;
+use App\Tiles\TeamMember\Commands\FetchTasksCommand;
+use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
+use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
+use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
+use App\Tiles\Weather\Commands\FetchOpenWeatherDataCommand;
+use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
+use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
 
 class UpdateDashboardCommand extends Command
 {

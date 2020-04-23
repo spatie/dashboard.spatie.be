@@ -3,9 +3,9 @@
 namespace App\Tiles\Weather;
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Spatie\Valuestore\Valuestore;
+use Illuminate\Support\Facades\File;
 
 class WeatherStore
 {
@@ -129,6 +129,4 @@ class WeatherStore
     {
         return $this->valuestore->get('weatherReport.name');
     }
-
-
 }

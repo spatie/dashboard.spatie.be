@@ -2,8 +2,8 @@
 
 namespace App\Tiles\Statistics;
 
-use Illuminate\Support\Facades\File;
 use Spatie\Valuestore\Valuestore;
+use Illuminate\Support\Facades\File;
 
 class StatisticsStore
 {
@@ -60,13 +60,11 @@ class StatisticsStore
     public function gitHubIssues(): int
     {
         return $this->gitHubTotals()['issues'] ?? 0;
-
     }
 
     public function gitHubPullRequests(): int
     {
         return $this->gitHubTotals()['pullRequests'] ?? 0;
-
     }
 
     public function packagistMonthly(): int
@@ -77,6 +75,5 @@ class StatisticsStore
     public function packagistTotal(): int
     {
         return $this->packagistTotals()['total'] ?? 0;
-
     }
 }

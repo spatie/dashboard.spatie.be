@@ -4,9 +4,8 @@ namespace App\Tiles\TeamMember\Commands;
 
 use App\Services\Slack\Slack;
 use App\Services\Slack\Member;
-use App\Tiles\TeamMember\TeamMemberStore;
 use Illuminate\Console\Command;
-use App\Events\TeamMember\UpdateStatus;
+use App\Tiles\TeamMember\TeamMemberStore;
 
 class FetchSlackStatusCommand extends Command
 {

@@ -2,11 +2,9 @@
 
 namespace App\Tiles\TeamMember\Commands;
 
-use App\Tiles\TeamMember\TeamMemberStore;
 use Illuminate\Console\Command;
 use Spatie\NowPlaying\NowPlaying;
-use App\Events\TeamMember\PlayingTrack;
-use App\Events\TeamMember\PlayingNothing;
+use App\Tiles\TeamMember\TeamMemberStore;
 
 class FetchCurrentTracksCommand extends Command
 {

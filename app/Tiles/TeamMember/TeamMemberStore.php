@@ -2,8 +2,8 @@
 
 namespace App\Tiles\TeamMember;
 
-use Illuminate\Support\Facades\File;
 use Spatie\Valuestore\Valuestore;
+use Illuminate\Support\Facades\File;
 
 class TeamMemberStore
 {
@@ -66,7 +66,6 @@ class TeamMemberStore
     public function setNothingPlaying()
     {
         $this->valuestore->put('nowPlaying', []);
-
     }
 
     public function nowPlaying(): array

@@ -2,10 +2,8 @@
 
 namespace App\Tiles\TeamMember;
 
-use App\Tiles\TeamMember\TeamMemberStore;
 use Carbon\Carbon;
 use Livewire\Component;
-use Spatie\Valuestore\Valuestore;
 
 class TeamMemberTileComponent extends Component
 {

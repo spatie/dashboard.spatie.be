@@ -2,8 +2,8 @@
 
 namespace App\Tiles\Weather\Commands;
 
-use App\Tiles\Weather\WeatherStore;
 use Illuminate\Console\Command;
+use App\Tiles\Weather\WeatherStore;
 use Illuminate\Support\Facades\Http;
 
 class FetchOpenWeatherDataCommand extends Command

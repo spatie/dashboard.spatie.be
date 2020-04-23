@@ -2,7 +2,6 @@
 
 namespace App\Tiles\Statistics;
 
-use App\Tiles\Statistics\StatisticsStore;
 use Livewire\Component;
 
 class StatisticsTileComponent extends Component

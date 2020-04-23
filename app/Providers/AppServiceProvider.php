@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Spatie\BelgianTrainsTile\BelgianTrainsTileComponent;
 use Spatie\OhDearUptimeTile\OhDearUptimeTileComponent;
+use Spatie\BelgianTrainsTile\BelgianTrainsTileComponent;
 
 class AppServiceProvider extends ServiceProvider
 {

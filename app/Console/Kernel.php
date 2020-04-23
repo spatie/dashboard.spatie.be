@@ -2,18 +2,18 @@
 
 namespace App\Console;
 
-use App\Tiles\Weather\Commands\FetchOpenWeatherDataCommand;
 use Illuminate\Console\Scheduling\Schedule;
+use Spatie\VeloTile\FetchVeloStationsCommand;
+use Spatie\CalendarTile\FetchCalendarEventsCommand;
 use App\Tiles\TeamMember\Commands\FetchTasksCommand;
+use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
 use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
+use App\Tiles\Weather\Commands\FetchOpenWeatherDataCommand;
 use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
 use App\Tiles\Weather\Commands\FetchBuienradarForecastsCommand;
-use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
-use Spatie\CalendarTile\FetchCalendarEventsCommand;
-use Spatie\VeloTile\FetchVeloStationsCommand;
 
 class Kernel extends ConsoleKernel
 {
