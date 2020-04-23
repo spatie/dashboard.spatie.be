@@ -4185,13 +4185,14 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-dashboard",
-                "reference": "161dd6b38a14347cccac2defeb898654fe601cec"
+                "reference": "290fea59bfa5252ef6b9795a7bdc6b712d3a28cf"
             },
             "require": {
                 "illuminate/database": "^7.6",
                 "illuminate/view": "^7.6",
                 "livewire/livewire": "^1.0.13",
-                "php": "^7.4"
+                "php": "^7.4",
+                "spatie/sun": "^1.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.16",
@@ -4903,6 +4904,56 @@
                 "ssh"
             ],
             "time": "2020-04-10T14:43:27+00:00"
+        },
+        {
+            "name": "spatie/sun",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/sun.git",
+                "reference": "5990b4a147d8ecf5c04d749f7fa52ee6ee6725c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/sun/zipball/5990b4a147d8ecf5c04d749f7fa52ee6ee6725c2",
+                "reference": "5990b4a147d8ecf5c04d749f7fa52ee6ee6725c2",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^2.32",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "phpunit/phpunit": "^9.0",
+                "spatie/test-time": "^1.2",
+                "symfony/var-dumper": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Sun\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Get information on the position of the sun",
+            "homepage": "https://github.com/spatie/sun",
+            "keywords": [
+                "spatie",
+                "sun"
+            ],
+            "time": "2020-04-23T10:11:13+00:00"
         },
         {
             "name": "spatie/twitter-streaming-api",
