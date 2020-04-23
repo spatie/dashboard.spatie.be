@@ -1,5 +1,5 @@
-<x-dashboard-tile :position="$position">
-    <div wire:poll.5s class="grid gap-2 h-full">
+<x-dashboard-tile :position="$position" refresh-interval="30">
+    <div class="grid gap-2 h-full">
         <ul class="self-center divide-y-2">
             <li class="py-1 grid grid-cols-1-auto">
                 <span>✨</span>

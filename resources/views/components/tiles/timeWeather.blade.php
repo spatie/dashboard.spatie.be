@@ -9,7 +9,7 @@
 
         <div class="self-center font-bold text-4xl tracking-wide leading-none" x-text="time"></div>
 
-        <div wire:poll.5s class="uppercase">
+        <div wire:poll.30s class="uppercase">
             <div class="flex w-full justify-center space-x-4 items-center">
                 <span> {{ $outsideTemperature }}° <span class="text-sm uppercase text-dimmed">out</span> </span>
 

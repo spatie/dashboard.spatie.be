@@ -1,5 +1,5 @@
-<x-dashboard-tile :position="$position">
-    <div wire:poll.5s class="grid {{ $hasTasks ? 'grid-rows-auto-1' : 'grid-rows-1' }} gap-2 h-full">
+<x-dashboard-tile :position="$position" refresh-interval="30">
+    <div class="grid {{ $hasTasks ? 'grid-rows-auto-1' : 'grid-rows-1' }} gap-2 h-full">
         <div class="grid grid-cols-auto-1 gap-2 items-center | bg-tile">
             @if($artwork)
                 <div class="overflow-hidden w-10 h-10 rounded border">
