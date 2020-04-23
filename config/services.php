@@ -61,30 +61,5 @@ return [
     'slack' => [
         'app_token' => env('SLACK_APP_TOKEN'),
     ],
-    'train_connections' => [
-        [
-            'departure' => 'Antwerpen-Centraal',
-            'destination' => 'Gent-Dampoort',
-            'label' => 'Gent',
-        ],
-        [
-            'departure' => 'Antwerpen-Centraal',
-            'destination' => 'Mechelen',
-            'label' => 'Mechelen',
-        ],
-        [
-            'departure' => 'Antwerpen-Centraal',
-            'destination' => 'Overpelt',
-            'label' => 'Overpelt',
-        ],
-        [
-            'departure' => 'Antwerpen-Centraal',
-            'destination' => 'Kapellen',
-            'label' => 'Kapellen',
-        ],
-    ],
-    'velo' => [
-        'stations' => explode(',', env('VELO_STATIONS')),
-    ],
 
 ];

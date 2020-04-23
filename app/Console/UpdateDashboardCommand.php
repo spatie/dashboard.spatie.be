@@ -3,6 +3,15 @@
 namespace App\Console;
 
 use Illuminate\Console\Command;
+use Spatie\VeloTile\FetchVeloStationsCommand;
+use Spatie\CalendarTile\FetchCalendarEventsCommand;
+use App\Tiles\TeamMember\Commands\FetchTasksCommand;
+use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
+use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
+use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
+use App\Tiles\Weather\Commands\FetchOpenWeatherDataCommand;
+use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
+use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
 
 class UpdateDashboardCommand extends Command
 {
@@ -12,15 +21,14 @@ class UpdateDashboardCommand extends Command
 
     public function handle()
     {
-        $this->call('dashboard:determine-appearance');
-        $this->call('dashboard:fetch-train-connections');
-        $this->call('dashboard:send-heartbeat');
-        $this->call('dashboard:fetch-current-tracks');
-        $this->call('dashboard:fetch-velo-stations');
-        $this->call('dashboard:fetch-tasks');
-        $this->call('dashboard:fetch-team-member-status');
-        $this->call('dashboard:fetch-calendar-events');
-        $this->call('dashboard:fetch-github-totals');
-        $this->call('dashboard:fetch-packagist-totals');
+        $this->call(FetchBelgianTrainsCommand::class);
+        $this->call(FetchCurrentTracksCommand::class);
+        $this->call(FetchVeloStationsCommand::class);
+        $this->call(FetchTasksCommand::class);
+        $this->call(FetchSlackStatusCommand::class);
+        $this->call(FetchCalendarEventsCommand::class);
+        $this->call(FetchGitHubTotalsCommand::class);
+        $this->call(FetchPackagistTotalsCommand::class);
+        $this->call(FetchOpenWeatherDataCommand::class);
     }
 }
