@@ -2,12 +2,13 @@
 
 namespace App\Tiles\TeamMember;
 
+use Spatie\Dashboard\Models\Tile;
 use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\File;
 
 class TeamMemberStore
 {
-    private Valuestore $valuestore;
+    private Tile $tile;
 
     public static function find(string $name): self
     {
@@ -16,23 +17,19 @@ class TeamMemberStore
 
     public function __construct(string $name)
     {
-        $path = storage_path("app/dashboard/teamMembers");
-
-        File::makeDirectory($path, 0755, true, true);
-
-        $this->valuestore = Valuestore::make("{$path}/{$name}.json");
+        $this->tile = Tile::firstOrCreateForName("member_{$name}");
     }
 
     public function setTasks(array $tasks): self
     {
-        $this->valuestore->put('tasks', $tasks);
+        $this->tile->putData('tasks', $tasks);
 
         return $this;
     }
 
     public function tasks(): array
     {
-        $tasks = $this->valuestore->get('tasks') ?? [];
+        $tasks = $this->tile->getData('tasks') ?? [];
 
         [$longTasks, $shortTasks] = collect($tasks)
             ->reject(fn (array $task) => $task['project'] === 'Open source / Eigen werk')
@@ -46,30 +43,32 @@ class TeamMemberStore
 
     public function setStatusEmoji(string $emoji): self
     {
-        $this->valuestore->put('statusEmoji', $emoji);
+        $this->tile->putData('statusEmoji', $emoji);
 
         return $this;
     }
 
     public function statusEmoji(): string
     {
-        return $this->valuestore->get('statusEmoji') ?? '';
+        return $this->tile->getData('statusEmoji') ?? '';
     }
 
     public function setNowPlaying(array $track): self
     {
-        $this->valuestore->put('nowPlaying', $track);
+        $this->tile->putData('nowPlaying', $track);
 
         return $this;
     }
 
-    public function setNothingPlaying()
+    public function setNothingPlaying(): self
     {
-        $this->valuestore->put('nowPlaying', []);
+        $this->tile->putData('nowPlaying', []);
+
+        return $this;
     }
 
     public function nowPlaying(): array
     {
-        return $this->valuestore->get('nowPlaying') ?? [];
+        return $this->tile->getData('nowPlaying') ?? [];
     }
 }

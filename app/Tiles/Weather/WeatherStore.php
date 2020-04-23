@@ -4,12 +4,13 @@ namespace App\Tiles\Weather;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Spatie\Dashboard\Models\Tile;
 use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\File;
 
 class WeatherStore
 {
-    private Valuestore $valuestore;
+    private Tile $tile;
 
     public static function make()
     {
@@ -18,35 +19,31 @@ class WeatherStore
 
     public function __construct()
     {
-        $path = storage_path("app/dashboard");
-
-        File::makeDirectory($path, 0755, true, true);
-
-        $this->valuestore = Valuestore::make("{$path}/weather.json");
+        $this->tile = Tile::firstOrCreateForName('weather');
     }
 
     public function setForecasts(array $forecasts): self
     {
-        $this->valuestore->put('forecasts', $forecasts);
+        $this->tile->putData('forecasts', $forecasts);
 
         return $this;
     }
 
     public function forecasts(): array
     {
-        return $this->valuestore->get('forecasts') ?? [];
+        return $this->tile->getData('forecasts') ?? [];
     }
 
     public function setWeatherReport(array $weatherReport): self
     {
-        $this->valuestore->put('weatherReport', $weatherReport);
+        $this->tile->putData('weatherReport', $weatherReport);
 
         return $this;
     }
 
     public function outsideTemperature(): ?int
     {
-        $weatherReport = $this->valuestore->get('weatherReport');
+        $weatherReport = $this->tile->getData('weatherReport');
 
         $temperature = Arr::get($weatherReport, 'main.temp');
 
@@ -59,7 +56,7 @@ class WeatherStore
 
     public function getEmoji(): string
     {
-        $weatherReport = $this->valuestore->get('weatherReport');
+        $weatherReport = $this->tile->getData('weatherReport');
 
         $weatherId = Arr::get($weatherReport, 'weather.0.id');
 
@@ -115,18 +112,18 @@ class WeatherStore
 
     public function setInsideTemperature($temperature) : self
     {
-        $this->valuestore->put('insideTemperature', $temperature);
+        $this->tile->putData('insideTemperature', $temperature);
 
         return $this;
     }
 
     public function insideTemperateture(): ?int
     {
-        return $this->valuestore->get('insideTemperature');
+        return $this->tile->getData('insideTemperature');
     }
 
     public function getCity(): ?string
     {
-        return $this->valuestore->get('weatherReport.name');
+        return $this->tile->getData('weatherReport.name');
     }
 }

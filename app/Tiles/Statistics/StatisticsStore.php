@@ -2,12 +2,13 @@
 
 namespace App\Tiles\Statistics;
 
+use Spatie\Dashboard\Models\Tile;
 use Spatie\Valuestore\Valuestore;
 use Illuminate\Support\Facades\File;
 
 class StatisticsStore
 {
-    private Valuestore $valuestore;
+    private Tile $tile;
 
     public static function make()
     {
@@ -16,35 +17,31 @@ class StatisticsStore
 
     public function __construct()
     {
-        $path = storage_path("app/dashboard");
-
-        File::makeDirectory($path, 0755, true, true);
-
-        $this->valuestore = Valuestore::make("{$path}/statistics.json");
+        $this->tile = Tile::firstOrCreateForName('statistics');
     }
 
     public function setGitHubTotals(array $totals): self
     {
-        $this->valuestore->put('gitHubTotals', $totals);
+        $this->tile->putData('gitHubTotals', $totals);
 
         return $this;
     }
 
     public function gitHubTotals(): array
     {
-        return $this->valuestore->get('gitHubTotals') ?? [];
+        return $this->tile->getData('gitHubTotals') ?? [];
     }
 
     public function setPackagistTotals(array $totals): self
     {
-        $this->valuestore->put('packagistTotals', $totals);
+        $this->tile->putData('packagistTotals', $totals);
 
         return $this;
     }
 
     public function packagistTotals(): array
     {
-        return $this->valuestore->get('packagistTotals') ?? [];
+        return $this->tile->getData('packagistTotals') ?? [];
     }
 
     public function gitHubStars(): int
