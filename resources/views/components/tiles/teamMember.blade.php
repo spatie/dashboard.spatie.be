@@ -49,7 +49,7 @@
         </div>
 
         @if(count($tasks))
-            <div class="align-self-center">
+            <div class="self-center">
                 <ul>
                     @foreach($tasks['long'] as $task)
                         <li class="flex justify-between border-b-2 border-canvas py-1 leading-tight">

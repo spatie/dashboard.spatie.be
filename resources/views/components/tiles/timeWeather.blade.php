@@ -10,14 +10,15 @@
         <div class="self-center font-semibold text-4xl tracking-wide leading-none" x-text="time"></div>
 
         <div wire:poll.5s class="uppercase">
-            <div class="grid gap-4 items-center" style="grid-template-columns: repeat(3, auto);">
+            <div class="flex w-full justify-center space-x-4 items-center">
                 <span> {{ $outsideTemperature }}° <span class="text-sm uppercase text-dimmed">out</span> </span>
-                <span>
-                    @if($insideTemperature)
+
+                @if($insideTemperature)
+                    <span>
                         <span>{{ $insideTemperature }}°</span>
-                    @endif
-                    <span class="text-sm uppercase text-dimmed">in</span>
-                </span>
+                        <span class="text-sm uppercase text-dimmed">in</span>
+                    </span>
+                @endif
 
                 <span class="text-2xl">{{ $emoji }}</span>
             </div>
@@ -26,7 +27,7 @@
 
         <div
             wire:poll.5s
-            class="absolute pin-b pin-l w-full grid items-end"
+            class="absolute bottom-0 left-0 w-full grid items-end"
             style="
                 height: calc(1.25 * var(--tile-padding));
                 grid-gap: 1px;

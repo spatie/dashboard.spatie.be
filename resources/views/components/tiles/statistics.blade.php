@@ -1,6 +1,6 @@
 <x-dashboard-tile :position="$position">
     <div wire:poll.5s class="grid gap-padding h-full markup">
-        <ul class="align-self-center">
+        <ul class="self-center">
             <li>
                 <span>✨</span>
                 <span class="font-bold variant-tabular">{{ formatNaturalNumber($gitHubStars) }}</span>
