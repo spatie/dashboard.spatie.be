@@ -31,7 +31,7 @@
             @endif
 
             <div class="leading-tight min-w-0">
-                <h2 class="truncate font-semibold capitalize">
+                <h2 class="truncate font-bold capitalize">
                     {{ $name }}
 
                     @if($statusEmoji)
@@ -64,7 +64,7 @@
                                 @endif
                             </div>
 
-                            <p class="ml-2 font-semibold tabular-nums">
+                            <p class="ml-2 font-bold tabular-nums">
                                 {{ $task['formatted_time'] }}
                             </p>
                         </li>
