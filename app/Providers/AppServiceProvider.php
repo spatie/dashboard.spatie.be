@@ -11,6 +11,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         OhDearUptimeTileComponent::showTile(fn (array $downSites) => count($downSites));
-        BelgianTrainsTileComponent::showTile(fn () => now()->hour >= 16 && now()->hour <= 21);
+        BelgianTrainsTileComponent::showTile(fn () => now()->hour >= 16 && now()->hour <= 20);
     }
 }
