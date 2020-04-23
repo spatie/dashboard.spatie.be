@@ -1,5 +1,5 @@
 <x-dashboard>
-    <livewire:twitter-tile position="a1:a16"/>
+    <livewire:twitter-tile position="a1:a14" />
 
     <livewire:team-member-tile
         position="b1:b8"
@@ -73,15 +73,15 @@
         position="d21:d24"
     />
 
-    <livewire:calendar-tile position="e7:e16" :calendar-id="config('google-calendar.calendar_id')"/>
+    <livewire:time-weather-tile position="e1:e6" />
 
-    <livewire:velo-tile position="e17:e24"/>
+    <livewire:calendar-tile position="e7:e16" :calendar-id="config('google-calendar.calendar_id')" />
 
-    <livewire:statistics-tile position="a17:a24" />
+    <livewire:velo-tile position="e17:e24" />
 
-    {{-- <livewire:oh-dear-uptime-tile position="d1:d10"/> --}}
+    <livewire:statistics-tile position="a15:a24" />
 
     {{-- <livewire:belgian-trains-tile position="a1:a24"/> --}}
 
-    <livewire:time-weather-tile position="e1:e6"/>
+    {{-- <livewire:oh-dear-uptime-tile position="e7:e16" /> --}}
 </x-dashboard>
