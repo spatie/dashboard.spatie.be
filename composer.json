@@ -17,7 +17,6 @@
         "knplabs/github-api": "^2.4",
         "laravel/framework": "^7.6",
         "laravel/tinker": "^2.0",
-        "livewire/livewire": "1.0.12",
         "markwalet/laravel-packagist": "^1.0",
         "pda/pheanstalk": "^3.1",
         "php-http/guzzle6-adapter": "^1.1",
