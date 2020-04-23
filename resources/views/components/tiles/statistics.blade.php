@@ -1,27 +1,40 @@
 <x-dashboard-tile :position="$position">
-    <div wire:poll.5s class="grid gap-padding h-full markup">
-        <ul class="self-center">
-            <li>
+    <div wire:poll.5s class="grid gap-2 h-full">
+        <ul class="self-center divide-y-2">
+            <li class="py-1 grid grid-cols-1-auto">
                 <span>✨</span>
-                <span class="font-bold variant-tabular">{{ formatNaturalNumber($gitHubStars) }}</span>
+                <span class="font-bold tabular-nums">
+                    {{ formatNaturalNumber($gitHubStars) }}
+                </span>
             </li>
-            <li>
+            <li class="py-1 grid grid-cols-1-auto">
                 <span>Contributors</span>
-                <span class="font-bold variant-tabular">{{ formatNaturalNumber($gitHubContributors) }}</span>
+                <span class="font-bold tabular-nums">
+                    {{ formatNaturalNumber($gitHubContributors) }}
+                </span>
             </li>
-            <li>
-                <span>Issues</span> <span class="font-bold variant-tabular">{{ formatNaturalNumber($gitHubIssues) }}</span>
+            <li class="py-1 grid grid-cols-1-auto">
+                <span>Issues</span>
+                <span class="font-bold tabular-nums">
+                    {{ formatNaturalNumber($gitHubIssues) }}
+                </span>
             </li>
-            <li>
+            <li class="py-1 grid grid-cols-1-auto">
                 <span>Pull Requests</span>
-                <span class="font-bold variant-tabular">{{ formatNaturalNumber($gitHubPullRequests) }}</span>
+                <span class="font-bold tabular-nums">
+                    {{ formatNaturalNumber($gitHubPullRequests) }}
+                </span>
             </li>
-            <li>
+            <li class="py-1 grid grid-cols-1-auto">
                 <span>30 days</span>
-                <span class="font-bold variant-tabular">{{ formatNaturalNumber($packagistMonthly) }}</span>
+                <span class="font-bold tabular-nums">
+                    {{ formatNaturalNumber($packagistMonthly) }}
+                </span>
             </li>
-            <li>
-                <span>Total</span> <span class="font-bold variant-tabular">{{ formatNaturalNumber($packagistTotal) }}</span>
+            <li class="py-1 grid grid-cols-1-auto">
+                <span>Total</span> <span class="font-bold tabular-nums">
+                    {{ formatNaturalNumber($packagistTotal) }}
+                </span>
             </li>
         </ul>
     </div>

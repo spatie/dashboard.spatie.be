@@ -1,69 +1,70 @@
 <x-dashboard-tile :position="$position">
-    <div
-        wire:poll.5s
-        class="grid gap-2 h-full"
-        style="grid-template-columns: 100%"
-        style="{{ count($tasks) ? 'grid-template-rows: auto 1fr' : 'grid-template-rows: 1fr' }}"
-    >
-        <div class="self-start grid gap-2 items-center w-full bg-tile z-10" style="grid-template-columns: auto 1fr">
+    <div wire:poll.5s class="grid {{ $hasTasks ? 'grid-rows-auto-1' : 'grid-rows-1' }} gap-2 h-full">
+        <div class="grid grid-cols-auto-1 gap-2 items-center | bg-tile">
             @if($artwork)
-                <div class="overflow-hidden w-10 h-10 rounded border border-canvas">
-                    <span>
-                        <img alt="artwork" src="{{ $artwork }}" class="w-10 h-10"/>
-                    </span>
+                <div class="overflow-hidden w-10 h-10 rounded border">
+                    <img alt="artwork" src="{{ $artwork }}" class="w-10 h-10"/>
                 </div>
             @else
                 <div class="relative">
-                    <div class="flex-none overflow-hidden w-10 h-10 rounded-full relative">
+                    <div class="overflow-hidden w-10 h-10 rounded-full relative">
                         <img
                             src="{{ $avatar }}"
-                            class="filter-gray block w-10 h-10"
-                            style="object-fit: cover; filter: contrast(75%) grayscale(1) brightness(150%);"
+                            class="block w-10 h-10 object-cover filter-gray"
+                            style="filter: contrast(75%) grayscale(1) brightness(150%)"
                         />
                         <div class="absolute inset-0 bg-accent opacity-25"></div>
                     </div>
+
                     @if($isBirthday)
                         <div
-                            class="absolute flex items-center justify-center text-xl"
-                            style="top: -1.1rem; right: .05rem; transform:rotate(10deg);"
-                        >👑</div>
+                            class="absolute text-xl"
+                            style="
+                                top: -1.1rem;
+                                right: .05rem;
+                                transform:rotate(10deg);
+                            ">
+                            👑
+                        </div>
                     @endif
                 </div>
             @endif
 
             <div class="leading-tight min-w-0">
-                <h2 class="truncate font-semibold capitalize">
+                <h2 class="truncate font-bold capitalize">
                     {{ $name }}
 
                     @if($statusEmoji)
                         <span class="text-xl">{{ $statusEmoji }}</span>
                     @endif
                 </h2>
+
                 @if($currentTrack)
-                    <span class="truncate text-sm block">
-                    <span>🎵</span>
-                    {{ $currentTrack }}
-                </span>
+                    <p class="truncate text-sm">
+                        🎵 {{ $currentTrack }}
+                    </p>
                 @endif
             </div>
         </div>
 
-        @if(count($tasks))
+        @if($hasTasks)
             <div class="self-center">
                 <ul>
                     @foreach($tasks['long'] as $task)
-                        <li class="flex justify-between border-b-2 border-canvas py-1 leading-tight">
+                        <li class="grid grid-cols-1-auto py-1 border-b-2">
                             <div class="truncate">
                                 <p class="truncate">
                                     {{ $task['project'] }}
                                 </p>
+
                                 @if($task['name'])
                                     <p class="flex-1 truncate text-xs text-dimmed">
                                         {{ ucfirst($task['name']) }}
                                     </p>
                                 @endif
                             </div>
-                            <p class="ml-2 font-semibold tabular-nums">
+
+                            <p class="ml-2 font-bold tabular-nums">
                                 {{ $task['formatted_time'] }}
                             </p>
                         </li>
@@ -76,7 +77,9 @@
                                 {{ $task['project'] }}
 
                                 @if($task['name'])
-                                    <span class="text-dimmed">{{ strtolower($task['name']) }}</span>
+                                    <span class="text-dimmed">
+                                        {{ strtolower($task['name']) }}
+                                    </span>
                                 @endif
                             </p>
                         </li>
@@ -84,7 +87,5 @@
                 </ul>
             </div>
         @endif
-
     </div>
-
 </x-dashboard-tile>

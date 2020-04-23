@@ -10,7 +10,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        OhDearUptimeTileComponent::showTile(fn (array $downSites) => count($downSites) > 0);
+        OhDearUptimeTileComponent::showTile(fn (array $downSites) => false);
         BelgianTrainsTileComponent::showTile(fn () => now()->hour >= 16 && now()->hour <= 21);
     }
 }

@@ -23,9 +23,7 @@ class UpdateDashboardCommand extends Command
 
     public function handle()
     {
-        $this->call(DetermineAppearanceCommand::class);
         $this->call(FetchBelgianTrainsCommand::class);
-        $this->call(SendHeartbeatCommand::class);
         $this->call(FetchCurrentTracksCommand::class);
         $this->call(FetchVeloStationsCommand::class);
         $this->call(FetchTasksCommand::class);

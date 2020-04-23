@@ -22,8 +22,6 @@ class Kernel extends ConsoleKernel
         $schedule->command(FetchBelgianTrainsCommand::class)->everyMinute();
         $schedule->command(FetchCalendarEventsCommand::class)->everyMinute();
         $schedule->command(FetchCurrentTracksCommand::class)->everyMinute();
-        $schedule->command(SendHeartbeatCommand::class)->everyMinute();
-        $schedule->command(DetermineAppearanceCommand::class)->everyMinute();
         $schedule->command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
         $schedule->command(FetchOpenWeatherDataCommand::class)->everyFiveMinutes();
         $schedule->command(FetchTasksCommand::class)->everyFiveMinutes();
