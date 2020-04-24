@@ -3,6 +3,8 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
+use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
 use Spatie\VeloTile\FetchVeloStationsCommand;
 use Spatie\CalendarTile\FetchCalendarEventsCommand;
 use App\Tiles\TeamMember\Commands\FetchTasksCommand;
@@ -10,10 +12,8 @@ use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
 use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
-use App\Tiles\Weather\Commands\FetchOpenWeatherDataCommand;
 use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
-use App\Tiles\Weather\Commands\FetchBuienradarForecastsCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -23,7 +23,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(FetchCalendarEventsCommand::class)->everyMinute();
         $schedule->command(FetchCurrentTracksCommand::class)->everyMinute();
         $schedule->command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
-        $schedule->command(FetchOpenWeatherDataCommand::class)->everyFiveMinutes();
+        $schedule->command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
         $schedule->command(FetchTasksCommand::class)->everyFiveMinutes();
         $schedule->command(FetchSlackStatusCommand::class)->everyMinute();
         $schedule->command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();

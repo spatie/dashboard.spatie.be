@@ -30,10 +30,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'buienradar' => [
-        'latitude' => env('BUIENRADAR_LATITUDE'),
-        'longitude' => env('BUIENRADAR_LONGITUDE'),
-    ],
     'forecast' => [
         'account_id' => env('FORECAST_ACCOUNT_ID'),
         'token' => env('FORECAST_TOKEN'),
@@ -49,10 +45,6 @@ return [
     'last-fm' => [
         'api_key' => env('LAST_FM_API_KEY'),
         'users' => explode(',', env('LAST_FM_USERS')),
-    ],
-
-    'open_weather_map' => [
-        'key' => env('OPEN_WEATHER_MAP_KEY'),
     ],
 
     'packagist' => [

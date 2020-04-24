@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1964b33bdea903c08066e081a1d1c0fc",
+    "content-hash": "3ebf61fda52a2711636c2155dd17c358",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4481,6 +4481,79 @@
                 "issues": "https://github.com/spatie/laravel-dashboard-oh-dear-uptime-tile/issues"
             },
             "time": "2020-04-23T19:43:42+00:00"
+        },
+        {
+            "name": "spatie/laravel-dashboard-time-weather-tile",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spatie/laravel-dashboard-time-weather-tile.git",
+                "reference": "51ca800bdea6574fb1f2f58a20e595db203ec20e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-time-weather-tile/zipball/51ca800bdea6574fb1f2f58a20e595db203ec20e",
+                "reference": "51ca800bdea6574fb1f2f58a20e595db203ec20e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4",
+                "spatie/laravel-dashboard": "dev-master"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\TimeWeatherTile\\TimeWeatherTileServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\TimeWeatherTile\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spatie\\TimeWeatherTile\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ],
+                "format": [
+                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A tile for Laravel Dashboard that displays the time and the weather",
+            "homepage": "https://github.com/spatie/laravel-dashboard-time-weather-tile",
+            "keywords": [
+                "laravel-dashboard-time-weather-tile",
+                "spatie"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/laravel-dashboard-time-weather-tile/tree/master",
+                "issues": "https://github.com/spatie/laravel-dashboard-time-weather-tile/issues"
+            },
+            "time": "2020-04-24T09:24:18+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-twitter-tile",
@@ -9088,7 +9161,8 @@
         "spatie/laravel-dashboard-calendar-tile": 20,
         "spatie/laravel-dashboard-oh-dear-uptime-tile": 20,
         "spatie/laravel-dashboard-twitter-tile": 20,
-        "spatie/laravel-dashboard-velo-tile": 20
+        "spatie/laravel-dashboard-velo-tile": 20,
+        "spatie/laravel-dashboard-time-weather-tile": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

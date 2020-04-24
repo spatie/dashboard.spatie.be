@@ -175,8 +175,6 @@ return [
         Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiServiceProvider::class,
         App\Services\GitHub\GitHubServiceProvider::class,
         App\Services\Slack\SlackServiceProvider::class,
-        App\Services\Buienradar\BuienradarServiceProvider::class,
-        App\Services\Forecast\ForecastServiceProvider::class,
         \App\Providers\LivewireComponentsServiceProvider::class,
     ],
 

@@ -28,6 +28,7 @@
         "spatie/laravel-dashboard-oh-dear-uptime-tile": "dev-master",
         "spatie/laravel-dashboard-twitter-tile": "dev-master",
         "spatie/laravel-dashboard-velo-tile": "dev-master",
+        "spatie/laravel-dashboard-time-weather-tile": "dev-master",
         "spatie/laravel-tail": "^4.2",
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/valuestore": "^1.1"
