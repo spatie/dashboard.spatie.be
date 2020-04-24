@@ -73,7 +73,7 @@
         position="d21:d24"
     />
 
-    {{-- <livewire:time-weather-tile position="e1:e6" />--}}
+    <livewire:time-weather-tile position="e1:e6" />
 
     <livewire:calendar-tile position="e7:e16" :calendar-id="config('google-calendar.calendar_id')" />
 
