@@ -83,7 +83,8 @@
 
     <livewire:statistics-tile position="a15:a24" />
 
+{{--
     <livewire:belgian-trains-tile position="a1:a24"/>
-
     <livewire:oh-dear-uptime-tile position="e7:e16" />
+    --}}
 </x-dashboard>
