@@ -94,6 +94,6 @@ display success message
 @macro('deploy-code')
 deployOnlyCode
 reload php
-restart pi
+{{-- restart pi --}}
 @endmacro
 
