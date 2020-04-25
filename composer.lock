@@ -4185,12 +4185,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spatie/laravel-dashboard.git",
-                "reference": "f557d05842d58c950d7192c87831869ea28ec84c"
+                "reference": "b54d6724bd5add926d8f6b0912e493243fb57003"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard/zipball/f557d05842d58c950d7192c87831869ea28ec84c",
-                "reference": "f557d05842d58c950d7192c87831869ea28ec84c",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard/zipball/b54d6724bd5add926d8f6b0912e493243fb57003",
+                "reference": "b54d6724bd5add926d8f6b0912e493243fb57003",
                 "shasum": ""
             },
             "require": {
@@ -4259,7 +4259,7 @@
                 "source": "https://github.com/spatie/laravel-dashboard/tree/master",
                 "issues": "https://github.com/spatie/laravel-dashboard/issues"
             },
-            "time": "2020-04-24T10:12:35+00:00"
+            "time": "2020-04-24T12:42:32+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-belgian-trains-tile",
@@ -4340,12 +4340,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spatie/laravel-dashboard-calendar-tile.git",
-                "reference": "13ca50c9750dbf4a33623ca611b25ea3f484b6cd"
+                "reference": "7d046ecf738dbe60587af0a33b915eca44428320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-calendar-tile/zipball/13ca50c9750dbf4a33623ca611b25ea3f484b6cd",
-                "reference": "13ca50c9750dbf4a33623ca611b25ea3f484b6cd",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-calendar-tile/zipball/7d046ecf738dbe60587af0a33b915eca44428320",
+                "reference": "7d046ecf738dbe60587af0a33b915eca44428320",
                 "shasum": ""
             },
             "require": {
@@ -4406,7 +4406,7 @@
                 "source": "https://github.com/spatie/laravel-dashboard-calendar-tile/tree/master",
                 "issues": "https://github.com/spatie/laravel-dashboard-calendar-tile/issues"
             },
-            "time": "2020-04-24T12:26:29+00:00"
+            "time": "2020-04-24T12:29:19+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-oh-dear-uptime-tile",
@@ -4636,12 +4636,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spatie/laravel-dashboard-velo-tile.git",
-                "reference": "cbef1a1157fee3291b02e7ae1c43d7676ca4ed4e"
+                "reference": "e704022a8b5dc3544dcb75bf1778a87a284317c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-velo-tile/zipball/cbef1a1157fee3291b02e7ae1c43d7676ca4ed4e",
-                "reference": "cbef1a1157fee3291b02e7ae1c43d7676ca4ed4e",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-velo-tile/zipball/e704022a8b5dc3544dcb75bf1778a87a284317c0",
+                "reference": "e704022a8b5dc3544dcb75bf1778a87a284317c0",
                 "shasum": ""
             },
             "require": {
@@ -4701,7 +4701,7 @@
                 "source": "https://github.com/spatie/laravel-dashboard-velo-tile/tree/master",
                 "issues": "https://github.com/spatie/laravel-dashboard-velo-tile/issues"
             },
-            "time": "2020-04-23T19:40:59+00:00"
+            "time": "2020-04-25T12:49:09+00:00"
         },
         {
             "name": "spatie/laravel-google-calendar",
