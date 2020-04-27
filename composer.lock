@@ -1431,16 +1431,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.131",
+            "version": "v0.132",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "c7085d771c635933baff9714732af2d5042f5dd6"
+                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/c7085d771c635933baff9714732af2d5042f5dd6",
-                "reference": "c7085d771c635933baff9714732af2d5042f5dd6",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/317c8555eaea64a38594d9e617b59547cea45f3e",
+                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e",
                 "shasum": ""
             },
             "require": {
@@ -1464,7 +1464,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-04-20T00:24:47+00:00"
+            "time": "2020-04-22T00:25:30+00:00"
         },
         {
             "name": "google/auth",
@@ -1775,16 +1775,16 @@
         },
         {
             "name": "knplabs/github-api",
-            "version": "2.13.0",
+            "version": "v2.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/php-github-api.git",
-                "reference": "d493c8f4aa84e04629b38d1487407e1c6c9d90d1"
+                "reference": "953c9b453d3258a97755ec3557d112f271176f74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/d493c8f4aa84e04629b38d1487407e1c6c9d90d1",
-                "reference": "d493c8f4aa84e04629b38d1487407e1c6c9d90d1",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/953c9b453d3258a97755ec3557d112f271176f74",
+                "reference": "953c9b453d3258a97755ec3557d112f271176f74",
                 "shasum": ""
             },
             "require": {
@@ -1807,7 +1807,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.13.x-dev"
+                    "dev-master": "2.14.x-dev"
                 }
             },
             "autoload": {
@@ -1838,7 +1838,7 @@
                 "gist",
                 "github"
             ],
-            "time": "2020-03-16T19:57:05+00:00"
+            "time": "2020-04-25T20:36:03+00:00"
         },
         {
             "name": "laravel/framework",
@@ -4185,12 +4185,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spatie/laravel-dashboard.git",
-                "reference": "b54d6724bd5add926d8f6b0912e493243fb57003"
+                "reference": "a4f325f8fb517aa8170e4252e77c38de46d9748e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard/zipball/b54d6724bd5add926d8f6b0912e493243fb57003",
-                "reference": "b54d6724bd5add926d8f6b0912e493243fb57003",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard/zipball/a4f325f8fb517aa8170e4252e77c38de46d9748e",
+                "reference": "a4f325f8fb517aa8170e4252e77c38de46d9748e",
                 "shasum": ""
             },
             "require": {
@@ -4259,7 +4259,7 @@
                 "source": "https://github.com/spatie/laravel-dashboard/tree/master",
                 "issues": "https://github.com/spatie/laravel-dashboard/issues"
             },
-            "time": "2020-04-24T12:42:32+00:00"
+            "time": "2020-04-27T07:15:47+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-belgian-trains-tile",
@@ -4488,12 +4488,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spatie/laravel-dashboard-time-weather-tile.git",
-                "reference": "51ca800bdea6574fb1f2f58a20e595db203ec20e"
+                "reference": "5c2381308c2f9bbb051cb1649cdaeb85e9648a26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-time-weather-tile/zipball/51ca800bdea6574fb1f2f58a20e595db203ec20e",
-                "reference": "51ca800bdea6574fb1f2f58a20e595db203ec20e",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-time-weather-tile/zipball/5c2381308c2f9bbb051cb1649cdaeb85e9648a26",
+                "reference": "5c2381308c2f9bbb051cb1649cdaeb85e9648a26",
                 "shasum": ""
             },
             "require": {
@@ -4553,7 +4553,7 @@
                 "source": "https://github.com/spatie/laravel-dashboard-time-weather-tile/tree/master",
                 "issues": "https://github.com/spatie/laravel-dashboard-time-weather-tile/issues"
             },
-            "time": "2020-04-24T09:24:18+00:00"
+            "time": "2020-04-27T10:35:20+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-twitter-tile",
@@ -7724,23 +7724,20 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a"
+                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/63a995caa1ca9e5590304cd845c15ad6d482a62a",
-                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
+                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~6"
             },
             "type": "library",
             "extra": {
@@ -7772,7 +7769,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2018-08-07T13:53:10+00:00"
+            "time": "2020-04-27T09:25:28+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
