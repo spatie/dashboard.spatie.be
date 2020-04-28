@@ -3,13 +3,13 @@
 namespace App\Console;
 
 use Illuminate\Console\Command;
+use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
 use Spatie\VeloTile\FetchVeloStationsCommand;
 use Spatie\CalendarTile\FetchCalendarEventsCommand;
 use App\Tiles\TeamMember\Commands\FetchTasksCommand;
 use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
 use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
-use App\Tiles\Weather\Commands\FetchOpenWeatherDataCommand;
 use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
 
@@ -29,6 +29,6 @@ class UpdateDashboardCommand extends Command
         $this->call(FetchCalendarEventsCommand::class);
         $this->call(FetchGitHubTotalsCommand::class);
         $this->call(FetchPackagistTotalsCommand::class);
-        $this->call(FetchOpenWeatherDataCommand::class);
+        $this->call(FetchOpenWeatherMapDataCommand::class);
     }
 }
