@@ -172,7 +172,6 @@ return [
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\CollectionServiceProvider::class,
-        Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiServiceProvider::class,
         App\Services\GitHub\GitHubServiceProvider::class,
         App\Services\Slack\SlackServiceProvider::class,
         \App\Providers\LivewireComponentsServiceProvider::class,
@@ -226,6 +225,5 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'TwitterStreamingApi' => Spatie\LaravelTwitterStreamingApi\TwitterStreamingApiFacade::class,
     ],
 ];
