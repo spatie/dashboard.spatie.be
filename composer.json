@@ -74,36 +74,6 @@
             "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
         ]
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../laravel-dashboard-twitter-tile"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:spatie/laravel-dashboard.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:spatie/laravel-dashboard-belgian-trains-tile.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:spatie/laravel-dashboard-calendar-tile.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:spatie/laravel-dashboard-oh-dear-uptime-tile.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:spatie/laravel-dashboard-velo-tile.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:spatie/laravel-dashboard-time-weather-tile.git"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
