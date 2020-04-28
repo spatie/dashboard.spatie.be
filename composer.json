@@ -22,7 +22,7 @@
         "pda/pheanstalk": "^3.1",
         "php-http/guzzle6-adapter": "^1.1",
         "pusher/pusher-php-server": "^3.0",
-        "spatie/data-transfer-object": "^1.7",
+        "spatie/data-transfer-object": "^2.0",
         "spatie/laravel-dashboard": "dev-master",
         "spatie/laravel-dashboard-belgian-trains-tile": "dev-master",
         "spatie/laravel-dashboard-calendar-tile": "dev-master",
@@ -43,8 +43,7 @@
     },
     "autoload": {
         "classmap": [
-            "database",
-            "vendor/fennb/phirehose/lib"
+            "database"
         ],
         "psr-4": {
             "App\\": "app/",
