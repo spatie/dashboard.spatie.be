@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8bd50c648320b89ae25db373e89c7fb1",
+    "content-hash": "0a66dfd286d2364c0d06aa20ea24cc7e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2766,21 +2766,22 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.32.2",
+            "version": "2.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "f10e22cf546704fab1db4ad4b9dedbc5c797a0dc"
+                "reference": "4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f10e22cf546704fab1db4ad4b9dedbc5c797a0dc",
-                "reference": "f10e22cf546704fab1db4ad4b9dedbc5c797a0dc",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b",
+                "reference": "4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.1.8 || ^8.0",
+                "symfony/polyfill-mbstring": "^1.0",
                 "symfony/translation": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
@@ -2833,7 +2834,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-03-31T13:43:19+00:00"
+            "time": "2020-04-20T15:05:43+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -5084,16 +5085,16 @@
         },
         {
             "name": "spatie/laravel-dashboard",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spatie/laravel-dashboard.git",
-                "reference": "66aacdeaa820c385022b11b7cb626ec2561290b8"
+                "url": "https://github.com/spatie/laravel-dashboard.git",
+                "reference": "a54f7e2c4c4446e386c915bab9d37b927dfb9e30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard/zipball/66aacdeaa820c385022b11b7cb626ec2561290b8",
-                "reference": "66aacdeaa820c385022b11b7cb626ec2561290b8",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard/zipball/a54f7e2c4c4446e386c915bab9d37b927dfb9e30",
+                "reference": "a54f7e2c4c4446e386c915bab9d37b927dfb9e30",
                 "shasum": ""
             },
             "require": {
@@ -5125,22 +5126,7 @@
                     "Spatie\\Dashboard\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spatie\\Dashboard\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ],
-                "format": [
-                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5158,29 +5144,25 @@
                 "laravel-dashboard",
                 "spatie"
             ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-dashboard/tree/master",
-                "issues": "https://github.com/spatie/laravel-dashboard/issues"
-            },
-            "time": "2020-04-28T09:47:38+00:00"
+            "time": "2020-04-30T12:14:39+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-belgian-trains-tile",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spatie/laravel-dashboard-belgian-trains-tile.git",
-                "reference": "70327eafca66a15891e8d2e5855f4cd88036288d"
+                "url": "https://github.com/spatie/laravel-dashboard-belgian-trains-tile.git",
+                "reference": "f055e40b497136003af95dc26839595deae1bae1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-belgian-trains-tile/zipball/70327eafca66a15891e8d2e5855f4cd88036288d",
-                "reference": "70327eafca66a15891e8d2e5855f4cd88036288d",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-belgian-trains-tile/zipball/f055e40b497136003af95dc26839595deae1bae1",
+                "reference": "f055e40b497136003af95dc26839595deae1bae1",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4",
-                "spatie/laravel-dashboard": "dev-master"
+                "spatie/laravel-dashboard": "^1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
@@ -5198,22 +5180,7 @@
                     "Spatie\\BelgianTrainsTile\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spatie\\BelgianTrainsTile\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ],
-                "format": [
-                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5231,29 +5198,25 @@
                 "laravel-dashboard-calendar-tile",
                 "spatie"
             ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-dashboard-belgian-trains-tile/tree/master",
-                "issues": "https://github.com/spatie/laravel-dashboard-belgian-trains-tile/issues"
-            },
-            "time": "2020-04-23T19:40:31+00:00"
+            "time": "2020-04-30T12:59:09+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-calendar-tile",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spatie/laravel-dashboard-calendar-tile.git",
-                "reference": "7d046ecf738dbe60587af0a33b915eca44428320"
+                "url": "https://github.com/spatie/laravel-dashboard-calendar-tile.git",
+                "reference": "95a7d6517c1745c4b690bbced0af786972597150"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-calendar-tile/zipball/7d046ecf738dbe60587af0a33b915eca44428320",
-                "reference": "7d046ecf738dbe60587af0a33b915eca44428320",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-calendar-tile/zipball/95a7d6517c1745c4b690bbced0af786972597150",
+                "reference": "95a7d6517c1745c4b690bbced0af786972597150",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4",
-                "spatie/laravel-dashboard": "dev-master",
+                "spatie/laravel-dashboard": "^1.0",
                 "spatie/laravel-google-calendar": "^2.5"
             },
             "require-dev": {
@@ -5272,22 +5235,7 @@
                     "Spatie\\CalendarTile\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spatie\\CalendarTile\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ],
-                "format": [
-                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5305,30 +5253,26 @@
                 "laravel-dashboard-calendar-tile",
                 "spatie"
             ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-dashboard-calendar-tile/tree/master",
-                "issues": "https://github.com/spatie/laravel-dashboard-calendar-tile/issues"
-            },
-            "time": "2020-04-24T12:29:19+00:00"
+            "time": "2020-04-30T12:34:37+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-oh-dear-uptime-tile",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spatie/laravel-dashboard-oh-dear-uptime-tile.git",
-                "reference": "e1c4df4bcaaabb73933bb49021293e91df7d400b"
+                "url": "https://github.com/spatie/laravel-dashboard-oh-dear-uptime-tile.git",
+                "reference": "b4a7fc103760d28a032b5c70ba5312b502a778ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-oh-dear-uptime-tile/zipball/e1c4df4bcaaabb73933bb49021293e91df7d400b",
-                "reference": "e1c4df4bcaaabb73933bb49021293e91df7d400b",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-oh-dear-uptime-tile/zipball/b4a7fc103760d28a032b5c70ba5312b502a778ea",
+                "reference": "b4a7fc103760d28a032b5c70ba5312b502a778ea",
                 "shasum": ""
             },
             "require": {
                 "ohdearapp/laravel-ohdear-webhooks": "^1.3",
                 "php": "^7.4",
-                "spatie/laravel-dashboard": "dev-master"
+                "spatie/laravel-dashboard": "^1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
@@ -5346,22 +5290,7 @@
                     "Spatie\\OhDearUptimeTile\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spatie\\OhDearUptimeTile\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ],
-                "format": [
-                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5379,29 +5308,25 @@
                 "laravel-dashboard-oh-dear-uptime-tile",
                 "spatie"
             ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-dashboard-oh-dear-uptime-tile/tree/master",
-                "issues": "https://github.com/spatie/laravel-dashboard-oh-dear-uptime-tile/issues"
-            },
-            "time": "2020-04-23T19:43:42+00:00"
+            "time": "2020-04-30T13:03:45+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-time-weather-tile",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spatie/laravel-dashboard-time-weather-tile.git",
-                "reference": "65084eab74476bfead446f62d18eb8653cd0d60e"
+                "url": "https://github.com/spatie/laravel-dashboard-time-weather-tile.git",
+                "reference": "8e136d93e3a8bc2402a6964b5b16d571de588f51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-time-weather-tile/zipball/65084eab74476bfead446f62d18eb8653cd0d60e",
-                "reference": "65084eab74476bfead446f62d18eb8653cd0d60e",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-time-weather-tile/zipball/8e136d93e3a8bc2402a6964b5b16d571de588f51",
+                "reference": "8e136d93e3a8bc2402a6964b5b16d571de588f51",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4",
-                "spatie/laravel-dashboard": "dev-master"
+                "spatie/laravel-dashboard": "^1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
@@ -5419,22 +5344,7 @@
                     "Spatie\\TimeWeatherTile\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spatie\\TimeWeatherTile\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ],
-                "format": [
-                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5452,31 +5362,27 @@
                 "laravel-dashboard-time-weather-tile",
                 "spatie"
             ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-dashboard-time-weather-tile/tree/master",
-                "issues": "https://github.com/spatie/laravel-dashboard-time-weather-tile/issues"
-            },
-            "time": "2020-04-28T22:00:23+00:00"
+            "time": "2020-04-30T12:55:28+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-twitter-tile",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spatie/laravel-dashboard-twitter-tile.git",
-                "reference": "9b7b309079dc252d8d24e708845c21baff80f841"
+                "url": "https://github.com/spatie/laravel-dashboard-twitter-tile.git",
+                "reference": "eca11eaf4fa6bb6033ab8bc9f8b34ea26659b52e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-twitter-tile/zipball/9b7b309079dc252d8d24e708845c21baff80f841",
-                "reference": "9b7b309079dc252d8d24e708845c21baff80f841",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-twitter-tile/zipball/eca11eaf4fa6bb6033ab8bc9f8b34ea26659b52e",
+                "reference": "eca11eaf4fa6bb6033ab8bc9f8b34ea26659b52e",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.4",
-                "spatie/laravel-dashboard": "dev-master",
-                "spatie/twitter-labs": "0.0.1"
+                "spatie/laravel-dashboard": "^1.0",
+                "spatie/twitter-labs": "^1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
@@ -5494,22 +5400,7 @@
                     "Spatie\\TwitterTile\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spatie\\TwitterTile\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ],
-                "format": [
-                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5527,29 +5418,25 @@
                 "laravel-dashboard-twitter-tile",
                 "spatie"
             ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-dashboard-twitter-tile/tree/master",
-                "issues": "https://github.com/spatie/laravel-dashboard-twitter-tile/issues"
-            },
-            "time": "2020-04-28T15:10:17+00:00"
+            "time": "2020-04-30T12:51:31+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-velo-tile",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spatie/laravel-dashboard-velo-tile.git",
-                "reference": "e704022a8b5dc3544dcb75bf1778a87a284317c0"
+                "url": "https://github.com/spatie/laravel-dashboard-velo-tile.git",
+                "reference": "9c529e2e9349a11bf999363364e028bc5adcd266"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-velo-tile/zipball/e704022a8b5dc3544dcb75bf1778a87a284317c0",
-                "reference": "e704022a8b5dc3544dcb75bf1778a87a284317c0",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-velo-tile/zipball/9c529e2e9349a11bf999363364e028bc5adcd266",
+                "reference": "9c529e2e9349a11bf999363364e028bc5adcd266",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4",
-                "spatie/laravel-dashboard": "dev-master"
+                "spatie/laravel-dashboard": "^1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
@@ -5567,22 +5454,7 @@
                     "Spatie\\VeloTile\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spatie\\VeloTile\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ],
-                "format": [
-                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5600,11 +5472,7 @@
                 "laravel-dashboard-velo-tile",
                 "spatie"
             ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-dashboard-velo-tile/tree/master",
-                "issues": "https://github.com/spatie/laravel-dashboard-velo-tile/issues"
-            },
-            "time": "2020-04-25T12:49:09+00:00"
+            "time": "2020-04-30T12:40:17+00:00"
         },
         {
             "name": "spatie/laravel-google-calendar",
@@ -5941,16 +5809,16 @@
         },
         {
             "name": "spatie/twitter-labs",
-            "version": "0.0.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/twitter-labs.git",
-                "reference": "7d5d7ca82e2b1ce0d9b60150373bf8343178aeda"
+                "reference": "40ee4d3e46e8bce1d4a4bc91f44108ae9b4f5788"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/twitter-labs/zipball/7d5d7ca82e2b1ce0d9b60150373bf8343178aeda",
-                "reference": "7d5d7ca82e2b1ce0d9b60150373bf8343178aeda",
+                "url": "https://api.github.com/repos/spatie/twitter-labs/zipball/40ee4d3e46e8bce1d4a4bc91f44108ae9b4f5788",
+                "reference": "40ee4d3e46e8bce1d4a4bc91f44108ae9b4f5788",
                 "shasum": ""
             },
             "require": {
@@ -5988,7 +5856,7 @@
                 "spatie",
                 "twitter-labs"
             ],
-            "time": "2020-04-28T12:00:47+00:00"
+            "time": "2020-04-30T12:47:21+00:00"
         },
         {
             "name": "spatie/valuestore",
@@ -9702,15 +9570,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "spatie/laravel-dashboard": 20,
-        "spatie/laravel-dashboard-belgian-trains-tile": 20,
-        "spatie/laravel-dashboard-calendar-tile": 20,
-        "spatie/laravel-dashboard-oh-dear-uptime-tile": 20,
-        "spatie/laravel-dashboard-twitter-tile": 20,
-        "spatie/laravel-dashboard-velo-tile": 20,
-        "spatie/laravel-dashboard-time-weather-tile": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
