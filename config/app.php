@@ -175,6 +175,7 @@ return [
         App\Services\GitHub\GitHubServiceProvider::class,
         App\Services\Slack\SlackServiceProvider::class,
         \App\Providers\LivewireComponentsServiceProvider::class,
+        \App\Services\Forecast\ForecastServiceProvider::class,
     ],
 
     /*
