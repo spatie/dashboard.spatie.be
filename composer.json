@@ -27,11 +27,12 @@
         "spatie/laravel-dashboard-belgian-trains-tile": "^1.0",
         "spatie/laravel-dashboard-calendar-tile": "^1.0",
         "spatie/laravel-dashboard-oh-dear-uptime-tile": "^1.0",
-        "spatie/laravel-dashboard-twitter-tile": "^1.0",
-        "spatie/laravel-dashboard-velo-tile": "^1.0",
         "spatie/laravel-dashboard-time-weather-tile": "^1.0",
+        "spatie/laravel-dashboard-twitter-tile": "dev-master#686c674a89b92646a4776fa9a7924b22bb4b7a67",
+        "spatie/laravel-dashboard-velo-tile": "^1.0",
         "spatie/laravel-tail": "^4.2",
         "spatie/last-fm-now-playing": "^1.0",
+        "spatie/twitter-streaming-api": "^1.4",
         "spatie/valuestore": "^1.1"
     },
     "require-dev": {

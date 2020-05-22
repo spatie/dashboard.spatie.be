@@ -17,6 +17,8 @@ class RouteServiceProvider extends ServiceProvider
         Route::group([
             'middleware' => 'web',
         ], function ($router) {
+            Route::ohDearWebhooks('/oh-dear-webhooks');
+
             require base_path('routes/web.php');
         });
     }
