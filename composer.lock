@@ -5379,16 +5379,16 @@
         },
         {
             "name": "spatie/laravel-dashboard-twitter-tile",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-dashboard-twitter-tile.git",
-                "reference": "eca11eaf4fa6bb6033ab8bc9f8b34ea26659b52e"
+                "reference": "c47b9fb3f342c0dd468014dc37507eafb82734e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-twitter-tile/zipball/eca11eaf4fa6bb6033ab8bc9f8b34ea26659b52e",
-                "reference": "eca11eaf4fa6bb6033ab8bc9f8b34ea26659b52e",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-twitter-tile/zipball/c47b9fb3f342c0dd468014dc37507eafb82734e3",
+                "reference": "c47b9fb3f342c0dd468014dc37507eafb82734e3",
                 "shasum": ""
             },
             "require": {
@@ -5431,7 +5431,7 @@
                 "laravel-dashboard-twitter-tile",
                 "spatie"
             ],
-            "time": "2020-04-30T12:51:31+00:00"
+            "time": "2020-05-22T08:48:00+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-velo-tile",
