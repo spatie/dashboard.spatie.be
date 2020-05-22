@@ -3,8 +3,6 @@
 namespace App\Tiles\TeamMember;
 
 use Spatie\Dashboard\Models\Tile;
-use Spatie\Valuestore\Valuestore;
-use Illuminate\Support\Facades\File;
 
 class TeamMemberStore
 {

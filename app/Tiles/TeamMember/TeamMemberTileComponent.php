@@ -41,7 +41,8 @@ class TeamMemberTileComponent extends Component
 
         return view('components.tiles.teamMember', [
             'tasks' => $teamMember->tasks(),
-            'hasTasks' => collect($teamMember->tasks())->flatten()->isNotEmpty(),
+            'hasTasks' => collect($this->fakeTasks())->flatten()->isNotEmpty(),
+           // 'hasTasks' => collect($teamMember->tasks())->flatten()->isNotEmpty(),
             'statusEmoji' => $teamMember->statusEmoji(),
             'artwork' => $teamMember->nowPlaying()['artwork'] ?? null,
             'currentTrack' => $teamMember->nowPlaying()['trackName'] ?? null,
