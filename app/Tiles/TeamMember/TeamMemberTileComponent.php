@@ -40,9 +40,9 @@ class TeamMemberTileComponent extends Component
         $teamMember = TeamMemberStore::find($this->name);
 
         return view('components.tiles.teamMember', [
-            //'tasks' => $teamMember->tasks(),
-            'tasks' => $this->fakeTasks(),
-            'hasTasks' => collect($teamMember->tasks())->flatten()->isNotEmpty(),
+            'tasks' => $teamMember->tasks(),
+            'hasTasks' => collect($this->fakeTasks())->flatten()->isNotEmpty(),
+           // 'hasTasks' => collect($teamMember->tasks())->flatten()->isNotEmpty(),
             'statusEmoji' => $teamMember->statusEmoji(),
             'artwork' => $teamMember->nowPlaying()['artwork'] ?? null,
             'currentTrack' => $teamMember->nowPlaying()['trackName'] ?? null,
