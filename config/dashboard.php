@@ -36,13 +36,12 @@ return [
                     'access_token' => env('TWITTER_ACCESS_TOKEN'),
                     'access_token_secret' => env('TWITTER_ACCESS_TOKEN_SECRET'),
                     'listen_for' => [
-                        '@spatie_be',
                         'spatie.be',
-                        'github.com/spatie'
+                        '@spatie_be',
+                        'github.com/spatie',
                     ],
                 ],
             ],
-            'refresh_interval_in_seconds' => 3,
         ],
 
         'velo' => [

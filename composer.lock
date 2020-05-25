@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "b89420142a12adc117c905ab717df167",
-=======
-    "content-hash": "a6365ec584996e9fb683c5b483afffe1",
->>>>>>> Update deps
+    "content-hash": "0877863a6e27963a376de58f37c0c01a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4780,18 +4776,6 @@
         },
         {
             "name": "spatie/laravel-dashboard-twitter-tile",
-<<<<<<< HEAD
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-dashboard-twitter-tile.git",
-                "reference": "686c674a89b92646a4776fa9a7924b22bb4b7a67"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-twitter-tile/zipball/686c674a89b92646a4776fa9a7924b22bb4b7a67",
-                "reference": "686c674a89b92646a4776fa9a7924b22bb4b7a67",
-=======
             "version": "1.1.0",
             "source": {
                 "type": "git",
@@ -4802,7 +4786,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/laravel-dashboard-twitter-tile/zipball/9ec0cc0aa8069fee073d8a5b15367cd5479fb23f",
                 "reference": "9ec0cc0aa8069fee073d8a5b15367cd5479fb23f",
->>>>>>> Update deps
                 "shasum": ""
             },
             "require": {
@@ -5292,53 +5275,6 @@
                 "sun"
             ],
             "time": "2020-05-21T23:28:15+00:00"
-        },
-        {
-            "name": "spatie/twitter-streaming-api",
-            "version": "1.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/twitter-streaming-api.git",
-                "reference": "7addd59727e98f92c134fab9f6f02258d5e3943d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/twitter-streaming-api/zipball/7addd59727e98f92c134fab9f6f02258d5e3943d",
-                "reference": "7addd59727e98f92c134fab9f6f02258d5e3943d",
-                "shasum": ""
-            },
-            "require": {
-                "fennb/phirehose": "dev-master#405d125db9baa771ac0cd861f0b2b2032434d40c",
-                "php": "^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "5.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\TwitterStreamingApi\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Easily work with the Twitter Streaming API",
-            "homepage": "https://github.com/spatie/twitter-streaming-api",
-            "keywords": [
-                "spatie",
-                "twitter-streaming-api"
-            ],
-            "time": "2018-04-04T11:39:57+00:00"
         },
         {
             "name": "spatie/twitter-streaming-api",
@@ -9101,9 +9037,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "spatie/laravel-dashboard-twitter-tile": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
