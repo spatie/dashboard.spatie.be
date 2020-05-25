@@ -1,1 +1,2 @@
-Empty view
+<x-dashboard>
+</x-dashboard>
