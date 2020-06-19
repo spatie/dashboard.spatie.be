@@ -45,7 +45,7 @@ class TeamMemberTileComponent extends Component
            // 'hasTasks' => collect($teamMember->tasks())->flatten()->isNotEmpty(),
             'statusEmoji' => $teamMember->statusEmoji(),
             'artwork' => $teamMember->nowPlaying()['artwork'] ?? null,
-            'currentTrack' => $teamMember->nowPlaying()['trackName'] ?? null,
+            'currentArtist' => $teamMember->nowPlaying()['artist'] ?? null,
         ]);
     }
 

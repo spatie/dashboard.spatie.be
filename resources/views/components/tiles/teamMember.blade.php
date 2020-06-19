@@ -39,9 +39,9 @@
                     @endif
                 </h2>
 
-                @if($currentTrack)
+                @if($currentArtist)
                     <p class="truncate text-sm">
-                        🎵 {{ $currentTrack }}
+                        🎵 {{ $currentArtist }}
                     </p>
                 @endif
             </div>
