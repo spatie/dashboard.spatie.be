@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(FetchCurrentTracksCommand::class)->everyMinute();
         $schedule->command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
         $schedule->command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
-        $schedule->command(FetchTasksCommand::class)->everyFiveMinutes();
+        //$schedule->command(FetchTasksCommand::class)->everyFiveMinutes();
         $schedule->command(FetchSlackStatusCommand::class)->everyMinute();
         $schedule->command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
         $schedule->command(FetchPackagistTotalsCommand::class)->hourly();
