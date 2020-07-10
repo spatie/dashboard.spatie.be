@@ -24,7 +24,6 @@ class UpdateDashboardCommand extends Command
         $this->call(FetchBelgianTrainsCommand::class);
         $this->call(FetchCurrentTracksCommand::class);
         $this->call(FetchVeloStationsCommand::class);
-        $this->call(FetchTasksCommand::class);
         $this->call(FetchSlackStatusCommand::class);
         $this->call(FetchCalendarEventsCommand::class);
         $this->call(FetchGitHubTotalsCommand::class);

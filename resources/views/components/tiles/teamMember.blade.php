@@ -1,5 +1,5 @@
 <x-dashboard-tile :position="$position" refresh-interval="30">
-    <div class="grid {{ $hasTasks ? 'grid-rows-auto-1' : 'grid-rows-1' }} gap-2 h-full">
+    <div class="grid grid-rows-auto-1 gap-2 h-full">
         <div class="grid grid-cols-auto-1 gap-2 items-center | bg-tile">
             @if($artwork)
                 <div class="overflow-hidden w-10 h-10 rounded border">
@@ -47,45 +47,6 @@
             </div>
         </div>
 
-        @if($hasTasks)
-            <div class="self-center">
-                <ul>
-                    @foreach($tasks['long'] as $task)
-                        <li class="grid grid-cols-1-auto py-1 border-b-2">
-                            <div class="truncate">
-                                <p class="truncate">
-                                    {{ $task['project'] }}
-                                </p>
 
-                                @if($task['name'])
-                                    <p class="flex-1 truncate text-xs text-dimmed">
-                                        {{ ucfirst($task['name']) }}
-                                    </p>
-                                @endif
-                            </div>
-
-                            <p class="ml-2 font-bold tabular-nums">
-                                {{ $task['formatted_time'] }}
-                            </p>
-                        </li>
-                    @endforeach
-                </ul>
-                <ul class="text-xs pt-1">
-                    @foreach($tasks['short'] as $task)
-                        <li class="flex justify-between">
-                            <p class="truncate">
-                                {{ $task['project'] }}
-
-                                @if($task['name'])
-                                    <span class="text-dimmed">
-                                        {{ strtolower($task['name']) }}
-                                    </span>
-                                @endif
-                            </p>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
     </div>
 </x-dashboard-tile>

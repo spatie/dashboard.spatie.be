@@ -30,12 +30,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'forecast' => [
-        'account_id' => env('FORECAST_ACCOUNT_ID'),
-        'token' => env('FORECAST_TOKEN'),
-        'people' => env('FORECAST_PEOPLE'),
-    ],
-
     'github' => [
         'token' => env('GITHUB_TOKEN'),
         'hook_secret' => env('GITHUB_HOOK_SECRET'),

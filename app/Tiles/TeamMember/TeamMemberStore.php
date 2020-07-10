@@ -18,27 +18,6 @@ class TeamMemberStore
         $this->tile = Tile::firstOrCreateForName("member_{$name}");
     }
 
-    public function setTasks(array $tasks): self
-    {
-        $this->tile->putData('tasks', $tasks);
-
-        return $this;
-    }
-
-    public function tasks(): array
-    {
-        $tasks = $this->tile->getData('tasks') ?? [];
-
-        [$longTasks, $shortTasks] = collect($tasks)
-            ->reject(fn (array $task) => $task['project'] === 'Open source / Eigen werk')
-            ->partition(fn (array $task) => $task['hours'] >= 8);
-
-        return [
-            'long' => $longTasks,
-            'short' => $shortTasks,
-        ];
-    }
-
     public function setStatusEmoji(string $emoji): self
     {
         $this->tile->putData('statusEmoji', $emoji);
