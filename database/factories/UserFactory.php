@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ class UserFactory extends Factory
     {
         static $password;
 
-    return [
+        return [
         'name' => $this->faker->name,
         'email' => $this->faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
