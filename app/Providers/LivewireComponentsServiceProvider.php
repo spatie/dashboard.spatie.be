@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
-use App\Tiles\Weather\TimeWeatherTileComponent;
 use App\Tiles\Statistics\StatisticsTileComponent;
 use App\Tiles\TeamMember\TeamMemberTileComponent;
 

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\UpdateTemperatureController;
 use App\Http\Middleware\AccessToken;
 use Illuminate\Support\Facades\Route;
 
