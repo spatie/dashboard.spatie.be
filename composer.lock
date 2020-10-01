@@ -4519,16 +4519,16 @@
         },
         {
             "name": "spatie/laravel-dashboard-belgian-trains-tile",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-dashboard-belgian-trains-tile.git",
-                "reference": "dbacb482891d3bd28b4cb806f19149db9bad91e0"
+                "reference": "2934147a8ab55b63046a0650e71a7ac5df0f3c57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-belgian-trains-tile/zipball/dbacb482891d3bd28b4cb806f19149db9bad91e0",
-                "reference": "dbacb482891d3bd28b4cb806f19149db9bad91e0",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-belgian-trains-tile/zipball/2934147a8ab55b63046a0650e71a7ac5df0f3c57",
+                "reference": "2934147a8ab55b63046a0650e71a7ac5df0f3c57",
                 "shasum": ""
             },
             "require": {
@@ -4580,7 +4580,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-09T07:48:11+00:00"
+            "time": "2020-10-01T06:52:40+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-calendar-tile",
