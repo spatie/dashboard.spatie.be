@@ -25,7 +25,7 @@ class UpdateDashboardCommand extends Command
         $this->call(FetchVeloStationsCommand::class);
         $this->call(FetchSlackStatusCommand::class);
         $this->call(FetchCalendarEventsCommand::class);
-        $this->call(FetchGitHubTotalsCommand::class);
+        //$this->call(FetchGitHubTotalsCommand::class);
         $this->call(FetchPackagistTotalsCommand::class);
         $this->call(FetchOpenWeatherMapDataCommand::class);
     }
