@@ -18,11 +18,13 @@ class StatisticsTileComponent extends Component
     {
         $statisticsStore = StatisticsStore::make();
 
+        // TODO: put back
+        //  "knplabs/github-api": "^2.4",
         return view('components.tiles.statistics', [
-            'gitHubStars' => $statisticsStore->gitHubStars(),
-            'gitHubContributors' => $statisticsStore->gitHubContributors(),
-            'gitHubIssues' => $statisticsStore->gitHubIssues(),
-            'gitHubPullRequests' => $statisticsStore->gitHubPullRequests(),
+            //'gitHubStars' => $statisticsStore->gitHubStars(),
+            //'gitHubContributors' => $statisticsStore->gitHubContributors(),
+            //'gitHubIssues' => $statisticsStore->gitHubIssues(),
+            //'gitHubPullRequests' => $statisticsStore->gitHubPullRequests(),
             'packagistMonthly' => $statisticsStore->packagistMonthly(),
             'packagistTotal' => $statisticsStore->packagistTotal(),
         ]);
