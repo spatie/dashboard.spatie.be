@@ -2,6 +2,7 @@
 
 namespace App\Tiles\TeamMember\Commands;
 
+use Exception;
 use Illuminate\Console\Command;
 use Spatie\NowPlaying\NowPlaying;
 use App\Tiles\TeamMember\TeamMemberStore;
@@ -34,11 +35,15 @@ class FetchCurrentTracksCommand extends Command
             ->each(function (string $teamMemberName, string $lastFmUserName) use ($lastFm) {
                 $teamMemberStore = TeamMemberStore::find($teamMemberName);
 
-                $currentTrack = $lastFm->getTrackInfo($lastFmUserName);
+                try {
+                    $currentTrack = $lastFm->getTrackInfo($lastFmUserName);
 
-                $currentTrack
-                    ? $teamMemberStore->setNowPlaying($currentTrack)
-                    : $teamMemberStore->setNothingPlaying();
+                    $currentTrack
+                        ? $teamMemberStore->setNowPlaying($currentTrack)
+                        : $teamMemberStore->setNothingPlaying();
+                } catch (Exception $exception) {
+                    report($exception);
+                }
             });
 
         $this->info('All done!');

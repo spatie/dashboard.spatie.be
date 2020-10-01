@@ -3,8 +3,6 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
-use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
 use Spatie\VeloTile\FetchVeloStationsCommand;
 use Spatie\CalendarTile\FetchCalendarEventsCommand;
 use App\Tiles\TeamMember\Commands\FetchTasksCommand;
@@ -14,6 +12,8 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
 use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
+use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
+use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
 
 class Kernel extends ConsoleKernel
 {
