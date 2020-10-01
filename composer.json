@@ -17,7 +17,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
-        "markwalet/laravel-packagist": "dev-laravel-8-support",
+        "markwalet/laravel-packagist": "^v1.1",
         "pda/pheanstalk": "^4.0",
         "pusher/pusher-php-server": "^4.1",
         "spatie/data-transfer-object": "^2.0",

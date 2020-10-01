@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d97d90e7c4517c9d4d7ad5e535fb6375",
+    "content-hash": "0412b8b2b9180a3d98cabb7e76136452",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2760,16 +2760,16 @@
         },
         {
             "name": "markwalet/laravel-packagist",
-            "version": "dev-laravel-8-support",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/markwalet/laravel-packagist.git",
-                "reference": "b613936aa18737580ede19c450575508590bb29a"
+                "reference": "6d1f257789cc8987f7654c357765029daf95a7b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/markwalet/laravel-packagist/zipball/b613936aa18737580ede19c450575508590bb29a",
-                "reference": "b613936aa18737580ede19c450575508590bb29a",
+                "url": "https://api.github.com/repos/markwalet/laravel-packagist/zipball/6d1f257789cc8987f7654c357765029daf95a7b6",
+                "reference": "6d1f257789cc8987f7654c357765029daf95a7b6",
                 "shasum": ""
             },
             "require": {
@@ -2812,7 +2812,7 @@
                 }
             ],
             "description": "A Laravel wrapper for the `spatie/packagist-api` package.",
-            "time": "2020-09-24T14:29:41+00:00"
+            "time": "2020-10-01T08:16:39+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -10367,9 +10367,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "markwalet/laravel-packagist": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
