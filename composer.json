@@ -17,6 +17,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
+        "markwalet/laravel-packagist": "dev-laravel-8-support",
         "pda/pheanstalk": "^4.0",
         "pusher/pusher-php-server": "^4.1",
         "spatie/data-transfer-object": "^2.0",
@@ -24,9 +25,9 @@
         "spatie/laravel-dashboard-belgian-trains-tile": "^2.0",
         "spatie/laravel-dashboard-calendar-tile": "^2.0.1",
         "spatie/laravel-dashboard-oh-dear-uptime-tile": "^2.0",
+        "spatie/laravel-dashboard-time-weather-tile": "^2.0",
         "spatie/laravel-dashboard-twitter-tile": "^2.0",
         "spatie/laravel-dashboard-velo-tile": "^2.0",
-        "spatie/laravel-dashboard-time-weather-tile": "^2.0",
         "spatie/laravel-tail": "^4.2",
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/valuestore": "^1.1"
