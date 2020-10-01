@@ -78,9 +78,7 @@
 
     <livewire:velo-tile position="e17:e24" />
 
-    {{--
     <livewire:statistics-tile position="a15:a24" />
-    --}}
 
     <livewire:belgian-trains-tile position="a1:a24"/>
 
