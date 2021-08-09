@@ -31,7 +31,7 @@ git pull origin master
 @task('run composer install', ['on' => 'web'])
 echo 'running composer install'
 cd '{{ $pathOnServer }}'
-composer install --prefer-dist --no-scripts --no-dev -q -o
+composer install --prefer-dist --no-scripts -q -o
 php artisan cache:clear
 @endtask
 
