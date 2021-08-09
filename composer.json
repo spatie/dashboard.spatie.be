@@ -33,7 +33,8 @@
         "spatie/laravel-dashboard-velo-tile": "^2.0",
         "spatie/laravel-tail": "^4.2",
         "spatie/last-fm-now-playing": "^1.0",
-        "spatie/valuestore": "^1.1"
+        "spatie/valuestore": "^1.1",
+        "knplabs/github-api": "^3.3"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
