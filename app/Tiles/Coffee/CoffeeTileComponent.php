@@ -11,7 +11,7 @@ class CoffeeTileComponent extends Component
     /** @var string */
     public $position;
 
-    protected int $totalOffset = 15_000;
+    protected int $totalOffset = 19_520;
 
     public function mount(string $position)
     {
