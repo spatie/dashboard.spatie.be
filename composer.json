@@ -27,7 +27,7 @@
         "spatie/laravel-dashboard": "^2.0",
         "spatie/laravel-dashboard-belgian-trains-tile": "^2.0",
         "spatie/laravel-dashboard-calendar-tile": "^2.0.1",
-        "spatie/laravel-dashboard-coffee-tile": "dev-master",
+        "spatie/laravel-dashboard-coffee-tile": "^1.0.0",
         "spatie/laravel-dashboard-oh-dear-uptime-tile": "^2.0",
         "spatie/laravel-dashboard-time-weather-tile": "^2.0",
         "spatie/laravel-dashboard-twitter-tile": "^2.0",

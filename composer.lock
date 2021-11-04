@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f36b56711c7839ceba92bf361fd86c7d",
+    "content-hash": "551cd6f680c8277ead32d653895fe5c1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6424,16 +6424,16 @@
         },
         {
             "name": "spatie/laravel-dashboard-coffee-tile",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-dashboard-coffee-tile.git",
-                "reference": "389b04f1524f01e28ac5ca88bf2125f57229894a"
+                "reference": "94c20d09601ef4a75c10aa5745bec841506f686f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-dashboard-coffee-tile/zipball/389b04f1524f01e28ac5ca88bf2125f57229894a",
-                "reference": "389b04f1524f01e28ac5ca88bf2125f57229894a",
+                "url": "https://api.github.com/repos/spatie/laravel-dashboard-coffee-tile/zipball/94c20d09601ef4a75c10aa5745bec841506f686f",
+                "reference": "94c20d09601ef4a75c10aa5745bec841506f686f",
                 "shasum": ""
             },
             "require": {
@@ -6443,7 +6443,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.3"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6477,9 +6476,9 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-dashboard-coffee-tile/issues",
-                "source": "https://github.com/spatie/laravel-dashboard-coffee-tile/tree/master"
+                "source": "https://github.com/spatie/laravel-dashboard-coffee-tile/tree/1.0.0"
             },
-            "time": "2021-11-04T15:36:35+00:00"
+            "time": "2021-11-04T15:55:22+00:00"
         },
         {
             "name": "spatie/laravel-dashboard-oh-dear-uptime-tile",
@@ -12620,9 +12619,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "spatie/laravel-dashboard-coffee-tile": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
