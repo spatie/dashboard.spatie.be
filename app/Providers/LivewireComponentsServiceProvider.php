@@ -14,6 +14,5 @@ class LivewireComponentsServiceProvider extends ServiceProvider
     {
         Livewire::component('team-member-tile', TeamMemberTileComponent::class);
         Livewire::component('statistics-tile', StatisticsTileComponent::class);
-        Livewire::component('coffee-tile', CoffeeTileComponent::class);
     }
 }

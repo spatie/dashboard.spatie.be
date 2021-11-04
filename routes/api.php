@@ -1,5 +1,5 @@
 <?php
 
-use App\Http\Api\CoffeeController;
+use Spatie\CoffeeTile\Http\CoffeeController;
 
 Route::post('/coffee', CoffeeController::class);
