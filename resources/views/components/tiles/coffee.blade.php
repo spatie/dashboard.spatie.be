@@ -38,7 +38,7 @@
             @foreach($days as $day)
                 <div
                     class="rounded-sm bg-accent"
-                    style="height:{{ $day / $daysMax * 70 }}%"
+                    style="height:{{ $day / ($daysMax ?? 1) * 70 }}%"
                 ></div>
             @endforeach
         </div>
