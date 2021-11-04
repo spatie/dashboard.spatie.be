@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Tiles\Coffee\CoffeeTileComponent;
 use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
 use App\Tiles\Statistics\StatisticsTileComponent;
@@ -13,5 +14,6 @@ class LivewireComponentsServiceProvider extends ServiceProvider
     {
         Livewire::component('team-member-tile', TeamMemberTileComponent::class);
         Livewire::component('statistics-tile', StatisticsTileComponent::class);
+        Livewire::component('coffee-tile', CoffeeTileComponent::class);
     }
 }
