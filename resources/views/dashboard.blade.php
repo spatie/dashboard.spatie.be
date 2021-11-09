@@ -69,7 +69,7 @@
     <livewire:team-member-tile
         name="niels"
         :avatar="gravatar('niels@spatie.be')"
-        birthday="1990-01-01"
+        birthday="1993-07-14"
         position="b13:b16"
     />
 
