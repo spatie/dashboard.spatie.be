@@ -7,13 +7,20 @@
     ],
     "license": "MIT",
     "type": "project",
+    "repositories" : [{
+        "type" : "path",
+        "url": "../laravel-dashboard-attendances-tile"
+    }
+    ],
     "require": {
         "php": "^7.4",
+        "ext-json": "*",
         "barryvdh/laravel-ide-helper": "^2.1",
         "developmint/npm-stats-api": "^1.0",
         "facade/ignition": "^2.3.6",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
+        "google/apiclient": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "guzzlehttp/psr7": "^1.8",
         "knplabs/github-api": "^3.3",
@@ -32,6 +39,8 @@
         "spatie/laravel-dashboard-time-weather-tile": "^2.0",
         "spatie/laravel-dashboard-twitter-tile": "^2.0",
         "spatie/laravel-dashboard-velo-tile": "^2.0",
+        "spatie/laravel-dashboard-attendances-tile": "@dev",
+        "spatie/laravel-google-calendar": "^3.4",
         "spatie/laravel-tail": "^4.2",
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/valuestore": "^1.1"

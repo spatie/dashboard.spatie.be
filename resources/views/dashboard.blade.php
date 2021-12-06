@@ -97,6 +97,8 @@
 
     <livewire:coffee-tile position="c17:c24" />
 
+    <livewire:attendances-tile position="d17:d24" />
+
     <livewire:belgian-trains-tile position="a1:a24"/>
 
     <livewire:oh-dear-uptime-tile position="e7:e16" />
