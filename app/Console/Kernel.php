@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Spatie\AttendancesTile\FetchAttendancesCommand;
 use Spatie\VeloTile\FetchVeloStationsCommand;
 use Spatie\CalendarTile\FetchCalendarEventsCommand;
 use App\Tiles\TeamMember\Commands\FetchTasksCommand;
@@ -21,6 +22,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command(FetchBelgianTrainsCommand::class)->everyMinute();
         $schedule->command(FetchCalendarEventsCommand::class)->everyMinute();
+        $schedule->command(FetchAttendancesCommand::class)->everyFiveMinutes();
         $schedule->command(FetchCurrentTracksCommand::class)->everyMinute();
         $schedule->command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
         $schedule->command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();

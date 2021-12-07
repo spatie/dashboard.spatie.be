@@ -21,6 +21,28 @@ return [
     ],
 
     'tiles' => [
+        'attendances' => [
+            'emails' =>  [
+                'sebastian@spatie.be',
+                'adriaan@spatie.be',
+                'freek@spatie.be',
+                'willem@spatie.be',
+                'alex@spatie.be',
+                'ruben@spatie.be',
+                'rias@spatie.be',
+                'brent@spatie.be',
+                'jef@spatie.be',
+                'wouter@spatie.be',
+                'vic@spatie.be',
+                'niels@spatie.be',
+            ],
+            'keywords' => [
+                'home' => ['thuis', 'verlof', 'ziek',],
+                'office' => ['kantoor'],
+            ],
+            'missingKeywordMeansAtOffice' => true,
+        ],
+
         'calendar' => [
             'ids' => [
                 env('GOOGLE_CALENDAR_ID'),
