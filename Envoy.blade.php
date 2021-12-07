@@ -64,7 +64,7 @@ cd {{ $releasesDir }};
 mkdir {{ $newReleaseDir }};
 
 # Clone the repo
-GIT_SSH_COMMAND='ssh git clone --depth 1 git@github.com:{{ $repository }} {{ $newReleaseName }}
+GIT_SSH_COMMAND='ssh' git clone --depth 1 git@github.com:{{ $repository }} {{ $newReleaseName }}
 
 # Configure sparse checkout
 cd {{ $newReleaseDir }}
@@ -165,7 +165,7 @@ ssh pi 'sudo reboot'
 @task('deployOnlyCode',['on' => 'remote'])
 {{ logMessage("💻  Deploying code changes...") }}
 cd {{ $currentDir }}
-GIT_SSH_COMMAND='ssh git pull origin master
+GIT_SSH_COMMAND='ssh' git pull origin master
 php artisan config:clear
 php artisan cache:clear
 php artisan config:cache
