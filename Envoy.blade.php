@@ -154,7 +154,7 @@ ls -dt {{ $releasesDir }}/* | tail -n +6 | xargs -d "\n" sudo chown -R forge .;
 ls -dt {{ $releasesDir }}/* | tail -n +6 | xargs -d "\n" rm -rf;
 @endtask
 
-@task('restart pi', ['on' => 'remote'])
+@task('restart pi', ['on' => 'local'])
 ssh pi 'sudo reboot'
 @endtask
 
