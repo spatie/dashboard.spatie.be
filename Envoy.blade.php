@@ -1,5 +1,6 @@
 @setup
-$server = 'dashboard.spatie.be';
+{{--$server = 'dashboard.spatie.be';--}}
+$server = '157.230.125.153';
 $userAndServer = "forge@{$server}";
 $siteName = 'dashboard.spatie.be';
 $pathOnServer = '/home/forge/' . $siteName;
