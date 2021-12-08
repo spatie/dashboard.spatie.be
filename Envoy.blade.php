@@ -1,7 +1,7 @@
 
 @setup
 $server = "dashboard.spatie.be";
-$userAndServer = 'forge@157.230.125.153';
+$userAndServer = "forge@{$server}";
 $repository = "spatie/dashboard.spatie.be";
 $baseDir = "/home/forge/{$server}";
 $releasesDir = "{$baseDir}/releases";
