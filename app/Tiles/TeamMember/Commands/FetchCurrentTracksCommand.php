@@ -28,8 +28,8 @@ class FetchCurrentTracksCommand extends Command
                 'key' => config('services.apple-music.freek'),
             ],
             'willem' => [
-                'type' => MusicType::LASTFM,
-                'key' => 'willemvb',
+                'type' => MusicType::APPLE,
+                'key' => config('services.apple-music.willem'),
             ],
             'sebastian' => [
                 'type' => MusicType::LASTFM,
@@ -64,6 +64,10 @@ class FetchCurrentTracksCommand extends Command
 
         collect($this->getUsers())->each(function ($config, $teamMemberName) {
             $teamMemberStore = TeamMemberStore::find($teamMemberName);
+
+            if (! $config['key']) {
+                return;
+            }
 
             $trackData = match($config['type']) {
                 MusicType::LASTFM => $this->fetchLastFm($config['key']),
@@ -126,12 +130,15 @@ class FetchCurrentTracksCommand extends Command
             return null;
         }
 
+        $durationInSeconds = $track['attributes']['durationInMillis'] / 1000;
+
         return new TrackData(
             artist: $track['attributes']['artistName'],
             album: $track['attributes']['albumName'],
             trackName: $track['attributes']['name'],
             url: $track['attributes']['url'],
             artwork: str_replace('{h}', $track['attributes']['artwork']['height'], str_replace('{w}', $track['attributes']['artwork']['width'], $track['attributes']['artwork']['url'])),
+            durationInSeconds: $durationInSeconds,
         );
     }
 }

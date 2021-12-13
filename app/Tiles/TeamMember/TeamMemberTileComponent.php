@@ -40,9 +40,12 @@ class TeamMemberTileComponent extends Component
         $teamMember = TeamMemberStore::find($this->name);
 
         // This is needed because Apple Music doesn't tell us when a track was played.
-        $nowPlaying = $teamMember->lastUpdate()?->diffInMinutes() <= 5
-            ? $teamMember->nowPlaying()
-            : null;
+        $nowPlaying = $teamMember->nowPlaying();
+        $playlimit = $teamMember->nowPlaying()->durationInSeconds ?? 10 * 60;
+
+        if ($nowPlaying && $teamMember->lastUpdate()?->diffInSeconds() > $playlimit) {
+            $nowPlaying = null;
+        }
 
         return view('components.tiles.teamMember', [
             'statusEmoji' => $teamMember->statusEmoji(),

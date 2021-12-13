@@ -52,6 +52,7 @@ return [
         'token' => env('APPLE_MUSIC_TOKEN'),
         'rias' => env('APPLE_MUSIC_RIAS'),
         'freek' => env('APPLE_MUSIC_FREEK'),
+        'willem' => env('APPLE_MUSIC_WILLEM'),
     ],
 
 ];

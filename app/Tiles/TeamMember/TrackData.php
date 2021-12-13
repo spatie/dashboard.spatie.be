@@ -12,6 +12,7 @@ class TrackData implements Arrayable
         public string $trackName,
         public string $url,
         public string $artwork,
+        public ?int $durationInSeconds = null,
     ) {
     }
 
@@ -23,6 +24,7 @@ class TrackData implements Arrayable
             'trackName' => $this->trackName,
             'url' => $this->url,
             'artwork' => $this->artwork,
+            'durationInSeconds' => $this->durationInSeconds,
         ];
     }
 }
