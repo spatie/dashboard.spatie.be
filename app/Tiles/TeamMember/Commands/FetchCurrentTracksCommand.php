@@ -24,8 +24,8 @@ class FetchCurrentTracksCommand extends Command
                 'key' => config('services.apple-music.rias'),
             ],
             'freek' => [
-                'type' => MusicType::LASTFM,
-                'key' => 'murze',
+                'type' => MusicType::APPLE,
+                'key' => config('services.apple-music.freek'),
             ],
             'willem' => [
                 'type' => MusicType::LASTFM,
