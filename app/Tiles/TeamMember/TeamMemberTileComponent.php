@@ -39,10 +39,14 @@ class TeamMemberTileComponent extends Component
     {
         $teamMember = TeamMemberStore::find($this->name);
 
+        $nowPlaying = $teamMember->lastUpdate()?->diffInMinutes() <= 10
+            ? $teamMember->nowPlaying()
+            : null;
+
         return view('components.tiles.teamMember', [
             'statusEmoji' => $teamMember->statusEmoji(),
-            'artwork' => $teamMember->nowPlaying()['artwork'] ?? null,
-            'currentArtist' => $teamMember->nowPlaying()['artist'] ?? null,
+            'artwork' => $nowPlaying?->artwork,
+            'currentArtist' => $nowPlaying?->artist,
         ]);
     }
 }

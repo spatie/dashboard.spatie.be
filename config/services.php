@@ -48,4 +48,9 @@ return [
         'app_token' => env('SLACK_APP_TOKEN'),
     ],
 
+    'apple-music' => [
+        'token' => env('APPLE_MUSIC_TOKEN'),
+        'rias' => env('APPLE_MUSIC_RIAS'),
+    ],
+
 ];
