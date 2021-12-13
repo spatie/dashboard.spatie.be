@@ -39,7 +39,8 @@ class TeamMemberTileComponent extends Component
     {
         $teamMember = TeamMemberStore::find($this->name);
 
-        $nowPlaying = $teamMember->lastUpdate()?->diffInMinutes() <= 10
+        // This is needed because Apple Music doesn't tell us when a track was played.
+        $nowPlaying = $teamMember->lastUpdate()?->diffInMinutes() <= 5
             ? $teamMember->nowPlaying()
             : null;
 
