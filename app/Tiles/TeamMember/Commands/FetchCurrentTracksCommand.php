@@ -121,7 +121,7 @@ class FetchCurrentTracksCommand extends Command
             ]);
 
         if (! $response->successful()) {
-            $this->error("Error when fetching for {$teamMemberName}: " . $response->body());
+            $this->error("Error when fetching for {$teamMemberName}: ({$response->status()})" . $response->body());
             return null;
         }
 
