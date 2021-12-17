@@ -71,7 +71,7 @@ class FetchCurrentTracksCommand extends Command
 
             $trackData = match($config['type']) {
                 MusicType::LASTFM => $this->fetchLastFm($config['key']),
-                MusicType::APPLE => $this->fetchAppleMusic($config['key']),
+                MusicType::APPLE => $this->fetchAppleMusic($config['key'], $teamMemberName),
                 default => null,
             };
 
@@ -109,7 +109,7 @@ class FetchCurrentTracksCommand extends Command
         return null;
     }
 
-    private function fetchAppleMusic(string $key): ?TrackData
+    private function fetchAppleMusic(string $key, string $teamMemberName): ?TrackData
     {
         $response = Http::withToken(config('services.apple-music.token'))
             ->withHeaders([
@@ -121,12 +121,14 @@ class FetchCurrentTracksCommand extends Command
             ]);
 
         if (! $response->successful()) {
+            $this->error("Error when fetching for {$teamMemberName}: " . $response->body());
             return null;
         }
 
         $track = $response->json('data')[0] ?? null;
 
         if (! $track) {
+            $this->error("Error when fetching for {$teamMemberName}: No track found in response");
             return null;
         }
 
