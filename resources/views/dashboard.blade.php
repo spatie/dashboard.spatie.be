@@ -95,7 +95,7 @@
 
     <livewire:statistics-tile position="b17:b24" />
 
-    <livewire:coffee-tile position="c17:c24" />
+    <livewire:coffee-tile position="c17:c24" total-offset="20247" />
 
     <livewire:attendances-tile position="d17:d24" />
 
