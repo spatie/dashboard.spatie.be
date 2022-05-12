@@ -40,7 +40,7 @@ return [
                 'home' => ['thuis', 'verlof', 'ziek',],
                 'office' => ['kantoor'],
             ],
-            'missingKeywordMeansAtOffice' => true,
+            'missingKeywordMeansAtOffice' => false,
         ],
 
         'calendar' => [
