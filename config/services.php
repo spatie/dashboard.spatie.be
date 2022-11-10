@@ -55,4 +55,8 @@ return [
         'willem' => env('APPLE_MUSIC_WILLEM'),
     ],
 
+    'fathom' => [
+        'token' => env('FATHOM_API_TOKEN'),
+        'sites' => explode(',', env('FATHOM_SITES'))
+    ],
 ];

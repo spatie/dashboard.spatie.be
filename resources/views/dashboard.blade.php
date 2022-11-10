@@ -83,8 +83,8 @@
     <livewire:statistics-tile position="d12:d20" />
     <livewire:coffee-tile position="d7:d11" total-offset="20247" />
 
-    <livewire:fathom-tile position="b11:b20" siteId="GSENXMLW" label="Mailcoach" />
-    <livewire:fathom-tile position="c11:C20" siteId="LBABKDJB" label="Flare" />
+    <livewire:fathom-tile position="b11:b20" siteId="GSENXMLW" label="📯 Mailcoach" />
+    <livewire:fathom-tile position="c11:C20" siteId="LBABKDJB" label="🎆 Flare" />
 
     <livewire:belgian-trains-tile position="a1:a20"/>
 

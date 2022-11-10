@@ -19,22 +19,55 @@ class FetchFathomStatistics extends Command
     {
         $this->info('Fetching Fathom statistics...');
 
-        foreach (['GSENXMLW', 'LBABKDJB'] as $siteId) {
-            $totals = Http::get("https://app.usefathom.com/sites/{$siteId}/boxes/totals?&tz=Europe/Brussels")
-                ->json();
+        $from = now()->timezone('Europe/Brussels')->startOfDay()->format('Y-m-d H:i:s');
+        $to = now()->timezone('Europe/Brussels')->format('Y-m-d H:i:s');
 
-            $detailed = Http::get("https://app.usefathom.com/sites/{$siteId}/current_visitors/detailed")
-                ->json();
+        foreach (config('services.fathom.sites') as $siteId) {
+            $current = Http::withToken(config('services.fathom.token'))
+                ->get('https://api.usefathom.com/v1/current_visitors', [
+                    'site_id' => $siteId,
+                ])
+                ->json('total');
 
-            $timeOnSite = CarbonInterval::seconds($totals['content']['avg_time_on_site']['current'])
-                ->cascade();
+            $aggregations = Http::withToken(config('services.fathom.token'))
+                ->get('https://api.usefathom.com/v1/aggregations', [
+                    'entity_id' => $siteId,
+                    'entity' => 'pageview',
+                    'aggregates' => 'visits,uniques,pageviews,avg_duration,bounce_rate',
+                    'timezone' => 'Europe/Brussels',
+                    'date_from' => $from,
+                    'date_to' => $to,
+                ])->json()[0];
+
+            $events = Http::withToken(config('services.fathom.token'))
+                ->get("https://api.usefathom.com/v1/sites/{$siteId}/events")
+                ->json('data');
+
+            $eventCompletions = collect($events)->mapWithKeys(function ($eventData) use ($to, $from) {
+                $eventsCompleted = Http::withToken(config('services.fathom.token'))
+                    ->get('https://api.usefathom.com/v1/aggregations', [
+                        'entity_id' => $eventData['id'],
+                        'entity' => 'event',
+                        'aggregates' => 'conversions',
+                        'timezone' => 'Europe/Brussels',
+                        'date_from' => $from,
+                        'date_to' => $to,
+                    ])->json()[0];
+
+                return [$eventData['id'] => [
+                    'name' => $eventData['name'],
+                    'completions' => number_format($eventsCompleted['conversions']),
+                ]];
+            })->toArray();
+
+            $timeOnSite = CarbonInterval::seconds($aggregations['avg_duration'])->cascade();
 
             FathomStore::find($siteId)->setStats([
-                'current' => number_format($detailed['total']),
-                'visitors' => number_format($totals['content']['visitors']['current']),
-                'views' => number_format($totals['content']['views']['current']),
-                'bounceRate' => number_format($totals['content']['bounce_rate']['current']) . '%',
-                'eventCompletions' => number_format($totals['events']['completions']['current']),
+                'current' => number_format($current),
+                'visitors' => number_format($aggregations['uniques']),
+                'views' => number_format($aggregations['pageviews']),
+                'bounceRate' => number_format($aggregations['bounce_rate'] * 100) . '%',
+                'eventCompletions' => $eventCompletions,
                 'avgTimeOnSite' => $timeOnSite->format('%I:%S')
             ]);
         }

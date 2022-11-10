@@ -1,7 +1,7 @@
 <x-dashboard-tile :position="$position" refresh-interval="30">
     <h2>{{ $label }}</h2>
     <div class="grid gap-2 h-full">
-        <ul class="self-center divide-y-2">
+        <ul class="mt-4 divide-y-2">
             <li class="py-1 grid grid-cols-1-auto">
                 <span>Current</span>
                 <span class="font-bold tabular-nums">
@@ -21,7 +21,7 @@
                 </span>
             </li>
             <li class="py-1 grid grid-cols-1-auto">
-                <span>Avg time on site</span>
+                <span>Avg time</span>
                 <span class="font-bold tabular-nums">
                     {{ $avgTimeOnSite }}
                 </span>
@@ -32,12 +32,14 @@
                     {{ $bounceRate }}
                 </span>
             </li>
+            @foreach ($eventCompletions as $eventCompletion)
             <li class="py-1 grid grid-cols-1-auto">
-                <span>Event completions</span>
+                <span>{{ $eventCompletion['name'] }}</span>
                 <span class="font-bold tabular-nums">
-                    {{ $eventCompletions }}
+                    {{ $eventCompletion['completions'] }}
                 </span>
             </li>
+            @endforeach
         </ul>
     </div>
 </x-dashboard-tile>
