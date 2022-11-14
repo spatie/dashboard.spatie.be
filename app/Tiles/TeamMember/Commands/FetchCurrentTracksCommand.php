@@ -37,7 +37,7 @@ class FetchCurrentTracksCommand extends Command
             ],
             'ruben' => [
                 'type' => MusicType::LASTFM,
-                'key' => 'ruben'
+                'key' => 'ruben-va'
             ],
             'alex' => [
                 'type' => MusicType::LASTFM,
