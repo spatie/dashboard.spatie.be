@@ -39,30 +39,30 @@
     />
 
     <livewire:team-member-tile
-        name="willem"
-        :avatar="gravatar('willem@spatie.be')"
-        birthday="1975-09-03"
-        position="c1:c2"
-    />
-
-    <livewire:team-member-tile
         name="jef"
         :avatar="gravatar('jef@spatie.be')"
         birthday="1975-03-28"
-        position="c3:c4"
+        position="c1:c2"
     />
 
     <livewire:team-member-tile
         name="niels"
         :avatar="gravatar('niels@spatie.be')"
         birthday="1993-07-14"
-        position="c5:c6"
+        position="c3:c4"
     />
 
     <livewire:team-member-tile
         name="sam"
         :avatar="gravatar('sam@spatie.be')"
         birthday="1998-05-01"
+        position="c5:c6"
+    />
+
+    <livewire:team-member-tile
+        name="tim"
+        :avatar="gravatar('tim@spatie.be')"
+        birthday="1989-10-14"
         position="c7:c8"
     />
 
