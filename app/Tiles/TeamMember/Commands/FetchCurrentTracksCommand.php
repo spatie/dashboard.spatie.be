@@ -58,7 +58,7 @@ class FetchCurrentTracksCommand extends Command
         ];
     }
 
-    public function handle()
+    public function handle(): void
     {
         $this->info('Fetching current tracks');
 

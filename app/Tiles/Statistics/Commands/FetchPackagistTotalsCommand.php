@@ -13,7 +13,7 @@ class FetchPackagistTotalsCommand extends Command
 
     protected $description = 'Fetch totals for all our PHP packages';
 
-    public function handle()
+    public function handle(): int
     {
         $this->info('Fetching packagist totals...');
 

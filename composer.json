@@ -10,17 +10,17 @@
     "require": {
         "php": "^8.1",
         "ext-json": "*",
-        "barryvdh/laravel-ide-helper": "^2.12",
+        "barryvdh/laravel-ide-helper": "^2.13",
         "google/apiclient": "^2.6",
         "guzzlehttp/guzzle": "^7.2",
         "guzzlehttp/psr7": "^1.8",
         "knplabs/github-api": "^3.3",
-        "laravel/framework": "^9.52",
-        "laravel/tinker": "^2.7",
+        "laravel/framework": "^10.25",
+        "laravel/tinker": "^2.8",
         "markwalet/laravel-packagist": "^v1.1",
         "nyholm/psr7": "^1.4",
         "pda/pheanstalk": "^4.0",
-        "pusher/pusher-php-server": "^5.0",
+        "pusher/pusher-php-server": "^7.0",
         "spatie/data-transfer-object": "^2.6",
         "spatie/laravel-dashboard": "^2.1",
         "spatie/laravel-dashboard-belgian-trains-tile": "^2.0",
@@ -36,7 +36,7 @@
         "spatie/last-fm-now-playing": "^1.0",
         "spatie/valuestore": "^1.2",
         "league/flysystem-aws-s3-v3": "^3.0",
-        "spatie/laravel-ignition": "^1.4"
+        "spatie/laravel-ignition": "^2.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.17",
@@ -84,7 +84,7 @@
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ]
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
         "preferred-install": "dist",

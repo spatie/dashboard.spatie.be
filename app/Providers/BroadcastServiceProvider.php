@@ -11,7 +11,7 @@ class BroadcastServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot()
+    public function boot(): void
     {
         /*
          * Authenticate the user's personal channel...
