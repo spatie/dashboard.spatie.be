@@ -2,9 +2,9 @@
 
 namespace App\Tiles\Statistics\Commands;
 
+use App\Tiles\Statistics\StatisticsStore;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use App\Tiles\Statistics\StatisticsStore;
 use MarkWalet\Packagist\Facades\Packagist;
 
 class FetchPackagistTotalsCommand extends Command
@@ -18,15 +18,15 @@ class FetchPackagistTotalsCommand extends Command
         $this->info('Fetching packagist totals...');
 
         $totals = collect(Packagist::getPackagesNamesByVendor(config('services.packagist.vendor'))['packageNames'])
-                ->map(function (string $packageName) {
-                    return Packagist::getPackage($packageName)['package'];
-                })
-                ->pipe(function (Collection $packageProperties) {
-                    return [
-                        'monthly' => $packageProperties->sum('downloads.monthly'),
-                        'total' => $packageProperties->sum('downloads.total'),
-                    ];
-                });
+            ->map(function (string $packageName) {
+                return Packagist::getPackage($packageName)['package'];
+            })
+            ->pipe(function (Collection $packageProperties) {
+                return [
+                    'monthly' => $packageProperties->sum('downloads.monthly'),
+                    'total' => $packageProperties->sum('downloads.total'),
+                ];
+            });
 
         StatisticsStore::make()->setPackagistTotals($totals);
 

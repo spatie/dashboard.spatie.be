@@ -18,6 +18,7 @@ return [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+        'scheme' => 'https',
     ],
 
     'postmark' => [
@@ -44,6 +45,7 @@ return [
     'packagist' => [
         'vendor' => env('PACKAGIST_VENDOR'),
     ],
+
     'slack' => [
         'app_token' => env('SLACK_APP_TOKEN'),
     ],
@@ -57,6 +59,7 @@ return [
 
     'fathom' => [
         'token' => env('FATHOM_API_TOKEN'),
-        'sites' => explode(',', env('FATHOM_SITES'))
+        'sites' => explode(',', env('FATHOM_SITES')),
     ],
+
 ];

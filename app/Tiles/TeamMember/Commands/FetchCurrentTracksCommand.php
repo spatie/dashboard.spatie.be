@@ -3,12 +3,12 @@
 namespace App\Tiles\TeamMember\Commands;
 
 use App\Tiles\TeamMember\MusicType;
+use App\Tiles\TeamMember\TeamMemberStore;
 use App\Tiles\TeamMember\TrackData;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Spatie\NowPlaying\NowPlaying;
-use App\Tiles\TeamMember\TeamMemberStore;
 
 class FetchCurrentTracksCommand extends Command
 {
@@ -37,7 +37,7 @@ class FetchCurrentTracksCommand extends Command
             ],
             'ruben' => [
                 'type' => MusicType::LASTFM,
-                'key' => 'ruben-va'
+                'key' => 'ruben-va',
             ],
             'alex' => [
                 'type' => MusicType::LASTFM,
@@ -69,7 +69,7 @@ class FetchCurrentTracksCommand extends Command
                 return;
             }
 
-            $trackData = match($config['type']) {
+            $trackData = match ($config['type']) {
                 MusicType::LASTFM => $this->fetchLastFm($config['key']),
                 MusicType::APPLE => $this->fetchAppleMusic($config['key'], $teamMemberName),
                 default => null,
@@ -81,8 +81,7 @@ class FetchCurrentTracksCommand extends Command
 
             $previousData = $teamMemberStore->nowPlaying();
 
-            if ($previousData && $previousData->artist === $trackData->artist && $previousData->trackName === $trackData->trackName)
-            {
+            if ($previousData && $previousData->artist === $trackData->artist && $previousData->trackName === $trackData->trackName) {
                 return;
             }
 
@@ -99,6 +98,7 @@ class FetchCurrentTracksCommand extends Command
 
         try {
             $info = $lastFm->getTrackInfo($key);
+
             return $info
                 ? new TrackData(...$info)
                 : null;
@@ -121,7 +121,8 @@ class FetchCurrentTracksCommand extends Command
             ]);
 
         if (! $response->successful()) {
-            $this->error("Error when fetching for {$teamMemberName}: ({$response->status()})" . $response->body());
+            $this->error("Error when fetching for {$teamMemberName}: ({$response->status()})".$response->body());
+
             return null;
         }
 
@@ -129,6 +130,7 @@ class FetchCurrentTracksCommand extends Command
 
         if (! $track) {
             $this->error("Error when fetching for {$teamMemberName}: No track found in response");
+
             return null;
         }
 

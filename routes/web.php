@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('apple-music-token', 'apple-music-token');
 
-Route::group(['middleware' => AccessToken::class], function () {
+Route::middleware(AccessToken::class)->group(function () {
     Route::view('/', 'dashboard');
 });
 
