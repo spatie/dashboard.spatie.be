@@ -13,7 +13,6 @@
         "barryvdh/laravel-ide-helper": "^2.1",
         "facade/ignition": "^2.3.6",
         "fideloper/proxy": "^4.2",
-        "fruitcake/laravel-cors": "^2.0",
         "google/apiclient": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "guzzlehttp/psr7": "^1.8",
