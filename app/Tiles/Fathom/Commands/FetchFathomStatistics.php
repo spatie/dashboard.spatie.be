@@ -2,12 +2,10 @@
 
 namespace App\Tiles\Fathom\Commands;
 
+use App\Tiles\Fathom\FathomStore;
 use Carbon\CarbonInterval;
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
-use App\Tiles\Fathom\FathomStore;
 use Illuminate\Support\Facades\Http;
-use MarkWalet\Packagist\Facades\Packagist;
 
 class FetchFathomStatistics extends Command
 {
@@ -15,7 +13,7 @@ class FetchFathomStatistics extends Command
 
     protected $description = 'Fetch totals for all our sites';
 
-    public function handle()
+    public function handle(): void
     {
         $this->info('Fetching Fathom statistics...');
 
@@ -66,9 +64,9 @@ class FetchFathomStatistics extends Command
                 'current' => number_format($current),
                 'visitors' => number_format($aggregations['uniques']),
                 'views' => number_format($aggregations['pageviews']),
-                'bounceRate' => number_format($aggregations['bounce_rate'] * 100) . '%',
+                'bounceRate' => number_format($aggregations['bounce_rate'] * 100).'%',
                 'eventCompletions' => $eventCompletions,
-                'avgTimeOnSite' => $timeOnSite->format('%I:%S')
+                'avgTimeOnSite' => $timeOnSite->format('%I:%S'),
             ]);
         }
 

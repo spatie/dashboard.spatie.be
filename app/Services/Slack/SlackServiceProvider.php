@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class SlackServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         $appToken = config('services.slack.app_token');
 

@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class GitHubServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         $this->app->singleton(GitHubApi::class, function () {
             $client = new Client();

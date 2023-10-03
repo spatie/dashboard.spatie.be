@@ -3,23 +3,23 @@
 namespace App\Console;
 
 use App\Tiles\Fathom\Commands\FetchFathomStatistics;
-use Illuminate\Console\Scheduling\Schedule;
-use Spatie\AttendancesTile\FetchAttendancesCommand;
-use Spatie\VeloTile\FetchVeloStationsCommand;
-use Spatie\CalendarTile\FetchCalendarEventsCommand;
-use App\Tiles\TeamMember\Commands\FetchTasksCommand;
-use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
-use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
-use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
-use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
+use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
+use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
+use App\Tiles\TeamMember\Commands\FetchTasksCommand;
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Spatie\AttendancesTile\FetchAttendancesCommand;
+use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
+use Spatie\CalendarTile\FetchCalendarEventsCommand;
 use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
+use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
+use Spatie\VeloTile\FetchVeloStationsCommand;
 
 class Kernel extends ConsoleKernel
 {
-    protected function schedule(Schedule $schedule)
+    protected function schedule(Schedule $schedule): void
     {
         $schedule->command(FetchBelgianTrainsCommand::class)->everyMinute();
         $schedule->command(FetchCalendarEventsCommand::class)->everyMinute();
@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(FetchFathomStatistics::class)->everyMinute();
     }
 
-    public function commands()
+    public function commands(): void
     {
         $commandDirectories = glob(app_path('Tiles/*'), GLOB_ONLYDIR);
         $commandDirectories[] = app_path('Console');

@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\Models\User;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,7 +21,7 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Register any authentication / authorization services.
      */
-    public function boot()
+    public function boot(): void
     {
         Gate::define('viewWebSocketsDashboard', function ($user = null) {
             if (app()->environment('local')) {
@@ -40,6 +40,5 @@ class AuthServiceProvider extends ServiceProvider
             }
         }
 
-        $this->registerPolicies();
     }
 }

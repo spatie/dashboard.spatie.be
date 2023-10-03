@@ -3,14 +3,14 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Spatie\OhDearUptimeTile\OhDearUptimeTileComponent;
 use Spatie\BelgianTrainsTile\BelgianTrainsTileComponent;
+use Spatie\OhDearUptimeTile\OhDearUptimeTileComponent;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
-        OhDearUptimeTileComponent::showTile(fn (array $downSites) => count($downSites));
-        BelgianTrainsTileComponent::showTile(fn () => now()->hour >= 16 && now()->hour <= 20);
+        // OhDearUptimeTileComponent::showTile(fn (array $downSites) => count($downSites));
+        // BelgianTrainsTileComponent::showTile(fn () => now()->hour >= 16 && now()->hour <= 20);
     }
 }

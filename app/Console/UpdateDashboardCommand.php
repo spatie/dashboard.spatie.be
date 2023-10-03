@@ -2,15 +2,15 @@
 
 namespace App\Console;
 
-use Illuminate\Console\Command;
-use Spatie\VeloTile\FetchVeloStationsCommand;
-use Spatie\CalendarTile\FetchCalendarEventsCommand;
-use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
-use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
-use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
+use App\Tiles\TeamMember\Commands\FetchCurrentTracksCommand;
+use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
+use Illuminate\Console\Command;
+use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
+use Spatie\CalendarTile\FetchCalendarEventsCommand;
 use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
+use Spatie\VeloTile\FetchVeloStationsCommand;
 
 class UpdateDashboardCommand extends Command
 {
@@ -18,7 +18,7 @@ class UpdateDashboardCommand extends Command
 
     protected $description = 'Update all components displayed on the dashboard.';
 
-    public function handle()
+    public function handle(): void
     {
         $this->call(FetchBelgianTrainsCommand::class);
         $this->call(FetchCurrentTracksCommand::class);

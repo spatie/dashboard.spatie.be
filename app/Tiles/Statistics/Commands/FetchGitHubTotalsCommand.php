@@ -2,10 +2,10 @@
 
 namespace App\Tiles\Statistics\Commands;
 
-use Illuminate\Console\Command;
 use App\Services\GitHub\GitHubApi;
-use Illuminate\Support\Collection;
 use App\Tiles\Statistics\StatisticsStore;
+use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
 
 class FetchGitHubTotalsCommand extends Command
 {
@@ -13,7 +13,7 @@ class FetchGitHubTotalsCommand extends Command
 
     protected $description = 'Fetch GitHub totals';
 
-    public function handle(GitHubApi $gitHub)
+    public function handle(GitHubApi $gitHub): void
     {
         $this->info('Fetching GitHub totals');
 

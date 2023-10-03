@@ -2,10 +2,10 @@
 
 namespace App\Tiles\TeamMember\Commands;
 
-use App\Services\Slack\Slack;
 use App\Services\Slack\Member;
-use Illuminate\Console\Command;
+use App\Services\Slack\Slack;
 use App\Tiles\TeamMember\TeamMemberStore;
+use Illuminate\Console\Command;
 
 class FetchSlackStatusCommand extends Command
 {
@@ -26,7 +26,7 @@ class FetchSlackStatusCommand extends Command
         'wouter',
     ];
 
-    public function handle(Slack $slack)
+    public function handle(Slack $slack): void
     {
         $this->info('Fetching team member statuses from Slack...');
 

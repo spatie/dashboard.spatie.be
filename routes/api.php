@@ -2,4 +2,4 @@
 
 use Spatie\CoffeeTile\Http\CoffeeController;
 
-Route::post('/coffee', CoffeeController::class);
+// Route::post('/coffee', CoffeeController::class);

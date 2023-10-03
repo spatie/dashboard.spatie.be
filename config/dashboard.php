@@ -22,22 +22,19 @@ return [
 
     'tiles' => [
         'attendances' => [
-            'emails' =>  [
+            'emails' => [
                 'sebastian@spatie.be',
-                'adriaan@spatie.be',
                 'freek@spatie.be',
-                'willem@spatie.be',
                 'alex@spatie.be',
                 'ruben@spatie.be',
                 'rias@spatie.be',
-                'brent@spatie.be',
                 'jef@spatie.be',
                 'wouter@spatie.be',
-                'vic@spatie.be',
                 'niels@spatie.be',
+                'tim@spatie.be'
             ],
             'keywords' => [
-                'home' => ['thuis', 'verlof', 'ziek',],
+                'home' => ['thuis', 'verlof', 'ziek'],
                 'office' => ['kantoor'],
             ],
             'missingKeywordMeansAtOffice' => false,
