@@ -15,15 +15,14 @@ class FetchSlackStatusCommand extends Command
 
     protected $slackMembers = [
         'seb',
-        'adriaan',
         'freek',
-        'willem',
         'alex',
         'ruben',
         'rias',
         'brent',
         'jef',
         'wouter',
+        'tim',
     ];
 
     public function handle(Slack $slack): void
