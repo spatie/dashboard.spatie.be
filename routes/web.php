@@ -9,4 +9,4 @@ Route::middleware(AccessToken::class)->group(function () {
     Route::view('/', 'dashboard');
 });
 
-// Route::ohDearWebhooks('/oh-dear-webhooks');
+Route::ohDearWebhooks('/oh-dear-webhooks');

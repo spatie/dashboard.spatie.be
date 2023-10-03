@@ -1,6 +1,7 @@
 <x-dashboard>
     {{--
     <livewire:twitter-tile position="a1:a18" />
+    --}}
 
     <livewire:team-member-tile
         position="b1:b2"
@@ -90,7 +91,6 @@
     <livewire:belgian-trains-tile position="a1:a20"/>
 
     <livewire:oh-dear-uptime-tile position="e7:e16" />
-    --}}
 
     <livewire:time-weather-tile position="e1:e6" />
 </x-dashboard>
