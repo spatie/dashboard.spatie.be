@@ -2,12 +2,11 @@
 
 namespace App\Providers;
 
-use App\Tiles\Coffee\CoffeeTileComponent;
 use App\Tiles\Fathom\FathomTileComponent;
-use Livewire\Livewire;
-use Illuminate\Support\ServiceProvider;
 use App\Tiles\Statistics\StatisticsTileComponent;
 use App\Tiles\TeamMember\TeamMemberTileComponent;
+use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class LivewireComponentsServiceProvider extends ServiceProvider
 {

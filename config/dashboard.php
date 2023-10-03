@@ -22,7 +22,7 @@ return [
 
     'tiles' => [
         'attendances' => [
-            'emails' =>  [
+            'emails' => [
                 'sebastian@spatie.be',
                 'adriaan@spatie.be',
                 'freek@spatie.be',
@@ -37,7 +37,7 @@ return [
                 'niels@spatie.be',
             ],
             'keywords' => [
-                'home' => ['thuis', 'verlof', 'ziek',],
+                'home' => ['thuis', 'verlof', 'ziek'],
                 'office' => ['kantoor'],
             ],
             'missingKeywordMeansAtOffice' => false,

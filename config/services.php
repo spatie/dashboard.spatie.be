@@ -57,6 +57,6 @@ return [
 
     'fathom' => [
         'token' => env('FATHOM_API_TOKEN'),
-        'sites' => explode(',', env('FATHOM_SITES'))
+        'sites' => explode(',', env('FATHOM_SITES')),
     ],
 ];
