@@ -89,6 +89,9 @@
         "sort-packages": true,
         "platform": {
             "php": "8.1"
+        },
+        "allow-plugins": {
+            "php-http/discovery": true
         }
     },
     "extra": {
