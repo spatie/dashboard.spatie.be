@@ -36,7 +36,8 @@
         "spatie/laravel-google-calendar": "^3.4",
         "spatie/laravel-tail": "^4.2",
         "spatie/last-fm-now-playing": "^1.0",
-        "spatie/valuestore": "^1.1"
+        "spatie/valuestore": "^1.1",
+        "league/flysystem-aws-s3-v3": "^3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
