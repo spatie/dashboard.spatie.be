@@ -1,26 +1,30 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "format": "prettier --write \"**/*.{css,js,vue}\""
-  },
-  "dependencies": {
-    "cross-env": "^5.0.1",
-    "laravel-mix": "^2.0.0",
-    "postcss-easy-import": "^3.0.0",
-    "stringz": "^0.2.1",
-    "tailwindcss": "^0.6.6",
-    "twemoji": "^11.2"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "jest": "^20.0.4",
-    "mockdate": "^2.0.1",
-    "prettier": "^1.10.2"
-  },
-  "jest": {
-    "testRegex": "test.js$"
-  }
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "watch": "mix watch",
+        "production": "mix --production",
+        "format": "prettier --write \"**/*.{css,js,vue}\"",
+        "development": "mix",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production"
+    },
+    "dependencies": {
+        "laravel-mix": "^6.0.12",
+        "postcss-easy-import": "^3.0.0",
+        "stringz": "^0.2.1",
+        "tailwindcss": "^0.6.6",
+        "twemoji": "^11.2"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "jest": "^20.0.4",
+        "mockdate": "^2.0.1",
+        "prettier": "^1.10.2",
+        "postcss": "^8.2.8"
+    },
+    "jest": {
+        "testRegex": "test.js$"
+    }
 }
