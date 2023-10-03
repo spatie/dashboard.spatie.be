@@ -19,7 +19,7 @@ use Spatie\VeloTile\FetchVeloStationsCommand;
 
 class Kernel extends ConsoleKernel
 {
-    protected function schedule(Schedule $schedule)
+    protected function schedule(Schedule $schedule): void
     {
         $schedule->command(FetchBelgianTrainsCommand::class)->everyMinute();
         $schedule->command(FetchCalendarEventsCommand::class)->everyMinute();
@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(FetchFathomStatistics::class)->everyMinute();
     }
 
-    public function commands()
+    public function commands(): void
     {
         $commandDirectories = glob(app_path('Tiles/*'), GLOB_ONLYDIR);
         $commandDirectories[] = app_path('Console');

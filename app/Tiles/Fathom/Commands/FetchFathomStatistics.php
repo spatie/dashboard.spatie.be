@@ -13,7 +13,7 @@ class FetchFathomStatistics extends Command
 
     protected $description = 'Fetch totals for all our sites';
 
-    public function handle()
+    public function handle(): void
     {
         $this->info('Fetching Fathom statistics...');
 

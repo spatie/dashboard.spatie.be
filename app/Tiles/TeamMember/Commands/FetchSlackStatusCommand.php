@@ -26,7 +26,7 @@ class FetchSlackStatusCommand extends Command
         'wouter',
     ];
 
-    public function handle(Slack $slack)
+    public function handle(Slack $slack): void
     {
         $this->info('Fetching team member statuses from Slack...');
 

@@ -13,7 +13,7 @@ class FetchGitHubTotalsCommand extends Command
 
     protected $description = 'Fetch GitHub totals';
 
-    public function handle(GitHubApi $gitHub)
+    public function handle(GitHubApi $gitHub): void
     {
         $this->info('Fetching GitHub totals');
 

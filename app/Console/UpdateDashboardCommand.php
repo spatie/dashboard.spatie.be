@@ -18,7 +18,7 @@ class UpdateDashboardCommand extends Command
 
     protected $description = 'Update all components displayed on the dashboard.';
 
-    public function handle()
+    public function handle(): void
     {
         $this->call(FetchBelgianTrainsCommand::class);
         $this->call(FetchCurrentTracksCommand::class);
