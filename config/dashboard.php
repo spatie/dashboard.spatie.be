@@ -76,8 +76,8 @@ return [
                 ],
                 [
                     'departure' => 'Antwerpen-Centraal',
-                    'destination' => 'Mechelen',
-                    'label' => 'Mechelen',
+                    'destination' => 'Brecht',
+                    'label' => 'Brecht',
                 ],
                 [
                     'departure' => 'Antwerpen-Centraal',
