@@ -1,3 +1,10 @@
+@push('assets')
+    <style>
+        .text-danger {
+            color: #f56565;
+        }
+    </style>
+@endpush
 <x-dashboard>
     {{--
     <livewire:twitter-tile position="a1:a18" />
