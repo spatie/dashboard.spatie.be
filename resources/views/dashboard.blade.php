@@ -20,7 +20,7 @@
             <livewire:team-member-tile
                 position="{{ $column }}{{ ++$row }}:{{ $column }}{{ ++$row }}"
                 name="{{ strtolower($member['name']) }}"
-                :avatar="gravatar(strtolower($member['name']) . '@spatie.be')"
+                :avatar="gravatar($member['email'])"
                 :birthday="$member['birthday']"
             />
         @endforeach
