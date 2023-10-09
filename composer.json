@@ -23,7 +23,7 @@
         "pda/pheanstalk": "^4.0",
         "pusher/pusher-php-server": "^7.0",
         "spatie/data-transfer-object": "^2.6",
-        "spatie/laravel-dashboard": "dev-main as 3.0.0",
+        "spatie/laravel-dashboard": "^3.0.2",
         "spatie/laravel-dashboard-time-weather-tile": "^3.0",
         "spatie/laravel-dashboard-belgian-trains-tile": "^3.0",
         "spatie/laravel-dashboard-calendar-tile": "^3.0",
