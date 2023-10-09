@@ -16,6 +16,7 @@
     @foreach ($members->split(2) as $groupIndex => $group)
         @php($column = $groupIndex > 0 ? 'c' : 'b')
         @php($row = 0)
+
         @foreach ($group as $memberIndex => $member)
             <livewire:team-member-tile
                 position="{{ $column }}{{ ++$row }}:{{ $column }}{{ ++$row }}"

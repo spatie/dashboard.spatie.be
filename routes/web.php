@@ -9,7 +9,9 @@ Route::view('apple-music-token', 'apple-music-token');
 Route::middleware(AccessToken::class)->group(function () {
     Route::get('/', function () {
         $members = collect(cache()->remember('members', now()->addDay(), function () {
-            return Http::get('https://spatie.be/api/members')->json();
+            return Http::withToken(env('SPATIE_API_TOKEN'))
+                ->get('https://spatie.be/api/members')
+                ->json();
         }));
 
         return view('dashboard', compact('members'));
