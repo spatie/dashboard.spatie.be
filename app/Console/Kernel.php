@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
         $schedule->command(FetchPackagistTotalsCommand::class)->hourly();
         $schedule->command(FetchVeloStationsCommand::class)->everyMinute();
-        $schedule->command(FetchFathomStatistics::class)->everyMinute();
+        $schedule->command(FetchFathomStatistics::class)->hourly();
     }
 
     public function commands(): void
