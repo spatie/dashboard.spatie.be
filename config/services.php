@@ -62,4 +62,8 @@ return [
         'sites' => explode(',', env('FATHOM_SITES') ?? ''),
     ],
 
+    'spatie' => [
+        'token' => env('SPATIE_API_TOKEN'),
+    ],
+
 ];
