@@ -27,6 +27,7 @@ class FetchFathomStatistics extends Command
                 ])
                 ->json('total');
 
+
             $aggregations = Http::withToken(config('services.fathom.token'))
                 ->get('https://api.usefathom.com/v1/aggregations', [
                     'entity_id' => $siteId,
@@ -35,7 +36,7 @@ class FetchFathomStatistics extends Command
                     'timezone' => 'Europe/Brussels',
                     'date_from' => $from,
                     'date_to' => $to,
-                ])->json()[0];
+                ])->json()[0] ?? [];
 
             $events = Http::withToken(config('services.fathom.token'))
                 ->get("https://api.usefathom.com/v1/sites/{$siteId}/events")
@@ -50,21 +51,21 @@ class FetchFathomStatistics extends Command
                         'timezone' => 'Europe/Brussels',
                         'date_from' => $from,
                         'date_to' => $to,
-                    ])->json()[0];
+                    ])->json()[0] ?? [];
 
                 return [$eventData['id'] => [
                     'name' => $eventData['name'],
-                    'completions' => number_format($eventsCompleted['conversions']),
+                    'completions' => number_format($eventsCompleted['conversions'] ?? 0),
                 ]];
             })->toArray();
 
-            $timeOnSite = CarbonInterval::seconds($aggregations['avg_duration'])->cascade();
+            $timeOnSite = CarbonInterval::seconds($aggregations['avg_duration'] ?? 0)->cascade();
 
             FathomStore::find($siteId)->setStats([
                 'current' => number_format($current),
-                'visitors' => number_format($aggregations['uniques']),
-                'views' => number_format($aggregations['pageviews']),
-                'bounceRate' => number_format($aggregations['bounce_rate'] * 100).'%',
+                'visitors' => number_format($aggregations['uniques'] ?? 0),
+                'views' => number_format($aggregations['pageviews'] ?? 0),
+                'bounceRate' => number_format(($aggregations['bounce_rate'] ?? 0) * 100).'%',
                 'eventCompletions' => $eventCompletions,
                 'avgTimeOnSite' => $timeOnSite->format('%I:%S'),
             ]);
