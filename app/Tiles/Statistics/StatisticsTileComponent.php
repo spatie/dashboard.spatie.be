@@ -2,19 +2,12 @@
 
 namespace App\Tiles\Statistics;
 
-use Livewire\Component;
+use Illuminate\Contracts\View\View;
+use Spatie\Dashboard\Components\BaseTileComponent;
 
-class StatisticsTileComponent extends Component
+class StatisticsTileComponent extends BaseTileComponent
 {
-    /** @var string */
-    public $position;
-
-    public function mount(string $position)
-    {
-        $this->position = $position;
-    }
-
-    public function render()
+    public function render(): View
     {
         $statisticsStore = StatisticsStore::make();
 

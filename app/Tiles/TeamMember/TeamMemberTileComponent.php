@@ -3,29 +3,21 @@
 namespace App\Tiles\TeamMember;
 
 use Carbon\Carbon;
-use Livewire\Component;
+use Illuminate\Contracts\View\View;
+use Spatie\Dashboard\Components\BaseTileComponent;
 
-class TeamMemberTileComponent extends Component
+class TeamMemberTileComponent extends BaseTileComponent
 {
-    /** @var string */
-    public $position;
+    public string $name = '';
 
-    /** @var string */
-    public $name;
+    public string $avatar = '';
 
-    /** @var string */
-    public $avatar;
+    public bool $isBirthday = false;
 
-    /** @var bool */
-    public $isBirthday;
+    public ?string $nickName = null;
 
-    /** @var string */
-    public $nickName;
-
-    public function mount(string $position, string $name, string $avatar, string $birthday, string $nickName = null)
+    public function mount(string $name, string $avatar, string $birthday, ?string $nickName = null): void
     {
-        $this->position = $position;
-
         $this->name = $name;
 
         $this->avatar = $avatar;
@@ -35,7 +27,7 @@ class TeamMemberTileComponent extends Component
         $this->nickName = $nickName;
     }
 
-    public function render()
+    public function render(): View
     {
         $teamMember = TeamMemberStore::find($this->name);
 

@@ -1,55 +1,58 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Create The Application
-|--------------------------------------------------------------------------
-|
-| The first thing we will do is create a new Laravel application instance
-| which serves as the "glue" for all the components of Laravel, and is
-| the IoC container for the system binding all of the various parts.
-|
-*/
+use App\Http\Middleware\AccessToken;
+use App\Models\User;
+use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Configuration\Exceptions;
+use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Schema;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
-$app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../')
-);
+return Application::configure(basePath: dirname(__DIR__))
+    ->withRouting(
+        web: __DIR__ . '/../routes/web.php',
+        commands: __DIR__ . '/../routes/console.php',
+    )
+    ->withCommands(
+        glob(__DIR__ . '/../app/Tiles/*', GLOB_ONLYDIR),
+    )
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->alias([
+            'access-token' => AccessToken::class,
+        ]);
 
-/*
-|--------------------------------------------------------------------------
-| Bind Important Interfaces
-|--------------------------------------------------------------------------
-|
-| Next, we need to bind some important interfaces into the container so
-| we will be able to resolve them when needed. The kernels serve the
-| incoming requests to this application from both the web and CLI.
-|
-*/
+        $middleware->api(prepend: [
+            AccessToken::class,
+        ]);
+    })
+    ->withExceptions(function (Exceptions $exceptions) {
+        $exceptions->render(function (UnauthorizedHttpException $e) {
+            return new Response('Invalid credentials.', 401, ['WWW-Authenticate' => 'Basic']);
+        });
+    })
+    ->booted(function () {
+        Gate::define('viewWebSocketsDashboard', function ($user = null) {
+            if (app()->environment('local')) {
+                return true;
+            }
 
-$app->singleton(
-    Illuminate\Contracts\Http\Kernel::class,
-    App\Http\Kernel::class
-);
+            if (in_array($_SERVER['HTTP_X_FORWARDED_FOR'] ?? '', config('websockets.allowed_dashboard_ips'))) {
+                return true;
+            }
 
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
-);
+            return false;
+        });
 
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
-);
-
-/*
-|--------------------------------------------------------------------------
-| Return The Application
-|--------------------------------------------------------------------------
-|
-| This script returns the application instance. The instance is given to
-| the calling script so we can separate the building of the instances
-| from the actual running of the application and sending responses.
-|
-*/
-
-return $app;
+        try {
+            if (Schema::hasTable(with(new User)->getTable())) {
+                if ($user = User::first()) {
+                    auth()->login($user);
+                }
+            }
+        } catch (\Throwable) {
+            // Database not available
+        }
+    })
+    ->create();

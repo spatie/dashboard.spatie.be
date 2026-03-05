@@ -1,19 +1,22 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use App\Tiles\Fathom\Commands\FetchFathomStatistics;
+use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
+use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
+use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
+use Illuminate\Support\Facades\Schedule;
+use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
+use Spatie\CalendarTile\FetchCalendarEventsCommand;
+use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
+use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
+use Spatie\VeloTile\FetchVeloStationsCommand;
 
-/*
-|--------------------------------------------------------------------------
-| Console Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of your Closure based console
-| commands. Each Closure is bound to a command instance allowing a
-| simple approach to interacting with each command's IO methods.
-|
-*/
-
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Schedule::command(FetchBelgianTrainsCommand::class)->everyMinute();
+Schedule::command(FetchCalendarEventsCommand::class)->everyMinute();
+Schedule::command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
+Schedule::command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
+Schedule::command(FetchSlackStatusCommand::class)->everyTenMinutes();
+Schedule::command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
+Schedule::command(FetchPackagistTotalsCommand::class)->hourly();
+Schedule::command(FetchVeloStationsCommand::class)->everyMinute();
+Schedule::command(FetchFathomStatistics::class)->hourly();

@@ -64,7 +64,7 @@ return [
         ],
 
         'velo' => [
-            'stations' => explode(',', env('VELO_STATIONS')),
+            'stations' => explode(',', env('VELO_STATIONS', '')),
         ],
 
         'belgian_trains' => [

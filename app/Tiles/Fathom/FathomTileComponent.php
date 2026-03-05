@@ -2,27 +2,16 @@
 
 namespace App\Tiles\Fathom;
 
-use Livewire\Component;
+use Illuminate\Contracts\View\View;
+use Spatie\Dashboard\Components\BaseTileComponent;
 
-class FathomTileComponent extends Component
+class FathomTileComponent extends BaseTileComponent
 {
-    /** @var string */
-    public $position;
+    public string $siteId = '';
 
-    /** @var string */
-    public $siteId;
+    public string $label = '';
 
-    /** @var string */
-    public $label;
-
-    public function mount(string $position, string $label, string $siteId)
-    {
-        $this->position = $position;
-        $this->siteId = $siteId;
-        $this->label = $label;
-    }
-
-    public function render()
+    public function render(): View
     {
         $fathomStore = FathomStore::find($this->siteId);
 
