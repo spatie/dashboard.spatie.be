@@ -21,12 +21,12 @@
         "nyholm/psr7": "^1.4|^2.0",
         "pda/pheanstalk": "^5.0",
         "pusher/pusher-php-server": "^7.0",
-        "spatie/laravel-dashboard": "*@dev",
-        "spatie/laravel-dashboard-time-weather-tile": "*@dev",
-        "spatie/laravel-dashboard-belgian-trains-tile": "*@dev",
-        "spatie/laravel-dashboard-calendar-tile": "*@dev",
-        "spatie/laravel-dashboard-oh-dear-uptime-tile": "*@dev",
-        "spatie/laravel-dashboard-velo-tile": "*@dev",
+        "spatie/laravel-dashboard": "^4.0",
+        "spatie/laravel-dashboard-time-weather-tile": "^4.0",
+        "spatie/laravel-dashboard-belgian-trains-tile": "^4.0",
+        "spatie/laravel-dashboard-calendar-tile": "^4.0",
+        "spatie/laravel-dashboard-oh-dear-uptime-tile": "^4.0",
+        "spatie/laravel-dashboard-velo-tile": "^4.0",
         "spatie/laravel-google-calendar": "^3.5",
         "spatie/laravel-ignition": "^2.0",
         "spatie/laravel-tail": "^4.4",
@@ -68,40 +68,6 @@
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ]
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../laravel-dashboard",
-            "canonical": false
-        },
-        {
-            "type": "path",
-            "url": "../laravel-dashboard-belgian-trains-tile",
-            "canonical": false
-        },
-        {
-            "type": "path",
-            "url": "../laravel-dashboard-calendar-tile",
-            "canonical": false
-        },
-        {
-            "type": "path",
-            "url": "../laravel-dashboard-oh-dear-uptime-tile",
-            "canonical": false
-        },
-        {
-            "type": "path",
-            "url": "../laravel-dashboard-time-weather-tile",
-            "canonical": false
-        },
-        {
-            "type": "path",
-            "url": "../laravel-dashboard-velo-tile",
-            "canonical": false
-        }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,

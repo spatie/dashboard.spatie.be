@@ -1,5 +1,6 @@
-@import './bootstrap';
-@import './fonts/*';
-@import './components/*';
-
-@tailwind utilities;
+@import './bootstrap.css';
+@import './fonts/inter-ui.css';
+@import './fonts/twemoji.css';
+@import './components/filter.css';
+@import './components/grid.css';
+@import './components/markup.css';

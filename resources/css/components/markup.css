@@ -1,26 +1,28 @@
 .markup h1 {
-    @apply font-medium;
-    @apply text-sm;
-    @apply tracking-wide;
-    @apply uppercase;
-    @apply text-dimmed;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: var(--color-dimmed);
 }
 
 .markup h2 {
-    @apply font-bold;
+    font-weight: 700;
 }
 
 .markup li {
-    @apply flex justify-between items-baseline;
-    @apply leading-tight;
-    @apply border-b-2 border-screen;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    line-height: 1.25;
+    border-bottom: 2px solid var(--color-canvas);
     padding: 0.35rem 0;
 }
 
 .markup li:first-child {
-    @apply pt-0;
+    padding-top: 0;
 }
 
 .markup li:last-child {
-    @apply border-0;
+    border: 0;
 }

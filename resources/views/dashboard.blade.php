@@ -1,9 +1,5 @@
 @push('assets')
-    <style>
-        .text-danger {
-            color: #f56565;
-        }
-    </style>
+    @vite('resources/css/app.css')
 @endpush
 <x-dashboard>
     {{--

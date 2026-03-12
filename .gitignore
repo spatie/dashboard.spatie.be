@@ -9,5 +9,4 @@ _ide_helper*.php
 /public/media
 /public/mix-manifest.json
 /vendor
-package-lock.json
 .claude/

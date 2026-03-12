@@ -21,7 +21,7 @@ return "echo '\033[32m" .$message. "\033[0m';\n";
 startDeployment
 cloneRepository
 runComposer
-runYarn
+runNpm
 generateAssets
 updateSymlinks
 optimizeInstallation
@@ -39,7 +39,7 @@ deployOnlyCode
 @macro('deploy-clean')
 cloneRepository
 runComposerWithDependencies
-runYarn
+runNpm
 generateAssets
 updateSymlinks
 optimizeInstallation
@@ -92,17 +92,16 @@ cd {{ $newReleaseDir }};
 composer install;
 @endtask
 
-@task('runYarn', ['on' => 'remote'])
-{{ logMessage("📦  Running Yarn...") }}
+@task('runNpm', ['on' => 'remote'])
+{{ logMessage("📦  Running npm...") }}
 cd {{ $newReleaseDir }};
-yarn config set ignore-engines true
-yarn --frozen-lockfile
+npm ci
 @endtask
 
 @task('generateAssets', ['on' => 'remote'])
 {{ logMessage("🌅  Generating assets...") }}
 cd {{ $newReleaseDir }};
-yarn run production
+npm run build
 @endtask
 
 @task('updateSymlinks', ['on' => 'remote'])

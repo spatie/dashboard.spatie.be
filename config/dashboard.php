@@ -76,7 +76,7 @@ return [
                 ],
                 [
                     'departure' => 'Antwerpen-Centraal',
-                    'destination' => 'Brecht',
+                    'destination' => 'Noorderkempen',
                     'label' => 'Brecht',
                 ],
                 [
