@@ -26,6 +26,7 @@ class FetchFathomStatistics extends Command
         foreach (config('services.fathom.sites') as $siteId) {
             try {
                 $this->fetchSiteStatistics($siteId, $from, $to);
+                sleep(1);
             } catch (Throwable $e) {
                 $this->error("Failed to fetch stats for {$siteId}: {$e->getMessage()}");
             }
