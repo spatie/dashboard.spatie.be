@@ -25,9 +25,10 @@
 
     <livewire:calendar-tile position="e7:e20" :calendar-id="config('google-calendar.calendar_id')" />
 
-    <livewire:statistics-tile position="d12:d20" />
-    <livewire:fathom-tile position="b11:b20" siteId="GSENXMLW" label="📯 Mailcoach" />
-    <livewire:fathom-tile position="c11:C20" siteId="LBABKDJB" label="🎆 Flare" />
+    
+    <livewire:fathom-tile position="b1:b6" siteId="GSENXMLW" label="📯 Mailcoach" />
+    <livewire:fathom-tile position="c1:C6" siteId="LBABKDJB" label="🎆 Flare" />
+    <livewire:statistics-tile position="d1:d6" />
 
     <livewire:oh-dear-uptime-tile position="e7:e16" />
 

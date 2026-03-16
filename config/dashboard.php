@@ -79,11 +79,6 @@ return [
                     'destination' => 'Noorderkempen',
                     'label' => 'Brecht',
                 ],
-                [
-                    'departure' => 'Antwerpen-Centraal',
-                    'destination' => 'Overpelt',
-                    'label' => 'Overpelt',
-                ],
             ]
         ],
 
