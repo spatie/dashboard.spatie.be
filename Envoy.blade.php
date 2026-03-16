@@ -28,7 +28,7 @@ optimizeInstallation
 migrateDatabase
 blessNewRelease
 cleanOldReleases
-restart pi
+markDeploy
 finishDeploy
 @endmacro
 
@@ -153,9 +153,15 @@ ls -dt {{ $releasesDir }}/* | tail -n +6 | xargs -d "\n" sudo chown -R forge .;
 ls -dt {{ $releasesDir }}/* | tail -n +6 | xargs -d "\n" rm -rf;
 @endtask
 
-@task('restart pi', ['on' => 'local'])
-ssh pi 'sudo reboot'
+@task('markDeploy', ['on' => 'remote'])
+{{ logMessage("📡  Marking deploy...") }}
+cd {{ $currentDir }}
+php artisan deploy:mark
 @endtask
+
+{{-- @task('restart pi', ['on' => 'local'])
+ssh pi 'sudo reboot'
+@endtask --}}
 
 @task('finishDeploy', ['on' => 'local'])
 {{ logMessage("🚀  Application deployed!") }}

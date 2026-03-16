@@ -1,7 +1,17 @@
 @push('assets')
     @vite('resources/css/app.css')
 @endpush
+@push('scripts')
+<script>
+    document.addEventListener('livewire:init', () => {
+        Livewire.on('deploy-detected', () => {
+            window.location.reload();
+        });
+    });
+</script>
+@endpush
 <x-dashboard>
+    <livewire:deploy-checker />
     {{--
     <livewire:twitter-tile position="a1:a18" />
     --}}
