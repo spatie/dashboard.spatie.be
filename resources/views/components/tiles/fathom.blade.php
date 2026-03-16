@@ -32,14 +32,6 @@
                     {{ $bounceRate }}
                 </span>
             </li>
-            @foreach ($eventCompletions as $eventCompletion)
-            <li class="py-1 grid grid-cols-1-auto">
-                <span>{{ $eventCompletion['name'] }}</span>
-                <span class="font-bold tabular-nums">
-                    {{ $eventCompletion['completions'] }}
-                </span>
-            </li>
-            @endforeach
         </ul>
     </div>
 </x-dashboard-tile>
