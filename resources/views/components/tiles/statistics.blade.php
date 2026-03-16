@@ -1,4 +1,5 @@
 <x-dashboard-tile :position="$position" refresh-interval="30">
+    <h2>📦 Packages</h2>
     <div class="grid gap-2 h-full">
         <ul class="self-center divide-y-2">
             <li class="py-1 grid grid-cols-1-auto">
