@@ -1,0 +1,19 @@
+{
+    "agents": [
+        "claude_code"
+    ],
+    "guidelines": true,
+    "herd_mcp": false,
+    "mcp": true,
+    "nightwatch_mcp": false,
+    "packages": [
+        "spatie/laravel-dashboard",
+        "spatie/laravel-ray"
+    ],
+    "sail": false,
+    "skills": [
+        "tailwindcss-development",
+        "laravel-dashboard-development",
+        "debugging-output-and-previewing-html-using-ray"
+    ]
+}

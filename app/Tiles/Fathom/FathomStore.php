@@ -45,11 +45,6 @@ class FathomStore
         return $this->tile->getData('bounceRate') ?? '0';
     }
 
-    public function eventCompletions(): array
-    {
-        return $this->tile->getData('eventCompletions') ?? [];
-    }
-
     public function avgTimeOnSite(): string
     {
         return $this->tile->getData('avgTimeOnSite') ?? '0';

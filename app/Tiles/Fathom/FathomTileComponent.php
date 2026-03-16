@@ -20,7 +20,6 @@ class FathomTileComponent extends BaseTileComponent
             'visitors' => $fathomStore->visitors(),
             'views' => $fathomStore->views(),
             'bounceRate' => $fathomStore->bounceRate(),
-            'eventCompletions' => $fathomStore->eventCompletions(),
             'avgTimeOnSite' => $fathomStore->avgTimeOnSite(),
         ]);
     }
