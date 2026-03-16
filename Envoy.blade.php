@@ -45,7 +45,7 @@ updateSymlinks
 optimizeInstallation
 blessNewRelease
 cleanOldReleases
-restart pi
+{{-- restart pi --}}
 finishDeploy
 @endmacro
 
