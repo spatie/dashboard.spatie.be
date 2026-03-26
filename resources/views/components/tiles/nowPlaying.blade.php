@@ -1,18 +1,20 @@
 <x-dashboard-tile :position="$position" refresh-interval="10">
     <div class="grid gap-4 h-full">
         @if($song)
-            <div class="grid grid-cols-auto-1 gap-4 items-center">
+            <div class="flex items-center">
                 @if($song->album_art_url)
                     <div class="overflow-hidden w-16 h-16 rounded">
                         <img alt="album art" src="{{ $song->album_art_url }}" class="w-16 h-16 object-cover" />
                     </div>
                 @endif
+            </div>
 
-                <div class="leading-tight min-w-0">
-                    <h2 class="truncate text-lg font-bold text-default">{{ $song->title }}</h2>
-                    <p class="truncate text-dimmed">{{ $song->artist }}</p>
-                    <p class="truncate text-sm text-dimmed">Requested by {{ $song->requested_by }}</p>
-                </div>
+            <div class="leading-tight min-w-0">
+                <h2 class="truncate text-lg font-bold text-default">{{ $song->title }}</h2>
+                <p class="truncate text-dimmed mb-2">{{ $song->artist }}</p>
+                <p class="truncate text-xs text-dimmed">
+                   Requested by{{ $song->requested_by }}
+                </p>
             </div>
 
             @if($song->next_song_title)
