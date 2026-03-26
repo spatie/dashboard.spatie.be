@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->string('artist');
-            $table->string('requested_by');
+            $table->string('requested_by')->nullable();
             $table->string('next_song_title');
             $table->string('next_song_artist');
             $table->string('album_art_url')->nullable();

@@ -15,7 +15,7 @@ class ProcessNowPlayingSongWebhookJob extends ProcessWebhookJob
         $validated = Validator::make($payload, [
             'title' => ['required', 'string'],
             'artist' => ['required', 'string'],
-            'requested_by' => ['required', 'string'],
+            'requested_by' => ['nullable', 'string'],
             'next_song_title' => ['required', 'string'],
             'next_song_artist' => ['required', 'string'],
             'album_art_url' => ['nullable', 'string', 'url'],
