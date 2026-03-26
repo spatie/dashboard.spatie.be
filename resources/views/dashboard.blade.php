@@ -43,4 +43,6 @@
     <livewire:oh-dear-uptime-tile position="e7:e16" />
 
     <livewire:time-weather-tile position="e1:e6" />
+
+    <livewire:now-playing-tile position="d9:d13" />
 </x-dashboard>
