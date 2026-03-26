@@ -19,6 +19,10 @@ return Application::configure(basePath: dirname(__DIR__))
         glob(__DIR__ . '/../app/Tiles/*', GLOB_ONLYDIR),
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->validateCsrfTokens(except: [
+            'webhooks/*',
+        ]);
+
         $middleware->alias([
             'access-token' => AccessToken::class,
         ]);

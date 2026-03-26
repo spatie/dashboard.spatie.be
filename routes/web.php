@@ -19,3 +19,5 @@ Route::middleware(AccessToken::class)->group(function () {
 });
 
 Route::ohDearWebhooks('/oh-dear-webhooks');
+
+Route::webhooks('/webhooks/now-playing');

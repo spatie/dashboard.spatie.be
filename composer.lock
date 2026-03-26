@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "707efb026521dbe92f1023bad3dbbd56",
+    "content-hash": "c6b459e906a555e6ec999783a9de033a",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -6566,6 +6566,84 @@
                 }
             ],
             "time": "2026-02-21T15:39:17+00:00"
+        },
+        {
+            "name": "spatie/laravel-webhook-client",
+            "version": "3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-webhook-client.git",
+                "reference": "b282e08fc625fab6e685b14f45c192926ce648cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-webhook-client/zipball/b282e08fc625fab6e685b14f45c192926ce648cf",
+                "reference": "b282e08fc625fab6e685b14f45c192926ce648cf",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/bus": "^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
+                "illuminate/database": "^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
+                "illuminate/http": "^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
+                "illuminate/support": "^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
+                "php": "^8.1 || ^8.2",
+                "spatie/laravel-package-tools": "^1.11"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0",
+                "pestphp/pest": "^3.8 || ^4.0",
+                "pestphp/pest-plugin-laravel": "^3.2 || ^4.0",
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan-deprecation-rules": "^1.2.1",
+                "phpstan/phpstan-phpunit": "^1.4.2",
+                "phpunit/phpunit": "^11.5.3 || ^12.0",
+                "spatie/laravel-ray": "^1.43.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\WebhookClient\\WebhookClientServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-master": "11.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\WebhookClient\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Receive webhooks in Laravel apps",
+            "homepage": "https://github.com/spatie/laravel-webhook-client",
+            "keywords": [
+                "laravel-webhook-client",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-webhook-client/issues",
+                "source": "https://github.com/spatie/laravel-webhook-client/tree/3.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2026-02-21T14:39:13+00:00"
         },
         {
             "name": "spatie/last-fm-now-playing",
