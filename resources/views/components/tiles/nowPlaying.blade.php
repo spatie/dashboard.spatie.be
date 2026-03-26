@@ -3,8 +3,8 @@
         @if($song)
             <div class="flex items-center">
                 @if($song->album_art_url)
-                    <div class="overflow-hidden w-16 h-16 rounded">
-                        <img alt="album art" src="{{ $song->album_art_url }}" class="w-16 h-16 object-cover" />
+                    <div class="overflow-hidden w-32 h-32 rounded">
+                        <img alt="album art" src="{{ $song->album_art_url }}" class="w-32 h-32 object-cover" />
                     </div>
                 @endif
             </div>
@@ -13,7 +13,7 @@
                 <h2 class="truncate text-lg font-bold text-default">{{ $song->title }}</h2>
                 <p class="truncate text-dimmed mb-2">{{ $song->artist }}</p>
                 <p class="truncate text-xs text-dimmed">
-                   Requested by{{ $song->requested_by }}
+                   Requested by {{ $song->requested_by }}
                 </p>
             </div>
 

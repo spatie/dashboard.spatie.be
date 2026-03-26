@@ -34,7 +34,7 @@
     @endforeach
 
     <livewire:calendar-tile position="e7:e20" :calendar-id="config('google-calendar.calendar_id')" />
-    
+
     <livewire:fathom-tile position="b1:b8" siteId="GSENXMLW" label="📯 Mailcoach" />
     <livewire:fathom-tile position="c1:c8" siteId="LBABKDJB" label="🎆 Flare" />
     <livewire:fathom-tile position="d1:d8" siteId="OMNDKUTR" label="🔵 Spatie" />
@@ -44,5 +44,5 @@
 
     <livewire:time-weather-tile position="e1:e6" />
 
-    <livewire:now-playing-tile position="d9:d13" />
+    <livewire:now-playing-tile position="d9:d16" />
 </x-dashboard>
