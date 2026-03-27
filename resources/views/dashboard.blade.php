@@ -38,11 +38,11 @@
     <livewire:fathom-tile position="b1:b8" siteId="GSENXMLW" label="📯 Mailcoach" />
     <livewire:fathom-tile position="c1:c8" siteId="LBABKDJB" label="🎆 Flare" />
     <livewire:fathom-tile position="d1:d8" siteId="OMNDKUTR" label="🔵 Spatie" />
-    <livewire:statistics-tile position="b9:b13" />
+    <livewire:statistics-tile position="b9:b16" />
 
     <livewire:oh-dear-uptime-tile position="e7:e16" />
 
     <livewire:time-weather-tile position="e1:e6" />
 
-    <livewire:now-playing-tile position="d9:d16" />
+    <livewire:now-playing-tile position="d9:d17" />
 </x-dashboard>
