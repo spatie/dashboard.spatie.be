@@ -23,7 +23,10 @@
                 </div>
             @endif
         @else
-            <p class="text-dimmed">No song playing</p>
+            <div class="flex flex-col items-center justify-center h-full text-center">
+                <p class="text-dimmed">No song playing</p>
+                <p class="text-dimmed text-sm mt-2">Start playing at <span class="text-blue-400">liveat.spatie.be</span></p>
+            </div>
         @endif
     </div>
 </x-dashboard-tile>
