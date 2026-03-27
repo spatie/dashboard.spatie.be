@@ -21,6 +21,8 @@ class ProcessNowPlayingSongWebhookJob extends ProcessWebhookJob
             'album_art_url' => ['nullable', 'string', 'url'],
         ])->validate();
 
+        $validated['requested_by'] = $validated['requested_by'] ?? 'Paolo';
+
         NowPlayingSong::query()->truncate();
 
         NowPlayingSong::create($validated);

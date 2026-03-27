@@ -13,7 +13,7 @@
                 <h2 class="truncate text-lg font-bold text-default">{{ $song->title }}</h2>
                 <p class="truncate text-dimmed mb-2">{{ $song->artist }}</p>
                 <p class="truncate text-xs text-dimmed">
-                   Requested by {{ $song->requested_by }}
+                   Requested by {{ $song->requested_by ?? 'Paolo' }}
                 </p>
             </div>
 
