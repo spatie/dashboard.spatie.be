@@ -1,6 +1,7 @@
 <?php
 
 use App\Tiles\Fathom\Commands\FetchFathomStatistics;
+use App\Tiles\Officient\Commands\FetchOfficientCalendarCommand;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
 use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
@@ -20,3 +21,4 @@ Schedule::command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
 Schedule::command(FetchPackagistTotalsCommand::class)->hourly();
 Schedule::command(FetchVeloStationsCommand::class)->everyMinute();
 Schedule::command(FetchFathomStatistics::class)->hourly();
+Schedule::command(FetchOfficientCalendarCommand::class)->everyTenMinutes();

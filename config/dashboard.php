@@ -82,6 +82,10 @@ return [
             ]
         ],
 
+        'officient' => [
+            'wfh_keywords' => ['thuiswerk', 'thuis', 'home', 'wfh', 'work from home'],
+        ],
+
         'time_weather' => [
             'open_weather_map_key' => env('OPEN_WEATHER_MAP_KEY'),
             'open_weather_map_city' => 'Antwerp',
