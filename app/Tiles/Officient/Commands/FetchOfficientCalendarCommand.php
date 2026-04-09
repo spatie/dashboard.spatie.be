@@ -32,6 +32,26 @@ class FetchOfficientCalendarCommand extends Command
         $days = [];
 
         foreach ($weekDays as $day) {
+            $firstCalendar = $officient->getDayCalendar($people->first()['id'], $day);
+            $companyDaysOff = $firstCalendar['company_days_off'] ?? [];
+
+            if (! empty($companyDaysOff)) {
+                $holidayName = $companyDaysOff[0]['name'] ?? 'Holiday';
+
+                $days[] = [
+                    'date' => $day->format('Y-m-d'),
+                    'label' => $day->locale('en')->dayName,
+                    'is_today' => $day->isSameDay($today),
+                    'is_holiday' => true,
+                    'holiday_name' => $holidayName,
+                    'in_office' => [],
+                ];
+
+                $this->info("{$day->format('l')}: public holiday ({$holidayName})");
+
+                continue;
+            }
+
             $inOffice = [];
 
             foreach ($people as $person) {
@@ -58,6 +78,7 @@ class FetchOfficientCalendarCommand extends Command
                 'date' => $day->format('Y-m-d'),
                 'label' => $day->locale('en')->dayName,
                 'is_today' => $day->isSameDay($today),
+                'is_holiday' => false,
                 'in_office' => $inOffice,
             ];
 

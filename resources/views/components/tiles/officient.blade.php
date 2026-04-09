@@ -9,6 +9,11 @@
                     <h3 class="text-dimmed text-sm capitalize">{{ $day['label'] }}</h3>
                 @endif
 
+                @if($day['is_holiday'] ?? false)
+                    <span class="text-dimmed text-sm mb-2 block">🥳 <span class="italic">Public holiday</span></span>
+                    @continue
+                @endif
+
                 @php
                     $count = count($day['in_office']);
                     $size = $day['is_today'] ? 2.5 : 2; // rem (w-10 / w-8)
