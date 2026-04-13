@@ -7,6 +7,7 @@ use App\Livewire\DeployCheckerComponent;
 use App\Tiles\Fathom\FathomTileComponent;
 use App\Tiles\NowPlaying\NowPlayingTileComponent;
 use App\Tiles\Officient\OfficientTileComponent;
+use App\Tiles\OhDear\OhDearMessagesTileComponent;
 use App\Tiles\Statistics\StatisticsTileComponent;
 use App\Tiles\TeamMember\TeamMemberTileComponent;
 use Illuminate\Support\Facades\Broadcast;
@@ -26,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
         Livewire::component('fathom-tile', FathomTileComponent::class);
         Livewire::component('now-playing-tile', NowPlayingTileComponent::class);
         Livewire::component('officient-tile', OfficientTileComponent::class);
+        Livewire::component('oh-dear-messages-tile', OhDearMessagesTileComponent::class);
 
         Broadcast::routes();
 
