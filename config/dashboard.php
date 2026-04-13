@@ -29,7 +29,6 @@ return [
         'start_time' => env('WEEKPLANNING_START_TIME', '12:00'),
         'end_time' => env('WEEKPLANNING_END_TIME', '12:15'),
         'timezone' => env('WEEKPLANNING_TIMEZONE', 'Europe/Brussels'),
-        'refresh_interval_in_seconds' => (int) env('WEEKPLANNING_REFRESH_INTERVAL_IN_SECONDS', 15),
     ],
 
     'tiles' => [

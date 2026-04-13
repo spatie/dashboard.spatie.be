@@ -3,9 +3,9 @@
 @endpush
 @push('scripts')
 <script>
-    window.setInterval(() => {
+    window.setTimeout(() => {
         window.location.reload();
-    }, {{ $weekplanningRefreshIntervalInSeconds * 1000 }});
+    }, {{ $weekplanningReloadInMilliseconds }});
 
     document.addEventListener('livewire:init', () => {
         Livewire.on('deploy-detected', () => {

@@ -17,7 +17,6 @@ class DashboardTest extends TestCase
             'start_time' => '12:00',
             'end_time' => '12:15',
             'timezone' => 'Europe/Brussels',
-            'refresh_interval_in_seconds' => 15,
         ]);
 
         Http::fake();
@@ -40,7 +39,6 @@ class DashboardTest extends TestCase
             'start_time' => '12:00',
             'end_time' => '12:15',
             'timezone' => 'Europe/Brussels',
-            'refresh_interval_in_seconds' => 15,
         ]);
 
         Http::fake([

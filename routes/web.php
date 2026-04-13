@@ -24,7 +24,7 @@ Route::middleware(AccessToken::class)->group(function () {
         return view('dashboard', [
             'members' => $members,
             'showWeekplanning' => $showWeekplanning,
-            'weekplanningRefreshIntervalInSeconds' => $weekplanning->refreshIntervalInSeconds(),
+            'weekplanningReloadInMilliseconds' => $weekplanning->millisecondsUntilNextTransition(),
         ]);
     });
 });

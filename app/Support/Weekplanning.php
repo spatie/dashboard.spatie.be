@@ -9,23 +9,29 @@ class Weekplanning
 {
     public function isActive(?CarbonInterface $now = null): bool
     {
-        $currentTime = $now
-            ? CarbonImmutable::instance($now)->setTimezone($this->timezone())
-            : CarbonImmutable::now($this->timezone());
+        $currentTime = $this->resolveCurrentTime($now);
 
         if ($currentTime->dayOfWeekIso !== $this->dayOfWeek()) {
             return false;
         }
 
-        $start = $currentTime->startOfDay()->setTimeFromTimeString($this->startTime());
-        $end = $currentTime->startOfDay()->setTimeFromTimeString($this->endTime());
+        $start = $this->startDateTimeForDay($currentTime);
+        $end = $this->endDateTimeForDay($currentTime);
 
         return $currentTime->greaterThanOrEqualTo($start) && $currentTime->lessThan($end);
     }
 
-    public function refreshIntervalInSeconds(): int
+    public function millisecondsUntilNextTransition(?CarbonInterface $now = null): int
     {
-        return (int) config('dashboard.weekplanning.refresh_interval_in_seconds', 15);
+        $currentTime = $this->resolveCurrentTime($now);
+        $start = $this->nextStartDateTime($currentTime);
+        $end = $this->endDateTimeForDay($currentTime);
+
+        if ($this->isActive($currentTime)) {
+            return $currentTime->diffInMilliseconds($end, false);
+        }
+
+        return $currentTime->diffInMilliseconds($start, false);
     }
 
     protected function dayOfWeek(): int
@@ -46,5 +52,35 @@ class Weekplanning
     protected function timezone(): string
     {
         return (string) config('dashboard.weekplanning.timezone', config('app.timezone'));
+    }
+
+    protected function resolveCurrentTime(?CarbonInterface $now = null): CarbonImmutable
+    {
+        return $now
+            ? CarbonImmutable::instance($now)->setTimezone($this->timezone())
+            : CarbonImmutable::now($this->timezone());
+    }
+
+    protected function startDateTimeForDay(CarbonImmutable $date): CarbonImmutable
+    {
+        return $date->startOfDay()->setTimeFromTimeString($this->startTime());
+    }
+
+    protected function endDateTimeForDay(CarbonImmutable $date): CarbonImmutable
+    {
+        return $date->startOfDay()->setTimeFromTimeString($this->endTime());
+    }
+
+    protected function nextStartDateTime(CarbonImmutable $currentTime): CarbonImmutable
+    {
+        $daysUntilWeekplanning = ($this->dayOfWeek() - $currentTime->dayOfWeekIso + 7) % 7;
+
+        $start = $this->startDateTimeForDay($currentTime->addDays($daysUntilWeekplanning));
+
+        if ($daysUntilWeekplanning === 0 && $currentTime->greaterThanOrEqualTo($this->endDateTimeForDay($currentTime))) {
+            return $start->addWeek();
+        }
+
+        return $start;
     }
 }
