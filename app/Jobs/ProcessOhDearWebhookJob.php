@@ -35,7 +35,20 @@ class ProcessOhDearWebhookJob extends ProcessWebhookJob
 
     private function resolveSeverity(string $type): string
     {
-        if (Str::contains($type, ['Recovered', 'Succeeded'], ignoreCase: true)) {
+        $warningKeywords = [
+            'Recovered',
+            'Succeeded',
+            'NotExecutedOnTime',
+            'ExpiresSoon',
+            'BrokenLinks',
+            'MixedContent',
+            'Performance',
+            'Lighthouse',
+            'Sitemap',
+            'DnsHistory',
+        ];
+
+        if (Str::contains($type, $warningKeywords, ignoreCase: true)) {
             return 'warning';
         }
 
