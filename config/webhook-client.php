@@ -63,7 +63,7 @@ return [
         [
             'name' => 'oh-dear',
             'signing_secret' => env('OH_DEAR_WEBHOOK_SIGNING_SECRET'),
-            'signature_header_name' => 'Signature',
+            'signature_header_name' => 'OhDear-Signature',
             'signature_validator' => \Spatie\WebhookClient\SignatureValidator\DefaultSignatureValidator::class,
             'webhook_profile' => \Spatie\WebhookClient\WebhookProfile\ProcessEverythingWebhookProfile::class,
             'webhook_response' => \Spatie\WebhookClient\WebhookResponse\DefaultRespondsTo::class,
