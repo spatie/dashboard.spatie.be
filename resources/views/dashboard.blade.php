@@ -16,7 +16,7 @@
 @endpush
 <x-dashboard>
     @if($showWeekplanning)
-        <div class="fixed inset-0 z-10 p-10 flex items-center justify-center bg-canvas px-8 text-center text-[min(18vw,12rem)] font-black tracking-tight text-default">
+        <div class="fixed inset-0 z-10 p-10 flex items-center justify-center bg-canvas px-8 text-center text-[60px] font-black tracking-tight text-default">
             Weekplanning!
         </div>
     @else
