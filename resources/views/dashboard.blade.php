@@ -44,19 +44,19 @@
 
         <livewire:calendar-tile position="e7:e20" :calendar-id="config('google-calendar.calendar_id')" />
 
-        <livewire:fathom-tile position="b1:b8" siteId="GSENXMLW" label="📯 Mailcoach" />
-        <livewire:fathom-tile position="c1:c8" siteId="LBABKDJB" label="🎆 Flare" />
-        <livewire:fathom-tile position="d1:d8" siteId="OMNDKUTR" label="🔵 Spatie" />
-        <livewire:statistics-tile position="c9:c16" />
+        <livewire:fathom-tile position="b1:b6" siteId="GSENXMLW" label="📯 Mailcoach" />
+        <livewire:fathom-tile position="c1:c6" siteId="LBABKDJB" label="🎆 Flare" />
+        <livewire:fathom-tile position="d1:d6" siteId="OMNDKUTR" label="🔵 Spatie" />
+        <livewire:statistics-tile position="c7:c15" />
 
         <livewire:oh-dear-uptime-tile position="e7:e16" />
 
         <livewire:time-weather-tile position="e1:e6" />
 
-        <livewire:now-playing-tile position="d9:d17" />
+        <livewire:now-playing-tile position="d7:d15" />
 
-        <livewire:officient-tile position="b9:b20" />
+        <livewire:officient-tile position="b7:b18" />
 
-        {{-- <livewire:oh-dear-messages-tile position="d18:d20" /> --}}
+        <livewire:oh-dear-messages-tile position="c16:d20" />
     @endif
 </x-dashboard>
