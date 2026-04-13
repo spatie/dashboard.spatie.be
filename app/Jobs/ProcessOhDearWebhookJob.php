@@ -4,41 +4,27 @@ namespace App\Jobs;
 
 use App\Models\OhDearMessage;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Spatie\WebhookClient\Jobs\ProcessWebhookJob;
 
 class ProcessOhDearWebhookJob extends ProcessWebhookJob
 {
-    private const SEVERITY_MAP = [
-        'uptimeCheckFailed' => 'error',
-        'certificateExpiresSoon' => 'error',
-        'certificateExpired' => 'error',
-        'certificateCheckFailed' => 'error',
-        'applicationHealthCheckFailed' => 'error',
-        'cronCheckFailed' => 'error',
-        'mixedContentFound' => 'error',
-        'dnsHistoryChanged' => 'error',
-        'performanceTargetsNotMet' => 'warning',
-        'brokenLinksFound' => 'warning',
-        'lighthouseScoreLow' => 'warning',
-        'uptimeCheckRecovered' => 'warning',
-    ];
-
     public function handle(): void
     {
         $payload = $this->webhookCall->payload;
 
         $type = Arr::get($payload, 'type');
 
-        if (! $type || ! isset(self::SEVERITY_MAP[$type])) {
+        if (! $type) {
             return;
         }
 
-        $site = Arr::get($payload, 'data.site.url') ?? Arr::get($payload, 'data.site.sort_url');
-        $checkType = Arr::get($payload, 'data.check.type', '');
+        $site = Arr::get($payload, 'site.url') ?? Arr::get($payload, 'site.sort_url');
+        $checkType = Arr::get($payload, 'run.check.type', '');
 
         OhDearMessage::create([
             'event_type' => $type,
-            'severity' => self::SEVERITY_MAP[$type],
+            'severity' => $this->resolveSeverity($type),
             'group_key' => sha1("{$type}|{$site}|{$checkType}"),
             'title' => $this->buildTitle($type, $payload),
             'site' => $site,
@@ -47,12 +33,26 @@ class ProcessOhDearWebhookJob extends ProcessWebhookJob
         ]);
     }
 
+    private function resolveSeverity(string $type): string
+    {
+        if (Str::contains($type, ['Recovered', 'Succeeded'], ignoreCase: true)) {
+            return 'warning';
+        }
+
+        return 'error';
+    }
+
     private function buildTitle(string $type, array $payload): string
     {
-        $label = str(preg_replace('/(?<!^)[A-Z]/', ' $0', $type))->lower()->ucfirst()->toString();
+        $eventName = Str::of($type)
+            ->replaceLast('Notification', '')
+            ->snake(' ')
+            ->ucfirst()
+            ->toString();
 
-        $reason = Arr::get($payload, 'data.reason');
+        $summary = Arr::get($payload, 'run.latest_completed_run_summary')
+            ?? Arr::get($payload, 'run.check.latest_completed_run_summary');
 
-        return $reason ? "{$label}: {$reason}" : $label;
+        return $summary ? "{$eventName}: {$summary}" : $eventName;
     }
 }
