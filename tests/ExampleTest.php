@@ -1,13 +1,21 @@
 <?php
 
+namespace Tests\Feature;
+
+use Illuminate\Support\Facades\Http;
+use Tests\TestCase;
+
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic functional test example.
-     */
-    public function testBasicExample(): void
+    public function testTheDashboardRouteRespondsSuccessfully(): void
     {
-        $this->visit('/')
-            ->see('Laravel');
+        config()->set('app.access_token', 'test-token');
+
+        Http::fake([
+            'https://spatie.be/api/members' => Http::response([]),
+        ]);
+
+        $this->get('/?access-token=test-token')
+            ->assertOk();
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\Weekplanning;
 use App\Http\Middleware\AccessToken;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
@@ -7,14 +8,24 @@ use Illuminate\Support\Facades\Route;
 Route::view('apple-music-token', 'apple-music-token');
 
 Route::middleware(AccessToken::class)->group(function () {
-    Route::get('/', function () {
-        $members = collect(cache()->remember('members', now()->addDay(), function () {
-            return Http::withToken(config('services.spatie.token'))
-                ->get('https://spatie.be/api/members')
-                ->json();
-        }));
+    Route::get('/', function (Weekplanning $weekplanning) {
+        $showWeekplanning = $weekplanning->isActive();
 
-        return view('dashboard', compact('members'));
+        $members = collect();
+
+        if (! $showWeekplanning) {
+            $members = collect(cache()->remember('members', now()->addDay(), function () {
+                return Http::withToken(config('services.spatie.token'))
+                    ->get('https://spatie.be/api/members')
+                    ->json();
+            }));
+        }
+
+        return view('dashboard', [
+            'members' => $members,
+            'showWeekplanning' => $showWeekplanning,
+            'weekplanningRefreshIntervalInSeconds' => $weekplanning->refreshIntervalInSeconds(),
+        ]);
     });
 });
 

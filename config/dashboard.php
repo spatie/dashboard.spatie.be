@@ -20,6 +20,18 @@ return [
         'lng' => 4.402771,
     ],
 
+    /*
+     * ISO-8601 weekday number, using the configured timezone.
+     * Monday = 1, Sunday = 7.
+     */
+    'weekplanning' => [
+        'day_of_week' => (int) env('WEEKPLANNING_DAY_OF_WEEK', 1),
+        'start_time' => env('WEEKPLANNING_START_TIME', '12:00'),
+        'end_time' => env('WEEKPLANNING_END_TIME', '12:15'),
+        'timezone' => env('WEEKPLANNING_TIMEZONE', 'Europe/Brussels'),
+        'refresh_interval_in_seconds' => (int) env('WEEKPLANNING_REFRESH_INTERVAL_IN_SECONDS', 15),
+    ],
+
     'tiles' => [
         'attendances' => [
             'emails' => [
