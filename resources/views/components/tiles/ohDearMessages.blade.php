@@ -1,6 +1,6 @@
 <x-dashboard-tile :position="$position" refresh-interval="30">
     <div class="flex flex-col h-full gap-2 overflow-hidden">
-        <h2 class="text-sm text-dimmed uppercase tracking-wide">🐻 Oh Dear</h2>
+        <h2 class="text-sm text-dimmed uppercase tracking-wide">😱 Oh Dear</h2>
 
         @if($groups->isEmpty())
             <div class="flex-1 flex items-center justify-center text-dimmed text-sm">
