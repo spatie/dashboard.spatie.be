@@ -102,6 +102,7 @@ return [
             'open_weather_map_city' => 'Antwerp',
             'buienradar_latitude' => env('BUIENRADAR_LATITUDE'),
             'buienradar_longitude' => env('BUIENRADAR_LONGITUDE'),
+            'timezone' => 'Europe/Brussels',
         ],
     ],
 ];
