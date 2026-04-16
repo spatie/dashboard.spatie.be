@@ -1,6 +1,7 @@
 <?php
 
 use App\Tiles\Fathom\Commands\FetchFathomStatistics;
+use App\Tiles\NowPlaying\Commands\FetchTopArtistsCommand;
 use App\Tiles\Officient\Commands\FetchOfficientCalendarCommand;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
@@ -22,3 +23,4 @@ Schedule::command(FetchPackagistTotalsCommand::class)->hourly();
 Schedule::command(FetchVeloStationsCommand::class)->everyMinute();
 Schedule::command(FetchFathomStatistics::class)->hourly();
 Schedule::command(FetchOfficientCalendarCommand::class)->everyTenMinutes();
+Schedule::command(FetchTopArtistsCommand::class)->hourly();

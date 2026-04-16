@@ -22,6 +22,26 @@
                     <span class="font-semibold">Up next:</span> {{ $song->next_song_title }} — {{ $song->next_song_artist }}
                 </div>
             @endif
+        @elseif($topArtist)
+            <div class="leading-tight min-w-0">
+                <p class="text-xs uppercase tracking-wide text-dimmed mb-1">Top artist this week</p>
+                <h2 class="truncate text-lg font-bold text-default">{{ $topArtist->artist }}</h2>
+                <p class="truncate text-dimmed">{{ $topArtist->plays }} {{ Str::plural('play', $topArtist->plays) }}</p>
+
+                @if($topArtist->artworkUrl)
+                    <div class="flex items-center mt-5">
+                        <div class="overflow-hidden w-32 h-32 rounded">
+                            <img alt="album art" src="{{ $topArtist->artworkUrl }}" class="w-32 h-32 object-cover" />
+                        </div>
+                    </div>
+                @endif
+
+                <div class="flex flex-col justify-center mt-10">
+                    <p class="text-dimmed text-sm mt-2">Start playing at <span class="text-blue-400">liveat.spatie.be</span></p>
+                </div>
+            </div>
+
+
         @else
             <div class="flex flex-col items-center justify-center h-full text-center">
                 <p class="text-dimmed">No song playing</p>
