@@ -23,4 +23,4 @@ Schedule::command(FetchPackagistTotalsCommand::class)->hourly();
 Schedule::command(FetchVeloStationsCommand::class)->everyMinute();
 Schedule::command(FetchFathomStatistics::class)->hourly();
 Schedule::command(FetchOfficientCalendarCommand::class)->everyTenMinutes();
-Schedule::command(FetchTopArtistsCommand::class)->hourly();
+Schedule::command(FetchTopArtistsCommand::class)->everyFiveMinutes();
