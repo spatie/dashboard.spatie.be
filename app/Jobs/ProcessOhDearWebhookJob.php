@@ -22,10 +22,21 @@ class ProcessOhDearWebhookJob extends ProcessWebhookJob
         $site = Arr::get($payload, 'site.url') ?? Arr::get($payload, 'site.sort_url');
         $checkType = Arr::get($payload, 'run.check.type', '');
 
+        if ($this->isRecoveryEvent($type)) {
+            OhDearMessage::query()
+                ->where('site', $site)
+                ->where('check_type', $checkType)
+                ->where('severity', 'error')
+                ->delete();
+
+            return;
+        }
+
         OhDearMessage::create([
             'event_type' => $type,
             'severity' => $this->resolveSeverity($type),
             'group_key' => sha1("{$type}|{$site}|{$checkType}"),
+            'check_type' => $checkType,
             'title' => $this->buildTitle($type, $payload),
             'site' => $site,
             'payload' => $payload,
@@ -33,11 +44,14 @@ class ProcessOhDearWebhookJob extends ProcessWebhookJob
         ]);
     }
 
+    private function isRecoveryEvent(string $type): bool
+    {
+        return Str::contains($type, ['Recovered', 'Succeeded'], ignoreCase: true);
+    }
+
     private function resolveSeverity(string $type): string
     {
         $warningKeywords = [
-            'Recovered',
-            'Succeeded',
             'NotExecutedOnTime',
             'ExpiresSoon',
             'BrokenLinks',
