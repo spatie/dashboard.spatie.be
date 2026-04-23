@@ -16,8 +16,8 @@ class ProcessNowPlayingSongWebhookJob extends ProcessWebhookJob
             'title' => ['required', 'string'],
             'artist' => ['required', 'string'],
             'requested_by' => ['nullable', 'string'],
-            'next_song_title' => ['required', 'string'],
-            'next_song_artist' => ['required', 'string'],
+            'next_song_title' => ['nullable', 'string'],
+            'next_song_artist' => ['nullable', 'string'],
             'album_art_url' => ['nullable', 'string', 'url'],
         ])->validate();
 
