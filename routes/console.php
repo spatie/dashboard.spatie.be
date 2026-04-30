@@ -13,14 +13,14 @@ use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
 use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
 use Spatie\VeloTile\FetchVeloStationsCommand;
 
-Schedule::command(FetchBelgianTrainsCommand::class)->everyMinute();
-Schedule::command(FetchCalendarEventsCommand::class)->everyMinute();
+Schedule::command(FetchBelgianTrainsCommand::class)->everyTwoMinutes();
+Schedule::command(FetchCalendarEventsCommand::class)->everyTenMinutes();
 Schedule::command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
 Schedule::command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
 Schedule::command(FetchSlackStatusCommand::class)->everyTenMinutes();
 Schedule::command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
 Schedule::command(FetchPackagistTotalsCommand::class)->hourly();
-Schedule::command(FetchVeloStationsCommand::class)->everyMinute();
+Schedule::command(FetchVeloStationsCommand::class)->everyTwoMinutes();
 Schedule::command(FetchFathomStatistics::class)->hourly();
 Schedule::command(FetchOfficientCalendarCommand::class)->everyTenMinutes();
-Schedule::command(FetchTopArtistsCommand::class)->everyFiveMinutes();
+Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
