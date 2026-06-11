@@ -29,6 +29,12 @@ class FetchOfficientCalendarCommand extends Command
         $people = $this->getPeopleWithAvatars($officient);
         $wfhKeywords = config('dashboard.tiles.officient.wfh_keywords', []);
 
+        if ($people->isEmpty()) {
+            $this->error('No active Officient people found.');
+
+            return;
+        }
+
         $days = [];
 
         foreach ($weekDays as $day) {
@@ -92,14 +98,22 @@ class FetchOfficientCalendarCommand extends Command
 
     private function getPeopleWithAvatars(Officient $officient): Collection
     {
-        return collect(cache()->remember('officient_people', now()->addDay(), function () use ($officient) {
+        $today = now()->timezone('Europe/Brussels');
+        $date = $today->toDateString();
+        $expiresAt = $today->copy()->endOfDay();
+
+        return collect(cache()->remember("officient_active_people_{$date}", $expiresAt, function () use ($officient, $date) {
             return $officient->getPeople()
-                ->map(function (array $person) use ($officient) {
+                ->map(function (array $person) use ($officient, $date) {
                     try {
                         $detail = $officient->getPersonDetail($person['id']);
                         $avatar = $detail['avatar'] ?? null;
                     } catch (Throwable $e) {
-                        $avatar = null;
+                        return null;
+                    }
+
+                    if (! $this->isEmployedOn($detail, $date)) {
+                        return null;
                     }
 
                     return [
@@ -108,8 +122,32 @@ class FetchOfficientCalendarCommand extends Command
                         'avatar' => $avatar ?: gravatar($person['email'] ?? ''),
                     ];
                 })
+                ->filter()
+                ->values()
                 ->toArray();
         }));
+    }
+
+    private function isEmployedOn(array $detail, string $date): bool
+    {
+        $employment = $detail['employment'] ?? [];
+        $firstEmploymentDate = $employment['first_employment_date'] ?? null;
+
+        if (! $firstEmploymentDate) {
+            return false;
+        }
+
+        if ($firstEmploymentDate > $date) {
+            return false;
+        }
+
+        $lastEmploymentDate = $employment['last_employment_date'] ?? null;
+
+        if ($lastEmploymentDate && $lastEmploymentDate < $date) {
+            return false;
+        }
+
+        return true;
     }
 
     private function determineStatus(Collection $events, array $wfhKeywords): string
