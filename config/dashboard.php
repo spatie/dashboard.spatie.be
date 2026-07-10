@@ -38,12 +38,12 @@ return [
             [
                 'name' => 'main',
                 'view' => 'dashboard.screens.main',
-                'duration_in_seconds' => 60,
+                'duration_in_seconds' => 90,
             ],
             [
                 'name' => 'now playing',
                 'url' => 'https://liveat.spatie.be/now-playing',
-                'duration_in_seconds' => 60,
+                'duration_in_seconds' => 300,
             ],
         ],
     ],
@@ -59,7 +59,7 @@ return [
                 'jef@spatie.be',
                 'wouter@spatie.be',
                 'niels@spatie.be',
-                'tim@spatie.be'
+                'tim@spatie.be',
             ],
             'keywords' => [
                 'home' => ['thuis', 'verlof', 'ziek'],
@@ -69,9 +69,7 @@ return [
         ],
 
         'calendar' => [
-            'ids' => [
-                env('GOOGLE_CALENDAR_ID'),
-            ],
+            'ids' => [env('GOOGLE_CALENDAR_ID')],
             'refresh_interval_in_seconds' => 3,
         ],
 
@@ -82,11 +80,7 @@ return [
                     'consumer_secret' => env('TWITTER_CONSUMER_SECRET'),
                     'access_token' => env('TWITTER_ACCESS_TOKEN'),
                     'access_token_secret' => env('TWITTER_ACCESS_TOKEN_SECRET'),
-                    'listen_for' => [
-                        'spatie.be',
-                        '@spatie_be',
-                        'github.com/spatie',
-                    ],
+                    'listen_for' => ['spatie.be', '@spatie_be', 'github.com/spatie'],
                 ],
             ],
         ],
@@ -107,7 +101,7 @@ return [
                     'destination' => 'Noorderkempen (Brecht)',
                     'label' => 'Brecht',
                 ],
-            ]
+            ],
         ],
 
         'officient' => [
