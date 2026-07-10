@@ -40,6 +40,11 @@ return [
                 'view' => 'dashboard.screens.main',
                 'duration_in_seconds' => 60,
             ],
+            [
+                'name' => 'now playing',
+                'url' => 'https://liveat.spatie.be/now-playing',
+                'duration_in_seconds' => 60,
+            ],
         ],
     ],
 
