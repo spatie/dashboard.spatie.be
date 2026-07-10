@@ -3,14 +3,47 @@
 @endpush
 @push('scripts')
 <script>
-    window.setTimeout(() => {
+    window.setTimeout(function () {
         window.location.reload();
     }, {{ $weekplanningReloadInMilliseconds }});
 
-    document.addEventListener('livewire:init', () => {
-        Livewire.on('deploy-detected', () => {
+    document.addEventListener('livewire:init', function () {
+        Livewire.on('deploy-detected', function () {
             window.location.reload();
         });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const screens = [...document.querySelectorAll('[data-dashboard-screen]')];
+
+        if (screens.length <= 1) {
+            return;
+        }
+
+        let activeScreenIndex = 0;
+        let timeoutId = null;
+
+        function showScreen(screenIndex) {
+            screens.forEach(function (screen, currentScreenIndex) {
+                const isActiveScreen = currentScreenIndex === screenIndex;
+
+                screen.classList.toggle('opacity-0', ! isActiveScreen);
+                screen.classList.toggle('pointer-events-none', ! isActiveScreen);
+                screen.toggleAttribute('aria-hidden', ! isActiveScreen);
+            });
+
+            const durationInSeconds = Number.parseInt(screens[screenIndex].dataset.durationInSeconds, 10);
+
+            window.clearTimeout(timeoutId);
+
+            timeoutId = window.setTimeout(function () {
+                activeScreenIndex = (screenIndex + 1) % screens.length;
+
+                showScreen(activeScreenIndex);
+            }, durationInSeconds * 1000);
+        }
+
+        showScreen(activeScreenIndex);
     });
 </script>
 @endpush
@@ -21,42 +54,28 @@
         </div>
     @else
         <livewire:deploy-checker />
-        {{--
-        <livewire:twitter-tile position="a1:a18" />
-        --}}
-        <livewire:belgian-trains-tile position="a1:a14"/>
 
-        <livewire:velo-tile position="a15:a20" />
-
-        @foreach ($members->split(2) as $groupIndex => $group)
-            @php($column = $groupIndex > 0 ? 'c' : 'b')
-            @php($row = 0)
-
-            @foreach ($group as $memberIndex => $member)
-                <livewire:team-member-tile
-                    position="{{ $column }}{{ ++$row }}:{{ $column }}{{ ++$row }}"
-                    name="{{ strtolower($member['name']) }}"
-                    :avatar="gravatar($member['email'])"
-                    :birthday="$member['birthday']"
-                />
-            @endforeach
+        @foreach($screens as $screenIndex => $screen)
+            <section
+                data-dashboard-screen
+                data-duration-in-seconds="{{ $screen['duration_in_seconds'] }}"
+                class="absolute inset-0 grid gap-2 p-2 transition-opacity duration-700 {{ $screenIndex === 0 ? '' : 'opacity-0 pointer-events-none' }}"
+                @if($screenIndex !== 0)
+                    aria-hidden="true"
+                @endif
+            >
+                @if($screen['type'] === 'view')
+                    @include($screen['view'])
+                @else
+                    <iframe
+                        class="h-full w-full border-0 bg-canvas"
+                        src="{{ $screen['url'] }}"
+                        title="{{ $screen['name'] ?? 'Dashboard screen' }}"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen
+                    ></iframe>
+                @endif
+            </section>
         @endforeach
-
-        <livewire:calendar-tile position="e7:e20" :calendar-id="config('google-calendar.calendar_id')" />
-
-        <livewire:fathom-tile position="b1:b6" siteId="GSENXMLW" label="📯 Mailcoach" />
-        <livewire:fathom-tile position="c1:c6" siteId="LBABKDJB" label="🎆 Flare" />
-        <livewire:fathom-tile position="d1:d6" siteId="OMNDKUTR" label="🔵 Spatie" />
-        <livewire:statistics-tile position="c7:c15" />
-
-        <livewire:oh-dear-uptime-tile position="e7:e16" />
-
-        <livewire:time-weather-tile position="e1:e6" />
-
-        <livewire:now-playing-tile position="d7:d15" />
-
-        <livewire:officient-tile position="b7:b18" />
-
-        <livewire:oh-dear-messages-tile position="c16:d20" />
     @endif
 </x-dashboard>
