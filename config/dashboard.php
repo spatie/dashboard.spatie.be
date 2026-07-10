@@ -31,6 +31,18 @@ return [
         'timezone' => env('WEEKPLANNING_TIMEZONE', 'Europe/Brussels'),
     ],
 
+    'screens' => [
+        'default_duration_in_seconds' => 60,
+
+        'items' => [
+            [
+                'name' => 'main',
+                'view' => 'dashboard.screens.main',
+                'duration_in_seconds' => 60,
+            ],
+        ],
+    ],
+
     'tiles' => [
         'attendances' => [
             'emails' => [
