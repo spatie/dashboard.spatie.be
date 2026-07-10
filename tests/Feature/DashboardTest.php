@@ -41,6 +41,17 @@ class DashboardTest extends TestCase
             'timezone' => 'Europe/Brussels',
         ]);
 
+        config()->set('dashboard.screens', [
+            'default_duration_in_seconds' => 60,
+            'items' => [
+                [
+                    'name' => 'main',
+                    'view' => 'dashboard.screens.main',
+                    'duration_in_seconds' => 60,
+                ],
+            ],
+        ]);
+
         Http::fake([
             'https://spatie.be/api/members' => Http::response([
                 [
@@ -118,6 +129,7 @@ class DashboardTest extends TestCase
         $this->get('/?access-token=test-token')
             ->assertOk()
             ->assertSee('data-duration-in-seconds="30"', false)
+            ->assertDontSee('grid gap-2 p-2 transition-opacity', false)
             ->assertSee('src="https://example.com/status"', false)
             ->assertSee('title="external status"', false);
 

@@ -59,7 +59,7 @@
             <section
                 data-dashboard-screen
                 data-duration-in-seconds="{{ $screen['duration_in_seconds'] }}"
-                class="absolute inset-0 grid gap-2 p-2 transition-opacity duration-700 {{ $screenIndex === 0 ? '' : 'opacity-0 pointer-events-none' }}"
+                class="absolute inset-0 grid gap-2 transition-opacity duration-700 {{ $screen['type'] === 'view' ? 'p-2' : '' }} {{ $screenIndex === 0 ? '' : 'opacity-0 pointer-events-none' }}"
                 @if($screenIndex !== 0)
                     aria-hidden="true"
                 @endif
