@@ -15,6 +15,7 @@ class ClimateTileComponentTest extends TestCase
     public function testItRendersUnavailableValuesBeforeTheFirstFetch(): void
     {
         Livewire::test(ClimateTileComponent::class, ['position' => 'd1:d6'])
+            ->assertSee('🌡️ Climate')
             ->assertSee('Indoor')
             ->assertSee('Outdoor')
             ->assertSee('—')

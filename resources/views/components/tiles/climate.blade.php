@@ -1,6 +1,6 @@
 <x-dashboard-tile :position="$position" refresh-interval="30">
     <div class="flex flex-col h-full">
-        <h2 class="font-bold text-default">Climate</h2>
+        <h2 class="font-bold text-default">🌡️ Climate</h2>
 
         <div class="grid grid-cols-2 gap-3 my-auto text-center">
             <div>
