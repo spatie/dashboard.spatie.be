@@ -5,7 +5,6 @@ namespace App\Providers;
 use App\Models\User;
 use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
-use App\Livewire\DeployCheckerComponent;
 use Illuminate\Support\Facades\Broadcast;
 use App\Tiles\Officient\OfficientTileComponent;
 use App\Livewire\ProductAnalyticsScreenComponent;
@@ -22,7 +21,6 @@ class AppServiceProvider extends ServiceProvider
     {
         OhDearUptimeTileComponent::showTile(fn (array $downSites) => count($downSites));
 
-        Livewire::component('deploy-checker', DeployCheckerComponent::class);
         Livewire::component('team-member-tile', TeamMemberTileComponent::class);
         Livewire::component('statistics-tile', StatisticsTileComponent::class);
         Livewire::component('product-analytics-screen', ProductAnalyticsScreenComponent::class);
