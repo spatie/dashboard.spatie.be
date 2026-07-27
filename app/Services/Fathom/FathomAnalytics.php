@@ -9,7 +9,7 @@ class FathomAnalytics
 {
     public const Timezone = 'Europe/Brussels';
 
-    private const CacheFormatVersion = 'v1';
+    private const CacheFormatVersion = 'v2';
 
     public function __construct(
         private FathomApi $api,
@@ -33,8 +33,8 @@ class FathomAnalytics
                 $from = $now->startOfDay()->subDays(29);
                 $analytics = $this->api->dailyAnalytics($siteId, $from, $now, self::Timezone);
                 $rowsByDate = collect($analytics->days)
-                    ->filter(fn (array $row) => filled($row['timestamp'] ?? null))
-                    ->keyBy(fn (array $row) => substr((string) $row['timestamp'], 0, 10));
+                    ->filter(fn (array $row) => filled($row['date'] ?? null))
+                    ->keyBy(fn (array $row) => $row['date']);
 
                 $days = collect(range(29, 0))
                     ->map(function (int $daysAgo) use ($now, $rowsByDate): array {

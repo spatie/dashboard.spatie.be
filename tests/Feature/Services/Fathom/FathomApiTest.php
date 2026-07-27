@@ -27,7 +27,7 @@ class FathomApiTest extends TestCase
                     'object' => 'list',
                     'data' => [
                         [
-                            'timestamp' => '2026-04-13 00:00:00',
+                            'date' => '2026-04-13',
                             'visits' => 12,
                             'pageviews' => 30,
                         ],
@@ -61,6 +61,7 @@ class FathomApiTest extends TestCase
         $sources = $api->trafficSources('SITEID', $to->startOfDay(), $to, 'Europe/Brussels');
 
         $this->assertSame(12, $daily->days[0]['visits']);
+        $this->assertSame('2026-04-13', $daily->days[0]['date']);
         $this->assertSame(3, $current->total);
         $this->assertSame('/docs', $pages->rows[0]['pathname']);
         $this->assertSame('Google', $sources->rows[0]['referrer_source']);

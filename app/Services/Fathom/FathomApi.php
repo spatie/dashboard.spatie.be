@@ -35,7 +35,24 @@ class FathomApi
             'date_to' => $to->format('Y-m-d H:i:s'),
         ]);
 
-        return new DailyAnalyticsData($this->rows($response));
+        $days = collect($this->rows($response))
+            ->map(function (array $row): ?array {
+                $date = $row['date'] ?? $row['timestamp'] ?? null;
+
+                if (! is_string($date)) {
+                    return null;
+                }
+
+                return [
+                    ...$row,
+                    'date' => substr($date, 0, 10),
+                ];
+            })
+            ->filter()
+            ->values()
+            ->all();
+
+        return new DailyAnalyticsData($days);
     }
 
     public function currentVisitors(string $siteId): CurrentVisitorsData
