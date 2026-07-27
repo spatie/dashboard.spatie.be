@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Carbon\CarbonImmutable;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
 class DashboardTest extends TestCase
@@ -42,13 +43,14 @@ class DashboardTest extends TestCase
         ]);
 
         config()->set('dashboard.screens', [
-            'default_duration_in_seconds' => 60,
-            'items' => [
-                [
-                    'name' => 'main',
-                    'view' => 'dashboard.screens.main',
-                    'duration_in_seconds' => 60,
-                ],
+            'main' => [
+                'view' => 'dashboard.screens.main',
+            ],
+        ]);
+        config()->set('dashboard.schedule', [
+            [
+                'screen' => 'main',
+                'duration_in_seconds' => 60,
             ],
         ]);
 
@@ -76,13 +78,14 @@ class DashboardTest extends TestCase
         config()->set('app.access_token', 'test-token');
 
         config()->set('dashboard.screens', [
-            'default_duration_in_seconds' => 60,
-            'items' => [
-                [
-                    'name' => 'main',
-                    'view' => 'dashboard.screens.main',
-                    'duration_in_seconds' => 45,
-                ],
+            'main' => [
+                'view' => 'dashboard.screens.main',
+            ],
+        ]);
+        config()->set('dashboard.schedule', [
+            [
+                'screen' => 'main',
+                'duration_in_seconds' => 45,
             ],
         ]);
 
@@ -101,7 +104,12 @@ class DashboardTest extends TestCase
         $this->get('/?access-token=test-token')
             ->assertOk()
             ->assertSee('data-dashboard-screen', false)
-            ->assertSee('data-duration-in-seconds="45"', false)
+            ->assertViewHas('schedule', fn (Collection $schedule): bool => $schedule->all() === [
+                [
+                    'screen' => 'main',
+                    'duration_in_seconds' => 45,
+                ],
+            ])
             ->assertSee('team-member-tile', false);
 
         Http::assertSentCount(1);
@@ -112,13 +120,14 @@ class DashboardTest extends TestCase
         config()->set('app.access_token', 'test-token');
 
         config()->set('dashboard.screens', [
-            'default_duration_in_seconds' => 60,
-            'items' => [
-                [
-                    'name' => 'external status',
-                    'url' => 'https://example.com/status',
-                    'duration_in_seconds' => 30,
-                ],
+            'external-status' => [
+                'url' => 'https://example.com/status',
+            ],
+        ]);
+        config()->set('dashboard.schedule', [
+            [
+                'screen' => 'external-status',
+                'duration_in_seconds' => 30,
             ],
         ]);
 
@@ -128,25 +137,32 @@ class DashboardTest extends TestCase
 
         $this->get('/?access-token=test-token')
             ->assertOk()
-            ->assertSee('data-duration-in-seconds="30"', false)
+            ->assertViewHas('schedule', fn (Collection $schedule): bool => $schedule->all() === [
+                [
+                    'screen' => 'external-status',
+                    'duration_in_seconds' => 30,
+                ],
+            ])
             ->assertDontSee('grid gap-2 p-2 transition-opacity', false)
             ->assertSee('src="https://example.com/status"', false)
-            ->assertSee('title="external status"', false);
+            ->assertSee('title="External Status"', false);
 
         Http::assertNothingSent();
     }
 
-    public function testItUsesTheDefaultDurationForScreensWithoutADuration(): void
+    public function testItUsesTheDefaultDurationForScheduleEntriesWithoutADuration(): void
     {
         config()->set('app.access_token', 'test-token');
 
+        config()->set('dashboard.default_duration_in_seconds', 15);
         config()->set('dashboard.screens', [
-            'default_duration_in_seconds' => 15,
-            'items' => [
-                [
-                    'name' => 'external status',
-                    'url' => 'https://example.com/status',
-                ],
+            'external-status' => [
+                'url' => 'https://example.com/status',
+            ],
+        ]);
+        config()->set('dashboard.schedule', [
+            [
+                'screen' => 'external-status',
             ],
         ]);
 
@@ -156,14 +172,25 @@ class DashboardTest extends TestCase
 
         $this->get('/?access-token=test-token')
             ->assertOk()
-            ->assertSee('data-duration-in-seconds="15"', false);
+            ->assertViewHas('schedule', fn (Collection $schedule): bool => $schedule->all() === [
+                [
+                    'screen' => 'external-status',
+                    'duration_in_seconds' => 15,
+                ],
+            ]);
     }
 
-    public function testItFallsBackToTheMainDashboardWhenNoScreensAreConfigured(): void
+    public function testItSkipsUnknownScreensAndFallsBackToTheMainDashboard(): void
     {
         config()->set('app.access_token', 'test-token');
 
-        config()->set('dashboard.screens.items', []);
+        config()->set('dashboard.screens', []);
+        config()->set('dashboard.schedule', [
+            [
+                'screen' => 'unknown',
+                'duration_in_seconds' => 30,
+            ],
+        ]);
 
         Http::fake([
             'https://spatie.be/api/members' => Http::response([
@@ -179,6 +206,12 @@ class DashboardTest extends TestCase
 
         $this->get('/?access-token=test-token')
             ->assertOk()
+            ->assertViewHas('schedule', fn (Collection $schedule): bool => $schedule->all() === [
+                [
+                    'screen' => 'main',
+                    'duration_in_seconds' => 60,
+                ],
+            ])
             ->assertSee('data-dashboard-screen', false)
             ->assertSee('team-member-tile', false);
 
@@ -193,30 +226,37 @@ class DashboardTest extends TestCase
             ['flare', 'Flare', '🎆', 'LBABKDJB'],
             ['spatie', 'Spatie', '🔵', 'OMNDKUTR'],
             ['there-there', 'There There', '🎫', 'UJQKGGUH'],
-        ])->map(fn (array $product): array => [
-            'name' => $product[0],
-            'view' => 'dashboard.screens.productAnalytics',
-            'duration_in_seconds' => 60,
-            'product' => [
-                'name' => $product[1],
-                'emoji' => $product[2],
-                'site_id' => $product[3],
+        ])->mapWithKeys(fn (array $product): array => [
+            $product[0] => [
+                'view' => 'dashboard.screens.productAnalytics',
+                'product' => [
+                    'name' => $product[1],
+                    'emoji' => $product[2],
+                    'site_id' => $product[3],
+                ],
             ],
         ])->all();
 
-        config()->set('dashboard.screens.items', [
-            [
-                'name' => 'main',
+        config()->set('dashboard.screens', [
+            'main' => [
                 'view' => 'dashboard.screens.main',
-                'duration_in_seconds' => 90,
             ],
             ...$productScreens,
-            [
-                'name' => 'now playing',
+            'now-playing' => [
                 'url' => 'https://liveat.spatie.be/now-playing',
-                'duration_in_seconds' => 300,
             ],
         ]);
+        config()->set('dashboard.schedule', collect([
+            ['main', 90],
+            ['mailcoach', 60],
+            ['flare', 60],
+            ['spatie', 60],
+            ['there-there', 60],
+            ['now-playing', 300],
+        ])->map(fn (array $scheduleEntry): array => [
+            'screen' => $scheduleEntry[0],
+            'duration_in_seconds' => $scheduleEntry[1],
+        ])->all());
 
         Http::fake([
             'https://spatie.be/api/members' => Http::response([]),
@@ -234,12 +274,58 @@ class DashboardTest extends TestCase
                 'data-screen-name="flare"',
                 'data-screen-name="spatie"',
                 'data-screen-name="there-there"',
-                'data-screen-name="now playing"',
+                'data-screen-name="now-playing"',
             ], false)
             ->assertSee('data-product-analytics-screen', false)
             ->assertSee("document.addEventListener('livewire:initialized'", false);
 
         $this->assertSame(4, substr_count($response->getContent(), 'data-product-analytics-component='));
         Http::assertSentCount(1);
+    }
+
+    public function testItCanScheduleTheSameScreenMoreThanOnceWithoutRenderingItMoreThanOnce(): void
+    {
+        config()->set('app.access_token', 'test-token');
+        config()->set('dashboard.screens', [
+            'mailcoach' => [
+                'view' => 'dashboard.screens.productAnalytics',
+                'product' => [
+                    'name' => 'Mailcoach',
+                    'emoji' => '📯',
+                    'site_id' => 'GSENXMLW',
+                ],
+            ],
+        ]);
+        config()->set('dashboard.schedule', [
+            [
+                'screen' => 'mailcoach',
+                'duration_in_seconds' => 30,
+            ],
+            [
+                'screen' => 'mailcoach',
+                'duration_in_seconds' => 90,
+            ],
+        ]);
+
+        Http::fake();
+
+        $this->travelTo(CarbonImmutable::parse('2026-04-13 11:59:00', 'Europe/Brussels'));
+
+        $response = $this->get('/?access-token=test-token')
+            ->assertOk()
+            ->assertViewHas('schedule', fn (Collection $schedule): bool => $schedule->all() === [
+                [
+                    'screen' => 'mailcoach',
+                    'duration_in_seconds' => 30,
+                ],
+                [
+                    'screen' => 'mailcoach',
+                    'duration_in_seconds' => 90,
+                ],
+            ]);
+
+        $this->assertSame(1, substr_count($response->getContent(), 'data-screen-name="mailcoach"'));
+        $this->assertSame(1, substr_count($response->getContent(), 'data-product-analytics-component='));
+        Http::assertNothingSent();
     }
 }

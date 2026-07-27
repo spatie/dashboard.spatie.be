@@ -31,68 +31,81 @@ return [
         'timezone' => env('WEEKPLANNING_TIMEZONE', 'Europe/Brussels'),
     ],
 
-    'screens' => [
-        'default_duration_in_seconds' => 60,
+    'default_duration_in_seconds' => 60,
 
-        'items' => [
-            [
-                'name' => 'main',
-                'view' => 'dashboard.screens.main',
-                'duration_in_seconds' => 90,
+    'screens' => [
+        'main' => [
+            'view' => 'dashboard.screens.main',
+        ],
+        'mailcoach' => [
+            'view' => 'dashboard.screens.productAnalytics',
+            'grid_columns' => 3,
+            'grid_rows' => 20,
+            'product' => [
+                'name' => 'Mailcoach',
+                'emoji' => '📯',
+                'site_id' => 'GSENXMLW',
             ],
-            [
-                'name' => 'mailcoach',
-                'view' => 'dashboard.screens.productAnalytics',
-                'duration_in_seconds' => 60,
-                'grid_columns' => 3,
-                'grid_rows' => 20,
-                'product' => [
-                    'name' => 'Mailcoach',
-                    'emoji' => '📯',
-                    'site_id' => 'GSENXMLW',
-                ],
+        ],
+        'flare' => [
+            'view' => 'dashboard.screens.productAnalytics',
+            'grid_columns' => 3,
+            'grid_rows' => 20,
+            'product' => [
+                'name' => 'Flare',
+                'emoji' => '🎆',
+                'site_id' => 'LBABKDJB',
             ],
-            [
-                'name' => 'flare',
-                'view' => 'dashboard.screens.productAnalytics',
-                'duration_in_seconds' => 60,
-                'grid_columns' => 3,
-                'grid_rows' => 20,
-                'product' => [
-                    'name' => 'Flare',
-                    'emoji' => '🎆',
-                    'site_id' => 'LBABKDJB',
-                ],
+        ],
+        'spatie' => [
+            'view' => 'dashboard.screens.productAnalytics',
+            'grid_columns' => 3,
+            'grid_rows' => 20,
+            'product' => [
+                'name' => 'Spatie',
+                'emoji' => '🔵',
+                'site_id' => 'OMNDKUTR',
             ],
-            [
-                'name' => 'spatie',
-                'view' => 'dashboard.screens.productAnalytics',
-                'duration_in_seconds' => 60,
-                'grid_columns' => 3,
-                'grid_rows' => 20,
-                'product' => [
-                    'name' => 'Spatie',
-                    'emoji' => '🔵',
-                    'site_id' => 'OMNDKUTR',
-                ],
+        ],
+        'there-there' => [
+            'view' => 'dashboard.screens.productAnalytics',
+            'grid_columns' => 3,
+            'grid_rows' => 20,
+            'product' => [
+                'name' => 'There There',
+                'emoji' => '🎫',
+                'site_id' => 'UJQKGGUH',
             ],
-            [
-                'name' => 'there-there',
-                'view' => 'dashboard.screens.productAnalytics',
-                'duration_in_seconds' => 60,
-                'grid_columns' => 3,
-                'grid_rows' => 20,
-                'product' => [
-                    'name' => 'There There',
-                    'emoji' => '🎫',
-                    'site_id' => 'UJQKGGUH',
-                ],
-            ],
-            [
-                'name' => 'now playing',
-                'url' => 'https://liveat.spatie.be/now-playing',
-                'duration_in_seconds' => 300,
-            ],
+        ],
+        'now-playing' => [
+            'url' => 'https://liveat.spatie.be/now-playing',
+        ],
+    ],
+
+    'schedule' => [
+        [
+            'screen' => 'main',
+            'duration_in_seconds' => 90,
+        ],
+        [
+            'screen' => 'mailcoach',
+            'duration_in_seconds' => 60,
+        ],
+        [
+            'screen' => 'flare',
+            'duration_in_seconds' => 60,
+        ],
+        [
+            'screen' => 'spatie',
+            'duration_in_seconds' => 60,
+        ],
+        [
+            'screen' => 'there-there',
+            'duration_in_seconds' => 60,
+        ],
+        [
+            'screen' => 'now-playing',
+            'duration_in_seconds' => 300,
         ],
     ],
 

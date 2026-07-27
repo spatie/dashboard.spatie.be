@@ -11,27 +11,17 @@ Route::view('apple-music-token', 'apple-music-token');
 Route::middleware(AccessToken::class)->group(function () {
     Route::get('/', function (Weekplanning $weekplanning) {
         $showWeekplanning = $weekplanning->isActive();
-        $configuredScreens = config('dashboard.screens.items') ?: [
-            [
-                'name' => 'main',
-                'view' => 'dashboard.screens.main',
-                'duration_in_seconds' => config('dashboard.screens.default_duration_in_seconds', 60),
-            ],
-        ];
+        $defaultDurationInSeconds = (int) config('dashboard.default_duration_in_seconds', 60);
 
-        $screens = collect($configuredScreens)
-            ->filter(fn (mixed $screen) => is_array($screen))
-            ->map(function (array $screen): array {
-                $durationInSeconds = (int) (
-                    $screen['duration_in_seconds']
-                    ?? config('dashboard.screens.default_duration_in_seconds', 60)
-                );
+        $availableScreens = collect(config('dashboard.screens', []))
+            ->filter(fn (mixed $screen, mixed $screenName) => is_string($screenName) && is_array($screen))
+            ->map(function (array $screen, string $screenName): array {
                 $view = $screen['view'] ?? null;
                 $url = $screen['url'] ?? null;
 
                 $screen = [
                     ...$screen,
-                    'duration_in_seconds' => max(1, $durationInSeconds),
+                    'name' => $screenName,
                     'type' => null,
                 ];
 
@@ -42,7 +32,7 @@ Route::middleware(AccessToken::class)->group(function () {
                     ];
                 }
 
-                if (filled($url)) {
+                if (is_string($url) && filled($url)) {
                     return [
                         ...$screen,
                         'type' => 'url',
@@ -52,7 +42,50 @@ Route::middleware(AccessToken::class)->group(function () {
                 return $screen;
             })
             ->filter(fn (array $screen) => filled($screen['type']))
+            ->all();
+
+        $schedule = collect(config('dashboard.schedule', []))
+            ->filter(fn (mixed $scheduleEntry) => is_array($scheduleEntry))
+            ->map(function (array $scheduleEntry) use ($availableScreens, $defaultDurationInSeconds): ?array {
+                $screenName = $scheduleEntry['screen'] ?? null;
+
+                if (! is_string($screenName)) {
+                    return null;
+                }
+
+                if (! array_key_exists($screenName, $availableScreens)) {
+                    return null;
+                }
+
+                $durationInSeconds = (int) ($scheduleEntry['duration_in_seconds'] ?? $defaultDurationInSeconds);
+
+                return [
+                    'screen' => $screenName,
+                    'duration_in_seconds' => max(1, $durationInSeconds),
+                ];
+            })
+            ->filter()
             ->values();
+
+        if ($schedule->isEmpty()) {
+            $availableScreens['main'] = $availableScreens['main'] ?? [
+                'name' => 'main',
+                'view' => 'dashboard.screens.main',
+                'type' => 'view',
+            ];
+
+            $schedule = collect([
+                [
+                    'screen' => 'main',
+                    'duration_in_seconds' => max(1, $defaultDurationInSeconds),
+                ],
+            ]);
+        }
+
+        $screens = $schedule
+            ->pluck('screen')
+            ->unique()
+            ->mapWithKeys(fn (string $screenName): array => [$screenName => $availableScreens[$screenName]]);
 
         $members = collect();
 
@@ -69,6 +102,7 @@ Route::middleware(AccessToken::class)->group(function () {
 
         return view('dashboard', [
             'members' => $members,
+            'schedule' => $schedule,
             'screens' => $screens,
             'showWeekplanning' => $showWeekplanning,
             'weekplanningReloadInMilliseconds' => $weekplanning->millisecondsUntilNextTransition(),
