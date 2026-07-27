@@ -17,7 +17,7 @@
         </div>
     </x-dashboard-tile>
 
-    <x-dashboard-tile position="a3:c12" :fade="false">
+    <x-dashboard-tile position="a3:b12" :fade="false">
         <div class="flex h-full flex-col">
             <div class="flex items-baseline justify-between">
                 <div>
@@ -191,53 +191,57 @@
         @endif
     </x-dashboard-tile>
 
-    <x-dashboard-tile position="c13:c16" :fade="false">
-        <div class="flex items-baseline justify-between gap-2">
-            <h2 class="font-bold">Top pages today</h2>
+    <x-dashboard-tile position="c3:c11" :fade="false">
+        <div class="flex h-full flex-col">
+            <div class="flex items-baseline justify-between gap-2">
+                <h2 class="font-bold">Top pages today</h2>
+                @if($pages)
+                    <p class="shrink-0 text-[10px] text-dimmed">Updated {{ \Carbon\CarbonImmutable::parse($pages['updated_at'])->format('H:i:s') }}</p>
+                @endif
+            </div>
             @if($pages)
-                <p class="shrink-0 text-[10px] text-dimmed">Updated {{ \Carbon\CarbonImmutable::parse($pages['updated_at'])->format('H:i:s') }}</p>
+                <ol class="mt-1 flex min-h-0 grow flex-col divide-y divide-default/10">
+                    @forelse($pages['rows'] as $page)
+                        <li class="flex grow items-center justify-between gap-3">
+                            <span class="truncate text-sm">{{ $page['label'] }}</span>
+                            <span class="font-bold tabular-nums">{{ number_format($page['value']) }}</span>
+                        </li>
+                    @empty
+                        <li class="flex grow items-center text-sm text-dimmed">No pages yet today.</li>
+                    @endforelse
+                </ol>
+            @elseif($unavailable['pages'])
+                <p class="mt-4 text-sm text-dimmed">Top pages unavailable</p>
+            @else
+                <p class="mt-4 text-sm text-dimmed">Loading…</p>
             @endif
         </div>
-        @if($pages)
-            <ol class="mt-1 divide-y divide-default/10">
-                @forelse($pages['rows'] as $page)
-                    <li class="flex items-center justify-between gap-3 py-0.5">
-                        <span class="truncate text-sm">{{ $page['label'] }}</span>
-                        <span class="font-bold tabular-nums">{{ number_format($page['value']) }}</span>
-                    </li>
-                @empty
-                    <li class="py-2 text-sm text-dimmed">No pages yet today.</li>
-                @endforelse
-            </ol>
-        @elseif($unavailable['pages'])
-            <p class="mt-4 text-sm text-dimmed">Top pages unavailable</p>
-        @else
-            <p class="mt-4 text-sm text-dimmed">Loading…</p>
-        @endif
     </x-dashboard-tile>
 
-    <x-dashboard-tile position="c17:c20" :fade="false">
-        <div class="flex items-baseline justify-between gap-2">
-            <h2 class="font-bold">Traffic sources today</h2>
+    <x-dashboard-tile position="c12:c20" :fade="false">
+        <div class="flex h-full flex-col">
+            <div class="flex items-baseline justify-between gap-2">
+                <h2 class="font-bold">Traffic sources today</h2>
+                @if($sources)
+                    <p class="shrink-0 text-[10px] text-dimmed">Updated {{ \Carbon\CarbonImmutable::parse($sources['updated_at'])->format('H:i:s') }}</p>
+                @endif
+            </div>
             @if($sources)
-                <p class="shrink-0 text-[10px] text-dimmed">Updated {{ \Carbon\CarbonImmutable::parse($sources['updated_at'])->format('H:i:s') }}</p>
+                <ol class="mt-1 flex min-h-0 grow flex-col divide-y divide-default/10">
+                    @forelse($sources['rows'] as $source)
+                        <li class="flex grow items-center justify-between gap-3">
+                            <span class="truncate text-sm">{{ $source['label'] }}</span>
+                            <span class="font-bold tabular-nums">{{ number_format($source['value']) }}</span>
+                        </li>
+                    @empty
+                        <li class="flex grow items-center text-sm text-dimmed">No sources yet today.</li>
+                    @endforelse
+                </ol>
+            @elseif($unavailable['sources'])
+                <p class="mt-4 text-sm text-dimmed">Traffic sources unavailable</p>
+            @else
+                <p class="mt-4 text-sm text-dimmed">Loading…</p>
             @endif
         </div>
-        @if($sources)
-            <ol class="mt-1 divide-y divide-default/10">
-                @forelse($sources['rows'] as $source)
-                    <li class="flex items-center justify-between gap-3 py-0.5">
-                        <span class="truncate text-sm">{{ $source['label'] }}</span>
-                        <span class="font-bold tabular-nums">{{ number_format($source['value']) }}</span>
-                    </li>
-                @empty
-                    <li class="py-2 text-sm text-dimmed">No sources yet today.</li>
-                @endforelse
-            </ol>
-        @elseif($unavailable['sources'])
-            <p class="mt-4 text-sm text-dimmed">Traffic sources unavailable</p>
-        @else
-            <p class="mt-4 text-sm text-dimmed">Loading…</p>
-        @endif
     </x-dashboard-tile>
 </div>
