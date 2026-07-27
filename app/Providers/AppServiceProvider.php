@@ -6,6 +6,7 @@ use App\Models\User;
 use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
+use App\Tiles\Climate\ClimateTileComponent;
 use App\Tiles\Officient\OfficientTileComponent;
 use App\Livewire\ProductAnalyticsScreenComponent;
 use App\Livewire\ScreenConditionCheckerComponent;
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Livewire::component('now-playing-tile', NowPlayingTileComponent::class);
         Livewire::component('officient-tile', OfficientTileComponent::class);
         Livewire::component('oh-dear-messages-tile', OhDearMessagesTileComponent::class);
+        Livewire::component('climate-tile', ClimateTileComponent::class);
 
         Broadcast::routes();
 

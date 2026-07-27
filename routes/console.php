@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schedule;
 use Spatie\VeloTile\FetchVeloStationsCommand;
 use Spatie\CalendarTile\FetchCalendarEventsCommand;
+use App\Tiles\Climate\Commands\FetchClimateDataCommand;
 use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
 use App\Tiles\NowPlaying\Commands\FetchTopArtistsCommand;
 use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
@@ -22,3 +23,4 @@ Schedule::command(FetchPackagistTotalsCommand::class)->hourly();
 Schedule::command(FetchVeloStationsCommand::class)->everyTwoMinutes();
 Schedule::command(FetchOfficientCalendarCommand::class)->everyTenMinutes();
 Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
+Schedule::command(FetchClimateDataCommand::class)->everyMinute();

@@ -27,6 +27,8 @@
 
 <livewire:time-weather-tile position="e1:e6" />
 
+<livewire:climate-tile position="d1:d6" />
+
 <livewire:now-playing-tile position="d7:d15" />
 
 <livewire:officient-tile position="b7:b18" />

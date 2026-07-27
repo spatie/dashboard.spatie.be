@@ -65,6 +65,10 @@ return [
         'token' => env('SPATIE_API_TOKEN'),
     ],
 
+    'climate' => [
+        'token' => env('CLIMATE_API_TOKEN'),
+    ],
+
     'officient' => [
         'token' => env('OFFICIENT_API_TOKEN'),
     ],
