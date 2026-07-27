@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Deploy;
 use App\Support\Weekplanning;
 use App\Dashboard\ScreenAvailability;
 use App\Http\Middleware\AccessToken;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -10,6 +12,14 @@ use Illuminate\Support\Facades\View;
 Route::view('apple-music-token', 'apple-music-token');
 
 Route::middleware(AccessToken::class)->group(function () {
+    Route::get('deploy-status', function (): JsonResponse {
+        return response()
+            ->json([
+                'deployId' => Deploy::latest('id')->value('id') ?? 0,
+            ])
+            ->header('Cache-Control', 'no-store');
+    })->name('deployStatus');
+
     Route::get('/', function (Weekplanning $weekplanning, ScreenAvailability $screenAvailability) {
         $showWeekplanning = $weekplanning->isActive();
         $defaultDurationInSeconds = (int) config('dashboard.default_duration_in_seconds', 60);
@@ -112,6 +122,7 @@ Route::middleware(AccessToken::class)->group(function () {
         }
 
         return view('dashboard', [
+            'loadedDeployId' => Deploy::latest('id')->value('id') ?? 0,
             'members' => $members,
             'schedule' => $schedule,
             'screens' => $screens,

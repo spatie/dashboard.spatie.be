@@ -3,15 +3,47 @@
 @endpush
 @push('scripts')
 <script>
+    const loadedDeployId = @js($loadedDeployId);
+    const deployStatusUrl = new URL(@js(route('deployStatus', absolute: false)), window.location.origin);
+
+    deployStatusUrl.search = window.location.search;
+
+    async function checkForDeploy() {
+        try {
+            const response = await fetch(deployStatusUrl, {
+                cache: 'no-store',
+                headers: {
+                    Accept: 'application/json',
+                },
+            });
+
+            if (! response.ok) {
+                return;
+            }
+
+            const { deployId } = await response.json();
+
+            if (! Number.isInteger(deployId)) {
+                return;
+            }
+
+            if (deployId <= loadedDeployId) {
+                return;
+            }
+
+            window.location.reload();
+        } catch {
+            return;
+        } finally {
+            window.setTimeout(checkForDeploy, 30_000);
+        }
+    }
+
+    window.setTimeout(checkForDeploy, 30_000);
+
     window.setTimeout(function () {
         window.location.reload();
     }, {{ $weekplanningReloadInMilliseconds }});
-
-    document.addEventListener('livewire:init', function () {
-        Livewire.on('deploy-detected', function () {
-            window.location.reload();
-        });
-    });
 
     document.addEventListener('livewire:initialized', function () {
         const schedule = @js($schedule);
@@ -114,8 +146,6 @@
             Weekplanning!
         </div>
     @else
-        <livewire:deploy-checker />
-
         @if($hasConditionalScreens)
             <livewire:screen-condition-checker :screen-names="$screens->keys()->all()" />
         @endif
