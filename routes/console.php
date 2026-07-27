@@ -1,17 +1,16 @@
 <?php
 
-use App\Tiles\Fathom\Commands\FetchFathomStatistics;
+use Illuminate\Support\Facades\Schedule;
+use Spatie\VeloTile\FetchVeloStationsCommand;
+use Spatie\CalendarTile\FetchCalendarEventsCommand;
+use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
 use App\Tiles\NowPlaying\Commands\FetchTopArtistsCommand;
-use App\Tiles\Officient\Commands\FetchOfficientCalendarCommand;
+use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
-use App\Tiles\TeamMember\Commands\FetchSlackStatusCommand;
-use Illuminate\Support\Facades\Schedule;
-use Spatie\BelgianTrainsTile\FetchBelgianTrainsCommand;
-use Spatie\CalendarTile\FetchCalendarEventsCommand;
-use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
+use App\Tiles\Officient\Commands\FetchOfficientCalendarCommand;
 use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
-use Spatie\VeloTile\FetchVeloStationsCommand;
+use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
 
 Schedule::command(FetchBelgianTrainsCommand::class)->everyTwoMinutes();
 Schedule::command(FetchCalendarEventsCommand::class)->everyTenMinutes();
@@ -21,6 +20,5 @@ Schedule::command(FetchSlackStatusCommand::class)->everyTenMinutes();
 Schedule::command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
 Schedule::command(FetchPackagistTotalsCommand::class)->hourly();
 Schedule::command(FetchVeloStationsCommand::class)->everyTwoMinutes();
-Schedule::command(FetchFathomStatistics::class)->hourly();
 Schedule::command(FetchOfficientCalendarCommand::class)->everyTenMinutes();
 Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();

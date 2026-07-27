@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Http;
-use Tests\TestCase;
 
 class DashboardTest extends TestCase
 {
@@ -182,6 +182,64 @@ class DashboardTest extends TestCase
             ->assertSee('data-dashboard-screen', false)
             ->assertSee('team-member-tile', false);
 
+        Http::assertSentCount(1);
+    }
+
+    public function testItRendersTheFourProductScreensInOrderWithoutLoadingFathom(): void
+    {
+        config()->set('app.access_token', 'test-token');
+        $productScreens = collect([
+            ['mailcoach', 'Mailcoach', '📯', 'GSENXMLW'],
+            ['flare', 'Flare', '🎆', 'LBABKDJB'],
+            ['spatie', 'Spatie', '🔵', 'OMNDKUTR'],
+            ['there-there', 'There There', '🎫', 'UJQKGGUH'],
+        ])->map(fn (array $product): array => [
+            'name' => $product[0],
+            'view' => 'dashboard.screens.productAnalytics',
+            'duration_in_seconds' => 60,
+            'product' => [
+                'name' => $product[1],
+                'emoji' => $product[2],
+                'site_id' => $product[3],
+            ],
+        ])->all();
+
+        config()->set('dashboard.screens.items', [
+            [
+                'name' => 'main',
+                'view' => 'dashboard.screens.main',
+                'duration_in_seconds' => 90,
+            ],
+            ...$productScreens,
+            [
+                'name' => 'now playing',
+                'url' => 'https://liveat.spatie.be/now-playing',
+                'duration_in_seconds' => 300,
+            ],
+        ]);
+
+        Http::fake([
+            'https://spatie.be/api/members' => Http::response([]),
+        ]);
+
+        $this->travelTo(CarbonImmutable::parse('2026-04-13 11:59:00', 'Europe/Brussels'));
+
+        $response = $this->get('/?access-token=test-token')
+            ->assertOk()
+            ->assertDontSee('fathom-tile', false)
+            ->assertDontSee('dashboard:fetch-fathom-statistics')
+            ->assertSeeInOrder([
+                'data-screen-name="main"',
+                'data-screen-name="mailcoach"',
+                'data-screen-name="flare"',
+                'data-screen-name="spatie"',
+                'data-screen-name="there-there"',
+                'data-screen-name="now playing"',
+            ], false)
+            ->assertSee('data-product-analytics-screen', false)
+            ->assertSee("document.addEventListener('livewire:initialized'", false);
+
+        $this->assertSame(4, substr_count($response->getContent(), 'data-product-analytics-component='));
         Http::assertSentCount(1);
     }
 }
