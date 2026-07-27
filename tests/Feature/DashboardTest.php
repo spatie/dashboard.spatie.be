@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Http;
-use Tests\TestCase;
 
 class DashboardTest extends TestCase
 {
@@ -182,6 +182,34 @@ class DashboardTest extends TestCase
             ->assertSee('data-dashboard-screen', false)
             ->assertSee('team-member-tile', false);
 
+        Http::assertSentCount(1);
+    }
+
+    public function testItRendersTheFourProductScreensInOrderWithoutLoadingFathom(): void
+    {
+        config()->set('app.access_token', 'test-token');
+
+        Http::fake([
+            'https://spatie.be/api/members' => Http::response([]),
+        ]);
+
+        $this->travelTo(CarbonImmutable::parse('2026-04-13 11:59:00', 'Europe/Brussels'));
+
+        $response = $this->get('/?access-token=test-token')
+            ->assertOk()
+            ->assertDontSee('fathom-tile', false)
+            ->assertDontSee('dashboard:fetch-fathom-statistics')
+            ->assertSeeInOrder([
+                'data-screen-name="main"',
+                'data-screen-name="mailcoach"',
+                'data-screen-name="flare"',
+                'data-screen-name="spatie"',
+                'data-screen-name="there-there"',
+                'data-screen-name="now playing"',
+            ], false)
+            ->assertSee('data-product-analytics-screen', false);
+
+        $this->assertSame(4, substr_count($response->getContent(), 'data-product-analytics-component='));
         Http::assertSentCount(1);
     }
 }

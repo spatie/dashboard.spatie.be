@@ -3,16 +3,16 @@
 namespace App\Providers;
 
 use App\Models\User;
+use Livewire\Livewire;
+use Illuminate\Support\ServiceProvider;
 use App\Livewire\DeployCheckerComponent;
-use App\Tiles\Fathom\FathomTileComponent;
-use App\Tiles\NowPlaying\NowPlayingTileComponent;
+use Illuminate\Support\Facades\Broadcast;
 use App\Tiles\Officient\OfficientTileComponent;
+use App\Livewire\ProductAnalyticsScreenComponent;
+use App\Tiles\NowPlaying\NowPlayingTileComponent;
 use App\Tiles\OhDear\OhDearMessagesTileComponent;
 use App\Tiles\Statistics\StatisticsTileComponent;
 use App\Tiles\TeamMember\TeamMemberTileComponent;
-use Illuminate\Support\Facades\Broadcast;
-use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
 use Spatie\OhDearUptimeTile\OhDearUptimeTileComponent;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         Livewire::component('deploy-checker', DeployCheckerComponent::class);
         Livewire::component('team-member-tile', TeamMemberTileComponent::class);
         Livewire::component('statistics-tile', StatisticsTileComponent::class);
-        Livewire::component('fathom-tile', FathomTileComponent::class);
+        Livewire::component('product-analytics-screen', ProductAnalyticsScreenComponent::class);
         Livewire::component('now-playing-tile', NowPlayingTileComponent::class);
         Livewire::component('officient-tile', OfficientTileComponent::class);
         Livewire::component('oh-dear-messages-tile', OhDearMessagesTileComponent::class);
