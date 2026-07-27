@@ -1,6 +1,7 @@
 <?php
 
 use App\Support\Weekplanning;
+use App\Dashboard\ScreenAvailability;
 use App\Http\Middleware\AccessToken;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\View;
 Route::view('apple-music-token', 'apple-music-token');
 
 Route::middleware(AccessToken::class)->group(function () {
-    Route::get('/', function (Weekplanning $weekplanning) {
+    Route::get('/', function (Weekplanning $weekplanning, ScreenAvailability $screenAvailability) {
         $showWeekplanning = $weekplanning->isActive();
         $defaultDurationInSeconds = (int) config('dashboard.default_duration_in_seconds', 60);
 
@@ -87,6 +88,16 @@ Route::middleware(AccessToken::class)->group(function () {
             ->unique()
             ->mapWithKeys(fn (string $screenName): array => [$screenName => $availableScreens[$screenName]]);
 
+        $availableScreenNames = $screenAvailability->availableScreenNames($screens->all());
+        $initialScreenName = $schedule
+            ->first(fn (array $scheduleEntry): bool => in_array(
+                $scheduleEntry['screen'],
+                $availableScreenNames,
+                true,
+            ))['screen'] ?? $screens->keys()->first();
+        $hasConditionalScreens = $screens
+            ->contains(fn (array $screen): bool => isset($screen['condition']));
+
         $members = collect();
 
         if (
@@ -104,6 +115,9 @@ Route::middleware(AccessToken::class)->group(function () {
             'members' => $members,
             'schedule' => $schedule,
             'screens' => $screens,
+            'availableScreenNames' => $availableScreenNames,
+            'initialScreenName' => $initialScreenName,
+            'hasConditionalScreens' => $hasConditionalScreens,
             'showWeekplanning' => $showWeekplanning,
             'weekplanningReloadInMilliseconds' => $weekplanning->millisecondsUntilNextTransition(),
         ]);

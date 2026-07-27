@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Carbon\CarbonImmutable;
+use App\Dashboard\ScreenCondition;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
@@ -327,5 +328,54 @@ class DashboardTest extends TestCase
         $this->assertSame(1, substr_count($response->getContent(), 'data-screen-name="mailcoach"'));
         $this->assertSame(1, substr_count($response->getContent(), 'data-product-analytics-component='));
         Http::assertNothingSent();
+    }
+
+    public function testItInitiallySkipsAConditionalScreenThatIsUnavailable(): void
+    {
+        config()->set('app.access_token', 'test-token');
+        config()->set('dashboard.screens', [
+            'conditional' => [
+                'url' => 'https://example.com/conditional',
+                'condition' => NeverDisplayScreenCondition::class,
+            ],
+            'main' => [
+                'view' => 'dashboard.screens.main',
+            ],
+        ]);
+        config()->set('dashboard.schedule', [
+            [
+                'screen' => 'conditional',
+                'duration_in_seconds' => 30,
+            ],
+            [
+                'screen' => 'main',
+                'duration_in_seconds' => 60,
+            ],
+        ]);
+
+        Http::fake([
+            'https://spatie.be/api/members' => Http::response([]),
+        ]);
+
+        $this->travelTo(CarbonImmutable::parse('2026-04-13 11:59:00', 'Europe/Brussels'));
+
+        $this->get('/?access-token=test-token')
+            ->assertOk()
+            ->assertViewHas('availableScreenNames', ['main'])
+            ->assertViewHas('initialScreenName', 'main')
+            ->assertViewHas('hasConditionalScreens', true)
+            ->assertSee('wire:poll.10s', false)
+            ->assertSee('data-screen-name="conditional"', false)
+            ->assertSee('data-screen-name="main"', false);
+
+        Http::assertSentCount(1);
+    }
+}
+
+class NeverDisplayScreenCondition implements ScreenCondition
+{
+    public function shouldDisplay(): bool
+    {
+        return false;
     }
 }
