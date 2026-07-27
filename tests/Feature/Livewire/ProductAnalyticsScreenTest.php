@@ -114,6 +114,35 @@ class ProductAnalyticsScreenTest extends TestCase
             ->assertSee('Live visitors');
     }
 
+    public function testItSeparatesCompletedDaysFromTodaysPartialCountAndForecast(): void
+    {
+        $component = new ProductAnalyticsScreenComponent();
+        $component->daily = [
+            'days' => collect(range(0, 29))
+                ->map(fn (int $index): array => [
+                    'date' => CarbonImmutable::parse('2026-06-28')->addDays($index)->toDateString(),
+                    'visits' => $index === 29 ? 50 : 100 + $index,
+                ])
+                ->all(),
+            'forecast' => [
+                'value' => 180,
+            ],
+        ];
+
+        $chart = $component->chart();
+        $actualPoints = explode(' ', $chart['actual_points']);
+        $forecastPoints = explode(' ', $chart['forecast_points']);
+
+        $this->assertCount(29, $actualPoints);
+        $this->assertCount(2, $forecastPoints);
+        $this->assertSame($actualPoints[array_key_last($actualPoints)], $forecastPoints[0]);
+        $this->assertNotSame($chart['current_y'], $chart['forecast_y']);
+        $this->assertSame(
+            ['28 Jun', '05 Jul', '12 Jul', '19 Jul', 'Today'],
+            array_column($chart['date_labels'], 'label'),
+        );
+    }
+
     private function fakeSuccessfulReports(): void
     {
         Http::fake(function (Request $request) {

@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Throwable;
 use Livewire\Component;
 use Carbon\CarbonInterval;
+use Carbon\CarbonImmutable;
 use Livewire\Attributes\On;
 use Illuminate\Contracts\View\View;
 use App\Services\Fathom\FathomAnalytics;
@@ -101,16 +102,53 @@ class ProductAnalyticsScreenComponent extends Component
         $values = array_map(fn (array $day): int => (int) $day['visits'], $days);
         $max = max([1, $forecast, ...$values]);
         $count = max(1, count($days) - 1);
-        $points = collect($values)
-            ->map(function (int $value, int $index) use ($left, $plotWidth, $count, $top, $plotHeight, $max): string {
+        $coordinates = collect($values)
+            ->map(function (int $value, int $index) use ($left, $plotWidth, $count, $top, $plotHeight, $max): array {
                 $x = $left + (($plotWidth / $count) * $index);
                 $y = $top + $plotHeight - (($value / $max) * $plotHeight);
 
-                return round($x, 2).','.round($y, 2);
-            })
+                return [
+                    'x' => round($x, 2),
+                    'y' => round($y, 2),
+                ];
+            });
+        $completedCoordinates = $coordinates->slice(0, max(0, $coordinates->count() - 1));
+        $actualPoints = $completedCoordinates
+            ->map(fn (array $coordinate): string => "{$coordinate['x']},{$coordinate['y']}")
             ->implode(' ');
         $markerX = $left + $plotWidth;
         $forecastY = $top + $plotHeight - (($forecast / $max) * $plotHeight);
+        $currentCoordinate = $coordinates->last() ?? [
+            'x' => $markerX,
+            'y' => $top + $plotHeight,
+        ];
+        $forecastStartCoordinate = $completedCoordinates->last() ?? $currentCoordinate;
+        $forecastPoints = "{$forecastStartCoordinate['x']},{$forecastStartCoordinate['y']} {$markerX},".round($forecastY, 2);
+        $dateLabels = [];
+
+        if ($days !== []) {
+            $lastIndex = count($days) - 1;
+            $dateLabelIndexes = collect(range(0, $lastIndex, 7))
+                ->filter(fn (int $index): bool => $index === 0 || $index <= $lastIndex - 4)
+                ->push($lastIndex)
+                ->unique()
+                ->values();
+            $dateLabels = $dateLabelIndexes
+                ->map(function (int $index) use ($days, $lastIndex, $left, $plotWidth, $count): array {
+                    return [
+                        'x' => round($left + (($plotWidth / $count) * $index), 2),
+                        'label' => $index === $lastIndex
+                            ? 'Today'
+                            : CarbonImmutable::parse($days[$index]['date'])->format('d M'),
+                        'anchor' => match ($index) {
+                            0 => 'start',
+                            $lastIndex => 'end',
+                            default => 'middle',
+                        },
+                    ];
+                })
+                ->all();
+        }
 
         return [
             'width' => $width,
@@ -120,15 +158,16 @@ class ProductAnalyticsScreenComponent extends Component
             'top' => $top,
             'bottom_y' => $top + $plotHeight,
             'middle_y' => $top + ($plotHeight / 2),
-            'points' => $points,
+            'actual_points' => $actualPoints,
+            'forecast_points' => $forecastPoints,
             'marker_x' => $markerX,
             'forecast_y' => $forecastY,
             'forecast_label_y' => max($top + 12, min($top + $plotHeight - 6, $forecastY - 9)),
+            'current_y' => $currentCoordinate['y'],
+            'current_value' => $values[array_key_last($values)] ?? 0,
+            'date_labels' => $dateLabels,
             'max' => $max,
             'middle' => (int) round($max / 2),
-            'first_label' => $days[0]['date'] ?? '',
-            'middle_label' => $days[(int) floor(count($days) / 2)]['date'] ?? '',
-            'last_label' => $days[array_key_last($days)]['date'] ?? '',
         ];
     }
 

@@ -53,9 +53,13 @@
                             <text x="{{ $chart['left'] - 8 }}" y="{{ $chart['top'] + 4 }}" text-anchor="end">{{ number_format($chart['max']) }}</text>
                             <text x="{{ $chart['left'] - 8 }}" y="{{ $chart['middle_y'] + 4 }}" text-anchor="end">{{ number_format($chart['middle']) }}</text>
                             <text x="{{ $chart['left'] - 8 }}" y="{{ $chart['bottom_y'] + 4 }}" text-anchor="end">0</text>
-                            <text x="{{ $chart['left'] }}" y="{{ $chart['height'] - 8 }}">{{ \Carbon\CarbonImmutable::parse($chart['first_label'])->format('d M') }}</text>
-                            <text x="{{ ($chart['left'] + $chart['right_x']) / 2 }}" y="{{ $chart['height'] - 8 }}" text-anchor="middle">{{ \Carbon\CarbonImmutable::parse($chart['middle_label'])->format('d M') }}</text>
-                            <text x="{{ $chart['right_x'] }}" y="{{ $chart['height'] - 8 }}" text-anchor="end">Today</text>
+                            @foreach($chart['date_labels'] as $dateLabel)
+                                <text
+                                    x="{{ $dateLabel['x'] }}"
+                                    y="{{ $chart['height'] - 8 }}"
+                                    text-anchor="{{ $dateLabel['anchor'] }}"
+                                >{{ $dateLabel['label'] }}</text>
+                            @endforeach
                         </g>
                         <line
                             x1="{{ $chart['marker_x'] }}"
@@ -69,7 +73,7 @@
                             opacity=".75"
                         />
                         <polyline
-                            points="{{ $chart['points'] }}"
+                            points="{{ $chart['actual_points'] }}"
                             class="text-accent"
                             fill="none"
                             stroke="currentColor"
@@ -77,6 +81,27 @@
                             stroke-linejoin="round"
                             stroke-width="4"
                         />
+                        <polyline
+                            points="{{ $chart['forecast_points'] }}"
+                            class="text-accent"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="4"
+                            stroke-dasharray="3 7"
+                        />
+                        <circle
+                            cx="{{ $chart['marker_x'] }}"
+                            cy="{{ $chart['current_y'] }}"
+                            r="3.5"
+                            fill="var(--color-tile)"
+                            class="text-accent"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                        >
+                            <title>Today so far: {{ number_format($chart['current_value']) }}</title>
+                        </circle>
                         <circle cx="{{ $chart['marker_x'] }}" cy="{{ $chart['forecast_y'] }}" r="4" class="fill-accent" />
                         <text
                             x="{{ $chart['marker_x'] - 10 }}"
