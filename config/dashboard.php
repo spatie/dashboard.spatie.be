@@ -92,11 +92,23 @@ return [
             'duration_in_seconds' => 60,
         ],
         [
+            'screen' => 'now-playing',
+            'duration_in_seconds' => 60,
+        ],
+        [
             'screen' => 'flare',
             'duration_in_seconds' => 60,
         ],
         [
+            'screen' => 'now-playing',
+            'duration_in_seconds' => 60,
+        ],
+        [
             'screen' => 'spatie',
+            'duration_in_seconds' => 60,
+        ],
+        [
+            'screen' => 'now-playing',
             'duration_in_seconds' => 60,
         ],
         [
@@ -105,7 +117,7 @@ return [
         ],
         [
             'screen' => 'now-playing',
-            'duration_in_seconds' => 300,
+            'duration_in_seconds' => 60,
         ],
     ],
 
