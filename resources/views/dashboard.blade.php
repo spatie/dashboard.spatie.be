@@ -13,7 +13,7 @@
         });
     });
 
-    document.addEventListener('livewire:init', function () {
+    document.addEventListener('livewire:initialized', function () {
         const screens = [...document.querySelectorAll('[data-dashboard-screen]')];
 
         if (screens.length === 0) {
