@@ -128,7 +128,7 @@ class ProductAnalyticsScreenComponent extends Component
 
         if ($days !== []) {
             $lastIndex = count($days) - 1;
-            $dateLabelIndexes = collect(range(0, $lastIndex, 7))
+            $dateLabelIndexes = collect(range(0, $lastIndex, 4))
                 ->filter(fn (int $index): bool => $index === 0 || $index <= $lastIndex - 4)
                 ->push($lastIndex)
                 ->unique()

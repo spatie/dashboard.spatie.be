@@ -138,7 +138,7 @@ class ProductAnalyticsScreenTest extends TestCase
         $this->assertSame($actualPoints[array_key_last($actualPoints)], $forecastPoints[0]);
         $this->assertNotSame($chart['current_y'], $chart['forecast_y']);
         $this->assertSame(
-            ['28 Jun', '05 Jul', '12 Jul', '19 Jul', 'Today'],
+            ['28 Jun', '02 Jul', '06 Jul', '10 Jul', '14 Jul', '18 Jul', '22 Jul', 'Today'],
             array_column($chart['date_labels'], 'label'),
         );
     }
