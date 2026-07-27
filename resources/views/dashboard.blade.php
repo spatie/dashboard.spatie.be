@@ -15,6 +15,7 @@
 
     document.addEventListener('livewire:initialized', function () {
         const schedule = @js($schedule);
+        let availableScreenNames = new Set(@js($availableScreenNames));
         const screens = new Map(
             [...document.querySelectorAll('[data-dashboard-screen]')]
                 .map(screen => [screen.dataset.screenName, screen])
@@ -29,12 +30,33 @@
         let liveIntervalId = null;
         let previousScreenName = null;
 
+        function findAvailableScheduleIndex(scheduleIndex) {
+            for (let offset = 0; offset < schedule.length; offset++) {
+                const candidateScheduleIndex = (scheduleIndex + offset) % schedule.length;
+                const candidateScreenName = schedule[candidateScheduleIndex].screen;
+
+                if (availableScreenNames.has(candidateScreenName)) {
+                    return candidateScheduleIndex;
+                }
+            }
+
+            return null;
+        }
+
         function showScheduledScreen(scheduleIndex) {
+            const availableScheduleIndex = findAvailableScheduleIndex(scheduleIndex);
+
+            if (availableScheduleIndex === null) {
+                return;
+            }
+
             const {
                 screen: screenName,
                 duration_in_seconds: durationInSeconds,
-            } = schedule[scheduleIndex];
+            } = schedule[availableScheduleIndex];
             const activeScreen = screens.get(screenName);
+
+            activeScheduleIndex = availableScheduleIndex;
 
             if (previousScreenName !== null && previousScreenName !== screenName) {
                 Livewire.dispatch('dashboard-screen-deactivated', { screenName: previousScreenName });
@@ -63,12 +85,24 @@
 
             if (schedule.length > 1) {
                 timeoutId = window.setTimeout(function () {
-                    activeScheduleIndex = (scheduleIndex + 1) % schedule.length;
+                    activeScheduleIndex = (availableScheduleIndex + 1) % schedule.length;
 
                     showScheduledScreen(activeScheduleIndex);
                 }, durationInSeconds * 1000);
             }
         }
+
+        Livewire.on('dashboard-screen-availability-updated', function ({ availableScreenNames: screenNames }) {
+            availableScreenNames = new Set(screenNames);
+
+            const activeScreenName = schedule[activeScheduleIndex].screen;
+
+            if (availableScreenNames.has(activeScreenName)) {
+                return;
+            }
+
+            showScheduledScreen((activeScheduleIndex + 1) % schedule.length);
+        });
 
         showScheduledScreen(activeScheduleIndex);
     });
@@ -82,6 +116,10 @@
     @else
         <livewire:deploy-checker />
 
+        @if($hasConditionalScreens)
+            <livewire:screen-condition-checker :screen-names="$screens->keys()->all()" />
+        @endif
+
         @foreach($screens as $screenName => $screen)
             <section
                 data-dashboard-screen
@@ -92,8 +130,8 @@
                 @if(isset($screen['grid_columns'], $screen['grid_rows']))
                     style="grid-template-columns: repeat({{ $screen['grid_columns'] }}, minmax(0, 1fr)); grid-template-rows: repeat({{ $screen['grid_rows'] }}, minmax(0, 1fr));"
                 @endif
-                class="absolute inset-0 grid gap-2 transition-opacity duration-700 {{ $screen['type'] === 'view' ? 'p-2' : '' }} {{ $loop->first ? '' : 'opacity-0 pointer-events-none' }}"
-                @if(! $loop->first)
+                class="absolute inset-0 grid gap-2 transition-opacity duration-700 {{ $screen['type'] === 'view' ? 'p-2' : '' }} {{ $screenName === $initialScreenName ? '' : 'opacity-0 pointer-events-none' }}"
+                @if($screenName !== $initialScreenName)
                     aria-hidden="true"
                 @endif
             >

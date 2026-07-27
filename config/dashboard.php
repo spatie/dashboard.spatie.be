@@ -1,5 +1,7 @@
 <?php
 
+use App\Dashboard\Conditions\NowPlayingScreenCondition;
+
 return [
     /*
      * The dashboard supports these themes:
@@ -79,6 +81,7 @@ return [
         ],
         'now-playing' => [
             'url' => 'https://liveat.spatie.be/now-playing',
+            'condition' => NowPlayingScreenCondition::class,
         ],
     ],
 

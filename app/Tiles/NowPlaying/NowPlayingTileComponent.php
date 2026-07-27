@@ -10,7 +10,7 @@ class NowPlayingTileComponent extends BaseTileComponent
 {
     public function render(): View
     {
-        $song = NowPlayingSong::where('updated_at', '>=', now()->subMinutes(10))->latest()->first();
+        $song = NowPlayingSong::current();
 
         return view('components.tiles.nowPlaying', [
             'song' => $song,
