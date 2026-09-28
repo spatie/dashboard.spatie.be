@@ -94,6 +94,7 @@ return [
             'screen' => 'now-playing',
             'duration_in_seconds' => 60,
         ],
+        /* Statistics screens are temporarily out of rotation.
         [
             'screen' => 'mailcoach',
             'duration_in_seconds' => 20,
@@ -126,6 +127,7 @@ return [
             'screen' => 'now-playing',
             'duration_in_seconds' => 60,
         ],
+        */
     ],
 
     'tiles' => [
