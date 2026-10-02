@@ -76,9 +76,9 @@ return [
     /*
      * The integer amount of days after which models should be deleted.
      *
-     * It deletes all records after 30 days. Set to null if no models should be deleted.
+     * It deletes all records after 7 days. Set to null if no models should be deleted.
      */
-    'delete_after_days' => 30,
+    'delete_after_days' => 7,
 
     /*
      * Should a unique token be added to the route name

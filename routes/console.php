@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\OhDearMessage;
 use Illuminate\Support\Facades\Schedule;
+use Spatie\WebhookClient\Models\WebhookCall;
 use Spatie\VeloTile\FetchVeloStationsCommand;
 use Spatie\CalendarTile\FetchCalendarEventsCommand;
 use App\Tiles\Climate\Commands\FetchClimateDataCommand;
@@ -28,3 +30,7 @@ Schedule::command(FetchCookieClubOverviewCommand::class)
     ->weekdays()
     ->between('08:00', '18:00')
     ->timezone('Europe/Brussels');
+
+Schedule::command('model:prune', [
+    '--model' => [WebhookCall::class, OhDearMessage::class],
+])->daily();
