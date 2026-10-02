@@ -2,14 +2,16 @@
 
 namespace App\Tiles\Officient\Commands;
 
+use App\Services\Officient\Exceptions\RateLimitExceeded;
 use App\Services\Officient\Officient;
 use App\Tiles\Officient\OfficientStore;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use Throwable;
 
 class FetchOfficientCalendarCommand extends Command
 {
@@ -21,6 +23,19 @@ class FetchOfficientCalendarCommand extends Command
     {
         $this->info('Fetching Officient calendar data...');
 
+        try {
+            $this->fetchWeek($officient);
+        } catch (RateLimitExceeded $exception) {
+            Log::warning('Officient is rate limiting the dashboard, keeping the stored week until the next run.', [
+                'reason' => $exception->getMessage(),
+            ]);
+
+            $this->warn("{$exception->getMessage()} Keeping the stored week.");
+        }
+    }
+
+    private function fetchWeek(Officient $officient): void
+    {
         $today = now()->timezone('Europe/Brussels');
         $monday = $today->copy()->startOfWeek();
         $friday = $today->copy()->endOfWeek()->subDays(2);
@@ -43,7 +58,7 @@ class FetchOfficientCalendarCommand extends Command
                 $firstCalendar = $officient->getDayCalendar($people->first()['id'], $day);
 
                 $successfulRequestCount++;
-            } catch (Throwable $exception) {
+            } catch (GuzzleException $exception) {
                 $this->error("Failed to fetch company days off on {$day->format('l')}: {$exception->getMessage()}");
 
                 $firstCalendar = [];
@@ -93,8 +108,8 @@ class FetchOfficientCalendarCommand extends Command
                             'avatar' => $person['avatar'],
                         ];
                     }
-                } catch (Throwable $e) {
-                    $this->error("Failed for {$person['name']} on {$day->format('l')}: {$e->getMessage()}");
+                } catch (GuzzleException $exception) {
+                    $this->error("Failed for {$person['name']} on {$day->format('l')}: {$exception->getMessage()}");
                 }
             }
 
@@ -132,7 +147,7 @@ class FetchOfficientCalendarCommand extends Command
                     try {
                         $detail = $officient->getPersonDetail($person['id']);
                         $avatar = $detail['avatar'] ?? null;
-                    } catch (Throwable $e) {
+                    } catch (GuzzleException $exception) {
                         return null;
                     }
 

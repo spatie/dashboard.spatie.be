@@ -3,11 +3,18 @@
 namespace Tests\Feature\Tiles\Officient;
 
 use Tests\TestCase;
+use App\Services\Officient\Exceptions\RateLimitExceeded;
 use App\Services\Officient\Officient;
 use App\Tiles\Officient\OfficientStore;
 use Carbon\Carbon;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Exceptions;
+use Illuminate\Support\Facades\Log;
 use Mockery;
 use RuntimeException;
 
@@ -76,7 +83,7 @@ class FetchOfficientCalendarCommandTest extends TestCase
 
         $officient->shouldReceive('getDayCalendar')
             ->once()
-            ->andThrow(new RuntimeException('Too many request. Max 30 per 5 seconds.'));
+            ->andThrow($this->connectionFailure());
 
         $officient->shouldReceive('getDayCalendar')
             ->andReturn([
@@ -109,11 +116,103 @@ class FetchOfficientCalendarCommandTest extends TestCase
         $officient = $this->mockOfficientWithPeople();
 
         $officient->shouldReceive('getDayCalendar')
-            ->andThrow(new RuntimeException('Too many request. Max 30 per 5 seconds.'));
+            ->andThrow($this->connectionFailure());
 
         $this->artisan('dashboard:fetch-officient-calendar')->assertSuccessful();
 
         $this->assertSame($storedWeek, OfficientStore::make()->week());
+    }
+
+    public function testItKeepsTheStoredWeekWhenACalendarRequestIsRateLimited(): void
+    {
+        $this->travelTo(Carbon::parse('2026-08-13 10:00', 'Europe/Brussels'));
+
+        Exceptions::fake();
+        Log::spy();
+
+        $storedWeek = [['date' => '2026-08-10', 'in_office' => [['name' => 'Freek']]]];
+
+        OfficientStore::make()->setWeek($storedWeek);
+
+        $officient = $this->mockOfficientWithPeople();
+
+        $officient->shouldReceive('getDayCalendar')
+            ->once()
+            ->andReturn(['company_days_off' => [], 'time_off' => []]);
+
+        $officient->shouldReceive('getDayCalendar')
+            ->andThrow($this->rateLimitExceeded());
+
+        $this->artisan('dashboard:fetch-officient-calendar')->assertSuccessful();
+
+        $this->assertSame($storedWeek, OfficientStore::make()->week());
+
+        Exceptions::assertNothingReported();
+
+        Log::shouldHaveReceived('warning')
+            ->withArgs(fn (string $message) => str_contains($message, 'Officient is rate limiting the dashboard'))
+            ->once();
+    }
+
+    public function testItKeepsTheStoredWeekWhenFetchingThePeopleIsRateLimited(): void
+    {
+        $this->travelTo(Carbon::parse('2026-08-13 10:00', 'Europe/Brussels'));
+
+        Exceptions::fake();
+        Log::spy();
+
+        $storedWeek = [['date' => '2026-08-10', 'in_office' => [['name' => 'Freek']]]];
+
+        OfficientStore::make()->setWeek($storedWeek);
+
+        $officient = Mockery::mock(Officient::class);
+
+        $officient->shouldReceive('getPeople')->andThrow($this->rateLimitExceeded());
+
+        $this->app->instance(Officient::class, $officient);
+
+        $this->artisan('dashboard:fetch-officient-calendar')->assertSuccessful();
+
+        $this->assertSame($storedWeek, OfficientStore::make()->week());
+        $this->assertFalse(cache()->has('officient_active_people_2026-08-13'));
+
+        Exceptions::assertNothingReported();
+
+        Log::shouldHaveReceived('warning')->once();
+    }
+
+    public function testItDoesNotCacheAnIncompleteListOfPeopleWhenAPersonDetailRequestIsRateLimited(): void
+    {
+        $this->travelTo(Carbon::parse('2026-08-13 10:00', 'Europe/Brussels'));
+
+        $officient = Mockery::mock(Officient::class);
+
+        $officient->shouldReceive('getPeople')
+            ->andReturn(collect([
+                ['id' => 1, 'name' => 'Freek', 'email' => 'freek@example.com'],
+            ]));
+
+        $officient->shouldReceive('getPersonDetail')->andThrow($this->rateLimitExceeded());
+
+        $this->app->instance(Officient::class, $officient);
+
+        $this->artisan('dashboard:fetch-officient-calendar')->assertSuccessful();
+
+        $this->assertFalse(cache()->has('officient_active_people_2026-08-13'));
+    }
+
+    public function testUnexpectedExceptionsAreNotSwallowed(): void
+    {
+        $this->travelTo(Carbon::parse('2026-08-13 10:00', 'Europe/Brussels'));
+
+        $officient = $this->mockOfficientWithPeople();
+
+        $officient->shouldReceive('getDayCalendar')
+            ->andThrow(new RuntimeException('Something is broken'));
+
+        $this->expectException(RuntimeException::class);
+
+        $this->artisan('dashboard:fetch-officient-calendar');
     }
 
     public function testTheCalendarIsFetchedEveryFifteenMinutesOffTheTopOfTheHour(): void
@@ -147,5 +246,19 @@ class FetchOfficientCalendarCommandTest extends TestCase
         $this->app->instance(Officient::class, $officient);
 
         return $officient;
+    }
+
+    private function connectionFailure(): ConnectException
+    {
+        return new ConnectException('Connection timed out', new Request('GET', '/1.0/calendar/1/2026/8/13'));
+    }
+
+    private function rateLimitExceeded(): RateLimitExceeded
+    {
+        return RateLimitExceeded::forRequest(new ClientException(
+            'Too many request. Max 30 per 5 seconds.',
+            new Request('GET', '/1.0/calendar/1/2026/8/13'),
+            new Response(429),
+        ));
     }
 }
