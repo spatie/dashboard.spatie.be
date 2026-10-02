@@ -37,7 +37,7 @@ class FetchStatisticsCommandsTest extends TestCase
     {
         $fetchEvent = $this->scheduledEvent('dashboard:fetch-github-totals');
 
-        $this->assertSame('39 * * * *', $fetchEvent->expression);
+        $this->assertSame('39 * * * 1,2,3,4,5', $fetchEvent->expression);
         $this->assertTrue($fetchEvent->runInBackground);
     }
 
@@ -45,7 +45,7 @@ class FetchStatisticsCommandsTest extends TestCase
     {
         $fetchEvent = $this->scheduledEvent('dashboard:fetch-packagist-totals');
 
-        $this->assertSame('29 * * * *', $fetchEvent->expression);
+        $this->assertSame('29 * * * 1,2,3,4,5', $fetchEvent->expression);
     }
 
     private function scheduledEvent(string $command): Event
