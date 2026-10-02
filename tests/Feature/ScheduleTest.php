@@ -68,6 +68,13 @@ class ScheduleTest extends TestCase
         $this->assertContains('dashboard:fetch-github-totals', $this->commandsDueAt('2026-10-05 21:39'));
     }
 
+    public function testTheClimateDataIsFetchedEveryTenMinutes(): void
+    {
+        $this->assertContains('dashboard:fetch-climate-data', $this->commandsDueAt('2026-10-05 10:10'));
+        $this->assertNotContains('dashboard:fetch-climate-data', $this->commandsDueAt('2026-10-05 10:01'));
+        $this->assertNotContains('dashboard:fetch-climate-data', $this->commandsDueAt('2026-10-05 10:05'));
+    }
+
     #[DataProvider('sleepingTimes')]
     public function testNothingRunsWhileTheDashboardSleeps(string $brusselsTime): void
     {
