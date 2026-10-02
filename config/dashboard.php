@@ -33,6 +33,18 @@ return [
         'timezone' => env('WEEKPLANNING_TIMEZONE', 'Europe/Brussels'),
     ],
 
+    /*
+     * Tiles only fetch fresh data on these days and between these times, so
+     * the app can hibernate at night and in the weekend. Days use cron
+     * numbering: Monday = 1, Friday = 5, Sunday = 0.
+     */
+    'fetch_window' => [
+        'days' => [1, 2, 3, 4, 5],
+        'from' => '06:00',
+        'until' => '22:00',
+        'timezone' => 'Europe/Brussels',
+    ],
+
     'default_duration_in_seconds' => 60,
 
     'screens' => [

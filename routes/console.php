@@ -15,26 +15,29 @@ use App\Tiles\Officient\Commands\FetchOfficientCalendarCommand;
 use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
 use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
 
-Schedule::command(FetchBelgianTrainsCommand::class)->everyTwoMinutes();
-Schedule::command(FetchCalendarEventsCommand::class)->everyTenMinutes();
-Schedule::command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
-Schedule::command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
-Schedule::command(FetchGitHubTotalsCommand::class)
-    ->hourlyAt(39)
-    ->runInBackground();
-Schedule::command(FetchPackagistTotalsCommand::class)->hourlyAt(29);
-Schedule::command(FetchVeloStationsCommand::class)->everyTwoMinutes();
-Schedule::command(FetchOfficientCalendarCommand::class)
-    ->cron('7,22,37,52 * * * *')
-    ->runInBackground();
-Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
-Schedule::command(FetchClimateDataCommand::class)->everyMinute();
-Schedule::command(FetchCookieClubOverviewCommand::class)
-    ->everyFiveMinutes()
-    ->weekdays()
-    ->between('08:00', '18:00')
-    ->timezone('Europe/Brussels');
+Schedule::days(config('dashboard.fetch_window.days'))
+    ->between(config('dashboard.fetch_window.from'), config('dashboard.fetch_window.until'))
+    ->timezone(config('dashboard.fetch_window.timezone'))
+    ->group(function () {
+        Schedule::command(FetchBelgianTrainsCommand::class)->everyTwoMinutes();
+        Schedule::command(FetchCalendarEventsCommand::class)->everyTenMinutes();
+        Schedule::command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
+        Schedule::command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
+        Schedule::command(FetchGitHubTotalsCommand::class)
+            ->hourlyAt(39)
+            ->runInBackground();
+        Schedule::command(FetchPackagistTotalsCommand::class)->hourlyAt(29);
+        Schedule::command(FetchVeloStationsCommand::class)->everyTwoMinutes();
+        Schedule::command(FetchOfficientCalendarCommand::class)
+            ->hourlyAt([7, 22, 37, 52])
+            ->runInBackground();
+        Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
+        Schedule::command(FetchClimateDataCommand::class)->everyMinute();
+        Schedule::command(FetchCookieClubOverviewCommand::class)
+            ->everyFiveMinutes()
+            ->between('08:00', '18:00');
 
-Schedule::command('model:prune', [
-    '--model' => [WebhookCall::class, OhDearMessage::class],
-])->daily();
+        Schedule::command('model:prune', [
+            '--model' => [WebhookCall::class, OhDearMessage::class],
+        ])->dailyAt('06:05');
+    });

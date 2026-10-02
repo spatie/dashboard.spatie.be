@@ -35,13 +35,13 @@ class PruneStaleWebhookDataTest extends TestCase
         $this->assertModelExists($recentMessage);
     }
 
-    public function testPruningIsScheduledDaily(): void
+    public function testPruningIsScheduledEveryWeekdayMorning(): void
     {
         $pruneEvent = collect(app(Schedule::class)->events())
             ->first(fn ($event) => str_contains($event->command, 'model:prune'));
 
         $this->assertNotNull($pruneEvent);
-        $this->assertSame('0 0 * * *', $pruneEvent->expression);
+        $this->assertSame('5 6 * * 1,2,3,4,5', $pruneEvent->expression);
         $this->assertStringContainsString('WebhookCall', $pruneEvent->command);
         $this->assertStringContainsString('OhDearMessage', $pruneEvent->command);
     }
