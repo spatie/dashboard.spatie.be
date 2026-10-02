@@ -19,12 +19,12 @@ class FetchPackagistTotalsCommand extends Command
 
         $totals = collect(Packagist::getPackagesNamesByVendor(config('services.packagist.vendor'))['packageNames'])
             ->map(function (string $packageName) {
-                return Packagist::getPackage($packageName)['package'];
+                return Packagist::getPackage($packageName)['package']['downloads'];
             })
-            ->pipe(function (Collection $packageProperties) {
+            ->pipe(function (Collection $downloads) {
                 return [
-                    'monthly' => $packageProperties->sum('downloads.monthly'),
-                    'total' => $packageProperties->sum('downloads.total'),
+                    'monthly' => $downloads->sum('monthly'),
+                    'total' => $downloads->sum('total'),
                 ];
             });
 

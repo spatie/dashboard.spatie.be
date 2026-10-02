@@ -19,8 +19,10 @@ Schedule::command(FetchBelgianTrainsCommand::class)->everyTwoMinutes();
 Schedule::command(FetchCalendarEventsCommand::class)->everyTenMinutes();
 Schedule::command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
 Schedule::command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
-Schedule::command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
-Schedule::command(FetchPackagistTotalsCommand::class)->hourly();
+Schedule::command(FetchGitHubTotalsCommand::class)
+    ->hourlyAt(39)
+    ->runInBackground();
+Schedule::command(FetchPackagistTotalsCommand::class)->hourlyAt(29);
 Schedule::command(FetchVeloStationsCommand::class)->everyTwoMinutes();
 Schedule::command(FetchOfficientCalendarCommand::class)
     ->cron('7,22,37,52 * * * *')
