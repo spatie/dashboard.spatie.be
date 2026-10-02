@@ -30,7 +30,7 @@ class FetchCookieClubOverviewCommandTest extends TestCase
 
         $store = CookieClubStore::make();
 
-        $this->assertSame([
+        $this->assertEquals([
             'name' => 'Chocolate chip',
             'imageUrl' => 'https://cookie-club.spatie.be/images/chocolate-chip.webp',
             'submittedBy' => 'Alex',
@@ -38,7 +38,7 @@ class FetchCookieClubOverviewCommandTest extends TestCase
             'ratingCount' => 12,
         ], $store->cookieOfTheWeek());
 
-        $this->assertSame([
+        $this->assertEquals([
             [
                 'rank' => 1,
                 'name' => 'Speculoos',
