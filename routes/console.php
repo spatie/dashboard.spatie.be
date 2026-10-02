@@ -34,7 +34,7 @@ Schedule::cron("* {$fetchHours} * * {$fetchDays}")
             ->cron("7,22,37,52 {$fetchHours} * * {$fetchDays}")
             ->runInBackground();
         Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
-        Schedule::command(FetchClimateDataCommand::class)->everyMinute();
+        Schedule::command(FetchClimateDataCommand::class)->everyTenMinutes();
         Schedule::command(FetchCookieClubOverviewCommand::class)->cron("*/5 8-17 * * {$fetchDays}");
 
         Schedule::command('model:prune', [
