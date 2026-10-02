@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Services\Officient;
 
+use App\Services\Officient\Exceptions\RateLimitExceeded;
 use App\Services\Officient\Officient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Handler\MockHandler;
@@ -60,9 +61,10 @@ class OfficientTest extends TestCase
         try {
             Officient::create('token', $mockHandler)->getPersonDetail(1);
 
-            $this->fail('Expected a ClientException to be thrown.');
-        } catch (ClientException $exception) {
-            $this->assertSame(429, $exception->getResponse()->getStatusCode());
+            $this->fail('Expected a RateLimitExceeded exception to be thrown.');
+        } catch (RateLimitExceeded $exception) {
+            $this->assertInstanceOf(ClientException::class, $exception->getPrevious());
+            $this->assertSame(429, $exception->getPrevious()->getResponse()->getStatusCode());
         }
 
         $this->assertSame(1, $mockHandler->count());
