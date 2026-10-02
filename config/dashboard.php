@@ -34,14 +34,16 @@ return [
     ],
 
     /*
-     * Tiles only fetch fresh data on these days and between these times, so
-     * the app can hibernate at night and in the weekend. Days use cron
-     * numbering: Monday = 1, Friday = 5, Sunday = 0.
+     * Tiles only fetch fresh data on these days and hours, so the app can
+     * hibernate at night and in the weekend. These are cron fields because
+     * Laravel Cloud wakes the app based on the cron expressions alone:
+     * filters like `between()` would still wake it every minute.
+     *
+     * Days: Monday = 1, Friday = 5. Hours: 6-21 runs from 06:00 until 21:59.
      */
     'fetch_window' => [
-        'days' => [1, 2, 3, 4, 5],
-        'from' => '06:00',
-        'until' => '22:00',
+        'days' => '1-5',
+        'hours' => '6-21',
         'timezone' => 'Europe/Brussels',
     ],
 
