@@ -15,27 +15,27 @@ use App\Tiles\Officient\Commands\FetchOfficientCalendarCommand;
 use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
 use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
 
-Schedule::days(config('dashboard.fetch_window.days'))
-    ->between(config('dashboard.fetch_window.from'), config('dashboard.fetch_window.until'))
+$fetchDays = config('dashboard.fetch_window.days');
+$fetchHours = config('dashboard.fetch_window.hours');
+
+Schedule::cron("* {$fetchHours} * * {$fetchDays}")
     ->timezone(config('dashboard.fetch_window.timezone'))
-    ->group(function () {
+    ->group(function () use ($fetchDays, $fetchHours) {
         Schedule::command(FetchBelgianTrainsCommand::class)->everyTwoMinutes();
         Schedule::command(FetchCalendarEventsCommand::class)->everyTenMinutes();
         Schedule::command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
         Schedule::command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
         Schedule::command(FetchGitHubTotalsCommand::class)
-            ->hourlyAt(39)
+            ->cron("39 {$fetchHours} * * {$fetchDays}")
             ->runInBackground();
-        Schedule::command(FetchPackagistTotalsCommand::class)->hourlyAt(29);
+        Schedule::command(FetchPackagistTotalsCommand::class)->cron("29 {$fetchHours} * * {$fetchDays}");
         Schedule::command(FetchVeloStationsCommand::class)->everyTwoMinutes();
         Schedule::command(FetchOfficientCalendarCommand::class)
-            ->hourlyAt([7, 22, 37, 52])
+            ->cron("7,22,37,52 {$fetchHours} * * {$fetchDays}")
             ->runInBackground();
         Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
         Schedule::command(FetchClimateDataCommand::class)->everyMinute();
-        Schedule::command(FetchCookieClubOverviewCommand::class)
-            ->everyFiveMinutes()
-            ->between('08:00', '18:00');
+        Schedule::command(FetchCookieClubOverviewCommand::class)->cron("*/5 8-17 * * {$fetchDays}");
 
         Schedule::command('model:prune', [
             '--model' => [WebhookCall::class, OhDearMessage::class],
