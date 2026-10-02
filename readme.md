@@ -38,6 +38,10 @@ Install this package by running cloning this repository and install like you nor
 - Start your queue listener and setup the Laravel scheduler.
 - Open the dashboard in your browser, login and wait for the update events to fill the dashboard.
 
+## Deployment
+
+The site runs on [Laravel Cloud](https://cloud.laravel.com) and deploys automatically when pushing to `main`.
+
 ## Postcardware
 
 If you are using our dashboard, please send us a postcard from your hometown.
