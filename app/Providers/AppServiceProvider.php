@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\User;
 use App\Support\GoogleCalendarCredentials;
+use App\Tiles\BelgianTrains\ResilientIRailApi;
 use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
@@ -17,9 +18,15 @@ use App\Tiles\OhDear\OhDearMessagesTileComponent;
 use App\Tiles\Statistics\StatisticsTileComponent;
 use App\Tiles\TeamMember\TeamMemberTileComponent;
 use Spatie\OhDearUptimeTile\OhDearUptimeTileComponent;
+use Spatie\BelgianTrainsTile\IRailApi;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public function register(): void
+    {
+        $this->app->bind(IRailApi::class, ResilientIRailApi::class);
+    }
+
     public function boot(): void
     {
         OhDearUptimeTileComponent::showTile(fn (array $downSites) => count($downSites));
