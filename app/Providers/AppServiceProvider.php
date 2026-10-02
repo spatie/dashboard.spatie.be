@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\User;
+use App\Support\GoogleCalendarCredentials;
 use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
@@ -38,5 +39,7 @@ class AppServiceProvider extends ServiceProvider
         Broadcast::channel('dashboard', function (User $user) {
             return true;
         });
+
+        app(GoogleCalendarCredentials::class)->writeFromEnvironment();
     }
 }
