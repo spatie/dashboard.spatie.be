@@ -123,6 +123,7 @@ class FetchOfficientCalendarCommandTest extends TestCase
 
         $this->assertNotNull($fetchEvent);
         $this->assertSame('7,22,37,52 * * * *', $fetchEvent->expression);
+        $this->assertTrue($fetchEvent->runInBackground);
     }
 
     private function mockOfficientWithPeople(): Officient

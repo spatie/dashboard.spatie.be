@@ -22,7 +22,9 @@ Schedule::command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
 Schedule::command(FetchGitHubTotalsCommand::class)->everyThirtyMinutes();
 Schedule::command(FetchPackagistTotalsCommand::class)->hourly();
 Schedule::command(FetchVeloStationsCommand::class)->everyTwoMinutes();
-Schedule::command(FetchOfficientCalendarCommand::class)->cron('7,22,37,52 * * * *');
+Schedule::command(FetchOfficientCalendarCommand::class)
+    ->cron('7,22,37,52 * * * *')
+    ->runInBackground();
 Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
 Schedule::command(FetchClimateDataCommand::class)->everyMinute();
 Schedule::command(FetchCookieClubOverviewCommand::class)
