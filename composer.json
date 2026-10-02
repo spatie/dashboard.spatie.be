@@ -37,7 +37,6 @@
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "laravel/boost": "^2.4",
-        "laravel/envoy": "^2.12",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^8.9",
         "phpunit/phpunit": "^12.0",
