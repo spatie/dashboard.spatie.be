@@ -36,9 +36,19 @@ class FetchOfficientCalendarCommand extends Command
         }
 
         $days = [];
+        $successfulRequestCount = 0;
 
         foreach ($weekDays as $day) {
-            $firstCalendar = $officient->getDayCalendar($people->first()['id'], $day);
+            try {
+                $firstCalendar = $officient->getDayCalendar($people->first()['id'], $day);
+
+                $successfulRequestCount++;
+            } catch (Throwable $exception) {
+                $this->error("Failed to fetch company days off on {$day->format('l')}: {$exception->getMessage()}");
+
+                $firstCalendar = [];
+            }
+
             $companyDaysOff = $firstCalendar['company_days_off'] ?? [];
 
             if (! empty($companyDaysOff)) {
@@ -63,6 +73,8 @@ class FetchOfficientCalendarCommand extends Command
             foreach ($people as $person) {
                 try {
                     $calendar = $officient->getDayCalendar($person['id'], $day);
+
+                    $successfulRequestCount++;
 
                     $timeOff = collect($calendar['time_off'] ?? []);
 
@@ -95,6 +107,12 @@ class FetchOfficientCalendarCommand extends Command
             ];
 
             $this->info("{$day->format('l')}: " . count($inOffice) . ' in office');
+        }
+
+        if ($successfulRequestCount === 0) {
+            $this->error('All Officient calendar requests failed, keeping the stored week.');
+
+            return;
         }
 
         OfficientStore::make()->setWeek($days);

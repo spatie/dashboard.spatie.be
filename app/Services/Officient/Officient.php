@@ -4,12 +4,30 @@ namespace App\Services\Officient;
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
 use Illuminate\Support\Collection;
 
 class Officient
 {
     public function __construct(protected Client $client)
     {
+    }
+
+    public static function create(string $token, ?callable $handler = null): self
+    {
+        $handlerStack = HandlerStack::create($handler);
+
+        $handlerStack->push(new RateLimitMiddleware, 'rate_limit');
+
+        $client = new Client([
+            'base_uri' => 'https://api.officient.io',
+            'handler' => $handlerStack,
+            'headers' => [
+                'Authorization' => "Bearer {$token}",
+            ],
+        ]);
+
+        return new self($client);
     }
 
     public function getPeople(): Collection
