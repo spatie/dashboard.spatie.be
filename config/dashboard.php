@@ -39,12 +39,23 @@ return [
      * Laravel Cloud wakes the app based on the cron expressions alone:
      * filters like `between()` would still wake it every minute.
      *
-     * Days: Monday = 1, Friday = 5. Hours: 6-21 runs from 06:00 until 21:59.
+     * The hours are in UTC, not Brussels time. Laravel Cloud converts the
+     * expressions to UTC only once, at deploy time, so Brussels hours would
+     * drift by an hour after every DST change until the next deploy. Each
+     * window is one hour wider than the Brussels window it has to cover, so it
+     * covers it both in summer (UTC+2) and in winter (UTC+1).
+     *
+     * Days: Monday = 1, Friday = 5.
+     * Hours: 4-20 covers 06:00 until 21:59 in Brussels
+     * (06:00 until 22:59 in summer, 05:00 until 21:59 in winter).
+     * Office hours: 6-16 covers 08:00 until 17:59 in Brussels
+     * (08:00 until 18:59 in summer, 07:00 until 17:59 in winter).
      */
     'fetch_window' => [
         'days' => '1-5',
-        'hours' => '6-21',
-        'timezone' => 'Europe/Brussels',
+        'hours' => '4-20',
+        'office_hours' => '6-16',
+        'timezone' => 'UTC',
     ],
 
     'default_duration_in_seconds' => 60,
