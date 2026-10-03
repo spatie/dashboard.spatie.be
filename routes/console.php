@@ -17,10 +17,11 @@ use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
 
 $fetchDays = config('dashboard.fetch_window.days');
 $fetchHours = config('dashboard.fetch_window.hours');
+$officeHours = config('dashboard.fetch_window.office_hours');
 
 Schedule::cron("* {$fetchHours} * * {$fetchDays}")
     ->timezone(config('dashboard.fetch_window.timezone'))
-    ->group(function () use ($fetchDays, $fetchHours) {
+    ->group(function () use ($fetchDays, $fetchHours, $officeHours) {
         Schedule::command(FetchBelgianTrainsCommand::class)->everyTwoMinutes();
         Schedule::command(FetchCalendarEventsCommand::class)->everyTenMinutes();
         Schedule::command(FetchBuienradarForecastsCommand::class)->everyFiveMinutes();
@@ -35,9 +36,9 @@ Schedule::cron("* {$fetchHours} * * {$fetchDays}")
             ->runInBackground();
         Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
         Schedule::command(FetchClimateDataCommand::class)->everyTenMinutes();
-        Schedule::command(FetchCookieClubOverviewCommand::class)->cron("*/5 8-17 * * {$fetchDays}");
+        Schedule::command(FetchCookieClubOverviewCommand::class)->cron("*/5 {$officeHours} * * {$fetchDays}");
 
         Schedule::command('model:prune', [
             '--model' => [WebhookCall::class, OhDearMessage::class],
-        ])->dailyAt('06:05');
+        ])->dailyAt('04:05');
     });

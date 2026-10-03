@@ -221,7 +221,7 @@ class FetchOfficientCalendarCommandTest extends TestCase
             ->first(fn ($event) => str_contains($event->command, 'dashboard:fetch-officient-calendar'));
 
         $this->assertNotNull($fetchEvent);
-        $this->assertSame('7,22,37,52 6-21 * * 1-5', $fetchEvent->expression);
+        $this->assertSame('7,22,37,52 4-20 * * 1-5', $fetchEvent->expression);
         $this->assertTrue($fetchEvent->runInBackground);
     }
 
