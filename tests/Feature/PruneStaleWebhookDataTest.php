@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\OhDearMessage;
 use DateTimeInterface;
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\WebhookClient\Models\WebhookCall;
 use Tests\TestCase;
@@ -37,10 +36,8 @@ class PruneStaleWebhookDataTest extends TestCase
 
     public function testPruningIsScheduledEveryWeekdayMorning(): void
     {
-        $pruneEvent = collect(app(Schedule::class)->events())
-            ->first(fn ($event) => str_contains($event->command, 'model:prune'));
+        $pruneEvent = $this->scheduledEvent('model:prune');
 
-        $this->assertNotNull($pruneEvent);
         $this->assertSame('5 4 * * 1-5', $pruneEvent->expression);
         $this->assertStringContainsString('WebhookCall', $pruneEvent->command);
         $this->assertStringContainsString('OhDearMessage', $pruneEvent->command);

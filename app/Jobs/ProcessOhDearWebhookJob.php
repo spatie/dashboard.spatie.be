@@ -47,6 +47,7 @@ class ProcessOhDearWebhookJob extends ProcessWebhookJob
         ]);
     }
 
+    /** @param array<string, mixed> $payload */
     private function resolveSite(array $payload): ?string
     {
         return Arr::get($payload, 'site.url')

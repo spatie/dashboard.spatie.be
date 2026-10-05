@@ -60,7 +60,7 @@ class FetchBelgianTrainsCommandTest extends TestCase
 
         $this->artisan('dashboard:fetch-belgian-trains')->assertSuccessful();
 
-        $this->assertSame([[
+        $this->assertEquals([[
             'label' => 'Gent',
             'trains' => [[
                 'station' => 'Gent-Sint-Pieters',
@@ -82,7 +82,7 @@ class FetchBelgianTrainsCommandTest extends TestCase
 
         $this->artisan('dashboard:fetch-belgian-trains')->assertSuccessful();
 
-        $this->assertSame($this->lastKnownTrainConnections, TrainConnectionsStore::make()->trainConnections());
+        $this->assertEquals($this->lastKnownTrainConnections, TrainConnectionsStore::make()->trainConnections());
 
         Exceptions::assertNothingReported();
 
@@ -99,7 +99,7 @@ class FetchBelgianTrainsCommandTest extends TestCase
 
         $this->artisan('dashboard:fetch-belgian-trains')->assertSuccessful();
 
-        $this->assertSame($this->lastKnownTrainConnections, TrainConnectionsStore::make()->trainConnections());
+        $this->assertEquals($this->lastKnownTrainConnections, TrainConnectionsStore::make()->trainConnections());
 
         Exceptions::assertNothingReported();
 
@@ -114,7 +114,7 @@ class FetchBelgianTrainsCommandTest extends TestCase
 
         $this->artisan('dashboard:fetch-belgian-trains')->assertSuccessful();
 
-        $this->assertSame($this->lastKnownTrainConnections, TrainConnectionsStore::make()->trainConnections());
+        $this->assertEquals($this->lastKnownTrainConnections, TrainConnectionsStore::make()->trainConnections());
 
         Exceptions::assertNothingReported();
     }

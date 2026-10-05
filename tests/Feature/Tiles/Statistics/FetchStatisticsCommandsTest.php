@@ -3,8 +3,6 @@
 namespace Tests\Feature\Tiles\Statistics;
 
 use App\Tiles\Statistics\StatisticsStore;
-use Illuminate\Console\Scheduling\Event;
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use MarkWalet\Packagist\Facades\Packagist;
 use Tests\TestCase;
@@ -46,15 +44,5 @@ class FetchStatisticsCommandsTest extends TestCase
         $fetchEvent = $this->scheduledEvent('dashboard:fetch-packagist-totals');
 
         $this->assertSame('29 4-20 * * 1-5', $fetchEvent->expression);
-    }
-
-    private function scheduledEvent(string $command): Event
-    {
-        $event = collect(app(Schedule::class)->events())
-            ->first(fn (Event $event) => str_contains($event->command, $command));
-
-        $this->assertNotNull($event);
-
-        return $event;
     }
 }

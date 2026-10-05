@@ -11,6 +11,7 @@ use Tests\TestCase;
 
 class ScheduleTest extends TestCase
 {
+    /** @var array<int, string> */
     private array $everyFewMinutesFetches = [
         'dashboard:fetch-belgian-trains',
         'dashboard:fetch-calendar-events',
@@ -170,9 +171,18 @@ class ScheduleTest extends TestCase
 
         return collect(app(Schedule::class)->dueEvents($this->app))
             ->filter(fn (Event $event) => $event->filtersPass($this->app))
-            ->map(fn (Event $event) => preg_match("/artisan'? ([\w:-]+)/", $event->command, $matches) ? $matches[1] : $event->command)
+            ->map(fn (Event $event) => $this->commandName($event))
             ->values()
             ->all();
+    }
+
+    private function commandName(Event $event): string
+    {
+        if (! preg_match("/artisan'? ([\w:-]+)/", $event->command, $matches)) {
+            return $event->command;
+        }
+
+        return $matches[1];
     }
 
     /**

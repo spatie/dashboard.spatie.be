@@ -147,7 +147,7 @@ class FetchOfficientCalendarCommand extends Command
                     try {
                         $detail = $officient->getPersonDetail($person['id']);
                         $avatar = $detail['avatar'] ?? null;
-                    } catch (GuzzleException $exception) {
+                    } catch (GuzzleException) {
                         return null;
                     }
 
