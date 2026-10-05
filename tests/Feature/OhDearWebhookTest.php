@@ -99,11 +99,25 @@ class OhDearWebhookTest extends TestCase
         );
     }
 
+    /** @return array<int, string> */
     private function downSites(): array
     {
         $tile = Tile::query()->firstWhere('name', 'ohDearUptime');
 
         return array_values($tile?->getData('downSites') ?? []);
+    }
+
+    /** @return array<string, mixed> */
+    private function monitorPayload(string $url): array
+    {
+        $urlWithoutScheme = str_replace('https://', '', $url);
+
+        return [
+            'id' => 3,
+            'url' => $url,
+            'sort_url' => $urlWithoutScheme,
+            'label' => $urlWithoutScheme,
+        ];
     }
 
     private function uptimeCheckFailedPayload(string $url = 'https://vulpia.be'): array
@@ -118,12 +132,7 @@ class OhDearWebhookTest extends TestCase
                     'type' => 'uptime',
                     'label' => 'Uptime',
                     'latest_completed_run_summary' => 'Could not connect',
-                    'monitor' => [
-                        'id' => 3,
-                        'url' => $url,
-                        'sort_url' => str_replace('https://', '', $url),
-                        'label' => str_replace('https://', '', $url),
-                    ],
+                    'monitor' => $this->monitorPayload($url),
                 ],
             ],
         ];
@@ -134,12 +143,7 @@ class OhDearWebhookTest extends TestCase
         return [
             'type' => 'httpUptimeCheckRecoveredNotification',
             'dateTime' => '20261002121000',
-            'site' => [
-                'id' => 3,
-                'url' => $url,
-                'sort_url' => str_replace('https://', '', $url),
-                'label' => str_replace('https://', '', $url),
-            ],
+            'site' => $this->monitorPayload($url),
             'run' => [
                 'id' => 4,
                 'check' => [
@@ -147,12 +151,7 @@ class OhDearWebhookTest extends TestCase
                     'type' => 'uptime',
                     'label' => 'Uptime',
                     'latest_completed_run_summary' => 'Up',
-                    'monitor' => [
-                        'id' => 3,
-                        'url' => $url,
-                        'sort_url' => str_replace('https://', '', $url),
-                        'label' => str_replace('https://', '', $url),
-                    ],
+                    'monitor' => $this->monitorPayload($url),
                 ],
             ],
         ];

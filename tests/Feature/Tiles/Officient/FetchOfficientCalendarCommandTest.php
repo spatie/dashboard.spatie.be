@@ -11,7 +11,6 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Exceptions;
 use Illuminate\Support\Facades\Log;
@@ -109,9 +108,7 @@ class FetchOfficientCalendarCommandTest extends TestCase
     {
         $this->travelTo(Carbon::parse('2026-08-13 10:00', 'Europe/Brussels'));
 
-        $storedWeek = [['date' => '2026-08-10', 'in_office' => [['name' => 'Freek']]]];
-
-        OfficientStore::make()->setWeek($storedWeek);
+        $storedWeek = $this->storeWeek();
 
         $officient = $this->mockOfficientWithPeople();
 
@@ -130,9 +127,7 @@ class FetchOfficientCalendarCommandTest extends TestCase
         Exceptions::fake();
         Log::spy();
 
-        $storedWeek = [['date' => '2026-08-10', 'in_office' => [['name' => 'Freek']]]];
-
-        OfficientStore::make()->setWeek($storedWeek);
+        $storedWeek = $this->storeWeek();
 
         $officient = $this->mockOfficientWithPeople();
 
@@ -161,9 +156,7 @@ class FetchOfficientCalendarCommandTest extends TestCase
         Exceptions::fake();
         Log::spy();
 
-        $storedWeek = [['date' => '2026-08-10', 'in_office' => [['name' => 'Freek']]]];
-
-        OfficientStore::make()->setWeek($storedWeek);
+        $storedWeek = $this->storeWeek();
 
         $officient = Mockery::mock(Officient::class);
 
@@ -178,7 +171,9 @@ class FetchOfficientCalendarCommandTest extends TestCase
 
         Exceptions::assertNothingReported();
 
-        Log::shouldHaveReceived('warning')->once();
+        Log::shouldHaveReceived('warning')
+            ->withArgs(fn (string $message) => str_contains($message, 'Officient is rate limiting the dashboard'))
+            ->once();
     }
 
     public function testItDoesNotCacheAnIncompleteListOfPeopleWhenAPersonDetailRequestIsRateLimited(): void
@@ -217,12 +212,20 @@ class FetchOfficientCalendarCommandTest extends TestCase
 
     public function testTheCalendarIsFetchedEveryFifteenMinutesOffTheTopOfTheHour(): void
     {
-        $fetchEvent = collect(app(Schedule::class)->events())
-            ->first(fn ($event) => str_contains($event->command, 'dashboard:fetch-officient-calendar'));
+        $fetchEvent = $this->scheduledEvent('dashboard:fetch-officient-calendar');
 
-        $this->assertNotNull($fetchEvent);
         $this->assertSame('7,22,37,52 4-20 * * 1-5', $fetchEvent->expression);
         $this->assertTrue($fetchEvent->runInBackground);
+    }
+
+    /** @return array<int, array<string, mixed>> */
+    private function storeWeek(): array
+    {
+        $week = [['date' => '2026-08-10', 'in_office' => [['name' => 'Freek']]]];
+
+        OfficientStore::make()->setWeek($week);
+
+        return $week;
     }
 
     private function mockOfficientWithPeople(): Officient

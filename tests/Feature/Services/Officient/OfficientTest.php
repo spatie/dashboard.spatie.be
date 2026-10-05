@@ -4,6 +4,7 @@ namespace Tests\Feature\Services\Officient;
 
 use App\Services\Officient\Exceptions\RateLimitExceeded;
 use App\Services\Officient\Officient;
+use Carbon\CarbonInterval;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
@@ -45,7 +46,7 @@ class OfficientTest extends TestCase
 
         Officient::create('token', $mockHandler)->getPersonDetail(1);
 
-        Sleep::assertSlept(fn ($duration) => $duration->totalSeconds === 5.0);
+        Sleep::assertSlept(fn (CarbonInterval $duration) => $duration->totalSeconds === 5.0);
     }
 
     public function testItGivesUpAfterThreeRetries(): void
@@ -68,7 +69,7 @@ class OfficientTest extends TestCase
         }
 
         $this->assertSame(1, $mockHandler->count());
-        Sleep::assertSlept(fn ($duration) => $duration->totalSeconds === 1.0, times: 3);
+        Sleep::assertSlept(fn (CarbonInterval $duration) => $duration->totalSeconds === 1.0, times: 3);
     }
 
     public function testItPausesBetweenRequests(): void

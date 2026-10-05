@@ -27,6 +27,7 @@ class RateLimitMiddleware
         return fn (RequestInterface $request, array $options): PromiseInterface => $this->send($handler, $request, $options);
     }
 
+    /** @param array<string, mixed> $options */
     protected function send(callable $handler, RequestInterface $request, array $options, int $attempt = 0): PromiseInterface
     {
         $this->pauseBetweenRequests();
