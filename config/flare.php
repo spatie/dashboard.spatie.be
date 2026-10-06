@@ -1,6 +1,10 @@
 <?php
 
 use Monolog\Level;
+use Spatie\FlareClient\Sampling\RateSampler;
+use Spatie\FlareClient\Senders\DaemonSender;
+use Spatie\LaravelFlare\FlareConfig;
+use Spatie\LaravelFlare\Senders\LaravelHttpSender;
 
 return [
     /*
@@ -27,7 +31,7 @@ return [
     |
     */
 
-    'collects' => \Spatie\LaravelFlare\FlareConfig::defaultCollects(
+    'collects' => FlareConfig::defaultCollects(
         ignore: [],
         extra: []
     ),
@@ -75,20 +79,19 @@ return [
     |
     */
 
-    'sender' => [
-        'class' => \Spatie\LaravelFlare\Senders\LaravelHttpSender::class,
-        'config' => [
-            'timeout' => 10,
+    'sender' => env('FLARE_DAEMON_URL')
+        ? [
+            'class' => DaemonSender::class,
+            'config' => [
+                'daemon_url' => env('FLARE_DAEMON_URL'),
+            ],
+        ]
+        : [
+            'class' => LaravelHttpSender::class,
+            'config' => [
+                'timeout' => 10,
+            ],
         ],
-    ],
-
-    // Daemon sender example
-    // 'sender' => [
-    //     'class' => \Spatie\FlareClient\Senders\DaemonSender::class,
-    //     'config' => [
-    //         'daemon_url' => env('FLARE_DAEMON_URL', 'http://127.0.0.1:8787'),
-    //     ],
-    // ],
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +170,7 @@ return [
     */
 
     'sampler' => [
-        'class' => \Spatie\FlareClient\Sampling\RateSampler::class,
+        'class' => RateSampler::class,
         'config' => [
             'rate' => env('FLARE_SAMPLER_RATE', 0.1),
         ],
