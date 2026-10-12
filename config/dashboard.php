@@ -208,6 +208,11 @@ return [
                     'destination' => 'Noorderkempen (Brecht)',
                     'label' => 'Brecht',
                 ],
+                [
+                    'departure' => 'Antwerpen-Berchem',
+                    'destination' => 'Puurs',
+                    'label' => 'Puurs',
+                ],
             ],
         ],
 
