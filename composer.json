@@ -14,7 +14,7 @@
         "google/apiclient": "^2.6",
         "guzzlehttp/guzzle": "^7.2",
         "knplabs/github-api": "^3.3",
-        "laravel/framework": "^13.0",
+        "laravel/framework": "^13.38.0",
         "laravel/tinker": "^3.0",
         "league/flysystem-aws-s3-v3": "^3.0",
         "markwalet/laravel-packagist": "^1.8",

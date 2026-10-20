@@ -18,6 +18,8 @@ class FetchBelgianTrainsCommandTest extends TestCase
 
     private array $lastKnownTrainConnections = [
         [
+            'departure' => 'Antwerpen-Centraal',
+            'destination' => 'Gent-Dampoort',
             'label' => 'Gent',
             'trains' => [[
                 'station' => 'Gent-Dampoort',
@@ -61,6 +63,8 @@ class FetchBelgianTrainsCommandTest extends TestCase
         $this->artisan('dashboard:fetch-belgian-trains')->assertSuccessful();
 
         $this->assertEquals([[
+            'departure' => 'Antwerpen-Centraal',
+            'destination' => 'Gent-Dampoort',
             'label' => 'Gent',
             'trains' => [[
                 'station' => 'Gent-Sint-Pieters',
