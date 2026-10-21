@@ -6,6 +6,7 @@ use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
@@ -159,6 +160,61 @@ class ScheduleTest extends TestCase
             'saturday morning' => ['2026-10-03 04:05'],
             'saturday noon' => ['2026-10-03 12:00'],
             'sunday afternoon' => ['2026-10-04 15:00'],
+        ];
+    }
+
+    #[DataProvider('longRunningFetches')]
+    public function testLongRunningFetchesSkipOverlappingRunsAndResumeAfterFinishing(string $command, int $lockMinutes): void
+    {
+        $event = $this->scheduledEvent($command);
+
+        $this->assertTrue($event->filtersPass($this->app));
+        $this->assertTrue($event->mutex->create($event));
+
+        $this->travel($lockMinutes - 1)->minutes();
+
+        $this->assertFalse($event->filtersPass($this->app));
+
+        $event->finish($this->app, 0);
+
+        $this->assertTrue($event->filtersPass($this->app));
+    }
+
+    #[DataProvider('longRunningFetches')]
+    public function testLongRunningFetchesRecoverAfterAnAbandonedLockExpires(string $command, int $lockMinutes): void
+    {
+        $cachePath = sys_get_temp_dir() . '/dashboard-schedule-test-' . uniqid();
+
+        config(['cache.stores.schedule-test' => [
+            'driver' => 'file',
+            'path' => $cachePath,
+            'lock_path' => $cachePath,
+        ]]);
+
+        $this->travelTo(Carbon::parse('2026-10-05 10:00', 'UTC'));
+        $event = $this->scheduledEvent($command);
+        $event->mutex->useStore('schedule-test');
+
+        try {
+            $this->assertTrue($event->mutex->create($event));
+
+            $this->travel($lockMinutes - 1)->minutes();
+
+            $this->assertFalse($event->filtersPass($this->app));
+
+            $this->travel(2)->minutes();
+
+            $this->assertTrue($event->filtersPass($this->app));
+        } finally {
+            File::deleteDirectory($cachePath);
+        }
+    }
+
+    public static function longRunningFetches(): array
+    {
+        return [
+            'GitHub totals' => ['dashboard:fetch-github-totals', 120],
+            'Officient calendar' => ['dashboard:fetch-officient-calendar', 60],
         ];
     }
 

@@ -6,9 +6,13 @@ use App\Services\Officient\Exceptions\RateLimitExceeded;
 use App\Services\Officient\Officient;
 use Carbon\CarbonInterval;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\Promise\PromiseInterface;
+use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Sleep;
+use Psr\Http\Message\RequestInterface;
 use Tests\TestCase;
 
 class OfficientTest extends TestCase
@@ -35,6 +39,41 @@ class OfficientTest extends TestCase
             Sleep::for(2)->seconds(),
             Sleep::for(250)->milliseconds(),
         ]);
+    }
+
+    public function testEveryAttemptUsesBoundedConnectionAndRequestTimeouts(): void
+    {
+        $mockHandler = new MockHandler([
+            $this->tooManyRequestsResponse(['Retry-After' => '2']),
+            $this->personDetailResponse(),
+        ]);
+        $handler = function (RequestInterface $request, array $options) use ($mockHandler): PromiseInterface {
+            $this->assertSame(10, $options['connect_timeout']);
+            $this->assertSame(30, $options['timeout']);
+
+            return $mockHandler($request, $options);
+        };
+
+        Officient::create('token', $handler)->getPersonDetail(1);
+
+        $this->assertSame(0, $mockHandler->count());
+    }
+
+    public function testItPropagatesConnectionTimeoutsWithoutRetrying(): void
+    {
+        $timeout = new ConnectException('Connection timed out', new Request('GET', 'https://api.officient.io/1.0/people/1/detail'));
+        $mockHandler = new MockHandler([$timeout, $this->personDetailResponse()]);
+
+        try {
+            Officient::create('token', $mockHandler)->getPersonDetail(1);
+
+            $this->fail('Expected the connection timeout to be thrown.');
+        } catch (ConnectException $exception) {
+            $this->assertSame($timeout, $exception);
+        }
+
+        $this->assertSame(1, $mockHandler->count());
+        Sleep::assertNeverSlept();
     }
 
     public function testItBacksOffAFewSecondsWhenNoRetryAfterHeaderIsPresent(): void

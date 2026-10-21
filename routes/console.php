@@ -28,11 +28,13 @@ Schedule::cron("* {$fetchHours} * * {$fetchDays}")
         Schedule::command(FetchOpenWeatherMapDataCommand::class)->everyFiveMinutes();
         Schedule::command(FetchGitHubTotalsCommand::class)
             ->cron("39 {$fetchHours} * * {$fetchDays}")
+            ->withoutOverlapping(120)
             ->runInBackground();
         Schedule::command(FetchPackagistTotalsCommand::class)->cron("29 {$fetchHours} * * {$fetchDays}");
         Schedule::command(FetchVeloStationsCommand::class)->everyTwoMinutes();
         Schedule::command(FetchOfficientCalendarCommand::class)
             ->cron("7,22,37,52 {$fetchHours} * * {$fetchDays}")
+            ->withoutOverlapping(60)
             ->runInBackground();
         Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
         Schedule::command(FetchClimateDataCommand::class)->everyTenMinutes();
