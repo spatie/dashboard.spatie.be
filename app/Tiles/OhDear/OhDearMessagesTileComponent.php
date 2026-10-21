@@ -10,22 +10,27 @@ class OhDearMessagesTileComponent extends BaseTileComponent
 {
     public function render(): View
     {
-        $groups = OhDearMessage::query()
+        $messageGroups = OhDearMessage::query()
             ->where('occurred_at', '>=', now()->subDay())
+            ->select('group_key')
+            ->selectRaw('MIN(id) as first_id, COUNT(*) as message_count, MAX(occurred_at) as latest_at')
+            ->groupBy('group_key');
+
+        $groups = OhDearMessage::query()
+            ->joinSub($messageGroups, 'message_groups', 'oh_dear_messages.id', '=', 'message_groups.first_id')
+            ->select('severity', 'title', 'site', 'message_groups.message_count', 'message_groups.latest_at')
+            ->withCasts(['latest_at' => 'datetime', 'message_count' => 'integer'])
+            ->orderByRaw("CASE WHEN severity = 'error' THEN 0 ELSE 1 END")
+            ->orderByDesc('message_groups.message_count')
+            ->orderBy('message_groups.first_id')
             ->get()
-            ->groupBy('group_key')
-            ->map(fn ($messages) => [
-                'severity' => $messages->first()->severity,
-                'title' => $messages->first()->title,
-                'site' => $messages->first()->site,
-                'count' => $messages->count(),
-                'latest_at' => $messages->max('occurred_at'),
-            ])
-            ->sortBy([
-                fn ($a, $b) => ($a['severity'] === 'error' ? 0 : 1) <=> ($b['severity'] === 'error' ? 0 : 1),
-                fn ($a, $b) => $b['count'] <=> $a['count'],
-            ])
-            ->values();
+            ->map(fn (OhDearMessage $message) => [
+                'severity' => $message->severity,
+                'title' => $message->title,
+                'site' => $message->site,
+                'count' => $message->message_count,
+                'latest_at' => $message->latest_at,
+            ]);
 
         return view('components.tiles.ohDearMessages', [
             'groups' => $groups,
