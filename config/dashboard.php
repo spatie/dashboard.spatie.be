@@ -177,7 +177,7 @@ return [
 
         'calendar' => [
             'ids' => [env('GOOGLE_CALENDAR_ID')],
-            'refresh_interval_in_seconds' => 30,
+            'refresh_interval_in_seconds' => 900,
         ],
 
         'twitter' => [
