@@ -2,10 +2,9 @@
 
 namespace App\Tiles\Statistics\Commands;
 
+use Illuminate\Console\Command;
 use App\Services\GitHub\GitHubApi;
 use App\Tiles\Statistics\StatisticsStore;
-use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 
 class FetchGitHubTotalsCommand extends Command
 {
@@ -19,20 +18,14 @@ class FetchGitHubTotalsCommand extends Command
 
         $userName = config('services.github.username');
 
-        $totals = $gitHub
-            ->fetchPublicRepositories($userName)
-            ->pipe(function (Collection $repos) use ($gitHub, $userName) {
-                return [
-                    'stars' => $repos->sum('stargazers_count'),
-                    'issues' => $repos->sum('open_issues'),
-                    'pullRequests' => $repos->sum(function ($repo) use ($gitHub, $userName) {
-                        return count($gitHub->fetchPullRequests($userName, $repo['name']));
-                    }),
-                    'contributors' => $repos->sum(function ($repo) use ($gitHub, $userName) {
-                        return count($gitHub->fetchContributors($userName, $repo['name']));
-                    }),
-                ];
-            });
+        $totals = ['stars' => 0, 'issues' => 0, 'pullRequests' => 0, 'contributors' => 0];
+
+        foreach ($gitHub->fetchPublicRepositories($userName) as $repo) {
+            $totals['stars'] += $repo['stargazers_count'];
+            $totals['issues'] += $repo['open_issues'];
+            $totals['pullRequests'] += $gitHub->countPullRequests($userName, $repo['name']);
+            $totals['contributors'] += $gitHub->countContributors($userName, $repo['name'], $repo['default_branch']);
+        }
 
         StatisticsStore::make()->setGitHubTotals($totals);
 
