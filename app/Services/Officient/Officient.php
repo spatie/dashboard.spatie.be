@@ -23,6 +23,8 @@ class Officient
 
         $client = new Client([
             'base_uri' => 'https://api.officient.io',
+            'connect_timeout' => 10,
+            'timeout' => 30,
             'handler' => $handlerStack,
             'headers' => [
                 'Authorization' => "Bearer {$token}",
