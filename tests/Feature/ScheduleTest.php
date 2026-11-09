@@ -21,6 +21,7 @@ class ScheduleTest extends TestCase
         'dashboard:fetch-velo-stations',
         'dashboard:fetch-top-artists',
         'dashboard:fetch-climate-data',
+        'dashboard:fetch-oh-dear-uptime',
     ];
 
     public function testEveryCronExpressionIsLimitedToTheFetchWindow(): void
@@ -38,6 +39,7 @@ class ScheduleTest extends TestCase
     public function testLaravelCloudGetsTheSameUtcExpressionsAllYearRound(string $utcTime): void
     {
         $this->assertSame([
+            '* 4-20 * * 1-5',
             '*/10 4-20 * * 1-5',
             '*/10 4-20 * * 1-5',
             '*/10 4-20 * * 1-5',
@@ -143,6 +145,12 @@ class ScheduleTest extends TestCase
         $this->assertNotContains('dashboard:fetch-climate-data', $this->commandsDueAt('2026-10-05 10:05'));
     }
 
+    public function testOhDearUptimeIsFetchedEveryMinute(): void
+    {
+        $this->assertContains('dashboard:fetch-oh-dear-uptime', $this->commandsDueAt('2026-10-05 10:01'));
+        $this->assertContains('dashboard:fetch-oh-dear-uptime', $this->commandsDueAt('2026-10-05 10:02'));
+    }
+
     #[DataProvider('sleepingTimes')]
     public function testNothingRunsWhileTheDashboardSleeps(string $utcTime): void
     {
@@ -215,6 +223,7 @@ class ScheduleTest extends TestCase
         return [
             'GitHub totals' => ['dashboard:fetch-github-totals', 120],
             'Officient calendar' => ['dashboard:fetch-officient-calendar', 60],
+            'Oh Dear uptime' => ['dashboard:fetch-oh-dear-uptime', 10],
         ];
     }
 

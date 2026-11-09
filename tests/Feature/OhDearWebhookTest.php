@@ -19,38 +19,44 @@ class OhDearWebhookTest extends TestCase
         config()->set('webhook-client.configs.1.signing_secret', 'oh-dear-secret');
     }
 
-    public function testAFailedUptimeCheckMarksTheSiteAsDown(): void
+    public function testAFailedUptimeCheckDoesNotChangeApiDowntime(): void
     {
         $this->postOhDearWebhook($this->uptimeCheckFailedPayload())->assertOk();
+
+        $this->assertSame([], $this->downSites());
+    }
+
+    public function testARecoveredUptimeCheckDoesNotChangeApiDowntime(): void
+    {
+        Tile::firstOrCreateForName('ohDearUptime')->putData('downSites', ['https://vulpia.be']);
+
+        $this->postOhDearWebhook($this->uptimeCheckRecoveredPayload())->assertOk();
 
         $this->assertSame(['https://vulpia.be'], $this->downSites());
     }
 
-    public function testARecoveredUptimeCheckMarksTheSiteAsUp(): void
-    {
-        $this->postOhDearWebhook($this->uptimeCheckFailedPayload())->assertOk();
-        $this->postOhDearWebhook($this->uptimeCheckFailedPayload('https://spatie.be'))->assertOk();
-
-        $this->postOhDearWebhook($this->uptimeCheckRecoveredPayload())->assertOk();
-
-        $this->assertSame(['https://spatie.be'], $this->downSites());
-    }
-
-    public function testLegacyUptimeEventNamesUpdateTheUptimeTile(): void
+    public function testLegacyUptimeEventNamesDoNotChangeApiDowntime(): void
     {
         $this->postOhDearWebhook([
             ...$this->uptimeCheckFailedPayload(),
             'type' => 'uptimeCheckFailedNotification',
         ])->assertOk();
 
-        $this->assertSame(['https://vulpia.be'], $this->downSites());
+        $this->assertSame([], $this->downSites());
+
+        Tile::firstOrCreateForName('ohDearUptime')->putData('downSites', ['https://vulpia.be']);
 
         $this->postOhDearWebhook([
             ...$this->uptimeCheckRecoveredPayload(),
             'type' => 'uptimeCheckRecoveredNotification',
         ])->assertOk();
 
-        $this->assertSame([], $this->downSites());
+        $this->assertSame(['https://vulpia.be'], $this->downSites());
+    }
+
+    public function testTheRetiredWebhookEndpointCannotChangeDowntime(): void
+    {
+        $this->postJson('/oh-dear-webhooks', $this->uptimeCheckFailedPayload())->assertNotFound();
     }
 
     public function testAFailedUptimeCheckIsStoredWithTheMonitorUrlAsSite(): void

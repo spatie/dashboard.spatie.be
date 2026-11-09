@@ -77,4 +77,8 @@ return [
         'token' => env('OFFICIENT_API_TOKEN'),
     ],
 
+    'oh_dear' => [
+        'token' => env('OH_DEAR_API_TOKEN'),
+    ],
+
 ];
