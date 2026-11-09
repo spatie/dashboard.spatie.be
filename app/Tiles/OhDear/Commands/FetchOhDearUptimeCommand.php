@@ -2,9 +2,11 @@
 
 namespace App\Tiles\OhDear\Commands;
 
+use App\Models\OhDearMessage;
 use Illuminate\Console\Command;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\RequestException;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +18,7 @@ class FetchOhDearUptimeCommand extends Command
 {
     protected $signature = 'dashboard:fetch-oh-dear-uptime';
 
-    protected $description = 'Refresh downtime from the current Oh Dear uptime checks';
+    protected $description = 'Refresh Oh Dear downtime and clear recovered cron alerts';
 
     public function handle(): int
     {
@@ -29,6 +31,7 @@ class FetchOhDearUptimeCommand extends Command
         }
 
         $downSites = [];
+        $recoveredCronChecks = [];
         $page = 1;
 
         try {
@@ -49,6 +52,7 @@ class FetchOhDearUptimeCommand extends Command
                     'data.*.checks' => ['present', 'array', 'list'],
                     'data.*.checks.*.type' => ['required', 'string'],
                     'data.*.checks.*.enabled' => ['required', 'boolean:strict'],
+                    'data.*.checks.*.latest_run_ended_at' => ['nullable', 'date'],
                     'data.*.checks.*.latest_run_result' => [
                         'present',
                         'nullable',
@@ -63,6 +67,19 @@ class FetchOhDearUptimeCommand extends Command
                         if ($check['type'] === 'uptime' && $check['enabled'] && $check['latest_run_result'] === 'failed') {
                             $downSites[] = $monitor['url'];
                         }
+
+                        if ($check['type'] !== 'cron' || ! $check['enabled']) {
+                            continue;
+                        }
+
+                        if ($check['latest_run_result'] !== 'succeeded' || empty($check['latest_run_ended_at'])) {
+                            continue;
+                        }
+
+                        $recoveredCronChecks[] = [
+                            'site' => $monitor['url'],
+                            'recovered_at' => Carbon::parse($check['latest_run_ended_at'], 'UTC')->setTimezone(config('app.timezone')),
+                        ];
                     }
                 }
 
@@ -81,7 +98,15 @@ class FetchOhDearUptimeCommand extends Command
 
         Tile::firstOrCreateForName('ohDearUptime')->putData('downSites', array_values(array_unique($downSites)));
 
-        $this->comment('Oh Dear uptime updated.');
+        foreach ($recoveredCronChecks as $check) {
+            OhDearMessage::query()
+                ->where('site', $check['site'])
+                ->where('check_type', 'cron')
+                ->where('occurred_at', '<=', $check['recovered_at'])
+                ->delete();
+        }
+
+        $this->comment('Oh Dear uptime updated and recovered cron alerts cleared.');
 
         return self::SUCCESS;
     }
