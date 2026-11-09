@@ -12,6 +12,7 @@ use App\Tiles\NowPlaying\Commands\FetchTopArtistsCommand;
 use App\Tiles\Statistics\Commands\FetchGitHubTotalsCommand;
 use App\Tiles\Statistics\Commands\FetchPackagistTotalsCommand;
 use App\Tiles\Officient\Commands\FetchOfficientCalendarCommand;
+use App\Tiles\OhDear\Commands\FetchOhDearUptimeCommand;
 use Spatie\TimeWeatherTile\Commands\FetchOpenWeatherMapDataCommand;
 use Spatie\TimeWeatherTile\Commands\FetchBuienradarForecastsCommand;
 
@@ -39,6 +40,10 @@ Schedule::cron("* {$fetchHours} * * {$fetchDays}")
         Schedule::command(FetchTopArtistsCommand::class)->everyTenMinutes();
         Schedule::command(FetchClimateDataCommand::class)->everyTenMinutes();
         Schedule::command(FetchCookieClubOverviewCommand::class)->cron("*/5 {$officeHours} * * {$fetchDays}");
+        Schedule::command(FetchOhDearUptimeCommand::class)
+            ->everyMinute()
+            ->withoutOverlapping(10)
+            ->runInBackground();
 
         Schedule::command('model:prune', [
             '--model' => [WebhookCall::class, OhDearMessage::class],

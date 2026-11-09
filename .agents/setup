@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+repo_root="$PWD"
+
+step() {
+    local label="$1" started=$SECONDS
+    shift
+    printf '\n==> %s\n' "$label"
+    "$@"
+    printf '==> %s finished in %ss\n' "$label" "$((SECONDS - started))"
+}
+
+install_toolchain() {
+    local packages=(php8.5-cli php8.5-curl php8.5-mbstring php8.5-xml php8.5-zip php8.5-sqlite3 php8.5-mysql)
+    local missing=() package
+    for package in "${packages[@]}"; do
+        if [[ "$(dpkg-query -W -f='${Status}' "$package" 2>/dev/null || true)" != 'install ok installed' ]]; then
+            missing+=("$package")
+        fi
+    done
+
+    if ((${#missing[@]})); then
+        if [[ ! -f /usr/share/keyrings/debsuryorg-archive-keyring.gpg ]]; then
+            curl --fail --silent --show-error --location --retry 3 \
+                https://packages.sury.org/debsuryorg-archive-keyring.deb -o "$temporary_dir/php-keyring.deb"
+            sudo dpkg -i "$temporary_dir/php-keyring.deb"
+        fi
+        if [[ ! -f /etc/apt/sources.list.d/php.list ]]; then
+            source /etc/os-release
+            printf 'deb [signed-by=/usr/share/keyrings/debsuryorg-archive-keyring.gpg] https://packages.sury.org/php/ %s main\n' "$VERSION_CODENAME" \
+                | sudo tee /etc/apt/sources.list.d/php.list >/dev/null
+        fi
+        sudo apt-get update -qq
+        sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "${missing[@]}"
+    fi
+    sudo update-alternatives --set php /usr/bin/php8.5
+
+    if ! command -v composer >/dev/null 2>&1; then
+        curl --fail --silent --show-error --location --retry 3 https://getcomposer.org/installer -o "$temporary_dir/composer-setup.php"
+        local checksum
+        checksum="$(curl --fail --silent --show-error --location --retry 3 https://composer.github.io/installer.sig)"
+        printf '%s  %s\n' "$checksum" "$temporary_dir/composer-setup.php" | sha384sum --check
+        php "$temporary_dir/composer-setup.php" --2 --install-dir="$temporary_dir" --filename=composer
+        sudo install -m 755 "$temporary_dir/composer" /usr/local/bin/composer
+    fi
+
+    php --version | head -n 1
+    composer --version
+    node --version
+    npm --version
+}
+
+prepare_environment() {
+    mkdir -p bootstrap/cache storage/framework/{cache/data,sessions,views} storage/logs
+    if [[ ! -f .env ]]; then
+        cp .env.example .env
+        sed -i 's/^BROADCAST_DRIVER=.*/BROADCAST_DRIVER=log/' .env
+        printf '\nDB_DATABASE="%s/database/database.sqlite"\nQUEUE_CONNECTION=sync\n' "$repo_root" >> .env
+        chmod 600 .env
+    fi
+
+    if [[ ! -f .env.testing ]]; then
+        cat > .env.testing <<EOF
+APP_ENV=testing
+APP_KEY=base64:$(php -r 'echo base64_encode(random_bytes(32));')
+APP_DEBUG=true
+DB_CONNECTION=sqlite
+DB_DATABASE=:memory:
+DATABASE_URL=
+CACHE_DRIVER=array
+SESSION_DRIVER=array
+QUEUE_CONNECTION=sync
+BROADCAST_DRIVER=log
+MAIL_MAILER=array
+FLARE_KEY=
+GOOGLE_CALENDAR_CREDENTIALS_BASE64=
+EOF
+        chmod 600 .env.testing
+    fi
+}
+
+prepare_database() {
+    if ! grep -Eq '^APP_KEY=.+$' .env; then
+        php artisan key:generate --force --no-interaction
+    fi
+
+    if [[ ! -f "$DB_DATABASE" ]]; then
+        touch "$DB_DATABASE"
+        php artisan migrate --seed --force --no-interaction
+    else
+        php artisan migrate --force --no-interaction
+    fi
+}
+
+temporary_dir="$(mktemp -d)"
+trap 'rm -rf "$temporary_dir"' EXIT
+
+# Setup must never migrate a shared database or persist integration credentials.
+export APP_CONFIG_CACHE="$temporary_dir/config.php"
+export APP_ENV=local DB_CONNECTION=sqlite DB_DATABASE="$repo_root/database/database.sqlite" DATABASE_URL=
+export CACHE_DRIVER=file SESSION_DRIVER=file QUEUE_CONNECTION=sync BROADCAST_DRIVER=log
+export FLARE_KEY= GOOGLE_CALENDAR_CREDENTIALS_BASE64=
+unset APP_KEY
+
+step 'Install PHP 8.5 and Composer; check the orb Node.js toolchain' install_toolchain
+step 'Prepare local development and isolated test environments' prepare_environment
+step 'Install locked PHP dependencies' composer install --prefer-dist --no-interaction --no-progress
+step 'Prepare the local SQLite database' prepare_database
+step 'Install locked frontend dependencies' npm ci --no-audit --no-fund
+step 'Build frontend assets' npm run build

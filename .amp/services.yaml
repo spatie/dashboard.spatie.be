@@ -1,0 +1,19 @@
+services:
+  web:
+    command: >-
+      APP_URL="$PUBLIC_URL" ASSET_URL="$PUBLIC_URL"
+      DB_DATABASE="$PWD/database/database.sqlite"
+      APP_CONFIG_CACHE="$PWD/bootstrap/cache/orb-config.php"
+      php artisan serve --host=0.0.0.0 --port="$PORT" --no-reload
+    env:
+      APP_ENV: local
+      DB_CONNECTION: sqlite
+      DATABASE_URL: ""
+      BROADCAST_DRIVER: log
+      QUEUE_CONNECTION: sync
+      FLARE_KEY: ""
+      GOOGLE_CALENDAR_CREDENTIALS_BASE64: ""
+    health: /deploy-status
+    portal:
+      title: Dashboard
+      description: Local SQLite data; external tile data requires separate integration credentials.
