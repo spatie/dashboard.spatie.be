@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+# SQLite and file-backed caches need no daemons or authentication on wake.
+mkdir -p bootstrap/cache storage/framework/{cache/data,sessions,views} storage/logs
+
+if [[ ! -f vendor/autoload.php || ! -f public/build/manifest.json ]]; then
+    printf 'Orb dependencies or built assets are missing. Run .agents/setup.\n' >&2
+    exit 1
+fi

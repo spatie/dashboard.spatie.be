@@ -1,5 +1,7 @@
 _ide_helper*.php
 .env
+.env.testing
+.amp/portals/
 .php_cs.cache
 /node_modules
 /npm-debug.log
