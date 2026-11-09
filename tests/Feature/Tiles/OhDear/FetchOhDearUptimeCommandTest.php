@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Tiles\OhDear;
 
+use App\Models\OhDearMessage;
+use App\Tiles\OhDear\OhDearMessagesTileComponent;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Client\Request;
@@ -70,18 +72,91 @@ class FetchOhDearUptimeCommandTest extends TestCase
         $this->assertSame([], $this->downSites());
     }
 
+    public function testItClearsOnlyCronAlertsCoveredByASuccessfulEnabledCheck(): void
+    {
+        $this->travelTo(now()->setDate(2026, 11, 9)->setTime(14, 15));
+
+        $alerts = collect([
+            ['recovered', 'cron', '14:09:59'],
+            ['recovered', 'cron', '14:10:00'],
+            ['recovered', 'cron', '14:10:01'],
+            ['recovered', 'dns', '14:09:59'],
+            ['failed', 'cron', '14:09:59'],
+            ['warning', 'cron', '14:09:59'],
+            ['pending', 'cron', '14:09:59'],
+            ['check-error', 'cron', '14:09:59'],
+            ['disabled', 'cron', '14:09:59'],
+            ['undated', 'cron', '14:09:59'],
+            ['missing', 'cron', '14:09:59'],
+        ])->map(fn (array $alert) => OhDearMessage::create([
+            'event_type' => $alert[1] === 'cron' ? 'cronNotExecutedOnTimeNotification' : 'dnsRecordsChangedNotification',
+            'severity' => 'warning',
+            'group_key' => implode('|', $alert),
+            'check_type' => $alert[1],
+            'title' => implode(' ', $alert),
+            'site' => "https://{$alert[0]}.example",
+            'payload' => [],
+            'occurred_at' => "2026-11-09 {$alert[2]}",
+        ]));
+
+        $monitors = collect([
+            ['recovered', 'succeeded', true],
+            ['failed', 'failed', true],
+            ['warning', 'warning', true],
+            ['pending', 'pending', true],
+            ['check-error', 'errored-or-timed-out', true],
+            ['disabled', 'succeeded', false],
+        ])->map(function (array $monitor) {
+            $data = self::monitor("https://{$monitor[0]}.example", $monitor[1], $monitor[2], 'cron');
+            $data['checks'][0]['latest_run_ended_at'] = '2026-11-09 13:10:00';
+
+            return $data;
+        })->all();
+
+        Http::fake([
+            'https://ohdear.app/api/monitors*' => Http::sequence()
+                ->push(self::page([self::monitor('https://undated.example', 'succeeded', type: 'cron')], 1, 2))
+                ->push(self::page($monitors, 2, 2)),
+        ]);
+
+        $this->artisan('dashboard:fetch-oh-dear-uptime')->assertSuccessful();
+
+        $this->assertSame($alerts->slice(2)->pluck('id')->all(), OhDearMessage::query()->orderBy('id')->pluck('id')->all());
+
+        Livewire::test(OhDearMessagesTileComponent::class, ['position' => 'c16:d20'])
+            ->assertDontSee('recovered cron 14:09:59')
+            ->assertDontSee('recovered cron 14:10:00')
+            ->assertSee('recovered cron 14:10:01')
+            ->assertSee('recovered dns 14:09:59')
+            ->assertSee('failed cron 14:09:59');
+    }
+
     #[DataProvider('invalidPages')]
     public function testAnIncompleteRefreshPreservesThePreviousList(mixed $body, int $status): void
     {
+        $alert = OhDearMessage::create([
+            'event_type' => 'cronNotExecutedOnTimeNotification',
+            'severity' => 'warning',
+            'group_key' => 'cron-alert',
+            'check_type' => 'cron',
+            'title' => 'Scheduled task issues detected',
+            'site' => 'https://recovered.example',
+            'payload' => [],
+            'occurred_at' => now()->subHour(),
+        ]);
+        $recoveredMonitor = self::monitor('https://recovered.example', 'succeeded', type: 'cron');
+        $recoveredMonitor['checks'][0]['latest_run_ended_at'] = now()->utc()->toDateTimeString();
+
         Http::fake([
             'https://ohdear.app/api/monitors*' => Http::sequence()
-                ->push(self::page([self::monitor('https://new-outage.example')], 1, 2))
+                ->push(self::page([self::monitor('https://new-outage.example'), $recoveredMonitor], 1, 2))
                 ->push($body, $status),
         ]);
 
         $this->artisan('dashboard:fetch-oh-dear-uptime')->assertFailed();
 
         $this->assertSame(['https://recovered.example'], $this->downSites());
+        $this->assertModelExists($alert);
     }
 
     public static function invalidPages(): array
